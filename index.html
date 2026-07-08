@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dokkadoki — Manga Café &amp; Reading Library · Bury</title>
+<meta name="description" content="Dokkadoki is a manga café and borrowing library coming soon to Bury, UK. A cosy corner for reading, a proper coffee, and a little Japanese escape. Join the launch list." />
+<meta name="theme-color" content="#bfe3f2" />
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Dokkadoki — Manga Café &amp; Reading Library" />
+<meta property="og:description" content="A manga café and borrowing library coming soon to Bury. Read, sip, escape." />
+<meta property="og:locale" content="en_GB" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B8%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --sky:#bfe3f2;
+    --sky-deep:#8fcbe6;
+    --blush:#ffd7e0;
+    --blush-deep:#ffb7c5;
+    --petal:#ffc2d1;
+    --cream:#fffaf6;
+    --ink:#42556b;
+    --ink-soft:#6b7f95;
+    --white:#ffffff;
+    --shadow:0 18px 50px -20px rgba(66,85,107,.45);
+    --radius:22px;
+    --maxw:1080px;
+    --font-display:"Zen Maru Gothic", ui-rounded, "Hiragino Maru Gothic ProN", system-ui, sans-serif;
+    --font-body:"Zen Kaku Gothic New", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:linear-gradient(180deg,#d9f0fa 0%,#eaf6fc 26%,#fff6f8 68%,#fffaf6 100%);
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* falling petals canvas */
+  #petals{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:2}
+
+  /* ---------- nav ---------- */
+  header.nav{position:relative;z-index:3}
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:22px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:1.25rem;color:var(--ink);text-decoration:none}
+  .brand .mark{font-size:1.5rem;line-height:1}
+  .nav-pill{
+    font-size:.82rem;font-weight:500;color:var(--ink-soft);
+    background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.9);
+    padding:7px 14px;border-radius:999px;backdrop-filter:blur(6px);white-space:nowrap;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{text-align:center;padding:60px 0 40px}
+  .kana{
+    font-family:var(--font-display);font-weight:500;letter-spacing:.35em;
+    color:var(--blush-deep);font-size:1rem;margin-bottom:18px;
+  }
+  .wordmark{
+    font-family:var(--font-display);font-weight:900;
+    font-size:clamp(3.4rem,12vw,7rem);line-height:.95;letter-spacing:-.01em;
+    color:var(--ink);
+  }
+  .wordmark .dot{color:var(--blush-deep)}
+  .tagline{
+    margin:22px auto 0;max-width:34ch;font-size:clamp(1.05rem,2.6vw,1.3rem);
+    color:var(--ink-soft);font-weight:500;
+  }
+  .pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}
+  .pill{
+    display:inline-flex;align-items:center;gap:7px;
+    background:var(--white);border-radius:999px;padding:9px 16px;
+    font-size:.9rem;font-weight:500;color:var(--ink);box-shadow:0 6px 18px -10px rgba(66,85,107,.4);
+  }
+
+  /* ---------- signup ---------- */
+  .signup{
+    margin:38px auto 0;max-width:480px;
+    background:rgba(255,255,255,.72);backdrop-filter:blur(10px);
+    border:1px solid var(--white);border-radius:var(--radius);
+    padding:26px 24px;box-shadow:var(--shadow);
+  }
+  .signup h2{font-family:var(--font-display);font-weight:700;font-size:1.2rem;margin-bottom:6px}
+  .signup p{font-size:.92rem;color:var(--ink-soft);margin-bottom:16px}
+  .field{display:flex;gap:8px;flex-wrap:wrap}
+  .field input{
+    flex:1 1 200px;min-width:0;border:1.5px solid #e6edf3;border-radius:14px;
+    padding:13px 16px;font-size:1rem;font-family:inherit;color:var(--ink);background:var(--white);
+    transition:border-color .2s, box-shadow .2s;
+  }
+  .field input:focus{outline:none;border-color:var(--sky-deep);box-shadow:0 0 0 4px rgba(143,203,230,.28)}
+  .btn{
+    border:0;cursor:pointer;font-family:var(--font-display);font-weight:700;font-size:1rem;
+    color:#fff;background:linear-gradient(135deg,var(--blush-deep),#ff9db1);
+    padding:13px 22px;border-radius:14px;box-shadow:0 10px 22px -10px rgba(255,157,177,.9);
+    transition:transform .12s ease, box-shadow .2s;white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 14px 26px -10px rgba(255,157,177,.95)}
+  .btn:active{transform:translateY(0)}
+  .signup .note{margin-top:12px;font-size:.78rem;color:var(--ink-soft)}
+  .signup.done .field, .signup.done p.sub{display:none}
+  .thanks{display:none;align-items:center;gap:10px;font-weight:500;color:var(--ink)}
+  .signup.done .thanks{display:flex}
+
+  /* ---------- sections ---------- */
+  section.block{padding:56px 0}
+  .eyebrow{
+    font-family:var(--font-display);font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+    font-size:.78rem;color:var(--blush-deep);text-align:center;margin-bottom:12px;
+  }
+  h2.section-title{
+    font-family:var(--font-display);font-weight:900;text-align:center;
+    font-size:clamp(1.7rem,5vw,2.5rem);line-height:1.15;color:var(--ink);margin-bottom:14px;
+  }
+  .lead{max-width:52ch;margin:0 auto;text-align:center;color:var(--ink-soft);font-size:1.08rem}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+  .card{
+    background:var(--white);border-radius:var(--radius);padding:30px 26px;
+    box-shadow:0 14px 40px -24px rgba(66,85,107,.5);
+    border:1px solid rgba(255,255,255,.9);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 24px 48px -26px rgba(66,85,107,.55)}
+  .card .emoji{font-size:2.2rem;display:block;margin-bottom:14px}
+  .card h3{font-family:var(--font-display);font-weight:700;font-size:1.22rem;margin-bottom:8px}
+  .card p{color:var(--ink-soft);font-size:.96rem}
+
+  /* space section */
+  .space{
+    margin-top:46px;background:rgba(255,255,255,.6);backdrop-filter:blur(8px);
+    border:1px solid var(--white);border-radius:calc(var(--radius) + 6px);
+    padding:36px;display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:center;
+    box-shadow:var(--shadow);
+  }
+  .space ul{list-style:none;margin-top:14px}
+  .space li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;color:var(--ink);font-weight:500}
+  .space li span.tick{color:var(--blush-deep);font-weight:900;flex:0 0 auto}
+  .space .art{
+    aspect-ratio:4/3;border-radius:18px;
+    background:
+      radial-gradient(120% 120% at 20% 0%, #ffe3ea 0%, transparent 55%),
+      radial-gradient(120% 120% at 100% 100%, #cdeefb 0%, transparent 55%),
+      linear-gradient(135deg,#eaf6fc,#fff6f8);
+    display:flex;align-items:center;justify-content:center;font-size:4.5rem;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.8);
+  }
+
+  /* ---------- footer ---------- */
+  footer{padding:54px 0 60px;text-align:center;position:relative;z-index:2}
+  .foot-mark{font-family:var(--font-display);font-weight:900;font-size:1.5rem;color:var(--ink)}
+  .foot-mark .dot{color:var(--blush-deep)}
+  .foot-meta{margin-top:10px;color:var(--ink-soft);font-size:.92rem}
+  .foot-meta a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--ink-soft)}
+  .foot-fine{margin-top:18px;font-size:.78rem;color:#9fb0c1}
+
+  @media (max-width:760px){
+    .cards{grid-template-columns:1fr}
+    .space{grid-template-columns:1fr;padding:28px}
+    .space .art{order:-1}
+    .nav-pill{display:none}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    #petals{display:none}
+    *{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top"><span class="mark">🌸</span> Dokkadoki</a>
+    <span class="nav-pill">Manga café &amp; library · Bury</span>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <p class="kana">ようこそ</p>
+    <h1 class="wordmark">Dokkadoki<span class="dot">.</span></h1>
+    <p class="tagline">A manga café &amp; reading library — a cosy little Japanese escape, coming soon to Bury.</p>
+
+    <div class="pills">
+      <span class="pill">☕ Proper coffee</span>
+      <span class="pill">📚 40,000+ manga</span>
+      <span class="pill">🌸 Read &amp; borrow</span>
+    </div>
+
+    <form class="signup" id="signup" novalidate>
+      <h2>Be first through the door 🚪</h2>
+      <p class="sub">Pop your email in and we’ll let you know the moment we open.</p>
+      <div class="field">
+        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" aria-label="Email address" required />
+        <button class="btn" type="submit">Notify me</button>
+      </div>
+      <p class="note">No spam — just one message when we launch. 🌸</p>
+      <div class="thanks"><span>🎉</span><span>You’re on the list — see you at opening!</span></div>
+    </form>
+  </section>
+
+  <section class="block wrap">
+    <p class="eyebrow">What is Dokkadoki?</p>
+    <h2 class="section-title">Somewhere to slow down<br />and get lost in a story</h2>
+    <p class="lead">Part café, part library, all comfort. Grab a drink, pull a volume off the wall, and settle into a corner — or take your favourites home with a borrowing pass.</p>
+
+    <div class="cards">
+      <div class="card">
+        <span class="emoji">☕</span>
+        <h3>The Café</h3>
+        <p>Speciality coffee, Japanese sodas, matcha and sweet snacks — the perfect companion to a good chapter.</p>
+      </div>
+      <div class="card">
+        <span class="emoji">📚</span>
+        <h3>The Library</h3>
+        <p>A wall of 40,000+ manga to read in or borrow, from timeless classics to the latest releases.</p>
+      </div>
+      <div class="card">
+        <span class="emoji">🌸</span>
+        <h3>The Culture</h3>
+        <p>A warm, kawaii-tinged space celebrating Japanese stories, language and everyday charm.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block wrap">
+    <div class="space">
+      <div>
+        <p class="eyebrow" style="text-align:left">The space</p>
+        <h2 class="section-title" style="text-align:left;font-size:clamp(1.5rem,4vw,2rem)">A cosy corner of Bury</h2>
+        <ul>
+          <li><span class="tick">✦</span> Snug bench seating to curl up with a book</li>
+          <li><span class="tick">✦</span> A floor-to-ceiling manga wall to browse</li>
+          <li><span class="tick">✦</span> Relaxed reading sessions with a drink in hand</li>
+          <li><span class="tick">✦</span> Borrowing passes so the stories come home with you</li>
+        </ul>
+      </div>
+      <div class="art" aria-hidden="true">🌸📖☕</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-mark">Dokkadoki<span class="dot">.</span></div>
+    <p class="foot-meta">
+      Coming soon to <strong>Bury, UK</strong> ·
+      <a href="https://dokkadoki.co.uk">dokkadoki.co.uk</a>
+    </p>
+    <p class="foot-fine">© <span id="year"></span> Dokkadoki. Made with 🌸 in Bury.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---- launch-list form (no backend yet — stores locally + is honest about it) ---- */
+  (function(){
+    var form = document.getElementById('signup');
+    var email = document.getElementById('email');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var v = (email.value || '').trim();
+      if(!v || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){
+        email.focus();
+        email.style.borderColor = '#ff9db1';
+        return;
+      }
+      try{
+        var list = JSON.parse(localStorage.getItem('dokkadoki_launch_list') || '[]');
+        if(list.indexOf(v) === -1) list.push(v);
+        localStorage.setItem('dokkadoki_launch_list', JSON.stringify(list));
+      }catch(_){}
+      form.classList.add('done');
+    });
+  })();
+
+  /* ---- drifting sakura petals ---- */
+  (function(){
+    var canvas = document.getElementById('petals');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var w, h, dpr, petals;
+
+    function resize(){
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = canvas.width = Math.floor(innerWidth * dpr);
+      h = canvas.height = Math.floor(innerHeight * dpr);
+      canvas.style.width = innerWidth + 'px';
+      canvas.style.height = innerHeight + 'px';
+    }
+
+    function rand(a, b){ return a + Math.random() * (b - a); }
+
+    function makePetal(){
+      return {
+        x: rand(0, w),
+        y: rand(-h, 0),
+        r: rand(7, 15) * dpr,
+        speed: rand(0.4, 1.1) * dpr,
+        sway: rand(0.4, 1.4),
+        phase: rand(0, Math.PI * 2),
+        spin: rand(-0.02, 0.02),
+        rot: rand(0, Math.PI * 2),
+        hue: Math.random() < 0.5 ? '#ffc2d1' : '#ffd9e2',
+        alpha: rand(0.55, 0.95)
+      };
+    }
+
+    function initPetals(){
+      var count = innerWidth < 640 ? 22 : 40;
+      petals = [];
+      for(var i=0;i<count;i++) petals.push(makePetal());
+    }
+
+    function drawPetal(p){
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.globalAlpha = p.alpha;
+      ctx.fillStyle = p.hue;
+      // simple 5-lobe sakura petal via a curved teardrop
+      ctx.beginPath();
+      var r = p.r;
+      ctx.moveTo(0, -r);
+      ctx.bezierCurveTo(r*0.55, -r*0.9, r*0.7, -r*0.1, 0, r*0.55);
+      ctx.bezierCurveTo(-r*0.7, -r*0.1, -r*0.55, -r*0.9, 0, -r);
+      ctx.closePath();
+      ctx.fill();
+      // little notch highlight
+      ctx.globalAlpha = p.alpha * 0.4;
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.ellipse(0, -r*0.2, r*0.18, r*0.4, 0, 0, Math.PI*2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function tick(){
+      ctx.clearRect(0,0,w,h);
+      for(var i=0;i<petals.length;i++){
+        var p = petals[i];
+        p.phase += 0.01;
+        p.y += p.speed;
+        p.x += Math.sin(p.phase) * p.sway * dpr;
+        p.rot += p.spin;
+        if(p.y - p.r > h){
+          petals[i] = makePetal();
+          petals[i].y = -petals[i].r;
+        }
+        drawPetal(p);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    resize();
+    initPetals();
+    tick();
+    var rt;
+    window.addEventListener('resize', function(){
+      clearTimeout(rt);
+      rt = setTimeout(function(){ resize(); initPetals(); }, 180);
+    });
+  })();
+</script>
+</body>
+</html>
