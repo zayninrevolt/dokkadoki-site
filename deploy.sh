@@ -14,8 +14,9 @@ if [ ! -d "$UNRAID_DEST" ]; then
   exit 1
 fi
 
-# Clean-slate copy via tar (macOS rsync is unreliable over SMB mounts)
-find "$UNRAID_DEST" -mindepth 1 -delete
+# Clean-slate copy via tar (macOS rsync is unreliable over SMB mounts).
+# Leave the container's own root-owned output dirs (resources/, public/) alone.
+find "$UNRAID_DEST" -mindepth 1 -maxdepth 1 ! -name resources ! -name public -exec rm -rf {} +
 tar -cf - \
   --exclude .git \
   --exclude public \
