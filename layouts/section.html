@@ -1,0 +1,24 @@
+{{ define "main" }}
+<section class="hero hero-small wrap">
+  <p class="kana">ブログ</p>
+  <h1 class="wordmark wordmark-small">{{ .Title }}<span class="dot">.</span></h1>
+  <p class="tagline">{{ with .Description }}{{ . }}{{ else }}News, updates and little stories from the café.{{ end }}</p>
+</section>
+
+<section class="block wrap">
+  {{ with .Pages }}
+  <div class="post-list">
+    {{ range . }}
+    <a class="card post-card post-row" href="{{ .RelPermalink }}">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+      <h3>{{ .Title }}</h3>
+      <p>{{ .Summary | plainify | truncate 180 }}</p>
+      <span class="read-more">Read more →</span>
+    </a>
+    {{ end }}
+  </div>
+  {{ else }}
+  <p class="lead">Nothing here yet — first post coming soon! 🌸</p>
+  {{ end }}
+</section>
+{{ end }}

@@ -1,0 +1,110 @@
+{{ define "main" }}
+<section class="hero wrap">
+  <p class="kana">ようこそ</p>
+  <h1 class="wordmark">Dokkadoki<span class="dot">.</span></h1>
+  <p class="tagline">A manga café &amp; reading room — a cosy little Japanese escape, coming soon to The Millgate, Bury.</p>
+
+  <div class="pills">
+    <span class="pill">☕ Proper coffee</span>
+    <span class="pill">📚 1,000+ manga</span>
+    <span class="pill">🌸 Read in store</span>
+  </div>
+
+  <form class="signup" id="signup" novalidate>
+    <h2>Be first through the door 🚪</h2>
+    <p class="sub">Pop your email in and we’ll let you know the moment we open.</p>
+    <div class="field">
+      <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" aria-label="Email address" required />
+      <button class="btn" type="submit">Notify me</button>
+    </div>
+    <p class="note">No spam — just one message when we launch. 🌸</p>
+    <div class="thanks"><span>🎉</span><span>You’re on the list — see you at opening!</span></div>
+  </form>
+</section>
+
+<section class="block wrap">
+  <p class="eyebrow">What is Dokkadoki?</p>
+  <h2 class="section-title">Somewhere to slow down<br />and get lost in a story</h2>
+  <p class="lead">Part café, part reading room, all comfort. Grab a drink, pull a volume off the wall, and settle into a cosy corner of The Millgate.</p>
+
+  <div class="space">
+    <div>
+      <ul>
+        <li><span class="tick">☕</span> Speciality coffee, Japanese sodas, matcha and sweet snacks</li>
+        <li><span class="tick">📚</span> A wall of 1,000+ manga (and growing) to browse and read in store</li>
+        <li><span class="tick">🛋️</span> Snug bench seating to curl up with a book, drink in hand</li>
+        <li><span class="tick">🌸</span> A warm, kawaii-tinged space celebrating Japanese stories and everyday charm</li>
+      </ul>
+    </div>
+    <div class="art" aria-hidden="true">🌸📖☕</div>
+  </div>
+</section>
+
+<section class="block wrap">
+  <p class="eyebrow">While we get the keys</p>
+  <h2 class="section-title">Two more ways to get your fix</h2>
+  <div class="duo">
+    <div class="card duo-card">
+      <span class="emoji">🛍️</span>
+      <h3>Shop our shelves on eBay</h3>
+      <p>Manga, figures and collectible finds — all of our items live on our eBay store, ready to order today.</p>
+      <a class="btn btn-link" href="{{ site.Params.ebayURL }}" target="_blank" rel="noopener">Visit our eBay store</a>
+    </div>
+    <div class="card duo-card">
+      <span class="emoji">🐾</span>
+      <h3>Neko Catch — our little game</h3>
+      <p>Help the Dokkadoki café cat catch coffee, manga and sakura (and dodge the chillies!) in our cosy arcade game for iPhone.</p>
+      {{ with site.Params.appStoreURL }}
+      <a class="btn btn-link" href="{{ . }}" target="_blank" rel="noopener">Get it on the App Store</a>
+      {{ else }}
+      <span class="badge">🍏 Coming soon to the App Store</span>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{ $posts := where site.RegularPages "Section" "blog" }}
+{{ with first 3 $posts }}
+<section class="block wrap">
+  <p class="eyebrow">From the blog</p>
+  <h2 class="section-title">Latest from Dokkadoki</h2>
+  <div class="cards posts-grid">
+    {{ range . }}
+    <a class="card post-card" href="{{ .RelPermalink }}">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+      <h3>{{ .Title }}</h3>
+      <p>{{ .Summary | plainify | truncate 120 }}</p>
+      <span class="read-more">Read more →</span>
+    </a>
+    {{ end }}
+  </div>
+  <p class="all-posts"><a href="{{ "/blog/" | relURL }}">All posts →</a></p>
+</section>
+{{ end }}
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+  /* ---- launch-list form (no backend yet — stores locally + is honest about it) ---- */
+  (function(){
+    var form = document.getElementById('signup');
+    var email = document.getElementById('email');
+    if(!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var v = (email.value || '').trim();
+      if(!v || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){
+        email.focus();
+        email.style.borderColor = '#ff9db1';
+        return;
+      }
+      try{
+        var list = JSON.parse(localStorage.getItem('dokkadoki_launch_list') || '[]');
+        if(list.indexOf(v) === -1) list.push(v);
+        localStorage.setItem('dokkadoki_launch_list', JSON.stringify(list));
+      }catch(_){}
+      form.classList.add('done');
+    });
+  })();
+</script>
+{{ end }}

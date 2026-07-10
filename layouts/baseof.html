@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · Dokkadoki{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary | plainify | truncate 155 }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}" />
+<meta name="theme-color" content="#bfe3f2" />
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:title" content="{{ if .IsHome }}Dokkadoki — Manga Café &amp; Reading Room{{ else }}{{ .Title }}{{ end }}" />
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}A manga café and reading room coming soon to The Millgate, Bury. Read, sip, escape.{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:locale" content="en_GB" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B8%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" />
+
+{{ with resources.Get "css/main.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" />
+{{ end }}
+{{ if .IsHome }}<link rel="alternate" type="application/rss+xml" title="Dokkadoki blog" href="{{ "blog/index.xml" | absURL }}" />{{ end }}
+</head>
+<body>
+
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="{{ "/" | relURL }}"><span class="mark">🌸</span> Dokkadoki</a>
+    <nav class="nav-links">
+      <a href="{{ "/blog/" | relURL }}">Blog</a>
+      <a href="{{ site.Params.ebayURL }}" target="_blank" rel="noopener">eBay shop</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+{{ block "main" . }}{{ end }}
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-mark">Dokkadoki<span class="dot">.</span></div>
+    <p class="foot-meta">
+      Coming soon to <strong>The Millgate, Bury</strong> ·
+      <a href="{{ "/blog/" | relURL }}">Blog</a> ·
+      <a href="{{ site.Params.ebayURL }}" target="_blank" rel="noopener">eBay shop</a>
+    </p>
+    <p class="foot-fine">© <span id="year"></span> Dokkadoki. Made with 🌸 in Bury.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---- drifting sakura petals ---- */
+  (function(){
+    var canvas = document.getElementById('petals');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var w, h, dpr, petals;
+
+    function resize(){
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = canvas.width = Math.floor(innerWidth * dpr);
+      h = canvas.height = Math.floor(innerHeight * dpr);
+      canvas.style.width = innerWidth + 'px';
+      canvas.style.height = innerHeight + 'px';
+    }
+
+    function rand(a, b){ return a + Math.random() * (b - a); }
+
+    function makePetal(){
+      return {
+        x: rand(0, w),
+        y: rand(-h, 0),
+        r: rand(7, 15) * dpr,
+        speed: rand(0.4, 1.1) * dpr,
+        sway: rand(0.4, 1.4),
+        phase: rand(0, Math.PI * 2),
+        spin: rand(-0.02, 0.02),
+        rot: rand(0, Math.PI * 2),
+        hue: Math.random() < 0.5 ? '#ffc2d1' : '#ffd9e2',
+        alpha: rand(0.55, 0.95)
+      };
+    }
+
+    function initPetals(){
+      var count = innerWidth < 640 ? 22 : 40;
+      petals = [];
+      for(var i=0;i<count;i++) petals.push(makePetal());
+    }
+
+    function drawPetal(p){
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.globalAlpha = p.alpha;
+      ctx.fillStyle = p.hue;
+      // simple 5-lobe sakura petal via a curved teardrop
+      ctx.beginPath();
+      var r = p.r;
+      ctx.moveTo(0, -r);
+      ctx.bezierCurveTo(r*0.55, -r*0.9, r*0.7, -r*0.1, 0, r*0.55);
+      ctx.bezierCurveTo(-r*0.7, -r*0.1, -r*0.55, -r*0.9, 0, -r);
+      ctx.closePath();
+      ctx.fill();
+      // little notch highlight
+      ctx.globalAlpha = p.alpha * 0.4;
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.ellipse(0, -r*0.2, r*0.18, r*0.4, 0, 0, Math.PI*2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function tick(){
+      ctx.clearRect(0,0,w,h);
+      for(var i=0;i<petals.length;i++){
+        var p = petals[i];
+        p.phase += 0.01;
+        p.y += p.speed;
+        p.x += Math.sin(p.phase) * p.sway * dpr;
+        p.rot += p.spin;
+        if(p.y - p.r > h){
+          petals[i] = makePetal();
+          petals[i].y = -petals[i].r;
+        }
+        drawPetal(p);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    resize();
+    initPetals();
+    tick();
+    var rt;
+    window.addEventListener('resize', function(){
+      clearTimeout(rt);
+      rt = setTimeout(function(){ resize(); initPetals(); }, 180);
+    });
+  })();
+</script>
+{{ block "scripts" . }}{{ end }}
+</body>
+</html>

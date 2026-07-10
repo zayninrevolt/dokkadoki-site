@@ -1,32 +1,87 @@
-# Dokkadoki — Coming Soon Site 🌸
+# Dokkadoki — dokkadoki.co.uk 🌸
 
-A single-page "coming soon" landing site for **Dokkadoki**, a manga café & reading library opening in **Bury, UK**.
+The website for **Dokkadoki**, a manga café & reading library opening in **Bury, UK**.
+Replaces the old WordPress shop: the site now advertises the café, links to the
+[eBay store](https://www.ebay.co.uk/usr/dokkadoki), plugs the Neko Catch app, and has a blog.
 
-- **Live concept:** part café, part borrowing library, all cosy.
-- **Brand:** pastel blue + sakura pink, cherry-blossom motif.
-- **Stack:** one self-contained `index.html` — no build step, no framework. Animated falling-petals canvas, launch-list email capture, fully responsive.
+- **Stack:** [Hugo](https://gohugo.io) static site — no database, no admin panel, no PHP.
+  Sakura theme (pastel blue + pink, falling petals) lives in `layouts/` + `assets/css/main.css`.
+- **Hosting:** Hugo container on the Unraid server (source in `appdata/hugo/site`),
+  exposed through the existing Cloudflare tunnel.
 
 ## Run locally
 
-Just open `index.html`, or serve the folder:
-
 ```bash
-python3 -m http.server 8000
-# then visit http://localhost:8000
+hugo server --source . --port 4321   # live-reloading preview at http://localhost:4321
 ```
 
-## Deploy (GitHub Pages)
+(Install Hugo with `brew install hugo` if needed.)
 
-1. Settings → Pages → Source: `main` / root.
-2. (Optional) add a `CNAME` file with `dokkadoki.co.uk` and point DNS at GitHub Pages.
+## ✍️ Add a blog post
+
+Create a markdown file in `content/blog/` — that's it:
+
+```bash
+hugo new blog/my-post-title.md    # or just create the file by hand
+```
+
+```markdown
+---
+title: "We found our unit! 🎉"
+date: 2026-08-01
+description: "A short teaser shown in previews and search results."
+---
+
+Write the post here in plain markdown. **Bold**, [links](https://example.com),
+images, lists — all work. Raw HTML is allowed too (e.g. an iframe embed).
+```
+
+Posts appear automatically on `/blog/` and in the "Latest from Dokkadoki"
+section of the homepage (newest 3). Then run `./deploy.sh` to publish.
+
+## 🚀 Deploy to Unraid
+
+Hugo runs as a container on the Unraid server; the site **source** lives in
+`appdata/hugo/site` (mounted on the Mac at `/Volumes/appdata/hugo/site`).
+
+Publishing an update from this Mac is one command:
+
+```bash
+./deploy.sh
+```
+
+It rsyncs the source (content, layouts, assets, config) to the share; the Hugo
+container builds/serves it from there.
+
+**Container notes** (one-time): if the container runs `hugo server`, make sure
+its args include the production flags, otherwise generated links point at
+localhost instead of the real domain:
+
+```
+server --bind 0.0.0.0 --baseURL https://dokkadoki.co.uk/ --appendPort=false --disableLiveReload
+```
+
+**Cloudflare tunnel:** in Cloudflare Zero Trust → Networks → Tunnels → your
+tunnel → Public Hostnames, edit the `dokkadoki.co.uk` hostname and change the
+service from the WordPress container to `http://<unraid-ip>:<hugo-port>`.
+The swap is instant and just as instantly reversible.
+
+**Afterwards:** once you're happy, the WordPress + database containers can be
+stopped. The DB is already exported (`wp_dokka.sql` in Downloads) — keep that
+as the archive of the old shop.
+
+## When Neko Catch is approved 🐾
+
+Paste the App Store link into `appStoreURL` in `hugo.toml` and run
+`./deploy.sh`. The "Coming soon to the App Store" badge on the homepage
+automatically becomes a download button.
 
 ## Launch-list note
 
-The email form currently validates and stores addresses in the visitor's
-`localStorage` only — there is **no backend yet**, so nothing is sent anywhere.
-To actually collect sign-ups, wire the form to a service (Formspree, Buttondown,
-Mailchimp embed, or a small endpoint on Odysseus) — swap the `submit` handler in
-`index.html`.
+The email signup form stores addresses in the visitor's `localStorage` only —
+there is **no backend**, so nothing is collected yet. To actually gather
+sign-ups, wire the form to Formspree/Buttondown/Mailchimp — the submit handler
+is at the bottom of `layouts/home.html`.
 
 ## Design notes
 
