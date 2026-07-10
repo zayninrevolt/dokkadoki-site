@@ -14,12 +14,15 @@ if [ ! -d "$UNRAID_DEST" ]; then
   exit 1
 fi
 
-rsync -av --delete \
+# Clean-slate copy via tar (macOS rsync is unreliable over SMB mounts)
+find "$UNRAID_DEST" -mindepth 1 -delete
+tar -cf - \
   --exclude .git \
-  --exclude public/ \
-  --exclude resources/ \
+  --exclude public \
+  --exclude resources \
   --exclude .hugo_build.lock \
   --exclude deploy.sh \
-  ./ "$UNRAID_DEST/"
+  --exclude .DS_Store \
+  . | (cd "$UNRAID_DEST" && tar -xf -)
 
 echo "Deployed source to $UNRAID_DEST — the Hugo container picks it up from there."
