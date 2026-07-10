@@ -60,6 +60,11 @@ header.nav{position:relative;z-index:3}
   font-size:clamp(3.4rem,12vw,7rem);line-height:.95;letter-spacing:-.01em;
   color:var(--ink);
 }
+.hero-logo-wrap{line-height:0}
+.hero-logo{
+  width:clamp(240px,46vw,380px);height:auto;
+  filter:drop-shadow(0 20px 34px rgba(66,85,107,.28));
+}
 .wordmark-small{font-size:clamp(2.4rem,8vw,4rem)}
 .wordmark .dot{color:var(--blush-deep)}
 .tagline{
