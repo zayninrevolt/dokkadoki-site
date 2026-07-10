@@ -23,6 +23,7 @@ tar -cf - \
   --exclude resources \
   --exclude .hugo_build.lock \
   --exclude deploy.sh \
+  --exclude signup-api \
   --exclude .DS_Store \
   . | (cd "$UNRAID_DEST" && tar -xf -)
 

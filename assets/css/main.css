@@ -104,6 +104,8 @@ header.nav{position:relative;z-index:3}
 .btn:active{transform:translateY(0)}
 .btn-link{display:inline-block;text-decoration:none;margin-top:auto}
 .signup .note{margin-top:12px;font-size:.78rem;color:var(--ink-soft)}
+.signup .form-error{margin-top:12px;font-size:.85rem;font-weight:500;color:#d4657e}
+.btn:disabled{opacity:.6;cursor:default}
 .signup.done .field, .signup.done p.sub{display:none}
 .thanks{display:none;align-items:center;gap:10px;font-weight:500;color:var(--ink)}
 .signup.done .thanks{display:flex}

@@ -76,12 +76,42 @@ Paste the App Store link into `appStoreURL` in `hugo.toml` and run
 `./deploy.sh`. The "Coming soon to the App Store" badge on the homepage
 automatically becomes a download button.
 
-## Launch-list note
+## Launch-list signup (MariaDB)
 
-The email signup form stores addresses in the visitor's `localStorage` only —
-there is **no backend**, so nothing is collected yet. To actually gather
-sign-ups, wire the form to Formspree/Buttondown/Mailchimp — the submit handler
-is at the bottom of `layouts/home.html`.
+The homepage form POSTs to `/api/subscribe`, served by the tiny Node API in
+`signup-api/` (rate-limited, bot honeypot, stores email + timestamp only).
+It creates its own `launch_list` table on startup.
+
+**One-time setup:**
+
+1. **MariaDB** — create the database and user (Unraid console for the mariadb
+   container → `mariadb -u root -p`):
+
+   ```sql
+   CREATE DATABASE dokkadoki CHARACTER SET utf8mb4;
+   CREATE USER 'dokkadoki'@'%' IDENTIFIED BY 'CHOOSE-A-PASSWORD';
+   GRANT ALL PRIVILEGES ON dokkadoki.* TO 'dokkadoki'@'%';
+   FLUSH PRIVILEGES;
+   ```
+
+2. **API container** — Unraid → Docker → Add Container:
+   - Name: `dokkadoki-api` · Repository: `node:22-alpine`
+   - Path: `/mnt/user/appdata/dokkadoki-api` → `/app`
+   - Port: host `3001` → container `3001`
+   - Env vars: `DB_HOST=192.168.0.69`, `DB_PORT=3306`, `DB_USER=dokkadoki`,
+     `DB_PASS=<the password>`, `DB_NAME=dokkadoki`
+   - Post Arguments: `sh -c "cd /app && npm install --omit=dev && node server.js"`
+
+   (The API source is already in `appdata/dokkadoki-api`; after code changes,
+   re-copy `signup-api/server.js` there and restart the container.)
+
+3. **Cloudflare tunnel** — add a Public Hostname **above** the site's one:
+   `dokkadoki.co.uk`, path `api/*`, service `http://192.168.0.69:3001`.
+
+Check it works: `curl https://dokkadoki.co.uk/api/health` → `{"ok":true,"db":true}`.
+
+**Reading the list:** `SELECT email, created_at FROM dokkadoki.launch_list;`
+— or ask Claude to export it when it's newsletter time.
 
 ## Design notes
 

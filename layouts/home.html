@@ -15,9 +15,11 @@
     <p class="sub">Pop your email in and we’ll let you know the moment we open.</p>
     <div class="field">
       <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" aria-label="Email address" required />
+      <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
       <button class="btn" type="submit">Notify me</button>
     </div>
     <p class="note">No spam — just one message when we launch. 🌸</p>
+    <p class="form-error" id="form-error" hidden></p>
     <div class="thanks"><span>🎉</span><span>You’re on the list — see you at opening!</span></div>
   </form>
 </section>
@@ -85,25 +87,38 @@
 
 {{ define "scripts" }}
 <script>
-  /* ---- launch-list form (no backend yet — stores locally + is honest about it) ---- */
+  /* ---- launch-list form: POSTs to the signup API (signup-api/server.js) ---- */
   (function(){
     var form = document.getElementById('signup');
     var email = document.getElementById('email');
+    var errBox = document.getElementById('form-error');
     if(!form) return;
     form.addEventListener('submit', function(e){
       e.preventDefault();
+      errBox.hidden = true;
       var v = (email.value || '').trim();
       if(!v || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){
         email.focus();
         email.style.borderColor = '#ff9db1';
         return;
       }
-      try{
-        var list = JSON.parse(localStorage.getItem('dokkadoki_launch_list') || '[]');
-        if(list.indexOf(v) === -1) list.push(v);
-        localStorage.setItem('dokkadoki_launch_list', JSON.stringify(list));
-      }catch(_){}
-      form.classList.add('done');
+      var btn = form.querySelector('.btn');
+      btn.disabled = true;
+      fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ email: v, website: document.getElementById('website').value })
+      }).then(function(r){ return r.json().catch(function(){ return {}; }).then(function(d){ return { ok: r.ok && d.ok, error: d.error }; }); })
+        .then(function(d){
+          if(d.ok){ form.classList.add('done'); return; }
+          errBox.textContent = d.error || 'Something went wrong — please try again.';
+          errBox.hidden = false;
+        })
+        .catch(function(){
+          errBox.textContent = 'Couldn’t reach the sign-up service — please try again in a minute.';
+          errBox.hidden = false;
+        })
+        .finally(function(){ btn.disabled = false; });
     });
   })();
 </script>
