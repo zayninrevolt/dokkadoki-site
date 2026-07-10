@@ -1,9 +1,9 @@
 {{ define "main" }}
 <article class="wrap post">
   <header class="post-header">
-    <p class="kana">ブログ</p>
+    {{ if eq .Section "blog" }}<p class="kana">ブログ</p>{{ end }}
     <h1 class="post-title">{{ .Title }}</h1>
-    {{ if not .Date.IsZero }}
+    {{ if and (eq .Section "blog") (not .Date.IsZero) }}
     <p class="post-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time></p>
     {{ end }}
   </header>
@@ -12,6 +12,6 @@
     {{ .Content }}
   </div>
 
-  <p class="all-posts"><a href="{{ "/blog/" | relURL }}">← Back to all posts</a></p>
+  {{ if eq .Section "blog" }}<p class="all-posts"><a href="{{ "/blog/" | relURL }}">← Back to all posts</a></p>{{ end }}
 </article>
 {{ end }}
