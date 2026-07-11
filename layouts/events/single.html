@@ -6,6 +6,8 @@
     <p class="post-meta"><time>📅 {{ partial "event-dates.html" . }}</time></p>
   </header>
 
+  {{ with .Resources.GetMatch "cover*" }}{{ $b := .Resize "1200x q85" }}<img class="event-banner" src="{{ $b.RelPermalink }}" alt="{{ $.Title }}" width="{{ $b.Width }}" height="{{ $b.Height }}" />{{ end }}
+
   <div class="event-facts card">
     {{ with .Params.location }}<p>📍 <strong>Where:</strong> {{ . }}</p>{{ end }}
     {{ with .Params.cost }}<p>🎟️ <strong>Cost:</strong> {{ . }}</p>{{ end }}

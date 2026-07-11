@@ -16,6 +16,8 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
+/* the hidden attribute must beat any display: set by component classes */
+[hidden]{display:none !important}
 html{scroll-behavior:smooth}
 body{
   font-family:var(--font-body);
@@ -159,6 +161,11 @@ h2.section-title{
 }
 /* events */
 .event-card{display:flex;flex-direction:column;text-decoration:none;color:var(--ink)}
+.event-thumb{width:100%;height:auto;border-radius:14px;margin-bottom:16px;display:block}
+.event-banner{
+  display:block;width:100%;height:auto;max-width:720px;margin:0 auto 20px;
+  border-radius:var(--radius);box-shadow:var(--shadow);
+}
 .event-when{
   display:inline-flex;align-self:flex-start;align-items:center;gap:6px;
   font-family:var(--font-display);font-weight:700;font-size:.85rem;color:var(--ink);
