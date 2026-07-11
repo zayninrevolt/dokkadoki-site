@@ -41,19 +41,42 @@ section of the homepage (newest 3). Then run `./deploy.sh` to publish.
 
 ## 🚀 Deploy to Unraid
 
-Hugo runs as a container on the Unraid server, serving from
-`/mnt/user/appdata/hugo/site` — which is a **git clone of this repo**. The
-server pulls updates from GitHub; the Mac just pushes. See
-[SERVER-SETUP.md](SERVER-SETUP.md) for the one-time setup.
+Hugo runs as a container on the Unraid server, serving its source from
+`/mnt/user/appdata/hugo/site` (mounted on the Mac at `/Volumes/appdata/hugo/site`).
 
 Publishing an update:
 
 ```bash
-./deploy.sh    # pushes to GitHub; the server auto-pulls within ~5 min
+./deploy.sh
 ```
 
-`deploy-smb.sh` is the old push-over-SMB method, kept only as an emergency
-fallback — the SMB mount proved unreliable, which is why we moved to git-pull.
+`deploy.sh` is **crash-safe**: it uploads the new site into a staging folder
+(in the parent `hugo/` dir, not the served `site/`) and only swaps it into the
+live folder once the upload is verified complete. If the SMB mount drops
+mid-upload, the live site is left untouched, and the served folder never
+contains temp/backup dirs.
+
+macOS smbfs can't reliably delete a folder over SMB (it leaves a phantom entry),
+so hidden `.deploy-*` dirs slowly accumulate in `hugo/` — harmless (never served,
+ignored by Hugo). Sweep them any time, server-side:
+
+```bash
+rm -rf /mnt/user/appdata/hugo/.deploy-* /mnt/user/appdata/hugo/site/.deploy-staging*
+```
+
+**If the share won't mount** (macOS SMB sessions can go stale): unmount and
+reconnect by IP —
+
+```bash
+umount -f /Volumes/appdata 2>/dev/null; open 'smb://192.168.0.69/appdata'
+```
+
+**If a deploy ever gets "permission denied":** the folder was recreated
+root-owned (e.g. after a server reboot). Fix once on the Unraid terminal:
+
+```bash
+chown -R nobody:users /mnt/user/appdata/hugo && chmod -R u+rwX,g+rwX /mnt/user/appdata/hugo
+```
 
 **Container args** (one-time): the hugo container runs
 
