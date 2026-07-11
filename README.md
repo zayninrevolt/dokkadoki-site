@@ -41,30 +41,33 @@ section of the homepage (newest 3). Then run `./deploy.sh` to publish.
 
 ## 🚀 Deploy to Unraid
 
-Hugo runs as a container on the Unraid server; the site **source** lives in
-`appdata/hugo/site` (mounted on the Mac at `/Volumes/appdata/hugo/site`).
+Hugo runs as a container on the Unraid server, serving from
+`/mnt/user/appdata/hugo/site` — which is a **git clone of this repo**. The
+server pulls updates from GitHub; the Mac just pushes. See
+[SERVER-SETUP.md](SERVER-SETUP.md) for the one-time setup.
 
-Publishing an update from this Mac is one command:
+Publishing an update:
 
 ```bash
-./deploy.sh
+./deploy.sh    # pushes to GitHub; the server auto-pulls within ~5 min
 ```
 
-It rsyncs the source (content, layouts, assets, config) to the share; the Hugo
-container builds/serves it from there.
+`deploy-smb.sh` is the old push-over-SMB method, kept only as an emergency
+fallback — the SMB mount proved unreliable, which is why we moved to git-pull.
 
-**Container notes** (one-time): if the container runs `hugo server`, make sure
-its args include the production flags, otherwise generated links point at
-localhost instead of the real domain:
+**Container args** (one-time): the hugo container runs
 
 ```
-server --bind 0.0.0.0 --baseURL https://dokkadoki.co.uk/ --appendPort=false --disableLiveReload
+server --bind 0.0.0.0 --baseURL https://dokkadoki.co.uk/ --appendPort=false --disableLiveReload --poll 30s
 ```
+
+The `--poll 30s` is essential on Unraid — the file-watcher can't see changes on
+user shares, so it polls instead.
 
 **Cloudflare tunnel:** in Cloudflare Zero Trust → Networks → Tunnels → your
-tunnel → Public Hostnames, edit the `dokkadoki.co.uk` hostname and change the
-service from the WordPress container to `http://<unraid-ip>:<hugo-port>`.
-The swap is instant and just as instantly reversible.
+tunnel → Public Hostnames, point the `dokkadoki.co.uk` hostname at
+`http://<unraid-ip>:<hugo-port>` (and the `api/*` path at the signup API — see
+below). The swap is instant and just as instantly reversible.
 
 **Afterwards:** once you're happy, the WordPress + database containers can be
 stopped. The DB is already exported (`wp_dokka.sql` in Downloads) — keep that

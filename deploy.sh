@@ -1,30 +1,18 @@
 #!/usr/bin/env bash
-# Sync the Hugo site source to the Unraid Hugo container's folder.
-# The container builds/serves it from there.
+# Publish the site by pushing to GitHub. The Unraid server pulls from there —
+# no Mac SMB mount involved (see SERVER-SETUP.md).
 #
-# Default destination is the mounted appdata share; override with:
-#   UNRAID_DEST=/some/other/path ./deploy.sh
+# The server auto-pulls every few minutes via a User Scripts cron, so usually
+# a push is all you need. To publish instantly, run the pull yourself on Unraid:
+#   git -C /mnt/user/appdata/hugo/site pull
+#
+# The old push-over-SMB method is kept as ./deploy-smb.sh for emergencies.
 set -euo pipefail
 cd "$(dirname "$0")"
 
-UNRAID_DEST="${UNRAID_DEST:-/Volumes/appdata/hugo/site}"
+git push
 
-if [ ! -d "$UNRAID_DEST" ]; then
-  echo "Destination $UNRAID_DEST not found — is the Unraid share mounted? (Finder → Cmd+K → smb://<unraid-ip>)"
-  exit 1
-fi
-
-# Clean-slate copy via tar (macOS rsync is unreliable over SMB mounts).
-# Leave the container's own root-owned output dirs (resources/, public/) alone.
-find "$UNRAID_DEST" -mindepth 1 -maxdepth 1 ! -name resources ! -name public -exec rm -rf {} +
-tar -cf - \
-  --exclude .git \
-  --exclude public \
-  --exclude resources \
-  --exclude .hugo_build.lock \
-  --exclude deploy.sh \
-  --exclude signup-api \
-  --exclude .DS_Store \
-  . | (cd "$UNRAID_DEST" && tar -xf -)
-
-echo "Deployed source to $UNRAID_DEST — the Hugo container picks it up from there."
+echo
+echo "Pushed to GitHub. The server auto-pulls within a few minutes."
+echo "To publish now, run this on the Unraid terminal:"
+echo "  git -C /mnt/user/appdata/hugo/site pull"
