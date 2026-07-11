@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article class="wrap post">
+  <header class="post-header">
+    <p class="kana">イベント</p>
+    <h1 class="post-title">{{ .Title }}</h1>
+    <p class="post-meta"><time>📅 {{ partial "event-dates.html" . }}</time></p>
+  </header>
+
+  <div class="event-facts card">
+    {{ with .Params.location }}<p>📍 <strong>Where:</strong> {{ . }}</p>{{ end }}
+    {{ with .Params.cost }}<p>🎟️ <strong>Cost:</strong> {{ . }}</p>{{ end }}
+    {{ with .Params.website }}<a class="btn btn-link" href="{{ . }}" target="_blank" rel="noopener">Event website ↗</a>{{ end }}
+  </div>
+
+  <div class="post-body card">
+    {{ .Content }}
+  </div>
+
+  <p class="all-posts"><a href="{{ "/events/" | relURL }}">← All events</a></p>
+</article>
+{{ end }}

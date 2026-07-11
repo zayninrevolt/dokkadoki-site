@@ -1,0 +1,9 @@
+{{- $end := time (default .Params.event_start .Params.event_end) -}}
+<a class="card event-card" href="{{ .RelPermalink }}" data-event-end="{{ $end.Format "2006-01-02T15:04:05" }}">
+  <time class="event-when">📅 {{ partial "event-dates.html" . }}</time>
+  <h3>{{ .Title }}</h3>
+  {{ with .Params.location }}<p class="event-meta">📍 {{ . }}</p>{{ end }}
+  {{ with .Params.cost }}<p class="event-meta">🎟️ {{ . }}</p>{{ end }}
+  <p>{{ .Description }}</p>
+  <span class="read-more">Details →</span>
+</a>

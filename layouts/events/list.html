@@ -1,0 +1,25 @@
+{{ define "main" }}
+<section class="hero hero-small wrap">
+  <p class="kana">イベント</p>
+  <h1 class="wordmark wordmark-small">{{ .Title }}<span class="dot">.</span></h1>
+  <p class="tagline">{{ .Description }}</p>
+</section>
+
+<section class="block wrap">
+  {{ $upcoming := slice }}
+  {{ range .Pages }}
+    {{ $end := time (default .Params.event_start .Params.event_end) }}
+    {{ if gt ($end.AddDate 0 0 1) now }}{{ $upcoming = $upcoming | append . }}{{ end }}
+  {{ end }}
+  {{ $upcoming = sort $upcoming "Params.event_start" "asc" }}
+
+  <div class="post-list" data-events-list>
+    {{ range $upcoming }}
+      {{ partial "event-card.html" . }}
+    {{ end }}
+  </div>
+  <p class="lead" data-events-empty {{ if $upcoming }}hidden{{ end }}>
+    Nothing on the calendar right now — check back soon! 🌸
+  </p>
+</section>
+{{ end }}

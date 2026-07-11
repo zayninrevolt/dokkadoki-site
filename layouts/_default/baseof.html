@@ -36,6 +36,7 @@
     <a class="brand" href="{{ "/" | relURL }}"><span class="mark">🌸</span> Dokkadoki</a>
     <nav class="nav-links">
       <a href="{{ "/blog/" | relURL }}">Blog</a>
+      <a href="{{ "/events/" | relURL }}">Events</a>
       <a href="{{ site.Params.ebayURL }}" target="_blank" rel="noopener">eBay shop</a>
     </nav>
   </div>
@@ -51,6 +52,7 @@
     <p class="foot-meta">
       Coming soon to <strong>The Millgate, Bury</strong> ·
       <a href="{{ "/blog/" | relURL }}">Blog</a> ·
+      <a href="{{ "/events/" | relURL }}">Events</a> ·
       <a href="{{ site.Params.ebayURL }}" target="_blank" rel="noopener">eBay shop</a> ·
       <a href="{{ "/privacy/" | relURL }}">Privacy</a>
     </p>
@@ -60,6 +62,28 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---- events: hide anything that's already finished (the build only knows
+     "today" at build time, so this keeps things honest between rebuilds),
+     and cap the homepage section at the next 2 upcoming ---- */
+  (function(){
+    var cards = document.querySelectorAll('[data-event-end]');
+    if(!cards.length) return;
+    var now = new Date();
+    var visible = [];
+    cards.forEach(function(card){
+      var end = new Date(card.getAttribute('data-event-end'));
+      end.setDate(end.getDate() + 1); // an event is "past" once its final day ends
+      if(end <= now){ card.hidden = true; } else { visible.push(card); }
+    });
+    var home = document.querySelector('[data-events-home]');
+    if(home){
+      visible.forEach(function(card, i){ if(i >= 2) card.hidden = true; });
+      if(visible.length === 0) home.hidden = true;
+    }
+    var empty = document.querySelector('[data-events-empty]');
+    if(empty && visible.length === 0) empty.hidden = false;
+  })();
 
   /* ---- drifting sakura petals ---- */
   (function(){

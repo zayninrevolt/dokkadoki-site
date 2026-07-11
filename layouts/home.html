@@ -42,6 +42,27 @@
   </div>
 </section>
 
+{{ $events := where site.RegularPages "Section" "events" }}
+{{ $upcoming := slice }}
+{{ range $events }}
+  {{ $end := time (default .Params.event_start .Params.event_end) }}
+  {{ if gt ($end.AddDate 0 0 1) now }}{{ $upcoming = $upcoming | append . }}{{ end }}
+{{ end }}
+{{ $upcoming = sort $upcoming "Params.event_start" "asc" }}
+{{ with first 4 $upcoming }}
+<section class="block wrap" id="upcoming-events" data-events-home>
+  <p class="eyebrow">Out and about</p>
+  <h2 class="section-title">Upcoming events</h2>
+  <p class="lead">Find us — or the things we love — at these. Come say hi! 🌸</p>
+  <div class="cards posts-grid" data-events-list>
+    {{ range . }}
+      {{ partial "event-card.html" . }}
+    {{ end }}
+  </div>
+  <p class="all-posts"><a href="{{ "/events/" | relURL }}">All events →</a></p>
+</section>
+{{ end }}
+
 <section class="block wrap">
   <p class="eyebrow">While we get the keys</p>
   <h2 class="section-title">Two more ways to get your fix</h2>
