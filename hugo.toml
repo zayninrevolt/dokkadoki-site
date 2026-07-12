@@ -11,6 +11,7 @@ disableKinds = ["taxonomy", "term"]
 [params]
   description = "Dokkadoki is a manga café and reading room coming soon to The Millgate, Bury. A cosy corner for reading, a proper coffee, and a little Japanese escape."
   ebayURL = "https://www.ebay.co.uk/usr/dokkadoki"
+  libibURL = "https://www.libib.com/u/dokkadoki"
   # Once Neko Catch is approved, paste the App Store link here and the
   # "coming soon" badge on the homepage becomes a download button.
   appStoreURL = ""
