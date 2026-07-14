@@ -38,11 +38,32 @@ async function ensureTables() {
   await pool.query(`CREATE TABLE IF NOT EXISTS manga_requests (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(160) NOT NULL,
-    title_normalized VARCHAR(160) NOT NULL UNIQUE,
+    title_normalized VARCHAR(160) NOT NULL,
+    month CHAR(7) NOT NULL,
     request_count INT NOT NULL DEFAULT 1,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UNIQUE KEY uniq_title_month (title_normalized, month)
   ) CHARACTER SET utf8mb4`);
+  // migrate a pre-month table shape if one exists
+  try {
+    await pool.query('SELECT month FROM manga_requests LIMIT 1');
+  } catch (e) {
+    if (e.code === 'ER_BAD_FIELD_ERROR') {
+      await pool.query("ALTER TABLE manga_requests ADD COLUMN month CHAR(7) NOT NULL DEFAULT ''");
+      await pool.query("UPDATE manga_requests SET month = DATE_FORMAT(created_at, '%Y-%m') WHERE month = ''");
+      await pool.query('ALTER TABLE manga_requests DROP INDEX title_normalized');
+      await pool.query('ALTER TABLE manga_requests ADD UNIQUE KEY uniq_title_month (title_normalized, month)');
+      console.log('migrated manga_requests to monthly shape');
+    } else { throw e; }
+  }
+}
+
+function monthKey(offset) {
+  const d = new Date();
+  d.setDate(1);
+  d.setMonth(d.getMonth() + (offset || 0));
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
 }
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
@@ -143,10 +164,13 @@ const server = http.createServer(async (req, res) => {
 
   if (req.method === 'GET' && path === '/api/requests') {
     try {
-      const limit = Math.min(Math.max(parseInt(url.searchParams.get('limit') || '10', 10) || 10, 1), 20);
+      const wantPrev = url.searchParams.get('month') === 'last';
+      const month = monthKey(wantPrev ? -1 : 0);
+      const limit = Math.min(Math.max(parseInt(url.searchParams.get('limit') || (wantPrev ? '3' : '10'), 10) || 10, 1), 20);
       const [rows] = await pool.query(
-        'SELECT title, request_count FROM manga_requests ORDER BY request_count DESC, updated_at DESC LIMIT ?', [limit]);
-      return send(res, 200, { ok: true, requests: rows.map((r) => ({ title: r.title, count: r.request_count })) });
+        'SELECT title, request_count FROM manga_requests WHERE month = ? ORDER BY request_count DESC, updated_at DESC LIMIT ?',
+        [month, limit]);
+      return send(res, 200, { ok: true, month, requests: rows.map((r) => ({ title: r.title, count: r.request_count })) });
     } catch (e) {
       console.error('DB error:', e.message);
       return send(res, 500, { ok: false, error: 'Something went wrong - please try again.' });
@@ -167,18 +191,20 @@ const server = http.createServer(async (req, res) => {
         return send(res, 400, { ok: false, error: 'Give us a series name to look for!' });
       }
       try {
-        const [rows] = await pool.query('SELECT id, title, title_normalized, request_count FROM manga_requests');
+        const month = monthKey(0); // requests only compete within the current month
+        const [rows] = await pool.query(
+          'SELECT id, title, title_normalized, request_count FROM manga_requests WHERE month = ?', [month]);
         const match = rows.find((r) => sameSeries(norm, r.title_normalized));
         if (match) {
           await pool.query('UPDATE manga_requests SET request_count = request_count + 1 WHERE id = ?', [match.id]);
           return send(res, 200, { ok: true, title: match.title, count: match.request_count + 1, matched: true });
         }
         try {
-          await pool.query('INSERT INTO manga_requests (title, title_normalized) VALUES (?, ?)', [title, norm]);
+          await pool.query('INSERT INTO manga_requests (title, title_normalized, month) VALUES (?, ?, ?)', [title, norm, month]);
         } catch (e) {
           if (e.code === 'ER_DUP_ENTRY') { // lost a race; count it instead
-            await pool.query('UPDATE manga_requests SET request_count = request_count + 1 WHERE title_normalized = ?', [norm]);
-            const [[row]] = await pool.query('SELECT title, request_count FROM manga_requests WHERE title_normalized = ?', [norm]);
+            await pool.query('UPDATE manga_requests SET request_count = request_count + 1 WHERE title_normalized = ? AND month = ?', [norm, month]);
+            const [[row]] = await pool.query('SELECT title, request_count FROM manga_requests WHERE title_normalized = ? AND month = ?', [norm, month]);
             return send(res, 200, { ok: true, title: row.title, count: row.request_count, matched: true });
           }
           throw e;

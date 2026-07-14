@@ -19,9 +19,16 @@
     <p class="request-thanks" id="request-thanks" hidden></p>
   </form>
 
+  <div class="wanted" id="last-month" hidden>
+    <p class="eyebrow" style="margin-top:56px">🏆 Last month's winners</p>
+    <h2 class="section-title" style="font-size:clamp(1.4rem,4vw,1.9rem)">Top 3 on our buying list</h2>
+    <ol class="wanted-list" id="winners-list"></ol>
+  </div>
+
   <div class="wanted" id="most-wanted" hidden>
     <p class="eyebrow" style="margin-top:56px">Community picks</p>
-    <h2 class="section-title" style="font-size:clamp(1.4rem,4vw,1.9rem)">Most wanted</h2>
+    <h2 class="section-title" style="font-size:clamp(1.4rem,4vw,1.9rem)">Most wanted this month</h2>
+    <p class="lead" style="font-size:.95rem">The count resets each month, so every series gets a fresh shot.</p>
     <ol class="wanted-list" id="wanted-list"></ol>
   </div>
 </section>
@@ -35,27 +42,33 @@
     var errBox = document.getElementById('request-error');
     var thanks = document.getElementById('request-thanks');
 
+    function fillList(listId, wrapId, items){
+      if(!items || !items.length) return;
+      var ol = document.getElementById(listId);
+      ol.textContent = '';
+      items.forEach(function(item){
+        var li = document.createElement('li');
+        var name = document.createElement('span');
+        name.className = 'wanted-title';
+        name.textContent = item.title;
+        var count = document.createElement('span');
+        count.className = 'wanted-count';
+        count.textContent = item.count + (item.count === 1 ? ' request' : ' requests');
+        li.appendChild(name);
+        li.appendChild(count);
+        ol.appendChild(li);
+      });
+      document.getElementById(wrapId).hidden = false;
+    }
     function loadList(){
       fetch('/api/requests?limit=10').then(function(r){ return r.json(); }).then(function(d){
-        if(!d.ok || !d.requests || !d.requests.length) return;
-        var ol = document.getElementById('wanted-list');
-        ol.textContent = '';
-        d.requests.forEach(function(item){
-          var li = document.createElement('li');
-          var name = document.createElement('span');
-          name.className = 'wanted-title';
-          name.textContent = item.title;
-          var count = document.createElement('span');
-          count.className = 'wanted-count';
-          count.textContent = item.count + (item.count === 1 ? ' request' : ' requests');
-          li.appendChild(name);
-          li.appendChild(count);
-          ol.appendChild(li);
-        });
-        document.getElementById('most-wanted').hidden = false;
-      }).catch(function(){ /* list is a bonus - stay hidden if unreachable */ });
+        if(d.ok) fillList('wanted-list', 'most-wanted', d.requests);
+      }).catch(function(){ /* lists are a bonus - stay hidden if unreachable */ });
     }
     loadList();
+    fetch('/api/requests?month=last&limit=3').then(function(r){ return r.json(); }).then(function(d){
+      if(d.ok) fillList('winners-list', 'last-month', d.requests);
+    }).catch(function(){});
 
     form.addEventListener('submit', function(e){
       e.preventDefault();
