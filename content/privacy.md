@@ -33,6 +33,6 @@ For as long as you're subscribed. Ask to leave and it's deleted, straight away.
 
 ## Want off the list?
 
-Email us at **hello@dokkadoki.co.uk** and we'll delete your address, no
+Email us at **admin@dokkadoki.co.uk** and we'll delete your address, no
 questions asked. You can also ask us what we hold about you (spoiler: just
 your email address).

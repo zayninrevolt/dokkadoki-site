@@ -12,6 +12,9 @@ disableKinds = ["taxonomy", "term"]
   description = "Dokkadoki is a manga café and reading room coming soon to The Millgate, Bury. A cosy corner for reading, a proper coffee, and a little Japanese escape."
   ebayURL = "https://www.ebay.co.uk/usr/dokkadoki"
   libibURL = "https://www.libib.com/u/dokkadoki"
+  instagramURL = "https://www.instagram.com/dokkadoki/"
+  contactEmail = "admin@dokkadoki.co.uk"
+  goatcounter = "dokkadoki" # site code at goatcounter.com; empty string disables
   # Once Neko Catch is approved, paste the App Store link here and the
   # "coming soon" badge on the homepage becomes a download button.
   appStoreURL = ""

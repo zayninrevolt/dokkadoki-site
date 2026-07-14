@@ -57,6 +57,10 @@
       <a href="{{ site.Params.ebayURL }}" target="_blank" rel="noopener">eBay shop</a> ·
       <a href="{{ "/privacy/" | relURL }}">Privacy</a>
     </p>
+    <p class="foot-meta">
+      <a href="{{ site.Params.instagramURL }}" target="_blank" rel="noopener">📷 Instagram</a> ·
+      <a href="mailto:{{ site.Params.contactEmail }}">✉️ {{ site.Params.contactEmail }}</a>
+    </p>
     <p class="foot-fine">© <span id="year"></span> Dokkadoki. Made with 🌸 in Bury.</p>
   </div>
 </footer>
@@ -175,5 +179,6 @@
   })();
 </script>
 {{ block "scripts" . }}{{ end }}
+{{ with site.Params.goatcounter }}<script data-goatcounter="https://{{ . }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>{{ end }}
 </body>
 </html>
