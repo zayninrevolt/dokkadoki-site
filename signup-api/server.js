@@ -75,10 +75,12 @@ function monthKey(offset) {
 }
 
 /* one vote per person per series per month: voters are stored only as a
-   salted one-way hash of their address - never the address itself */
+   salted one-way hash of address + a random per-browser id - never the
+   address itself. The device id means people sharing wifi (e.g. in the
+   café) each get their own vote. */
 const VOTE_SALT = process.env.VOTE_SALT || 'dokkadoki-vote-salt-v1';
-function voterHash(ip) {
-  return crypto.createHash('sha256').update(ip + '|' + VOTE_SALT).digest('hex');
+function voterHash(ip, device) {
+  return crypto.createHash('sha256').update(ip + '|' + (device || '') + '|' + VOTE_SALT).digest('hex');
 }
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
@@ -220,7 +222,8 @@ const server = http.createServer(async (req, res) => {
       }
       try {
         const month = monthKey(0); // requests only compete within the current month
-        const voter = voterHash(clientIp(req));
+        const device = (body.device || '').toString().slice(0, 64);
+        const voter = voterHash(clientIp(req), device);
 
         // one vote per person per series per month: only bump the count if
         // this voter hasn't already voted for this row

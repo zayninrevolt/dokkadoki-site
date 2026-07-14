@@ -40,6 +40,16 @@
     /* on the real domain the tunnel routes /api/*; when testing on the LAN
        (hugo on :1313) talk to the API container on :3456 directly */
     var API = location.port === '1313' ? location.protocol + '//' + location.hostname + ':3456' : '';
+    /* random per-browser id so people sharing wifi each get their own vote */
+    var deviceId = '';
+    try {
+      deviceId = localStorage.getItem('dokka_device') || '';
+      if(!deviceId){
+        deviceId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+          : String(Date.now()) + '-' + Math.random().toString(36).slice(2);
+        localStorage.setItem('dokka_device', deviceId);
+      }
+    } catch(_){}
     var form = document.getElementById('request-form');
     var input = document.getElementById('manga-title');
     var errBox = document.getElementById('request-error');
@@ -84,7 +94,7 @@
       fetch(API + '/api/request-manga', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ title: v, website: document.getElementById('website').value })
+        body: JSON.stringify({ title: v, device: deviceId, website: document.getElementById('website').value })
       }).then(function(r){ return r.json().catch(function(){ return {}; }).then(function(d){ d.httpOk = r.ok; return d; }); })
         .then(function(d){
           if(d.httpOk && d.ok){
