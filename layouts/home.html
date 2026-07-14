@@ -73,6 +73,17 @@
   </div>
 </section>
 
+<section class="block wrap">
+  <div class="cta-banner">
+    <span class="emoji" aria-hidden="true">📚</span>
+    <div class="cta-text">
+      <h2>What should be on our shelves?</h2>
+      <p>Request the series you'd love to read at the café. The most-wanted each month go straight to the top of our buying list.</p>
+    </div>
+    <a class="btn btn-link" href="{{ "/request/" | relURL }}">Request a manga</a>
+  </div>
+</section>
+
 {{ $events := where site.RegularPages "Section" "events" }}
 {{ $upcoming := slice }}
 {{ range $events }}
