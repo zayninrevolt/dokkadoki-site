@@ -13,6 +13,7 @@ disableKinds = ["taxonomy", "term"]
   ebayURL = "https://www.ebay.co.uk/usr/dokkadoki"
   libibURL = "https://www.libib.com/u/dokkadoki"
   instagramURL = "https://www.instagram.com/dokkadoki/"
+  tiktokURL = "https://www.tiktok.com/@dokkadoki"
   contactEmail = "admin@dokkadoki.co.uk"
   goatcounter = "dokkadoki" # site code at goatcounter.com; empty string disables
   # Once Neko Catch is approved, paste the App Store link here and the
