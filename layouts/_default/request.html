@@ -22,14 +22,8 @@
   <div class="wanted" id="last-month" hidden>
     <p class="eyebrow" style="margin-top:56px">🏆 Last month's winners</p>
     <h2 class="section-title" style="font-size:clamp(1.4rem,4vw,1.9rem)">Top 3 on our buying list</h2>
+    <p class="lead" style="font-size:.95rem">Voting runs for a calendar month, then the favourites go on the buying list and the count starts fresh.</p>
     <ol class="wanted-list" id="winners-list"></ol>
-  </div>
-
-  <div class="wanted" id="most-wanted" hidden>
-    <p class="eyebrow" style="margin-top:56px">Community picks</p>
-    <h2 class="section-title" style="font-size:clamp(1.4rem,4vw,1.9rem)">Most wanted this month</h2>
-    <p class="lead" style="font-size:.95rem">The count resets each month, so every series gets a fresh shot.</p>
-    <ol class="wanted-list" id="wanted-list"></ol>
   </div>
 </section>
 {{ end }}
@@ -73,15 +67,9 @@
       });
       document.getElementById(wrapId).hidden = false;
     }
-    function loadList(){
-      fetch(API + '/api/requests?limit=10').then(function(r){ return r.json(); }).then(function(d){
-        if(d.ok) fillList('wanted-list', 'most-wanted', d.requests);
-      }).catch(function(){ /* lists are a bonus - stay hidden if unreachable */ });
-    }
-    loadList();
-    fetch(API + '/api/requests?month=last&limit=3').then(function(r){ return r.json(); }).then(function(d){
+    fetch(API + '/api/requests?limit=3').then(function(r){ return r.json(); }).then(function(d){
       if(d.ok) fillList('winners-list', 'last-month', d.requests);
-    }).catch(function(){});
+    }).catch(function(){ /* list is a bonus - stays hidden if unreachable */ });
 
     form.addEventListener('submit', function(e){
       e.preventDefault();
@@ -107,7 +95,6 @@
                 : '🌸 Added! You\'re the first to request "' + d.title + '".';
             }
             thanks.hidden = false;
-            loadList();
             return;
           }
           errBox.textContent = d.error || 'Something went wrong - please try again.';

@@ -89,6 +89,37 @@ const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
 const NOISE_WORDS = new Set(['the', 'a', 'an', 'manga', 'series']);
 
+/* requests containing these (as whole words, after normalization) are
+   rejected before storage. Extend as needed; legit titles that trip it
+   can always be added by hand in Adminer. */
+const BLOCKED_WORDS = new Set([
+  'fuck', 'fucking', 'fucker', 'fuckers', 'fucked', 'motherfucker',
+  'shit', 'shite', 'bullshit', 'cunt', 'cunts', 'bitch', 'bitches',
+  'cock', 'cocks', 'dick', 'dicks', 'knob', 'prick', 'twat', 'twats',
+  'wank', 'wanker', 'wankers', 'wanking', 'bollocks', 'piss', 'pissed',
+  'arse', 'arsehole', 'ass', 'asshole', 'assholes', 'pussy', 'tits',
+  'cum', 'jizz', 'slut', 'sluts', 'whore', 'whores',
+  'nigger', 'niggers', 'nigga', 'niggas', 'faggot', 'faggots',
+  'retard', 'retarded', 'spastic', 'paki', 'chink', 'kike', 'tranny',
+  'rape', 'rapist', 'porn', 'porno',
+]);
+const BLOCKED_SKELETONS = new Set([...BLOCKED_WORDS].map((w) => w.replace(/[aeiou]/g, '')));
+function containsBlocked(rawTitle, norm) {
+  if (norm.split(' ').some((t) => BLOCKED_WORDS.has(t))) return true;
+  // masked variants ("f*ck", "sh1t"): only tokens containing symbols/digits
+  // get the aggressive de-masked + vowel-stripped comparison, so clean words
+  // like "shot" or "assassination" can never false-positive
+  return rawTitle.toLowerCase().split(/\s+/).some((tok) => {
+    if (!/[^a-z]/.test(tok)) return false;
+    const mapped = tok
+      .replace(/@/g, 'a').replace(/[$5]/g, 's').replace(/0/g, 'o')
+      .replace(/[1!|]/g, 'i').replace(/3/g, 'e').replace(/4/g, 'a').replace(/7/g, 't')
+      .replace(/[^a-z]/g, '');
+    if (!mapped) return false;
+    return BLOCKED_WORDS.has(mapped) || BLOCKED_SKELETONS.has(mapped.replace(/[aeiou]/g, ''));
+  });
+}
+
 function normalizeTitle(raw) {
   let s = raw.toLowerCase().normalize('NFKD').replace(/[\̀-\ͯ]/g, '');
   s = s.replace(/[^a-z0-9]+/g, ' ').trim();
@@ -193,10 +224,11 @@ const server = http.createServer(async (req, res) => {
   }
 
   if (req.method === 'GET' && path === '/api/requests') {
+    // only last month's standings are public - the in-progress month is
+    // never displayed, so nothing unmoderated can appear on the site
     try {
-      const wantPrev = url.searchParams.get('month') === 'last';
-      const month = monthKey(wantPrev ? -1 : 0);
-      const limit = Math.min(Math.max(parseInt(url.searchParams.get('limit') || (wantPrev ? '3' : '10'), 10) || 10, 1), 20);
+      const month = monthKey(-1);
+      const limit = Math.min(Math.max(parseInt(url.searchParams.get('limit') || '3', 10) || 3, 1), 10);
       const [rows] = await pool.query(
         'SELECT title, request_count FROM manga_requests WHERE month = ? ORDER BY request_count DESC, updated_at DESC LIMIT ?',
         [month, limit]);
@@ -219,6 +251,9 @@ const server = http.createServer(async (req, res) => {
       const norm = normalizeTitle(title);
       if (title.length < 2 || !norm) {
         return send(res, 400, { ok: false, error: 'Give us a series name to look for!' });
+      }
+      if (containsBlocked(title, norm)) {
+        return send(res, 400, { ok: false, error: 'Let’s keep it to series we could put on the shelf! 🌸' });
       }
       try {
         const month = monthKey(0); // requests only compete within the current month
