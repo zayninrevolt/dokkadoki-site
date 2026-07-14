@@ -132,7 +132,10 @@ function rateLimited(ip, bucket, max) {
 }
 
 function send(res, code, body) {
-  res.writeHead(code, { 'Content-Type': 'application/json' });
+  res.writeHead(code, {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*', // write-only API, no cookies/credentials
+  });
   res.end(JSON.stringify(body));
 }
 
@@ -152,6 +155,16 @@ function clientIp(req) {
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, 'http://localhost');
   const path = url.pathname.replace(/\/+$/, '') || '/';
+
+  if (req.method === 'OPTIONS') { // CORS preflight (LAN testing hits the API cross-port)
+    res.writeHead(204, {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Max-Age': '86400',
+    });
+    return res.end();
+  }
 
   if (req.method === 'GET' && (path === '/api/health' || path === '/health')) {
     try {

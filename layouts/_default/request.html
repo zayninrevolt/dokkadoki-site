@@ -37,6 +37,9 @@
 {{ define "scripts" }}
 <script>
   (function(){
+    /* on the real domain the tunnel routes /api/*; when testing on the LAN
+       (hugo on :1313) talk to the API container on :3456 directly */
+    var API = location.port === '1313' ? location.protocol + '//' + location.hostname + ':3456' : '';
     var form = document.getElementById('request-form');
     var input = document.getElementById('manga-title');
     var errBox = document.getElementById('request-error');
@@ -61,12 +64,12 @@
       document.getElementById(wrapId).hidden = false;
     }
     function loadList(){
-      fetch('/api/requests?limit=10').then(function(r){ return r.json(); }).then(function(d){
+      fetch(API + '/api/requests?limit=10').then(function(r){ return r.json(); }).then(function(d){
         if(d.ok) fillList('wanted-list', 'most-wanted', d.requests);
       }).catch(function(){ /* lists are a bonus - stay hidden if unreachable */ });
     }
     loadList();
-    fetch('/api/requests?month=last&limit=3').then(function(r){ return r.json(); }).then(function(d){
+    fetch(API + '/api/requests?month=last&limit=3').then(function(r){ return r.json(); }).then(function(d){
       if(d.ok) fillList('winners-list', 'last-month', d.requests);
     }).catch(function(){});
 
@@ -78,7 +81,7 @@
       if(v.length < 2){ input.focus(); input.style.borderColor = '#ff9db1'; return; }
       var btn = form.querySelector('.btn');
       btn.disabled = true;
-      fetch('/api/request-manga', {
+      fetch(API + '/api/request-manga', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ title: v, website: document.getElementById('website').value })

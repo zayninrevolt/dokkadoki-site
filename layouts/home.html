@@ -159,6 +159,9 @@
 <script>
   /* ---- launch-list form: POSTs to the signup API (signup-api/server.js) ---- */
   (function(){
+    /* on the real domain the tunnel routes /api/*; when testing on the LAN
+       (hugo on :1313) talk to the API container on :3456 directly */
+    var API = location.port === '1313' ? location.protocol + '//' + location.hostname + ':3456' : '';
     var form = document.getElementById('signup');
     var email = document.getElementById('email');
     var errBox = document.getElementById('form-error');
@@ -174,7 +177,7 @@
       }
       var btn = form.querySelector('.btn');
       btn.disabled = true;
-      fetch('/api/subscribe', {
+      fetch(API + '/api/subscribe', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ email: v, website: document.getElementById('website').value })
