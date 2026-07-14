@@ -7,14 +7,14 @@ We like this stuff simple, so here's the honest version.
 
 ## What we collect
 
-If you join our **launch list**, we store the email address you give us and
+If you join our **newsletter**, we store the email address you give us and
 the date you signed up. That's the lot — no names, no tracking profiles.
 
 ## What we use it for
 
-One thing: emailing you when Dokkadoki opens (and, at most, the occasional
-big-news update about the café). We won't sell, rent or share your address
-with anyone else, ever.
+Sending you our newsletter: roughly one email a month with café news, new
+manga on the wall, and events we're part of. We won't sell, rent or share
+your address with anyone else, ever.
 
 ## Where it lives
 
@@ -29,7 +29,7 @@ when the page loads (as with most websites).
 
 ## How long we keep it
 
-Until we've sent the launch email and any sign-off note — or sooner if you ask.
+For as long as you're subscribed. Ask to leave and it's deleted, straight away.
 
 ## Want off the list?
 

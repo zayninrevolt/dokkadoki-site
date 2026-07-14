@@ -11,16 +11,16 @@
   </div>
 
   <form class="signup" id="signup" novalidate>
-    <h2>Be first through the door 🚪</h2>
-    <p class="sub">Pop your email in and we’ll let you know the moment we open.</p>
+    <h2>The Dokkadoki newsletter 💌</h2>
+    <p class="sub">A little letter from the café each month — opening news, fresh manga on the wall, and events we're heading to.</p>
     <div class="field">
       <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" aria-label="Email address" required />
       <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
       <button class="btn" type="submit">Notify me</button>
     </div>
-    <p class="note">No spam — just one message when we launch. 🌸 <a href="{{ "/privacy/" | relURL }}">Privacy</a></p>
+    <p class="note">One email a month, no spam — leave whenever you like. 🌸 <a href="{{ "/privacy/" | relURL }}">Privacy</a></p>
     <p class="form-error" id="form-error" hidden></p>
-    <div class="thanks"><span>🎉</span><span>You’re on the list — see you at opening!</span></div>
+    <div class="thanks"><span>🎉</span><span>You’re on the list — see you in your inbox!</span></div>
   </form>
 </section>
 
@@ -32,13 +32,44 @@
   <div class="space">
     <div>
       <ul>
-        <li><span class="tick">☕</span> Speciality coffee, Japanese sodas, matcha and sweet snacks</li>
-        <li><span class="tick">📚</span> A wall of 1,000+ manga (and growing) to read in store — <a class="inline-link" href="{{ site.Params.libibURL }}" target="_blank" rel="noopener">browse the catalogue</a></li>
-        <li><span class="tick">🛋️</span> Snug bench seating to curl up with a book, drink in hand</li>
-        <li><span class="tick">🌸</span> A warm, kawaii-tinged space celebrating Japanese stories and everyday charm</li>
+        <li><span class="tick">☕</span> <span>Speciality coffee, Japanese sodas, matcha and sweet snacks</span></li>
+        <li><span class="tick">📚</span> <span>A wall of 1,000+ manga (and growing) to read in store — <a class="inline-link" href="{{ site.Params.libibURL }}" target="_blank" rel="noopener">browse the catalogue</a></span></li>
+        <li><span class="tick">🛋️</span> <span>Snug bench seating to curl up with a book, drink in hand</span></li>
+        <li><span class="tick">🌸</span> <span>A warm, kawaii-tinged space celebrating Japanese stories and everyday charm</span></li>
       </ul>
     </div>
-    <div class="art" aria-hidden="true">🌸📖☕</div>
+    <div class="art" aria-hidden="true">
+      <svg viewBox="0 0 260 210" xmlns="http://www.w3.org/2000/svg" role="img">
+        <!-- steam -->
+        <path d="M105 62 q-9 -11 0 -21 q9 -10 0 -20" fill="none" stroke="#8fcbe6" stroke-width="6" stroke-linecap="round" opacity=".75"/>
+        <path d="M138 64 q-9 -11 0 -21 q9 -10 0 -20" fill="none" stroke="#ffb7c5" stroke-width="6" stroke-linecap="round" opacity=".75"/>
+        <!-- saucer -->
+        <ellipse cx="122" cy="178" rx="74" ry="14" fill="#ffffff" stroke="#42556b" stroke-width="5"/>
+        <!-- handle -->
+        <path d="M188 100 q34 2 30 28 q-4 24 -32 20" fill="none" stroke="#42556b" stroke-width="9" stroke-linecap="round"/>
+        <!-- cup body -->
+        <path d="M60 88 L184 88 L178 142 Q175 168 122 168 Q69 168 66 142 Z" fill="#ffffff" stroke="#42556b" stroke-width="5" stroke-linejoin="round"/>
+        <!-- coffee -->
+        <ellipse cx="122" cy="88" rx="62" ry="15" fill="#b9825e" stroke="#42556b" stroke-width="5"/>
+        <ellipse cx="122" cy="88" rx="46" ry="10" fill="#f2ddc9"/>
+        <!-- sakura latte art -->
+        <g fill="#ffb7c5">
+          <circle cx="122" cy="81" r="4.5"/>
+          <circle cx="129" cy="86" r="4.5"/>
+          <circle cx="126" cy="93" r="4.5"/>
+          <circle cx="118" cy="93" r="4.5"/>
+          <circle cx="115" cy="86" r="4.5"/>
+        </g>
+        <circle cx="122" cy="88" r="3" fill="#f7d774"/>
+        <!-- floating petals -->
+        <g fill="#ffc2d1">
+          <path d="M38 70 q6 -2 8 4 q-2 6 -8 4 q-4 -4 0 -8Z"/>
+          <path d="M212 58 q6 -2 8 4 q-2 6 -8 4 q-4 -4 0 -8Z"/>
+          <path d="M226 132 q6 -2 8 4 q-2 6 -8 4 q-4 -4 0 -8Z" opacity=".7"/>
+          <path d="M30 140 q6 -2 8 4 q-2 6 -8 4 q-4 -4 0 -8Z" opacity=".7"/>
+        </g>
+      </svg>
+    </div>
   </div>
 </section>
 
