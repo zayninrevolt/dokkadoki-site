@@ -1,0 +1,94 @@
+{{ define "main" }}
+<section class="hero hero-small wrap">
+  <p class="kana">リクエスト</p>
+  <h1 class="wordmark wordmark-small">Request a manga<span class="dot">.</span></h1>
+  <p class="tagline">Tell us what you'd love to read at Dokkadoki. The most-requested series go top of our buying list.</p>
+</section>
+
+<section class="block wrap" style="padding-top:10px">
+  <form class="signup request-form" id="request-form" novalidate>
+    <h2>What should we stock? 📚</h2>
+    <p class="sub">One series at a time. If someone's already asked, your vote is added to theirs.</p>
+    <div class="field">
+      <input type="text" id="manga-title" name="title" placeholder="e.g. Yotsuba&amp;!" maxlength="160" aria-label="Manga series name" required />
+      <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
+      <button class="btn" type="submit">Request it</button>
+    </div>
+    <p class="note">Requests are anonymous - we only store the series name. 🌸</p>
+    <p class="form-error" id="request-error" hidden></p>
+    <p class="request-thanks" id="request-thanks" hidden></p>
+  </form>
+
+  <div class="wanted" id="most-wanted" hidden>
+    <p class="eyebrow" style="margin-top:56px">Community picks</p>
+    <h2 class="section-title" style="font-size:clamp(1.4rem,4vw,1.9rem)">Most wanted</h2>
+    <ol class="wanted-list" id="wanted-list"></ol>
+  </div>
+</section>
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+  (function(){
+    var form = document.getElementById('request-form');
+    var input = document.getElementById('manga-title');
+    var errBox = document.getElementById('request-error');
+    var thanks = document.getElementById('request-thanks');
+
+    function loadList(){
+      fetch('/api/requests?limit=10').then(function(r){ return r.json(); }).then(function(d){
+        if(!d.ok || !d.requests || !d.requests.length) return;
+        var ol = document.getElementById('wanted-list');
+        ol.textContent = '';
+        d.requests.forEach(function(item){
+          var li = document.createElement('li');
+          var name = document.createElement('span');
+          name.className = 'wanted-title';
+          name.textContent = item.title;
+          var count = document.createElement('span');
+          count.className = 'wanted-count';
+          count.textContent = item.count + (item.count === 1 ? ' request' : ' requests');
+          li.appendChild(name);
+          li.appendChild(count);
+          ol.appendChild(li);
+        });
+        document.getElementById('most-wanted').hidden = false;
+      }).catch(function(){ /* list is a bonus - stay hidden if unreachable */ });
+    }
+    loadList();
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      errBox.hidden = true;
+      thanks.hidden = true;
+      var v = (input.value || '').trim();
+      if(v.length < 2){ input.focus(); input.style.borderColor = '#ff9db1'; return; }
+      var btn = form.querySelector('.btn');
+      btn.disabled = true;
+      fetch('/api/request-manga', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ title: v, website: document.getElementById('website').value })
+      }).then(function(r){ return r.json().catch(function(){ return {}; }).then(function(d){ d.httpOk = r.ok; return d; }); })
+        .then(function(d){
+          if(d.httpOk && d.ok){
+            input.value = '';
+            thanks.textContent = d.matched
+              ? '🎉 Counted! "' + d.title + '" now has ' + d.count + ' requests.'
+              : '🌸 Added! You\'re the first to request "' + d.title + '".';
+            thanks.hidden = false;
+            loadList();
+            return;
+          }
+          errBox.textContent = d.error || 'Something went wrong - please try again.';
+          errBox.hidden = false;
+        })
+        .catch(function(){
+          errBox.textContent = 'Couldn\'t reach the request service - please try again in a minute.';
+          errBox.hidden = false;
+        })
+        .finally(function(){ btn.disabled = false; });
+    });
+  })();
+</script>
+{{ end }}
