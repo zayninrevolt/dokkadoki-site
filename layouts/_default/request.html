@@ -14,7 +14,7 @@
       <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
       <button class="btn" type="submit">Request it</button>
     </div>
-    <p class="note">Requests are anonymous - we only store the series name. 🌸</p>
+    <p class="note">Requests are anonymous - one vote per series per person each month. 🌸</p>
     <p class="form-error" id="request-error" hidden></p>
     <p class="request-thanks" id="request-thanks" hidden></p>
   </form>
@@ -89,9 +89,13 @@
         .then(function(d){
           if(d.httpOk && d.ok){
             input.value = '';
-            thanks.textContent = d.matched
-              ? '🎉 Counted! "' + d.title + '" now has ' + d.count + ' requests.'
-              : '🌸 Added! You\'re the first to request "' + d.title + '".';
+            if(d.alreadyCounted){
+              thanks.textContent = '🌸 You\'ve already requested "' + d.title + '" this month - it\'s on the list with ' + d.count + (d.count === 1 ? ' request!' : ' requests!');
+            } else {
+              thanks.textContent = d.matched
+                ? '🎉 Counted! "' + d.title + '" now has ' + d.count + ' requests.'
+                : '🌸 Added! You\'re the first to request "' + d.title + '".';
+            }
             thanks.hidden = false;
             loadList();
             return;

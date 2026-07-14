@@ -16,6 +16,7 @@
  * and "One Piece manga" count toward the same series.
  */
 const http = require('http');
+const crypto = require('crypto');
 const mysql = require('mysql2/promise');
 
 const PORT = parseInt(process.env.PORT || '3001', 10);
@@ -45,6 +46,13 @@ async function ensureTables() {
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     UNIQUE KEY uniq_title_month (title_normalized, month)
   ) CHARACTER SET utf8mb4`);
+  await pool.query(`CREATE TABLE IF NOT EXISTS manga_request_votes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    request_id INT NOT NULL,
+    voter CHAR(64) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY uniq_vote (request_id, voter)
+  ) CHARACTER SET utf8mb4`);
   // migrate a pre-month table shape if one exists
   try {
     await pool.query('SELECT month FROM manga_requests LIMIT 1');
@@ -64,6 +72,13 @@ function monthKey(offset) {
   d.setDate(1);
   d.setMonth(d.getMonth() + (offset || 0));
   return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+}
+
+/* one vote per person per series per month: voters are stored only as a
+   salted one-way hash of their address - never the address itself */
+const VOTE_SALT = process.env.VOTE_SALT || 'dokkadoki-vote-salt-v1';
+function voterHash(ip) {
+  return crypto.createHash('sha256').update(ip + '|' + VOTE_SALT).digest('hex');
 }
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
@@ -205,20 +220,35 @@ const server = http.createServer(async (req, res) => {
       }
       try {
         const month = monthKey(0); // requests only compete within the current month
+        const voter = voterHash(clientIp(req));
+
+        // one vote per person per series per month: only bump the count if
+        // this voter hasn't already voted for this row
+        async function castVote(row) {
+          try {
+            await pool.query('INSERT INTO manga_request_votes (request_id, voter) VALUES (?, ?)', [row.id, voter]);
+          } catch (e) {
+            if (e.code === 'ER_DUP_ENTRY') {
+              return send(res, 200, { ok: true, title: row.title, count: row.request_count, matched: true, alreadyCounted: true });
+            }
+            throw e;
+          }
+          await pool.query('UPDATE manga_requests SET request_count = request_count + 1 WHERE id = ?', [row.id]);
+          return send(res, 200, { ok: true, title: row.title, count: row.request_count + 1, matched: true });
+        }
+
         const [rows] = await pool.query(
           'SELECT id, title, title_normalized, request_count FROM manga_requests WHERE month = ?', [month]);
         const match = rows.find((r) => sameSeries(norm, r.title_normalized));
-        if (match) {
-          await pool.query('UPDATE manga_requests SET request_count = request_count + 1 WHERE id = ?', [match.id]);
-          return send(res, 200, { ok: true, title: match.title, count: match.request_count + 1, matched: true });
-        }
+        if (match) return castVote(match);
+
         try {
-          await pool.query('INSERT INTO manga_requests (title, title_normalized, month) VALUES (?, ?, ?)', [title, norm, month]);
+          const [ins] = await pool.query('INSERT INTO manga_requests (title, title_normalized, month) VALUES (?, ?, ?)', [title, norm, month]);
+          await pool.query('INSERT IGNORE INTO manga_request_votes (request_id, voter) VALUES (?, ?)', [ins.insertId, voter]);
         } catch (e) {
-          if (e.code === 'ER_DUP_ENTRY') { // lost a race; count it instead
-            await pool.query('UPDATE manga_requests SET request_count = request_count + 1 WHERE title_normalized = ? AND month = ?', [norm, month]);
-            const [[row]] = await pool.query('SELECT title, request_count FROM manga_requests WHERE title_normalized = ? AND month = ?', [norm, month]);
-            return send(res, 200, { ok: true, title: row.title, count: row.request_count, matched: true });
+          if (e.code === 'ER_DUP_ENTRY') { // lost a race creating the row; vote on the winner's row
+            const [[row]] = await pool.query('SELECT id, title, request_count FROM manga_requests WHERE title_normalized = ? AND month = ?', [norm, month]);
+            return castVote(row);
           }
           throw e;
         }

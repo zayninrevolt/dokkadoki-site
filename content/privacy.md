@@ -10,6 +10,11 @@ We like this stuff simple, so here's the honest version.
 If you join our **newsletter**, we store the email address you give us and
 the date you signed up. That's the lot: no names, no tracking profiles.
 
+If you **request a manga**, we store the series name plus a one-way scrambled
+fingerprint of your connection, used only to stop the same person voting for
+the same series twice in a month. It can't be turned back into anything that
+identifies you.
+
 ## What we use it for
 
 Sending you our newsletter: roughly one email a month with café news, new
