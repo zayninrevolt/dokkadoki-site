@@ -8,7 +8,7 @@ We like this stuff simple, so here's the honest version.
 ## What we collect
 
 If you join our **newsletter**, we store the email address you give us and
-the date you signed up. That's the lot — no names, no tracking profiles.
+the date you signed up. That's the lot: no names, no tracking profiles.
 
 ## What we use it for
 
@@ -18,7 +18,7 @@ your address with anyone else, ever.
 
 ## Where it lives
 
-On our own server here in the UK — not with a third-party marketing platform.
+On our own server here in the UK, not with a third-party marketing platform.
 
 ## Cookies
 

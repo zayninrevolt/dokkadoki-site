@@ -2,7 +2,7 @@
 <section class="hero wrap">
   <p class="kana">ようこそ</p>
   <h1 class="hero-logo-wrap"><img class="hero-logo" src="{{ "logo.png" | relURL }}" alt="Dokkadoki Cafe" width="768" height="837" /></h1>
-  <p class="tagline">A manga café &amp; reading room — a cosy little Japanese escape, coming soon to The Millgate, Bury.</p>
+  <p class="tagline">A manga café &amp; reading room - a cosy little Japanese escape, coming soon to The Millgate, Bury.</p>
 
   <div class="pills">
     <span class="pill">☕ Proper coffee</span>
@@ -12,15 +12,15 @@
 
   <form class="signup" id="signup" novalidate>
     <h2>The Dokkadoki newsletter 💌</h2>
-    <p class="sub">A little letter from the café each month — opening news, fresh manga on the wall, and events we're heading to.</p>
+    <p class="sub">A little letter from the café each month - opening news, fresh manga on the wall, and events we're heading to.</p>
     <div class="field">
       <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" aria-label="Email address" required />
       <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
       <button class="btn" type="submit">Notify me</button>
     </div>
-    <p class="note">One email a month, no spam — leave whenever you like. 🌸 <a href="{{ "/privacy/" | relURL }}">Privacy</a></p>
+    <p class="note">One email a month, no spam - leave whenever you like. 🌸 <a href="{{ "/privacy/" | relURL }}">Privacy</a></p>
     <p class="form-error" id="form-error" hidden></p>
-    <div class="thanks"><span>🎉</span><span>You’re on the list — see you in your inbox!</span></div>
+    <div class="thanks"><span>🎉</span><span>You’re on the list - see you in your inbox!</span></div>
   </form>
 </section>
 
@@ -33,7 +33,7 @@
     <div>
       <ul>
         <li><span class="tick">☕</span> <span>Speciality coffee, Japanese sodas, matcha and sweet snacks</span></li>
-        <li><span class="tick">📚</span> <span>A wall of 1,000+ manga (and growing) to read in store — <a class="inline-link" href="{{ site.Params.libibURL }}" target="_blank" rel="noopener">browse the catalogue</a></span></li>
+        <li><span class="tick">📚</span> <span>A wall of 1,000+ manga (and growing) to read in store - <a class="inline-link" href="{{ site.Params.libibURL }}" target="_blank" rel="noopener">browse the catalogue</a></span></li>
         <li><span class="tick">🛋️</span> <span>Snug bench seating to curl up with a book, drink in hand</span></li>
         <li><span class="tick">🌸</span> <span>A warm, kawaii-tinged space celebrating Japanese stories and everyday charm</span></li>
       </ul>
@@ -84,7 +84,7 @@
 <section class="block wrap" id="upcoming-events" data-events-home>
   <p class="eyebrow">Out and about</p>
   <h2 class="section-title">Upcoming events</h2>
-  <p class="lead">Find us — or the things we love — at these. Come say hi! 🌸</p>
+  <p class="lead">Find us (or the things we love) at these. Come say hi! 🌸</p>
   <div class="cards posts-grid" data-events-list>
     {{ range . }}
       {{ partial "event-card.html" . }}
@@ -101,18 +101,18 @@
     <div class="card duo-card">
       <span class="emoji">🛍️</span>
       <h3>Shop our shelves on eBay</h3>
-      <p>Manga, figures and collectible finds — all of our items live on our eBay store, ready to order today.</p>
+      <p>Manga, figures and collectible finds - all of our items live on our eBay store, ready to order today.</p>
       <a class="btn btn-link" href="{{ site.Params.ebayURL }}" target="_blank" rel="noopener">Visit our eBay store</a>
     </div>
     <div class="card duo-card">
       <span class="emoji">📖</span>
       <h3>Browse our manga library</h3>
-      <p>Wondering what's on the reading wall? Our whole in-store collection is catalogued on Libib — have a browse before you visit.</p>
+      <p>Wondering what's on the reading wall? Our whole in-store collection is catalogued on Libib - have a browse before you visit.</p>
       <a class="btn btn-link" href="{{ site.Params.libibURL }}" target="_blank" rel="noopener">Browse the collection</a>
     </div>
     <div class="card duo-card">
       <span class="emoji">🐾</span>
-      <h3>Neko Catch — our little game</h3>
+      <h3>Neko Catch - our little game</h3>
       <p>Help the Dokkadoki café cat catch coffee, manga and sakura (and dodge the chillies!) in our cosy arcade game for iPhone.</p>
       {{ with site.Params.appStoreURL }}
       <a class="btn btn-link" href="{{ . }}" target="_blank" rel="noopener">Get it on the App Store</a>
@@ -169,11 +169,11 @@
       }).then(function(r){ return r.json().catch(function(){ return {}; }).then(function(d){ return { ok: r.ok && d.ok, error: d.error }; }); })
         .then(function(d){
           if(d.ok){ form.classList.add('done'); return; }
-          errBox.textContent = d.error || 'Something went wrong — please try again.';
+          errBox.textContent = d.error || 'Something went wrong - please try again.';
           errBox.hidden = false;
         })
         .catch(function(){
-          errBox.textContent = 'Couldn’t reach the sign-up service — please try again in a minute.';
+          errBox.textContent = 'Couldn’t reach the sign-up service - please try again in a minute.';
           errBox.hidden = false;
         })
         .finally(function(){ btn.disabled = false; });

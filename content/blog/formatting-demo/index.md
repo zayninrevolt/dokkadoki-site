@@ -1,11 +1,11 @@
 ---
-title: "Formatting demo — everything you can do in a post 🖋️"
+title: "Formatting demo - everything you can do in a post 🖋️"
 slug: formatting-demo
 date: 2026-07-10T16:45:00+01:00
 description: "A reference post showing every bit of markdown formatting: images, headings, lists, tables, quotes and more. Delete me before launch!"
 ---
 
-This post is a living cheat-sheet — open `content/blog/formatting-demo/index.md`
+This post is a living cheat-sheet - open `content/blog/formatting-demo/index.md`
 side-by-side with this page to see how each bit is written. Delete the whole
 folder when you don't need it any more.
 
@@ -16,7 +16,7 @@ images. Reference them by filename:
 
 ![Two café cats sharing a coffee](cats.png)
 
-That was written as: `![Two café cats sharing a coffee](cats.png)` — the text
+That was written as: `![Two café cats sharing a coffee](cats.png)` - the text
 in square brackets is the alt text for screen readers and Google.
 
 ## Headings
@@ -74,7 +74,7 @@ Three dashes on their own line make a soft divider:
 
 ## Raw HTML (when markdown isn't enough)
 
-Markdown isn't HTML, but you can drop HTML straight in and it just works —
+Markdown isn't HTML, but you can drop HTML straight in and it just works -
 handy for embeds like YouTube iframes or centring something:
 
 <p style="text-align:center">🌸 Like this centred line 🌸</p>

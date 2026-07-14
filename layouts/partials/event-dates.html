@@ -1,12 +1,12 @@
-{{- /* Renders a friendly date range for an event page, e.g. "24–26 July 2026" */ -}}
+{{- /* Renders a friendly date range for an event page, e.g. "24-26 July 2026" */ -}}
 {{- $s := time .Params.event_start -}}
 {{- $e := time (default .Params.event_start .Params.event_end) -}}
 {{- if eq ($s.Format "2006-01-02") ($e.Format "2006-01-02") -}}
 {{ $s.Format "2 January 2006" }}
 {{- else if and (eq $s.Year $e.Year) (eq $s.Month $e.Month) -}}
-{{ $s.Format "2" }}–{{ $e.Format "2 January 2006" }}
+{{ $s.Format "2" }}-{{ $e.Format "2 January 2006" }}
 {{- else if eq $s.Year $e.Year -}}
-{{ $s.Format "2 January" }} – {{ $e.Format "2 January 2006" }}
+{{ $s.Format "2 January" }} - {{ $e.Format "2 January 2006" }}
 {{- else -}}
-{{ $s.Format "2 Jan 2006" }} – {{ $e.Format "2 Jan 2006" }}
+{{ $s.Format "2 Jan 2006" }} - {{ $e.Format "2 Jan 2006" }}
 {{- end -}}

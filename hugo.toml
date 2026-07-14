@@ -1,6 +1,6 @@
 baseURL = "https://dokkadoki.co.uk/"
 languageCode = "en-gb"
-title = "Dokkadoki — Manga Café & Reading Room · Bury"
+title = "Dokkadoki - Manga Café & Reading Room · Bury"
 
 disableKinds = ["taxonomy", "term"]
 

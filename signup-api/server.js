@@ -65,7 +65,7 @@ const server = http.createServer(async (req, res) => {
   if (req.method === 'POST' && (path === '/api/subscribe' || path === '/subscribe')) {
     const ip = (req.headers['cf-connecting-ip'] || req.headers['x-forwarded-for'] || req.socket.remoteAddress || '')
       .toString().split(',')[0].trim();
-    if (rateLimited(ip)) return send(res, 429, { ok: false, error: 'Too many attempts — try again later.' });
+    if (rateLimited(ip)) return send(res, 429, { ok: false, error: 'Too many attempts - try again later.' });
 
     let raw = '';
     req.on('data', (c) => { raw += c; if (raw.length > 4096) req.destroy(); });
@@ -85,7 +85,7 @@ const server = http.createServer(async (req, res) => {
         return send(res, 200, { ok: true });
       } catch (e) {
         console.error('DB error:', e.message);
-        return send(res, 500, { ok: false, error: 'Something went wrong — please try again.' });
+        return send(res, 500, { ok: false, error: 'Something went wrong - please try again.' });
       }
     });
     return;
