@@ -3,6 +3,11 @@ title: "Formatting demo - everything you can do in a post 🖋️"
 slug: formatting-demo
 date: 2026-07-10T16:45:00+01:00
 description: "A reference post showing every bit of markdown formatting: images, headings, lists, tables, quotes and more. Delete me before launch!"
+draft: true
+build:
+  list: never
+  render: never
+  publishResources: false
 ---
 
 This post is a living cheat-sheet - open `content/blog/formatting-demo/index.md`

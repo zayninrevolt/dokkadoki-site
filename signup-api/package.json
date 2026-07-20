@@ -5,7 +5,8 @@
   "description": "Tiny launch-list signup endpoint for dokkadoki.co.uk — stores emails in MariaDB.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "node --test test/*.test.js"
   },
   "dependencies": {
     "mysql2": "^3.11.0"

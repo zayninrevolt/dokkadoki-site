@@ -3,3 +3,6 @@ public/
 resources/
 .hugo_build.lock
 signup-api/node_modules/
+signup-api/.env
+signup-api/.vote-salt
+.env

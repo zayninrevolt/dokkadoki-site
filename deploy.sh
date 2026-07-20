@@ -28,6 +28,9 @@ if [ ! -d "$DEST" ]; then
   exit 1
 fi
 
+# Refuse to publish a source tree that the installed Hugo cannot build cleanly.
+hugo --renderToMemory --panicOnWarning >/dev/null
+
 # smbfs rm -rf is flaky and may leave a phantom dir; retry, then give up
 # quietly (leftover is a harmless hidden dir in the parent, cleared server-side).
 rm_quiet() {

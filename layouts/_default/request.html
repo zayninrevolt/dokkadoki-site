@@ -31,9 +31,7 @@
 {{ define "scripts" }}
 <script>
   (function(){
-    /* on the real domain the tunnel routes /api/*; when testing on the LAN
-       (hugo on :1313) talk to the API container on :3456 directly */
-    var API = location.port === '1313' ? location.protocol + '//' + location.hostname + ':3456' : '';
+    var API = window.DokkadokiAPI || '';
     /* random per-browser id so people sharing wifi each get their own vote */
     var deviceId = '';
     try {
