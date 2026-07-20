@@ -6,21 +6,21 @@
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · Dokkadoki{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary | plainify | truncate 155 }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}" />
 <meta name="theme-color" content="#bfe3f2" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
 
 <!-- Open Graph / social -->
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
 <meta property="og:title" content="{{ if .IsHome }}Dokkadoki - Manga Café &amp; Reading Room{{ else }}{{ .Title }}{{ end }}" />
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}A manga café and reading room coming soon to The Millgate, Bury. Read, sip, escape.{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
-<meta property="og:image" content="{{ "logo.png" | absURL }}" />
+<meta property="og:image" content="{{ "social-card.png" | absURL }}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta property="og:locale" content="en_GB" />
+<meta name="twitter:card" content="summary_large_image" />
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B8%3C/text%3E%3C/svg%3E" />
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}" />
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" />
 
 {{ with resources.Get "css/main.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ .RelPermalink }}" />
@@ -33,11 +33,11 @@
 
 <header class="nav">
   <div class="nav-inner">
-    <a class="brand" href="{{ "/" | relURL }}"><span class="mark">🌸</span> Dokkadoki</a>
+    <a class="brand" href="{{ "" | relURL }}"><span class="mark">🌸</span> Dokkadoki</a>
     <nav class="nav-links">
-      <a href="{{ "/blog/" | relURL }}">Blog</a>
-      <a href="{{ "/events/" | relURL }}">Events</a>
-      <a href="{{ "/request/" | relURL }}">Requests</a>
+      <a href="{{ "blog/" | relURL }}">Blog</a>
+      <a href="{{ "events/" | relURL }}">Events</a>
+      <a href="{{ "request/" | relURL }}">Requests</a>
       <a href="{{ site.Params.ebayURL }}" target="_blank" rel="noopener">eBay shop</a>
     </nav>
   </div>
@@ -52,16 +52,17 @@
     <div class="foot-mark">Dokkadoki<span class="dot">.</span></div>
     <p class="foot-meta">
       Coming soon to <strong>The Millgate, Bury</strong> ·
-      <a href="{{ "/blog/" | relURL }}">Blog</a> ·
-      <a href="{{ "/events/" | relURL }}">Events</a> ·
+      <a href="{{ "blog/" | relURL }}">Blog</a> ·
+      <a href="{{ "events/" | relURL }}">Events</a> ·
       <a href="{{ site.Params.libibURL }}" target="_blank" rel="noopener">Manga library</a> ·
-      <a href="{{ "/request/" | relURL }}">Request a manga</a> ·
+      <a href="{{ "request/" | relURL }}">Request a manga</a> ·
       <a href="{{ site.Params.ebayURL }}" target="_blank" rel="noopener">eBay shop</a> ·
-      <a href="{{ "/privacy/" | relURL }}">Privacy</a>
+      <a href="{{ "privacy/" | relURL }}">Privacy</a>
     </p>
     <p class="foot-meta">
       <a href="{{ site.Params.instagramURL }}" target="_blank" rel="noopener">📷 Instagram</a> ·
       <a href="{{ site.Params.tiktokURL }}" target="_blank" rel="noopener">🎵 TikTok</a> ·
+      <a href="{{ site.Params.discordURL }}" target="_blank" rel="noopener">💬 Discord</a> ·
       <a href="mailto:{{ site.Params.contactEmail }}">✉️ {{ site.Params.contactEmail }}</a>
     </p>
     <p class="foot-fine">© <span id="year"></span> Dokkadoki. Made with 🌸 in Bury.</p>
@@ -179,6 +180,19 @@
       clearTimeout(rt);
       rt = setTimeout(function(){ resize(); initPetals(); }, 180);
     });
+  })();
+</script>
+<script>
+  /* Same-origin on the eventual public domain; the separate API port is used
+     only when previewing on localhost or a private LAN address. */
+  (function(){
+    var h = location.hostname;
+    var local = h === 'localhost' || h === '127.0.0.1' || h === '::1' ||
+      /^10\./.test(h) || /^192\.168\./.test(h) ||
+      /^172\.(1[6-9]|2\d|3[01])\./.test(h) || /\.local$/i.test(h);
+    window.DokkadokiAPI = local
+      ? location.protocol + '//' + h + ':{{ site.Params.apiDevPort }}'
+      : '{{ site.Params.apiURL }}';
   })();
 </script>
 {{ block "scripts" . }}{{ end }}

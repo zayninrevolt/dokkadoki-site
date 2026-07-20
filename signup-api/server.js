@@ -17,9 +17,19 @@
  */
 const http = require('http');
 const crypto = require('crypto');
+const fs = require('fs');
+const pathModule = require('path');
 const mysql = require('mysql2/promise');
 
 const PORT = parseInt(process.env.PORT || '3001', 10);
+const TRUST_PROXY = process.env.TRUST_PROXY === 'cloudflare';
+const ALLOWED_ORIGINS = new Set((process.env.ALLOWED_ORIGINS || '')
+  .split(',').map((v) => v.trim()).filter(Boolean));
+const EBAY_CLIENT_ID = process.env.EBAY_CLIENT_ID || '';
+const EBAY_CLIENT_SECRET = process.env.EBAY_CLIENT_SECRET || '';
+const EBAY_SELLER = process.env.EBAY_SELLER || 'dokkadoki';
+let ebayTokenCache = null;
+let ebayItemsCache = null;
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
@@ -74,12 +84,83 @@ function monthKey(offset) {
   return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
 }
 
+async function ebayAccessToken() {
+  if (!EBAY_CLIENT_ID || !EBAY_CLIENT_SECRET) throw new Error('eBay integration is not configured');
+  if (ebayTokenCache && ebayTokenCache.expiresAt > Date.now() + 60_000) return ebayTokenCache.value;
+  const response = await fetch('https://api.ebay.com/identity/v1/oauth2/token', {
+    method: 'POST',
+    headers: {
+      Authorization: 'Basic ' + Buffer.from(`${EBAY_CLIENT_ID}:${EBAY_CLIENT_SECRET}`).toString('base64'),
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: new URLSearchParams({
+      grant_type: 'client_credentials',
+      scope: 'https://api.ebay.com/oauth/api_scope',
+    }),
+    signal: AbortSignal.timeout(8_000),
+  });
+  if (!response.ok) throw new Error(`eBay token request failed (${response.status})`);
+  const data = await response.json();
+  ebayTokenCache = { value: data.access_token, expiresAt: Date.now() + (data.expires_in * 1000) };
+  return ebayTokenCache.value;
+}
+
+async function latestEbayItems() {
+  if (ebayItemsCache && ebayItemsCache.expiresAt > Date.now()) return ebayItemsCache.value;
+  if (!/^[a-zA-Z0-9._-]{1,64}$/.test(EBAY_SELLER)) throw new Error('Invalid eBay seller name');
+  const token = await ebayAccessToken();
+  const query = new URLSearchParams({
+    q: '*',
+    limit: '4',
+    sort: 'newlyListed',
+    filter: `sellers:{${EBAY_SELLER}}`,
+  });
+  const response = await fetch(`https://api.ebay.com/buy/browse/v1/item_summary/search?${query}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'X-EBAY-C-MARKETPLACE-ID': 'EBAY_GB',
+    },
+    signal: AbortSignal.timeout(8_000),
+  });
+  if (!response.ok) throw new Error(`eBay item request failed (${response.status})`);
+  const data = await response.json();
+  const items = (data.itemSummaries || []).slice(0, 4).map((item) => ({
+    title: item.title,
+    url: item.itemWebUrl,
+    image: item.image && item.image.imageUrl,
+    price: item.price && item.price.value,
+    currency: item.price && item.price.currency,
+  })).filter((item) => item.title && item.url && /^https:\/\//.test(item.url));
+  ebayItemsCache = { value: items, expiresAt: Date.now() + 15 * 60_000 };
+  return items;
+}
+
 /* one vote per person per series per month: voters are stored only as a
    salted one-way hash of address + a random per-browser id - never the
    address itself. The device id means people sharing wifi (e.g. in the
    café) each get their own vote. */
-const VOTE_SALT = process.env.VOTE_SALT || 'dokkadoki-vote-salt-v1';
+let VOTE_SALT = process.env.VOTE_SALT || '';
+function initializeVoteSalt() {
+  if (VOTE_SALT.length >= 32) return;
+  const saltFile = process.env.VOTE_SALT_FILE || pathModule.join(__dirname, '.vote-salt');
+  try {
+    VOTE_SALT = fs.readFileSync(saltFile, 'utf8').trim();
+  } catch (e) {
+    if (e.code !== 'ENOENT') throw e;
+    const generated = crypto.randomBytes(32).toString('hex');
+    try {
+      fs.writeFileSync(saltFile, generated + '\n', { encoding: 'utf8', mode: 0o600, flag: 'wx' });
+      VOTE_SALT = generated;
+      console.log(`Created persistent voting secret at ${saltFile}`);
+    } catch (writeError) {
+      if (writeError.code !== 'EEXIST') throw writeError;
+      VOTE_SALT = fs.readFileSync(saltFile, 'utf8').trim();
+    }
+  }
+  if (VOTE_SALT.length < 32) throw new Error('Voting secret must be at least 32 characters');
+}
 function voterHash(ip, device) {
+  if (VOTE_SALT.length < 32) throw new Error('VOTE_SALT must be at least 32 characters');
   return crypto.createHash('sha256').update(ip + '|' + (device || '') + '|' + VOTE_SALT).digest('hex');
 }
 
@@ -180,37 +261,84 @@ function rateLimited(ip, bucket, max) {
 }
 
 function send(res, code, body) {
-  res.writeHead(code, {
+  const headers = {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*', // write-only API, no cookies/credentials
-  });
+    'Cache-Control': 'no-store',
+    'X-Content-Type-Options': 'nosniff',
+    'Referrer-Policy': 'no-referrer',
+  };
+  if (res.corsOrigin) {
+    headers['Access-Control-Allow-Origin'] = res.corsOrigin;
+    headers.Vary = 'Origin';
+  }
+  res.writeHead(code, headers);
   res.end(JSON.stringify(body));
 }
 
 function readBody(req, cb) {
   let raw = '';
-  req.on('data', (c) => { raw += c; if (raw.length > 4096) req.destroy(); });
+  let finished = false;
+  req.on('data', (c) => {
+    if (finished) return;
+    raw += c;
+    if (raw.length > 4096) {
+      finished = true;
+      raw = '';
+      cb(new Error('body too large'));
+    }
+  });
   req.on('end', () => {
+    if (finished) return;
+    finished = true;
     try { cb(null, JSON.parse(raw || '{}')); } catch { cb(new Error('bad json')); }
   });
 }
 
 function clientIp(req) {
-  return (req.headers['cf-connecting-ip'] || req.headers['x-forwarded-for'] || req.socket.remoteAddress || '')
+  const forwarded = TRUST_PROXY ? req.headers['cf-connecting-ip'] : '';
+  return (forwarded || req.socket.remoteAddress || '')
     .toString().split(',')[0].trim();
+}
+
+function requestOriginAllowed(req, res) {
+  const origin = req.headers.origin;
+  if (!origin) return true; // same-origin/non-browser requests do not need CORS
+  let allowed = ALLOWED_ORIGINS.has(origin);
+  // With no explicit production allow-list, permit only localhost and RFC1918
+  // origins for private-LAN testing. Public origins remain denied by default.
+  if (!allowed && ALLOWED_ORIGINS.size === 0) {
+    try {
+      const host = new URL(origin).hostname;
+      allowed = host === 'localhost' || host === '127.0.0.1' || host === '::1' ||
+        /^10\./.test(host) || /^192\.168\./.test(host) ||
+        /^172\.(1[6-9]|2\d|3[01])\./.test(host) || /\.local$/i.test(host);
+    } catch (_) { allowed = false; }
+  }
+  if (!allowed) return false;
+  res.corsOrigin = origin;
+  return true;
 }
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, 'http://localhost');
   const path = url.pathname.replace(/\/+$/, '') || '/';
 
+  if (!requestOriginAllowed(req, res)) {
+    return send(res, 403, { ok: false, error: 'Origin not allowed.' });
+  }
+
   if (req.method === 'OPTIONS') { // CORS preflight (LAN testing hits the API cross-port)
-    res.writeHead(204, {
-      'Access-Control-Allow-Origin': '*',
+    const headers = {
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
       'Access-Control-Max-Age': '86400',
-    });
+      'X-Content-Type-Options': 'nosniff',
+    };
+    if (res.corsOrigin) {
+      headers['Access-Control-Allow-Origin'] = res.corsOrigin;
+      headers.Vary = 'Origin';
+    }
+    res.writeHead(204, headers);
     return res.end();
   }
 
@@ -236,6 +364,18 @@ const server = http.createServer(async (req, res) => {
     } catch (e) {
       console.error('DB error:', e.message);
       return send(res, 500, { ok: false, error: 'Something went wrong - please try again.' });
+    }
+  }
+
+  if (req.method === 'GET' && path === '/api/ebay-items') {
+    try {
+      return send(res, 200, { ok: true, items: await latestEbayItems() });
+    } catch (e) {
+      console.error('eBay error:', e.message);
+      if (ebayItemsCache && ebayItemsCache.value) {
+        return send(res, 200, { ok: true, stale: true, items: ebayItemsCache.value });
+      }
+      return send(res, 503, { ok: false, error: 'Shop items are temporarily unavailable.' });
     }
   }
 
@@ -324,6 +464,12 @@ const server = http.createServer(async (req, res) => {
 });
 
 if (require.main === module) {
+  try {
+    initializeVoteSalt();
+  } catch (e) {
+    console.error(`Refusing to start: ${e.message}`);
+    process.exit(1);
+  }
   ensureTables()
     .then(() => console.log('tables ready'))
     .catch((e) => console.error('Could not ensure tables (will retry on first use):', e.message));
@@ -331,4 +477,8 @@ if (require.main === module) {
   server.listen(PORT, () => console.log(`Dokkadoki API listening on :${PORT}`));
 }
 
-module.exports = { normalizeTitle, levenshtein, sameSeries };
+server.headersTimeout = 10_000;
+server.requestTimeout = 15_000;
+server.keepAliveTimeout = 5_000;
+
+module.exports = { normalizeTitle, levenshtein, sameSeries, containsBlocked };

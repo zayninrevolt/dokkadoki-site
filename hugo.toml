@@ -1,5 +1,5 @@
 baseURL = "https://dokkadoki.co.uk/"
-languageCode = "en-gb"
+locale = "en-GB"
 title = "Dokkadoki - Manga Café & Reading Room · Bury"
 
 disableKinds = ["taxonomy", "term"]
@@ -14,11 +14,19 @@ disableKinds = ["taxonomy", "term"]
   libibURL = "https://www.libib.com/u/dokkadoki"
   instagramURL = "https://www.instagram.com/dokkadoki/"
   tiktokURL = "https://www.tiktok.com/@dokkadoki"
+  discordURL = "https://discord.gg/zjutK2TTHv"
   contactEmail = "admin@dokkadoki.co.uk"
-  goatcounter = "dokkadoki" # site code at goatcounter.com; empty string disables
-  # Once Neko Catch is approved, paste the App Store link here and the
-  # "coming soon" badge on the homepage becomes a download button.
-  appStoreURL = ""
+  # Analytics are deliberately disabled. If this changes, update the privacy
+  # notice before enabling an analytics script.
+  goatcounter = ""
+  # Port exposed by the dokkadoki-api container for local/LAN previews.
+  apiDevPort = 3456
+  # Public API stays on Unraid behind its own Cloudflare Tunnel hostname.
+  apiURL = "https://api.dokkadoki.co.uk"
+  appStoreURL = "https://apps.apple.com/gb/app/neko-catch-dokkadoki/id6788832200"
+
+[caches.images]
+  dir = ":cacheDir/images"
 
 [markup.goldmark.renderer]
   unsafe = true # allow raw HTML in markdown posts (embeds, iframes)

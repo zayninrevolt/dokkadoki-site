@@ -18,7 +18,7 @@
       <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
       <button class="btn" type="submit">Notify me</button>
     </div>
-    <p class="note">One email a month, no spam - leave whenever you like. 🌸 <a href="{{ "/privacy/" | relURL }}">Privacy</a></p>
+    <p class="note">One email a month, no spam - leave whenever you like. 🌸 <a href="{{ "privacy/" | relURL }}">Privacy</a></p>
     <p class="form-error" id="form-error" hidden></p>
     <div class="thanks"><span>🎉</span><span>You’re on the list - see you in your inbox!</span></div>
   </form>
@@ -80,8 +80,15 @@
       <h2>What should be on our shelves?</h2>
       <p>Request the series you'd love to read at the café. The most-wanted each month go straight to the top of our buying list.</p>
     </div>
-    <a class="btn btn-link" href="{{ "/request/" | relURL }}">Request a manga</a>
+    <a class="btn btn-link" href="{{ "request/" | relURL }}">Request a manga</a>
   </div>
+</section>
+
+<section class="block wrap ebay-latest" id="ebay-latest" hidden>
+  <p class="eyebrow">Fresh on eBay</p>
+  <h2 class="section-title">Latest finds from our shop</h2>
+  <div class="ebay-grid" id="ebay-items"></div>
+  <p class="all-posts"><a href="{{ site.Params.ebayURL }}" target="_blank" rel="noopener">See everything on eBay →</a></p>
 </section>
 
 {{ $events := where site.RegularPages "Section" "events" }}
@@ -101,7 +108,7 @@
       {{ partial "event-card.html" . }}
     {{ end }}
   </div>
-  <p class="all-posts"><a href="{{ "/events/" | relURL }}">All events →</a></p>
+  <p class="all-posts"><a href="{{ "events/" | relURL }}">All events →</a></p>
 </section>
 {{ end }}
 
@@ -120,7 +127,7 @@
       <h3>Browse our manga library</h3>
       <p>Wondering what's on the reading wall? Our whole in-store collection is catalogued on Libib - have a browse before you visit.</p>
       <a class="btn btn-link" href="{{ site.Params.libibURL }}" target="_blank" rel="noopener">Browse the collection</a>
-      <p class="card-extra">Missing something? <a class="inline-link" href="{{ "/request/" | relURL }}">Request a series</a></p>
+      <p class="card-extra">Missing something? <a class="inline-link" href="{{ "request/" | relURL }}">Request a series</a></p>
     </div>
     <div class="card duo-card">
       <span class="emoji">🐾</span>
@@ -131,6 +138,12 @@
       {{ else }}
       <span class="badge">🍏 Coming soon to the App Store</span>
       {{ end }}
+    </div>
+    <div class="card duo-card">
+      <span class="emoji">💬</span>
+      <h3>Join our Discord server</h3>
+      <p>Chat with the Dokkadoki community, share what you're reading and keep up with the latest café news.</p>
+      <a class="btn btn-link" href="{{ site.Params.discordURL }}" target="_blank" rel="noopener">Join our Discord</a>
     </div>
   </div>
 </section>
@@ -150,7 +163,7 @@
     </a>
     {{ end }}
   </div>
-  <p class="all-posts"><a href="{{ "/blog/" | relURL }}">All posts →</a></p>
+  <p class="all-posts"><a href="{{ "blog/" | relURL }}">All posts →</a></p>
 </section>
 {{ end }}
 {{ end }}
@@ -159,9 +172,7 @@
 <script>
   /* ---- launch-list form: POSTs to the signup API (signup-api/server.js) ---- */
   (function(){
-    /* on the real domain the tunnel routes /api/*; when testing on the LAN
-       (hugo on :1313) talk to the API container on :3456 directly */
-    var API = location.port === '1313' ? location.protocol + '//' + location.hostname + ':3456' : '';
+    var API = window.DokkadokiAPI || '';
     var form = document.getElementById('signup');
     var email = document.getElementById('email');
     var errBox = document.getElementById('form-error');
@@ -193,6 +204,47 @@
         })
         .finally(function(){ btn.disabled = false; });
     });
+  })();
+
+  /* ---- latest eBay listings: supplied by the server-side cached API ---- */
+  (function(){
+    var API = window.DokkadokiAPI || '';
+    var wrap = document.getElementById('ebay-latest');
+    var grid = document.getElementById('ebay-items');
+    if(!wrap || !grid) return;
+    fetch(API + '/api/ebay-items').then(function(r){
+      if(!r.ok) throw new Error('unavailable');
+      return r.json();
+    }).then(function(d){
+      if(!d.ok || !d.items || !d.items.length) return;
+      d.items.forEach(function(item){
+        var card = document.createElement('a');
+        card.className = 'card ebay-card';
+        card.href = item.url;
+        card.target = '_blank';
+        card.rel = 'noopener';
+        if(item.image && /^https:\/\//.test(item.image)){
+          var img = document.createElement('img');
+          img.src = item.image;
+          img.alt = '';
+          img.loading = 'lazy';
+          img.referrerPolicy = 'no-referrer';
+          card.appendChild(img);
+        }
+        var title = document.createElement('h3');
+        title.textContent = item.title;
+        card.appendChild(title);
+        if(item.price){
+          var price = document.createElement('p');
+          price.className = 'ebay-price';
+          try { price.textContent = new Intl.NumberFormat('en-GB', {style:'currency',currency:item.currency || 'GBP'}).format(Number(item.price)); }
+          catch(_) { price.textContent = '£' + item.price; }
+          card.appendChild(price);
+        }
+        grid.appendChild(card);
+      });
+      wrap.hidden = false;
+    }).catch(function(){ /* optional section stays hidden */ });
   })();
 </script>
 {{ end }}

@@ -12,6 +12,6 @@
     {{ .Content }}
   </div>
 
-  {{ if eq .Section "blog" }}<p class="all-posts"><a href="{{ "/blog/" | relURL }}">← Back to all posts</a></p>{{ end }}
+  {{ if eq .Section "blog" }}<p class="all-posts"><a href="{{ "blog/" | relURL }}">← Back to all posts</a></p>{{ end }}
 </article>
 {{ end }}
