@@ -10,13 +10,13 @@
     <h2>What should we stock? 📚</h2>
     <p class="sub">One series at a time. If someone's already asked, your vote is added to theirs.</p>
     <div class="field">
-      <input type="text" id="manga-title" name="title" placeholder="e.g. Yotsuba&amp;!" maxlength="160" aria-label="Manga series name" required />
+      <input type="text" id="manga-title" name="title" placeholder="e.g. Yotsuba&amp;!" maxlength="160" aria-label="Manga series name" aria-describedby="request-error" required />
       <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
       <button class="btn" type="submit">Request it</button>
     </div>
     <p class="note">Requests are anonymous - one vote per series per person each month. 🌸</p>
-    <p class="form-error" id="request-error" hidden></p>
-    <p class="request-thanks" id="request-thanks" hidden></p>
+    <p class="form-error" id="request-error" role="alert" hidden></p>
+    <p class="request-thanks" id="request-thanks" role="status" hidden></p>
   </form>
 
   <div class="wanted" id="last-month" hidden>
@@ -47,6 +47,11 @@
     var errBox = document.getElementById('request-error');
     var thanks = document.getElementById('request-thanks');
 
+    input.addEventListener('input', function(){
+      input.removeAttribute('aria-invalid');
+      errBox.hidden = true;
+    });
+
     function fillList(listId, wrapId, items){
       if(!items || !items.length) return;
       var ol = document.getElementById(listId);
@@ -74,7 +79,13 @@
       errBox.hidden = true;
       thanks.hidden = true;
       var v = (input.value || '').trim();
-      if(v.length < 2){ input.focus(); input.style.borderColor = '#ff9db1'; return; }
+      if(v.length < 2){
+        input.setAttribute('aria-invalid', 'true');
+        errBox.textContent = 'Enter at least two characters for the manga title.';
+        errBox.hidden = false;
+        input.focus();
+        return;
+      }
       var btn = form.querySelector('.btn');
       btn.disabled = true;
       fetch(API + '/api/request-manga', {

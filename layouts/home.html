@@ -14,13 +14,13 @@
     <h2>The Dokkadoki newsletter 💌</h2>
     <p class="sub">A little letter from the café each month - opening news, fresh manga on the wall, and events we're heading to.</p>
     <div class="field">
-      <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" aria-label="Email address" required />
+      <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" aria-label="Email address" aria-describedby="form-error" required />
       <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
       <button class="btn" type="submit">Notify me</button>
     </div>
     <p class="note">One email a month, no spam - leave whenever you like. 🌸 <a href="{{ "privacy/" | relURL }}">Privacy</a></p>
-    <p class="form-error" id="form-error" hidden></p>
-    <div class="thanks"><span>🎉</span><span>You’re on the list - see you in your inbox!</span></div>
+    <p class="form-error" id="form-error" role="alert" hidden></p>
+    <div class="thanks" role="status"><span>🎉</span><span>You’re on the list - see you in your inbox!</span></div>
   </form>
 </section>
 
@@ -177,13 +177,19 @@
     var email = document.getElementById('email');
     var errBox = document.getElementById('form-error');
     if(!form) return;
+    email.addEventListener('input', function(){
+      email.removeAttribute('aria-invalid');
+      errBox.hidden = true;
+    });
     form.addEventListener('submit', function(e){
       e.preventDefault();
       errBox.hidden = true;
       var v = (email.value || '').trim();
       if(!v || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){
+        email.setAttribute('aria-invalid', 'true');
+        errBox.textContent = 'Enter a valid email address.';
+        errBox.hidden = false;
         email.focus();
-        email.style.borderColor = '#ff9db1';
         return;
       }
       var btn = form.querySelector('.btn');

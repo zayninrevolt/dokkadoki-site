@@ -99,6 +99,7 @@ a.pill:hover{transform:translateY(-2px)}
   transition:border-color .2s, box-shadow .2s;
 }
 .field input:focus{outline:none;border-color:var(--sky-deep);box-shadow:0 0 0 4px rgba(143,203,230,.28)}
+.field input[aria-invalid="true"]{border-color:#c34f68;box-shadow:0 0 0 4px rgba(195,79,104,.16)}
 .btn{
   border:0;cursor:pointer;font-family:var(--font-display);font-weight:700;font-size:1rem;
   color:#fff;background:linear-gradient(135deg,var(--blush-deep),#ff9db1);
@@ -297,6 +298,9 @@ footer{padding:54px 0 60px;text-align:center;position:relative;z-index:2}
 .foot-fine{margin-top:18px;font-size:.78rem;color:#9fb0c1}
 
 @media (max-width:760px){
+  .nav-inner{flex-direction:column;justify-content:center}
+  .brand{justify-content:center}
+  .nav-links{width:100%;justify-content:center;flex-wrap:wrap}
   .cards{grid-template-columns:1fr}
   .duo{grid-template-columns:1fr}
   .space{grid-template-columns:1fr;padding:28px}
