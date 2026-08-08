@@ -275,6 +275,15 @@ function send(res, code, body) {
   res.end(JSON.stringify(body));
 }
 
+function isJsonObject(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function stringField(body, key) {
+  if (!(key in body)) return '';
+  return typeof body[key] === 'string' ? body[key] : null;
+}
+
 function readBody(req, cb) {
   let raw = '';
   let finished = false;
@@ -290,7 +299,13 @@ function readBody(req, cb) {
   req.on('end', () => {
     if (finished) return;
     finished = true;
-    try { cb(null, JSON.parse(raw || '{}')); } catch { cb(new Error('bad json')); }
+    try {
+      const body = JSON.parse(raw || '{}');
+      if (!isJsonObject(body)) return cb(new Error('bad json'));
+      cb(null, body);
+    } catch {
+      cb(new Error('bad json'));
+    }
   });
 }
 
@@ -385,9 +400,15 @@ const server = http.createServer(async (req, res) => {
     }
     return readBody(req, async (err, body) => {
       if (err) return send(res, 400, { ok: false, error: 'Bad request.' });
-      if (body.website) return send(res, 200, { ok: true, title: '', count: 1, matched: false }); // honeypot
+      const website = stringField(body, 'website');
+      const rawTitle = stringField(body, 'title');
+      const deviceValue = stringField(body, 'device');
+      if (website === null || rawTitle === null || deviceValue === null) {
+        return send(res, 400, { ok: false, error: 'Bad request.' });
+      }
+      if (website) return send(res, 200, { ok: true, title: '', count: 1, matched: false }); // honeypot
 
-      const title = (body.title || '').trim().replace(/\s+/g, ' ').slice(0, 160);
+      const title = rawTitle.trim().replace(/\s+/g, ' ').slice(0, 160);
       const norm = normalizeTitle(title);
       if (title.length < 2 || !norm) {
         return send(res, 400, { ok: false, error: 'Give us a series name to look for!' });
@@ -397,7 +418,7 @@ const server = http.createServer(async (req, res) => {
       }
       try {
         const month = monthKey(0); // requests only compete within the current month
-        const device = (body.device || '').toString().slice(0, 64);
+        const device = deviceValue.slice(0, 64);
         const voter = voterHash(clientIp(req), device);
 
         // one vote per person per series per month: only bump the count if
@@ -444,9 +465,14 @@ const server = http.createServer(async (req, res) => {
     }
     return readBody(req, async (err, body) => {
       if (err) return send(res, 400, { ok: false, error: 'Bad request.' });
-      if (body.website) return send(res, 200, { ok: true }); // honeypot
+      const website = stringField(body, 'website');
+      const emailValue = stringField(body, 'email');
+      if (website === null || emailValue === null) {
+        return send(res, 400, { ok: false, error: 'Bad request.' });
+      }
+      if (website) return send(res, 200, { ok: true }); // honeypot
 
-      const email = (body.email || '').trim().toLowerCase();
+      const email = emailValue.trim().toLowerCase();
       if (!email || email.length > 254 || !EMAIL_RE.test(email)) {
         return send(res, 400, { ok: false, error: 'That doesn’t look like an email address.' });
       }
@@ -481,4 +507,11 @@ server.headersTimeout = 10_000;
 server.requestTimeout = 15_000;
 server.keepAliveTimeout = 5_000;
 
-module.exports = { normalizeTitle, levenshtein, sameSeries, containsBlocked };
+module.exports = {
+  normalizeTitle,
+  levenshtein,
+  sameSeries,
+  containsBlocked,
+  isJsonObject,
+  stringField,
+};
