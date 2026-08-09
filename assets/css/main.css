@@ -42,14 +42,24 @@ header.nav{position:relative;z-index:3}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:1.25rem;color:var(--ink);text-decoration:none}
 .brand .mark{font-size:1.5rem;line-height:1}
 .nav-links{display:flex;align-items:center;gap:8px}
-.nav-links a{
+.nav-links > a,.nav-menu summary{
   font-size:.88rem;font-weight:500;color:var(--ink);text-decoration:none;
   background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.9);
   padding:7px 14px;border-radius:999px;backdrop-filter:blur(6px);white-space:nowrap;
   transition:background .15s ease;
 }
-.nav-links a:hover{background:var(--white)}
-:where(a,button,input):focus-visible{outline:3px solid #1f6f99;outline-offset:3px}
+.nav-links > a:hover,.nav-menu summary:hover,.nav-menu[open] summary{background:var(--white)}
+.nav-menu{position:relative}
+.nav-menu summary{display:block;cursor:pointer;list-style:none}
+.nav-menu summary::-webkit-details-marker{display:none}
+.nav-menu-panel{
+  position:absolute;right:0;top:calc(100% + 8px);z-index:5;min-width:190px;
+  display:grid;gap:3px;padding:8px;background:var(--white);border:1px solid rgba(255,255,255,.95);
+  border-radius:16px;box-shadow:var(--shadow);
+}
+.nav-menu-panel a{padding:8px 10px;border-radius:10px;color:var(--ink);text-decoration:none;white-space:nowrap}
+.nav-menu-panel a:hover{background:var(--cream)}
+:where(a,button,input,summary):focus-visible{outline:3px solid #1f6f99;outline-offset:3px}
 
 /* ---------- hero ---------- */
 .hero{text-align:center;padding:60px 0 40px}
