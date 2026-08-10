@@ -4,24 +4,32 @@ date: 2026-07-11
 event_start: "2026-08-22T10:00:00"
 event_end: "2026-08-23T17:00:00"
 location: "Mercure Manchester Piccadilly Hotel, Portland Street, Manchester M1 4PH"
-cost: "See ticket page for current prices"
+cost: "See official ticket page for current prices"
 website: "https://rakucon.co.uk/"
-description: "An independent Japanese pop-culture convention with artists, small businesses, performances, panels, a photo studio and games."
+description: "An independent Japanese pop-culture convention with artists, performances, workshops, panels, games, cosplay and an after-party."
 ---
 
-RakuCon returns to Manchester on 22-23 August 2026 at the Mercure Manchester Piccadilly Hotel. The independent Japanese pop-culture convention features artists and small businesses, performances, panels, a photo studio and games.
+RakuCon comes to the Mercure Manchester Piccadilly Hotel for a weekend of independent Japanese pop culture, with artists, small businesses, performances, workshops, panels, games and cosplay.
 
-## Opening times
+## Opening times and activities
 
 - **Saturday 22 August:** 10:00-18:00
 - **Sunday 23 August:** 12:00-17:00
 
-## Visitor information
+The organiser lists dealers and artists, performances, workshops and panels, a games room, photo studio, cosplay photo area and an Anime and Emo After Party. The detailed 2026 running order is still to be announced.
 
-Children under 4 enter free, while child tickets are available for ages 4-12. Carers providing one-to-one care can request a free ticket from the organiser and must provide eligible evidence.
+## Cosplay competition
 
-Tickets may be available at the door, subject to capacity; booking online is the best way to secure entry. The organiser can help with ticket transfers, but tickets cannot be exchanged. Refund requests are at Raku Events' sole discretion, and ticket fees are non-refundable.
+The competition runs on Saturday 22 August, 17:00-18:00, in the Park Suite. Contestants should arrive at 16:45. Online applications close on 14 August or when full; limited on-the-day entries close at 13:00. Handmade and bought costumes are judged separately, with a two-minute maximum stage time.
 
-Real weapons and realistic imitations are prohibited. Props must be no longer than 1.5 metres, made from wood, soft materials or resin, and concealed while carried in public.
+Real weapons and realistic imitations are prohibited. Props must be no longer than 1.5m, made from wood, soft material or resin, and not look realistic. See the [official cosplay competition guidance](https://rakucon.co.uk/cosplay-competition).
 
-Check the [official RakuCon FAQ](https://rakucon.co.uk/faq) for full visitor guidance, and see the [official ticket page](https://rakucon.co.uk/tickets) for current prices and availability.
+## Tickets, ages and access
+
+Ticket prices could not be independently retrieved, so use the [official ticket page](https://rakucon.co.uk/tickets). Door sales may be available subject to capacity; advance booking is recommended. Tickets can be transferred through `info@rakuevents.com`, cannot be exchanged, and refund requests are at the organiser's discretion; ticket fees are non-refundable.
+
+Children aged 4-12 have child tickets and under-fours enter free. General adult-accompaniment and after-party age rules have not been published. The organiser says the event has lifts and ramps; one-to-one carers can request free entry in advance with eligible evidence. Contact `info@rakuevents.com` for access support.
+
+## Travel and planning
+
+The hotel is a short walk from Manchester Piccadilly railway station and accessible from Piccadilly Gardens. The venue advertises parking for 80 cars, but RakuCon-specific availability, rates and accessible-bay arrangements are not published: confirm directly with the hotel. See the [RakuCon FAQ](https://rakucon.co.uk/faq), [activities page](https://rakucon.co.uk/activities) and [venue website](https://www.mercuremanchester.co.uk/) before travelling.
