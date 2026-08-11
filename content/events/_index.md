@@ -1,4 +1,4 @@
 ---
 title: Events
-description: Conventions, festivals and meet-ups we're part of - come say hi!
+description: UK Japanese culture, music, art, film, food, gaming and community events worth planning for.
 ---
