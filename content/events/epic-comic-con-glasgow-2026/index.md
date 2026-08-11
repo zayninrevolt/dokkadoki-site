@@ -9,6 +9,8 @@ website: "https://www.forthefans.uk/epic-comic-con"
 description: "A Glasgow fan convention with stage events, guests, cosplay, gaming, tabletop RPGs, artists, traders and family activities."
 ---
 
+> **Illustrative cover:** This original AI-generated image is a thematic illustration and does not depict the actual event.
+
 EPIC Comic Con Glasgow takes place at the SEC Centre on Saturday 26 and Sunday 27 September. Tickets are on sale, while final showtimes remain promoter-confirmation pending.
 
 ## What to expect

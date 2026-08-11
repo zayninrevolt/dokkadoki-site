@@ -9,6 +9,8 @@ website: "https://manchesterboardgamefestival.co.uk/"
 description: "A three-day Manchester board-gaming weekend with a large game library, RPG sessions and the Geek Fayre."
 ---
 
+> **Illustrative cover:** This original AI-generated image is a thematic illustration and does not depict the actual event.
+
 Manchester Board Game Festival returns for three days of board gaming at Manchester Conference Centre at Pendulum Hotel.
 
 ## What to expect

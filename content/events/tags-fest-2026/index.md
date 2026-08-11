@@ -9,6 +9,8 @@ website: "https://tagsfest.co.uk/"
 description: "A free Edinburgh tabletop and graphic-storytelling festival with talks, panels, a games zone and a marketplace."
 ---
 
+> **Illustrative cover:** This original AI-generated image is a thematic illustration and does not depict the actual event.
+
 TAGS Fest is a free, day-long Tabletop & Graphic Storytelling Festival at Out of the Blue Drill Hall in Edinburgh on Saturday 17 October.
 
 ## What to expect

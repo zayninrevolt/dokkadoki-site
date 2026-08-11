@@ -9,6 +9,8 @@ website: "https://www.comicconventionliverpool.co.uk/"
 description: "A Liverpool fan convention with celebrity panels, photos and autographs, cosplay, gaming, artists and shopping."
 ---
 
+> **Illustrative cover:** This original AI-generated image is a thematic illustration and does not depict the actual event.
+
 Comic Con Liverpool returns to the Liverpool Experience Campus on Saturday 10 and Sunday 11 October, with venue-listed opening times of 09:00–18:00.
 
 ## What to expect
