@@ -6,7 +6,7 @@ event_end: "2026-08-23T17:00:00"
 location: "Mercure Manchester Piccadilly Hotel, Portland Street, Manchester M1 4PH"
 cost: "See official ticket page for current prices"
 website: "https://rakucon.co.uk/"
-description: "An independent Japanese pop-culture convention with artists, performances, workshops, panels, games, cosplay and an after-party."
+description: "Manchester’s independent Japanese pop-culture weekend mixes artists, performances, workshops, games, cosplay and an after-party in the city centre."
 ---
 
 RakuCon comes to the Mercure Manchester Piccadilly Hotel for a weekend of independent Japanese pop culture, with artists, small businesses, performances, workshops, panels, games and cosplay.
@@ -26,10 +26,14 @@ Real weapons and realistic imitations are prohibited. Props must be no longer th
 
 ## Tickets, ages and access
 
-Ticket prices could not be independently retrieved, so use the [official ticket page](https://rakucon.co.uk/tickets). Door sales may be available subject to capacity; advance booking is recommended. Tickets can be transferred through `info@rakuevents.com`, cannot be exchanged, and refund requests are at the organiser's discretion; ticket fees are non-refundable.
+Use the [official ticket page](https://rakucon.co.uk/tickets) for current prices. Door sales may be available subject to capacity; advance booking is recommended. Tickets can be transferred through `info@rakuevents.com`, cannot be exchanged, and refund requests are at the organiser's discretion; ticket fees are non-refundable.
 
 Children aged 4-12 have child tickets and under-fours enter free. General adult-accompaniment and after-party age rules have not been published. The organiser says the event has lifts and ramps; one-to-one carers can request free entry in advance with eligible evidence. Contact `info@rakuevents.com` for access support.
 
 ## Travel and planning
 
-The hotel is a short walk from Manchester Piccadilly railway station and accessible from Piccadilly Gardens. The venue advertises parking for 80 cars, but RakuCon-specific availability, rates and accessible-bay arrangements are not published: confirm directly with the hotel. See the [RakuCon FAQ](https://rakucon.co.uk/faq), [activities page](https://rakucon.co.uk/activities) and [venue website](https://www.mercuremanchester.co.uk/) before travelling.
+The hotel is a short walk from Manchester Piccadilly railway station and accessible from Piccadilly Gardens. The venue advertises parking for 80 cars, but RakuCon-specific availability, rates and accessible-bay arrangements have not been published, so confirm directly with the hotel. See the [RakuCon FAQ](https://rakucon.co.uk/faq), [activities page](https://rakucon.co.uk/activities) and [venue website](https://www.mercuremanchester.co.uk/) before travelling.
+
+## Cover image
+
+This cover was carried over from the former Dokkadoki WordPress site when this event page moved into the current repository on 11 July 2026. The repository does not record the original creator, source URL or licence, so no further attribution can be stated safely.

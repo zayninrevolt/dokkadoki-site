@@ -4,18 +4,16 @@ date: 2026-08-09
 event_start: "2026-09-06T16:00:00"
 event_end: "2026-09-06T22:00:00"
 location: "Platform Shoreditch, 2b Worship Street, London EC2A 2AH"
-cost: "£22.38 General Admission including fee when checked; availability may change"
+cost: "General Admission was £22.38 including the fee on 9 August; availability may change"
 website: "https://www.eventbrite.com/e/anime-districts-gaming-and-anime-night-tickets-1984722893602"
-description: "An over-18s London anime-and-gaming social with PC and console play, karaoke, board games, cosplay and food/drink."
+description: "Anime District’s over-18s Shoreditch social mixes PC and console play with karaoke, board games, cosplay and themed food and drink."
 ---
-
-> **Illustrative cover:** This original AI-generated image is a thematic illustration and does not depict the actual event.
 
 Anime District's Gaming and Anime Night is an over-18s anime-and-gaming social at Platform Shoreditch. It runs 16:00-22:00; last entry is 20:00 and entry is not guaranteed after that time.
 
 ## Tickets and entry
 
-Valid ID and an e-ticket/QR code are required. The £18.59 Early Bird tier had ended when checked; General Admission was £22.38 including the £2.38 fee, with sales scheduled to end on 5 September subject to availability. Refunds are available until seven days before the event. Check the [official Eventbrite listing](https://www.eventbrite.com/e/anime-districts-gaming-and-anime-night-tickets-1984722893602) for live availability.
+Valid ID and an e-ticket/QR code are required. By 9 August the £18.59 Early Bird tier had ended; General Admission was £22.38 including the £2.38 fee, with sales scheduled to end on 5 September subject to availability. Refunds are available until seven days before the event. Check the [official Eventbrite listing](https://www.eventbrite.com/e/anime-districts-gaming-and-anime-night-tickets-1984722893602) for live availability.
 
 ## What to expect
 
@@ -27,4 +25,8 @@ The programme also includes anime opening themes and soundtracks, Simlish karaok
 
 Cosplay is invited. Guests can dress as a favourite anime character or wear a plumbob; people without one are promised a free plumbob headband on entry.
 
-The Eventbrite page provides map directions for walking, cycling, public transport and driving. Event-specific accessibility information, parking/blue-badge arrangements, prop rules, guests, external vendors, exact game list and karaoke/raffle timings are not published: contact the organiser before attending if these matter to you.
+The Eventbrite page provides map directions for walking, cycling, public transport and driving. The organiser has not yet announced accessibility provision, parking or Blue Badge arrangements, prop rules, guests, external vendors, the full game list, or karaoke and raffle timings. Contact the organiser before attending if any of these details affect your visit.
+
+## Cover image
+
+This AI-generated cover is an illustrative mood piece, not an image of the event.

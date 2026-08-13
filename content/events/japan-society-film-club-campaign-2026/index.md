@@ -6,10 +6,8 @@ event_end: "2026-09-02T23:59:00"
 location: "Online via Zoom"
 cost: "Free for Japan Society members; advance Zoom registration required"
 website: "https://www.japansociety.org.uk/event?event=1143&eventcat=11"
-description: "An online Japan Society discussion of Kazuhiro Soda’s documentary Campaign, focused on Japanese grassroots politics and cinema."
+description: "Japan Society Film Club discusses Kazuhiro Soda’s Campaign online, exploring its close-up view of Japanese grassroots politics."
 ---
-
-> **Illustrative cover:** This original AI-generated image is a thematic illustration and does not depict the actual event.
 
 The Japan Society’s recurring online Film Club turns to Kazuhiro Soda’s *Campaign* on 2 September. The first-Wednesday club asks participants to watch the selected film independently, then meet on Zoom for an informal conversation about Japanese cinema, culture and society.
 
@@ -25,6 +23,10 @@ Soda is known for a minimalist observational method that avoids heavy narration,
 
 ## Registration and viewing
 
-The meeting starts at 18:30 BST and requires advance Zoom registration. It is free for Japan Society members; the club says it is open to all, but non-member price/status is **not published / confirm with organiser**. Automated access details are sent after registration.
+The meeting starts at 18:30 BST and requires advance Zoom registration. It is free for Japan Society members. The club says it is open to all, but has not published the non-member price or registration status. Zoom access details are sent after registration.
 
-Participants must obtain and watch the film beforehand. The organiser points to rental viewing through dafilms.com and subscription viewing through Guidedoc; availability and viewing cost may change. Fees, refunds, last-entry and age requirements are **not published / confirm with organiser**. Contact events@japansociety.org.uk or 020 3075 1996.
+Participants must obtain and watch the film beforehand. The organiser points to rental viewing through dafilms.com and subscription viewing through Guidedoc; availability and viewing cost may change. Fees, refunds, last-entry and age requirements have not been announced; ask the organiser if they affect your visit. Contact events@japansociety.org.uk or 020 3075 1996.
+
+## Cover image
+
+This illustrative AI-generated cover is not a photograph or rendering of the event itself.

@@ -6,14 +6,12 @@ event_end: "2026-07-26"
 location: "Olympia London, Hammersmith Rd, W14 8UX"
 cost: "From £28.35"
 website: "https://hyperjapan.co.uk/"
-description: "The UK's ultimate celebration of Japanese culture - anime, manga, cosplay, food, music and workshops, all under one roof at Olympia London."
+description: "Anime, manga, cosplay, Japanese food, live music, shopping and workshops turn Olympia London into a three-day celebration of Japan."
 ---
 
-HYPER JAPAN Festival is the UK's ultimate celebration of Japanese culture, bringing together the very best of traditional and modern Japan under one roof. Whether you're a fan of anime, manga, gaming, fashion, or simply love Japanese food and culture, this vibrant event has something for everyone.
+HYPER JAPAN Festival runs at Olympia London from 24–26 July with anime, manga, gaming and fashion alongside Japanese food and culture.
 
-Explore bustling marketplaces filled with unique merchandise and artisan crafts, enjoy authentic street food and sake tastings, and immerse yourself in captivating cultural performances and live music from J-pop to rock. You'll also find cosplay showcases, workshops, tech exhibits, and plenty of opportunities to connect with fellow enthusiasts.
-
-From centuries-old traditions to cutting-edge pop culture, HYPER JAPAN is a must-visit experience for anyone who loves Japan - or is curious to discover it for the first time.
+The festival advertises merchandise and artisan crafts, Japanese street food and sake tastings, cultural performances and live music ranging from J-pop to rock. Cosplay showcases, workshops and technology exhibits are also part of the programme.
 
 ## Ticket options
 
@@ -25,4 +23,8 @@ From centuries-old traditions to cutting-edge pop culture, HYPER JAPAN is a must
 | Saturday General Admission | £41.55 |
 | Sunday General Admission | £31.50 |
 
-Tickets available on [the Hyper Japan website](https://hyperjapan.co.uk/)!
+Tickets are available through [the HYPER JAPAN website](https://hyperjapan.co.uk/). Check the site for current availability and any additional fees or entry conditions.
+
+## Cover image
+
+This cover was carried over from the former Dokkadoki WordPress site when this event page moved into the current repository on 11 July 2026. The repository does not record the original creator, source URL or licence, so no further attribution can be stated safely.

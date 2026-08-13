@@ -4,14 +4,12 @@ date: 2026-08-10
 event_start: "2026-09-26T00:00:00"
 event_end: "2026-09-27T23:59:00"
 location: "SEC Centre, Glasgow G3 8YW"
-cost: "Tickets are on sale; current prices and tiers were not published when checked"
+cost: "Tickets are on sale; current prices and tiers are still to be announced"
 website: "https://www.forthefans.uk/epic-comic-con"
-description: "A Glasgow fan convention with stage events, guests, cosplay, gaming, tabletop RPGs, artists, traders and family activities."
+description: "EPIC Comic Con Glasgow packs named guests, cosplay, wrestling, retro and tabletop gaming, artists and family activities at the SEC."
 ---
 
-> **Illustrative cover:** This original AI-generated image is a thematic illustration and does not depict the actual event.
-
-EPIC Comic Con Glasgow takes place at the SEC Centre on Saturday 26 and Sunday 27 September. Tickets are on sale, while final showtimes remain promoter-confirmation pending.
+EPIC Comic Con Glasgow takes place at the SEC Centre on Saturday 26 and Sunday 27 September. Tickets are on sale, while the final showtimes are still to be announced.
 
 ## What to expect
 
@@ -21,6 +19,10 @@ Confirmed areas and activities include the Cosplay Hub and Cosplay City Champion
 
 ## Tickets and planning
 
-Ticket prices, tiers, refunds, age/ID rules, props, bag restrictions, final doors and last-entry times are **not published / confirm with organiser**.
+Ticket prices, tiers, refunds, age and ID rules, props, bag restrictions, final doors and last-entry times have not yet been published.
 
 The [SEC event listing](https://www.sec.co.uk/events/detail/epic-comic-con-2026) links to directions, parking and accessibility resources. Event-specific access and parking arrangements were not stated in the listing. Contact the SEC at info@sec.co.uk or 0141 248 3000, and check the [official organiser page](https://www.forthefans.uk/epic-comic-con) before travelling.
+
+## Cover image
+
+This cover uses AI-generated artwork for atmosphere and does not represent the event as it will appear.

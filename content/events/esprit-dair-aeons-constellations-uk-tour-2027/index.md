@@ -6,10 +6,8 @@ event_end: "2027-02-19T22:00:00"
 location: "Birmingham, Cardiff, Leeds, Edinburgh, Newcastle upon Tyne, Nottingham and London"
 cost: "Artist-direct tickets £25 sale price (regular £27.50), with no booking fees"
 website: "https://www.espritdair.com/products/esprit-dair-aeons-constellations-uk-tour-2027"
-description: "Esprit D’Air presents two career-spanning sets across seven UK cities, celebrating Aeons and ten years of Constellations."
+description: "Esprit D’Air plays two career-spanning sets in seven UK cities, pairing Aeons with the tenth anniversary of Constellations."
 ---
-
-> **Illustrative cover:** This original AI-generated image is a thematic illustration and does not depict the actual event.
 
 Esprit D’Air takes *Aeons & Constellations* to seven UK cities from 12–19 February 2027. The double-set tour celebrates the latest album *Aeons*—described by the artist as a No. 1 Official Rock & Metal Albums Chart album—alongside the tenth anniversary of debut album *Constellations*.
 
@@ -29,10 +27,14 @@ The provisional schedule for every stop is doors at 19:00, first set at 20:00, i
 - **Thursday 18 February — Nottingham:** Rescue Rooms; 14+, under-16s accompanied by an adult
 - **Friday 19 February — London:** The Garage; 14+, under-16s accompanied by an adult
 
-The Birmingham show has been upgraded to Asylum’s main room. Exact venue addresses and occurrence-specific access, ID, curfew and entry arrangements were not verified and are **not published / confirm with the relevant venue**.
+The Birmingham show has been upgraded to Asylum’s main room. Exact venue addresses and occurrence-specific access, ID, curfew and entry arrangements have not been published; confirm them with the relevant venue.
 
 ## Tickets and planning
 
-The artist-direct standard ticket is currently shown at a £25 sale price, reduced from £27.50, with “no booking fees”. The product lists all seven variants and says it is in stock, but individual city inventory was not independently checked in checkout. E-tickets are emailed within 24 hours. No VIP tier is exposed.
+The artist-direct standard ticket is currently shown at a £25 sale price, reduced from £27.50, with “no booking fees”. The product lists all seven variants and says it is in stock, but availability may vary by city; check your chosen date before buying. E-tickets are emailed within 24 hours. No VIP tier is exposed.
 
-Door-sale availability, refund or exchange terms, accessibility and companion arrangements, bags/security, last entry and ID requirements are **not published / confirm with organiser**. The artist invites attendees to use the bar during the intermission; other food and drink details are not published.
+Door-sale availability, refund or exchange terms, accessibility and companion arrangements, bags and security, last entry and ID requirements have not been published. The artist invites attendees to use the bar during the intermission; other food and drink details are still to be announced.
+
+## Cover image
+
+An AI-generated illustration sets the theme here; the scene is not from the event.

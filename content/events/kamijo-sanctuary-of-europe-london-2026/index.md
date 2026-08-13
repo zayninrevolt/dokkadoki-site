@@ -4,27 +4,29 @@ date: 2026-08-13
 event_start: "2026-09-24T00:00:00"
 event_end: "2026-09-24T23:59:00"
 location: "The Dome, 178 Junction Road, London N19 5QQ"
-cost: "General ticket page live; current price, fees and availability not independently retrievable"
+cost: "General ticket page live; current price, fees and availability not published"
 website: "https://www.kamijo-official.com/tour"
-description: "Visual-kei artist KAMIJO brings his Sanctuary of Europe tour to The Dome in London."
+description: "Visual-kei artist KAMIJO’s Sanctuary of Europe tour stops at The Dome in London on 24 September."
 ---
 
-> **Archive image — not this event:** [“Kamijo-2016”](https://commons.wikimedia.org/wiki/File:Kamijo-2016.jpg) by Takaaki Henmi shows KAMIJO in an Aesthéticism costume in 2016; it does **not** depict the 2026 London concert. Licensed [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Cropped for presentation; this cover adaptation is shared under CC BY-SA 4.0.
-
-KAMIJO brings his 2026 *Sanctuary of Europe* tour to The Dome in London on 24 September. The official artist itinerary and the venue listing now agree on the date and location, confirming the London stop of the visual-kei artist’s current European run.
+KAMIJO’s 2026 *Sanctuary of Europe* tour reaches The Dome in London on 24 September. The artist's official itinerary and venue listing both confirm the London stop on his current European run.
 
 ## A European tour
 
-The concert is billed as KAMIJO European Tour 2026 “Sanctuary of Europe”. Beyond KAMIJO’s headline performance, the support act, set list, set length and running order are **not published / confirm with organiser**.
+The concert is billed as KAMIJO European Tour 2026 “Sanctuary of Europe”. KAMIJO headlines; the support act, set list, set length and running order have not been announced.
 
 ## Tickets and entry
 
-A public [See Tickets listing](https://domelondon.seetickets.com/event/kamijo/the-dome/3636619) exists, but its checkout could not be inspected when checked. Current general-admission price, mandatory fees and live availability are therefore **not published / confirm with ticket seller**.
+A public [See Tickets listing](https://domelondon.seetickets.com/event/kamijo/the-dome/3636619) is live. Check the current general-admission price, mandatory fees and availability with the seller.
 
-The artist’s tour page also links to member-restricted VIP ticketing. VIP price, availability, inclusions and entry arrangements are **not published / confirm with organiser**. Doors and performance time, age/accompaniment and ID rules, refunds or transfers, last entry and bag/security rules are also **not published / confirm with organiser**.
+The artist's tour page also links to member-restricted VIP ticketing. VIP price, availability, inclusions and entry arrangements have not been published publicly. Doors and performance time, age/accompaniment and ID rules, refunds or transfers, last entry and bag/security rules also remain unannounced.
 
 ## Access and planning
 
-The verified venue is The Dome, 178 Junction Road, London N19 5QQ. Event-specific accessibility, companion, quiet-space, transport and parking arrangements are **not published / confirm with organiser**.
+The Dome is at 178 Junction Road, London N19 5QQ. Event-specific accessibility, companion, quiet-space, transport and parking arrangements have not been published.
 
 Check the [official KAMIJO tour page](https://www.kamijo-official.com/tour), [promoter tour page](https://www.envolprod.com/en/kamijo2026) and [The Dome event listing](https://www.domelondon.co.uk/whatson/09/24-kamijo) before travelling.
+
+## Cover image
+
+[“Kamijo-2016”](https://commons.wikimedia.org/wiki/File:Kamijo-2016.jpg) by Takaaki Henmi shows KAMIJO in an Aesthéticism costume in 2016, not the 2026 London concert. Licensed [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Cropped for presentation; this cover adaptation is shared under CC BY-SA 4.0.

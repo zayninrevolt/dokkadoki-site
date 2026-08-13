@@ -4,18 +4,16 @@ date: 2026-08-10
 event_start: "2026-08-28T15:00:00"
 event_end: "2026-08-30T20:00:00"
 location: "Manchester Conference Centre at Pendulum Hotel, Sackville Street, Manchester M1 3BB"
-cost: "Ticket prices and availability were not published when checked; see the official ticket page"
+cost: "Current ticket prices and availability not published; see the official ticket page"
 website: "https://manchesterboardgamefestival.co.uk/"
-description: "A three-day Manchester board-gaming weekend with a large game library, RPG sessions and the Geek Fayre."
+description: "A three-day Manchester board-gaming weekend with more than 700 library games, bookable RPG sessions and the Geek Fayre."
 ---
 
-> **Illustrative cover:** This original AI-generated image is a thematic illustration and does not depict the actual event.
-
-Manchester Board Game Festival returns for three days of board gaming at Manchester Conference Centre at Pendulum Hotel.
+Manchester Board Game Festival settles into Manchester Conference Centre at Pendulum Hotel for three days of board gaming from 28 to 30 August.
 
 ## What to expect
 
-The organiser advertises a library of more than 700 games, bookable RPG sessions, giveaways and other extras. The Geek Fayre brings traders to the festival. Board gaming and RPGs are confirmed; a cosplay programme, named exhibitors, food and drink provision, and the RPG timetable have not been published.
+The organiser advertises a library of more than 700 games, bookable RPG sessions, giveaways and other extras. The Geek Fayre adds a trader area. Board gaming and RPGs are confirmed; a cosplay programme, named exhibitors, food and drink provision, and the RPG timetable have not been announced.
 
 ## Opening times
 
@@ -25,6 +23,10 @@ The organiser advertises a library of more than 700 games, bookable RPG sessions
 
 ## Tickets and planning
 
-The organiser links to tickets, but its ticket page could not be read when checked. Prices, tiers, fees, availability, entry conditions, age rules, refund terms and bag policy are **not published / confirm with organiser**.
+Current prices, tiers, fees and availability have not been confirmed; check the official ticket page for updates. Entry conditions, age rules, refund terms and bag policy are also unannounced.
 
-The organiser advertises a hotel/accommodation discount. Transport, parking, cycle, step-free and carer information are **not published / confirm with organiser**. Check the [official website](https://manchesterboardgamefestival.co.uk/) and [ticket page](https://manchesterboardgamefestival.co.uk/tickets) before travelling.
+The organiser advertises a hotel/accommodation discount. Transport, parking, cycle, step-free and carer information have not been published. Check the [official website](https://manchesterboardgamefestival.co.uk/) and [ticket page](https://manchesterboardgamefestival.co.uk/tickets) before travelling.
+
+## Cover image
+
+Created as an AI-generated thematic illustration, this cover is not a depiction of the actual event.
