@@ -1,0 +1,36 @@
+---
+title: "BLAZE — RENGOKU EU Tour London 2026"
+date: 2026-08-13
+event_start: "2026-10-27T18:00:00"
+event_end: "2026-10-27T23:59:00"
+location: "The Underworld, Camden, London"
+cost: "£35 plus £6.57 advertised fee (£41.57 total); confirm checkout availability"
+website: "http://www.theunderworldcamden.co.uk/event/blaze-27th-oct-the-underworld-london-tickets/"
+description: "Japanese band BLAZE brings its RENGOKU EU Tour to The Underworld, with an advertised VIP photo session before the main show."
+---
+
+> **Illustrative cover:** This original AI-generated image is a thematic illustration and does not depict the actual event.
+
+BLAZE brings the *“RENGOKU” EU Tour 2026* to The Underworld in Camden on 27 October. The London date separates an advertised VIP door and photo session from general entry and the main performance.
+
+## Timings and programme
+
+The published schedule is:
+
+- **18:00:** VIP door and photo session
+- **19:00:** general doors
+- **20:00:** show
+
+The event copy refers to VIP upgrades and 2-Shot/Polaroid sessions, but their prices, contents, quantities and current purchase status are **not published / confirm with organiser**. A support act, set list, running order and finish time are also **not published / confirm with organiser**.
+
+## Tickets and entry
+
+The venue advertises a £35 base ticket plus a £6.57 fee, totalling £41.57; this matches the server-rendered [DICE listing](https://dice.fm/event/92rvw9-blaze-27th-oct-the-underworld-london-tickets). The purchase link remains present, but interactive inventory could not be checked, so confirm availability at checkout.
+
+Under-14s cannot enter. Ages 14–15 must attend with a parent or legal guardian holding a valid ticket; ages 16–17 may attend unaccompanied. Everyone must carry valid identification, and ticket-holders under 25 must carry photo ID. Extra age restrictions may apply to VIP/photo sessions, but the exact limits are **not published / confirm before buying VIP**.
+
+Refund, exchange or transfer terms, last entry, e-ticket requirements and bag/security rules are **not published / confirm with organiser**.
+
+## Access and planning
+
+The event is at The Underworld in Camden, London. Its exact visitor address and event-specific accessibility, companion, quiet-space, transport and parking arrangements are **not published / confirm with organiser**. Check the official venue page before travelling.
