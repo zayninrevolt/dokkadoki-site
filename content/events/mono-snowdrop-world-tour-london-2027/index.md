@@ -4,7 +4,7 @@ date: 2026-08-13
 event_start: "2027-02-20T18:00:00"
 event_end: "2027-02-20T23:59:00"
 location: "Electric Ballroom, London"
-cost: "£28.50 advertised; mandatory seller charges and live availability not published"
+cost: "£28.50 advertised; check mandatory seller charges and live availability"
 website: "https://electricballroom.co.uk/mono-snowdrop-world-tour-part-1/"
 description: "MONO opens Part 1 of the Snowdrop World Tour at Electric Ballroom on 20 February, with special guests to be announced."
 ---
@@ -21,11 +21,11 @@ The event is advertised for 18:00, but the venue page does not say whether that 
 
 Electric Ballroom advertises £28.50 and links to the current [See Tickets occurrence](https://www.seetickets.com/event/mono/electric-ballroom/3615102). Check mandatory seller charges, ticket tiers and current availability with the seller.
 
-The event is 14+. Under-16s must attend with an adult aged 18 or over, and valid physical photo ID is required for entry. Refund, exchange or transfer terms, last entry, e-ticket requirements and event-specific bag/security rules have not been published.
+The event is 14+. Under-16s must attend with an adult aged 18 or over, and valid physical photo ID is required for entry. Confirm refund, transfer, last-entry, e-ticket and security terms before booking.
 
 ## Access and planning
 
-Confirm the exact visitor address, transport and parking details before travelling. Event-specific accessibility, companion and quiet-space arrangements are also unannounced; the venue links to its general disabled-access information.
+Confirm the exact visitor address, transport and parking details before travelling. The venue links to its general disabled-access information; contact it about event-specific access and companion arrangements.
 
 Check the [official MONO tour calendar](https://www.monoofjapan.com/tour.php) and Electric Ballroom listing before travelling.
 

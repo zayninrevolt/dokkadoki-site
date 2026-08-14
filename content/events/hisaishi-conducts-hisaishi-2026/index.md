@@ -21,11 +21,11 @@ This is not the orchestra’s first recent appearance with Hisaishi: the RPO eve
 
 Doors open at 18:15, the performance begins at 19:00 and the approximate finish is 21:20, including a 25-minute interval. The event is sold out, with a waitlist available for any further ticket release. Published prices were from £54, including a £4 transaction fee charged once per order.
 
-The RPO lists member, under-30, student/young-person and group discount programmes, but has not confirmed whether they will apply to any waitlist release. Refunds, age and ID, accompaniment, bag and security rules have not been published.
+The RPO lists member, under-30, student/young-person and group discount programmes, but has not confirmed whether they will apply to any waitlist release. Confirm ticket, age and security terms before accepting any released place.
 
 ## Access and planning
 
-Large-print and digital programmes can be requested for accessibility needs by emailing crowhurstd@rpo.co.uk at least one full week before the concert. The organiser directs visitors to Royal Albert Hall’s venue-access information. Transport, parking, carer and quiet-space details were not available from the event listing; confirm with the venue before travelling. RPO contact: +44 (0)20 7608 8800.
+Large-print and digital programmes can be requested for accessibility needs by emailing crowhurstd@rpo.co.uk at least one full week before the concert. The organiser directs visitors to Royal Albert Hall’s venue-access information; confirm transport, parking, carer and quiet-space needs with the venue. RPO contact: +44 (0)20 7608 8800.
 
 See the [official RPO event page](https://www.rpo.co.uk/tickets-memberships/event/2026/hisaishi-conducts-hisaishi) for the waitlist and any programme updates.
 

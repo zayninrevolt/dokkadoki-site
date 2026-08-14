@@ -28,7 +28,7 @@ Bristol now has two separately ticketed performances on 10 October. The added 15
 - **15 October — Electric Brixton, London:** **low-ticket alert**
 - **16 October — Concorde 2, Brighton:** **sold out**
 
-Current prices, mandatory fees and availability beyond the artist’s own status annotations have not been published consistently across the ticket pages. Confirm with the relevant seller. Full running orders, support stage times, set lengths and merchandise details are also still to be announced.
+The artist’s status annotations do not establish live seller inventory or current prices and mandatory fees, so confirm each date with the relevant seller. Full running orders, support stage times, set lengths and merchandise details remain TBA.
 
 ## Venue planning
 

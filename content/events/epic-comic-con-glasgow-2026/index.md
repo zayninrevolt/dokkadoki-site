@@ -4,7 +4,7 @@ date: 2026-08-10
 event_start: "2026-09-26T00:00:00"
 event_end: "2026-09-27T23:59:00"
 location: "SEC Centre, Glasgow G3 8YW"
-cost: "Tickets are on sale; current prices and tiers are still to be announced"
+cost: "Tickets are on sale; see the official organiser page for current prices and tiers"
 website: "https://www.forthefans.uk/epic-comic-con"
 description: "EPIC Comic Con Glasgow packs named guests, cosplay, wrestling, retro and tabletop gaming, artists and family activities at the SEC."
 ---
@@ -19,7 +19,7 @@ Confirmed areas and activities include the Cosplay Hub and Cosplay City Champion
 
 ## Tickets and planning
 
-Ticket prices, tiers, refunds, age and ID rules, props, bag restrictions, final doors and last-entry times have not yet been published.
+See the official organiser page for current prices and tiers. Confirm refund, age, ID, prop, bag and entry terms before booking.
 
 The [SEC event listing](https://www.sec.co.uk/events/detail/epic-comic-con-2026) links to directions, parking and accessibility resources. Event-specific access and parking arrangements were not stated in the listing. Contact the SEC at info@sec.co.uk or 0141 248 3000, and check the [official organiser page](https://www.forthefans.uk/epic-comic-con) before travelling.
 

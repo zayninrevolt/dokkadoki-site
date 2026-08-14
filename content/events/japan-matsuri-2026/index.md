@@ -15,7 +15,7 @@ Japan Matsuri fills Trafalgar Square for a free day of Japanese culture and food
 
 The organiser confirms returning and new food stalls around the fountains, cultural activity, martial arts and stage performers. Visitors can also join in with the official Japan Matsuri song, *IBUKI*. The food-stall area is in the centre of the square on either side of the fountains.
 
-Named 2026 performers, final stage times, vendor names and the detailed programme are still to be announced. The organiser's performer pages and downloadable programme currently contain 2025 material, so they should not be treated as the 2026 line-up.
+Named 2026 performers, final stage times, vendor names and the detailed programme remain TBA.
 
 ## Entry and safety
 
@@ -25,9 +25,7 @@ The organiser prohibits bags larger than A4, bikes and scooters, opened alcohol,
 
 Nearby stations include Charing Cross, Leicester Square, Piccadilly Circus and Embankment; Charing Cross also has mainline rail services. The organiser publishes [location and bus guidance](https://japanmatsuri.com/location).
 
-No event-specific step-free route, accessible viewing area, accessible-toilet, quiet-space or carer arrangement has been published yet. Confirm access needs with the organiser before attending.
-
-The final 2026 timetable, stalls, cosplay provision, gaming and tabletop activities, parking and traffic arrangements are also still to be announced. See the [official stalls page](https://japanmatsuri.com/stalls) for updates rather than relying on previous-year maps or vendor lists.
+Confirm event-specific access needs with the organiser before attending. The final 2026 timetable, stalls and other activity details remain TBA; see the [official stalls page](https://japanmatsuri.com/stalls) for current-edition updates.
 
 ## Cover image
 

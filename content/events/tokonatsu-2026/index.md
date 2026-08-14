@@ -6,14 +6,14 @@ event_end: "2026-08-10"
 location: "Boyd Campsite and Activity Centre, Church Road, Henlow, Bedfordshire, SG16 6AN"
 cost: "From £25; see ticket waves for current price"
 website: "https://www.tokonatsu.org.uk/"
-description: "A four-day outdoor Japanese pop-culture festival with camping, cosplay, games, artists, community activities and a food court."
+description: "An outdoor Japanese pop-culture festival running 6–10 August, with camping, cosplay, games, artists, community activities and a food court."
 ---
 
-Tokonatsu is an outdoor Japanese pop-culture camping festival: a long weekend for anime, manga, cosplay, games and community events at Boyd Campsite and Activity Centre.
+Tokonatsu is an outdoor Japanese pop-culture camping festival at Boyd Campsite and Activity Centre from Thursday 6 to Monday 10 August. Early Access covers Thursday–Monday, while Standard Entry covers Friday–Monday.
 
 ## What to expect
 
-The organiser's current programme areas include cosplay, crafting, panels, indoor and outdoor events, arcade and tabletop gaming, TokoMart, Bring & Buy, dealers and artisans, a food court, matsuri and campfire activities. The Food Court serves breakfast, lunch, dinner and snacks through the event. The final dated 2026 timetable, named guests, food traders, vendor list, detailed accessibility arrangements and individual session details are still to be announced. Older programme pages provide background but do not confirm what will run in 2026; check the [official schedule](https://www.tokonatsu.org.uk/whats-on/schedule/) before travelling.
+The organiser's current programme areas include cosplay, crafting, panels, indoor and outdoor events, arcade and tabletop gaming, TokoMart, Bring & Buy, dealers and artisans, a food court, matsuri and campfire activities. The Food Court serves breakfast, lunch, dinner and snacks through the event. The final dated 2026 timetable, named guests, traders, vendors, detailed access arrangements and individual sessions remain TBA; check the [official schedule](https://www.tokonatsu.org.uk/whats-on/schedule/) before travelling.
 
 ## Tickets, camping and arrival
 
@@ -29,4 +29,4 @@ This is an outdoor campsite. Permanent toilets/showers and an additional unisex 
 
 ## Cover image
 
-This cover was carried over from the former Dokkadoki WordPress site when this event page moved into the current repository on 11 July 2026. The repository does not record the original creator, source URL or licence, so no further attribution can be stated safely.
+The original creator, source URL and licence for this inherited cover remain unresolved, so no further attribution can be stated safely.

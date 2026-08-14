@@ -27,13 +27,13 @@ The provisional schedule for every stop is doors at 19:00, first set at 20:00, i
 - **Thursday 18 February — Nottingham:** Rescue Rooms; 14+, under-16s accompanied by an adult
 - **Friday 19 February — London:** The Garage; 14+, under-16s accompanied by an adult
 
-The Birmingham show has been upgraded to Asylum’s main room. Exact venue addresses and occurrence-specific access, ID, curfew and entry arrangements have not been published; confirm them with the relevant venue.
+The Birmingham show has been upgraded to Asylum’s main room. Confirm exact addresses and occurrence-specific access, ID, curfew and entry arrangements with the relevant venue.
 
 ## Tickets and planning
 
 The artist-direct standard ticket is currently shown at a £25 sale price, reduced from £27.50, with “no booking fees”. The product lists all seven variants and says it is in stock, but availability may vary by city; check your chosen date before buying. E-tickets are emailed within 24 hours. No VIP tier is exposed.
 
-Door-sale availability, refund or exchange terms, accessibility and companion arrangements, bags and security, last entry and ID requirements have not been published. The artist invites attendees to use the bar during the intermission; other food and drink details are still to be announced.
+The artist invites attendees to use the bar during the intermission; other food and drink details remain TBA. Confirm door sales, ticket terms, access, companion, security and entry arrangements with the relevant venue.
 
 ## Cover image
 

@@ -13,7 +13,7 @@ COFFINS plays London on 16 August at **Downstairs at The Dome, 178 Junction Road
 
 ## London venue and programme
 
-Both [The Dome’s event page](https://www.domelondon.co.uk/whatson/08/16-coffins) and the current [See Tickets occurrence](https://www.seetickets.com/event/coffins/downstairs-at-the-dome/3623100) list the show at Downstairs at The Dome.
+[The Dome’s event page](https://www.domelondon.co.uk/whatson/08/16-coffins) and the current [See Tickets occurrence](https://www.seetickets.com/event/coffins/downstairs-at-the-dome/3623100) list the show at Downstairs at The Dome.
 
 COFFINS is the confirmed headline act. Support, a tour subtitle, set times, running order and finish time have not been published. The event is advertised for 19:00, but the listing does not say whether this is doors or the performance start.
 
@@ -21,11 +21,9 @@ COFFINS is the confirmed headline act. Support, a tour subtitle, set times, runn
 
 A current ticket page exists, but it does not expose the price, mandatory fees, ticket tiers or live availability outside checkout. Because the event is imminent, do not assume that the existence of the page means tickets remain available.
 
-Age/accompaniment and ID rules, refunds, exchanges or transfers, last entry, e-ticket requirements and bag/security rules have not been announced; ask the organiser before attending.
-
 ## Access and planning
 
-The exact venue address is listed above. Event-specific accessibility, companion and quiet-space arrangements, transport, parking and food or drink details have not been published. Recheck the official venue and seller pages immediately before travelling.
+Check the official venue and seller pages immediately before travelling for age and ID rules, ticket terms, security, access and transport arrangements.
 
 ## Cover image
 

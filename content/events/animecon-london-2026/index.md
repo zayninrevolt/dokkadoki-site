@@ -4,7 +4,7 @@ date: 2026-08-13
 event_start: "2026-10-03T09:30:00"
 event_end: "2026-10-04T17:00:00"
 location: "The Grand Hall, Olympia London, Hammersmith Road, London W14 8UX"
-cost: "Advertised from £25; exact tiers, fees and current availability still to be announced"
+cost: "Advertised from £25; check the official listing for exact tiers, fees and current availability"
 website: "https://www.olympia.co.uk/events/animecon-london"
 description: "Two days of anime and manga culture at Olympia pair J-pop and K-pop performances with fashion, cosplay, artists, shopping and international guests."
 ---
@@ -13,18 +13,18 @@ AnimeCon London fills Olympia London’s Grand Hall with two days of anime and m
 
 ## What is confirmed
 
-The programme is still at category level. Named 2026 guests, a dated stage timetable, panels, screenings, workshops and detailed cosplay activities have not yet been published. It is listed simply as the 2026 event, without a returning-edition label.
+The programme is still at category level. Named 2026 guests, a dated stage timetable and detailed activities remain TBA.
 
 ## Opening times and tickets
 
 - **Saturday 3 October:** VIP entry 09:30; general admission 10:00–18:00
 - **Sunday 4 October:** VIP entry 09:30; general admission 10:00–17:00
 
-Olympia advertises tickets from £25. The organiser has not yet announced the exact tiers, mandatory fees, VIP inclusions or current availability. Sale deadlines, age and accompaniment rules, re-entry, last entry, refunds and transfers are also still to come.
+Olympia advertises tickets from £25. Check the official listing for exact tiers, mandatory fees, VIP inclusions and current availability, and confirm age, entry and refund terms before booking.
 
 ## Access and travel
 
-Olympia publishes venue accessibility, security and journey-planning guidance. The organiser has not yet announced companion-ticket arrangements, quiet space, seating adjustments, cosplay-prop rules or bag sizes. Accessibility and general enquiries can be sent through Olympia’s contact form. Check the [official Olympia event listing](https://www.olympia.co.uk/events/animecon-london) before travelling.
+Olympia publishes venue accessibility, security and journey-planning guidance. Use its contact form for questions about companion tickets, quiet space, seating adjustments, cosplay props or bags. Check the [official Olympia event listing](https://www.olympia.co.uk/events/animecon-london) before travelling.
 
 ## Cover image
 

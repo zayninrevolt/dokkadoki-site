@@ -25,7 +25,7 @@ The programme also includes anime opening themes and soundtracks, Simlish karaok
 
 Cosplay is invited. Guests can dress as a favourite anime character or wear a plumbob; people without one are promised a free plumbob headband on entry.
 
-The Eventbrite page provides map directions for walking, cycling, public transport and driving. The organiser has not yet announced accessibility provision, parking or Blue Badge arrangements, prop rules, guests, external vendors, the full game list, or karaoke and raffle timings. Contact the organiser before attending if any of these details affect your visit.
+The Eventbrite page provides map directions for walking, cycling, public transport and driving. Contact the organiser before attending if you need access or parking arrangements, prop guidance, or exact game, karaoke and raffle details.
 
 ## Cover image
 

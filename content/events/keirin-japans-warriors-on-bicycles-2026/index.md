@@ -25,7 +25,7 @@ McCurry is the author of *War On Wheels: Inside Keirin and Japan's Cycling Subcu
 
 The talk starts at 18:45. Entry is free and booking is essential; the organiser requests a suggested £5 donation from non-members. Each attendee's full name and email address must be entered when booking. Alcohol will be served, so under-18s must attend with a parent or legal guardian.
 
-Fees, refunds, last entry, ID requirements and bag/security rules have not been published. A map is available on the [official event page](https://www.japansociety.org.uk/event?event=1127&eventcat=11). Transport, parking, accessibility, carer and quiet-space information also remain unannounced. Contact events@japansociety.org.uk or 020 3075 1996.
+A map is available on the [official event page](https://www.japansociety.org.uk/event?event=1127&eventcat=11). For ticket terms, ID, security, access or travel questions, contact events@japansociety.org.uk or 020 3075 1996.
 
 ## Cover image
 

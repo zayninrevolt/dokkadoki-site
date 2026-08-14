@@ -36,4 +36,4 @@ The hotel is a short walk from Manchester Piccadilly railway station and accessi
 
 ## Cover image
 
-This cover was carried over from the former Dokkadoki WordPress site when this event page moved into the current repository on 11 July 2026. The repository does not record the original creator, source URL or licence, so no further attribution can be stated safely.
+The original creator, source URL and licence for this inherited cover remain unresolved, so no further attribution can be stated safely.

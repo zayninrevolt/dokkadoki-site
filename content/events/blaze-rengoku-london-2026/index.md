@@ -19,7 +19,7 @@ The published schedule is:
 - **19:00:** general doors
 - **20:00:** show
 
-The event copy refers to VIP upgrades and 2-Shot/Polaroid sessions, but their prices, contents, quantities and current purchase status have not been published. A support act, set list, running order and finish time are also still to be announced.
+Prices, contents, quantities and purchase status for the advertised VIP upgrades and 2-Shot/Polaroid sessions remain TBA. Support, running order and finish time are also TBA.
 
 ## Tickets and entry
 
@@ -27,11 +27,9 @@ The venue and [DICE listing](https://dice.fm/event/92rvw9-blaze-27th-oct-the-und
 
 Under-14s cannot enter. Ages 14–15 must attend with a parent or legal guardian holding a valid ticket; ages 16–17 may attend unaccompanied. Everyone must carry valid identification, and ticket-holders under 25 must carry photo ID. Extra age restrictions may apply to VIP/photo sessions, but the organiser has not announced the exact limits. Ask before buying a VIP upgrade.
 
-Refund, exchange or transfer terms, last entry, e-ticket requirements and bag and security rules have not been published.
-
 ## Access and planning
 
-The event is at The Underworld in Camden, London. The organiser has not yet announced the exact visitor address or arrangements for accessibility, companions, quiet space, transport and parking. Check the official venue page before travelling.
+The event is at The Underworld in Camden, London. Check the official venue page for the exact address, refund and entry terms, security rules, accessibility and travel arrangements before attending.
 
 ## Cover image
 

@@ -4,7 +4,7 @@ date: 2026-08-13
 event_start: "2026-09-19T10:00:00"
 event_end: "2026-09-20T23:59:00"
 location: "Edgbaston Stadium, Edgbaston Road, Birmingham B5 7QU"
-cost: "Weekend £30, Saturday £22 or Sunday £15; Early Bird +£6 and VIP +£15 plus any checkout fees"
+cost: "Weekend £30, Saturday £22 or Sunday £15; Early Bird +£6 and VIP +£15; confirm any checkout fees"
 website: "https://summer.birminghamanimecon.com/"
 description: "Gaming, cosplay, karaoke, panels and a ten-person guest and performer line-up fill a September weekend at Edgbaston Stadium."
 ---
@@ -19,7 +19,7 @@ Confirmed activity areas include video gaming, anime theatre, tabletop gaming, s
 
 ## Tickets and entry
 
-On 13 August, the listed prices were £30 for the weekend, £22 for Saturday and £15 for Sunday, and all three were marked in stock. Standard entry begins at 11:30. Early Bird adds £6, with entry from 10:00 and five raffle tickets. VIP adds £15 and includes Early Bird benefits, ten raffle tickets, a convention badge, official lanyard and tote bag. Mandatory checkout fees have not been published, so confirm the total before purchase.
+On 13 August, the listed prices were £30 for the weekend, £22 for Saturday and £15 for Sunday, and all three were marked in stock. Standard entry begins at 11:30. Early Bird adds £6, with entry from 10:00 and five raffle tickets. VIP adds £15 and includes Early Bird benefits, ten raffle tickets, a convention badge, official lanyard and tote bag. Confirm any mandatory checkout fees and the final total before purchase.
 
 The organiser’s general policy says the event is all ages, with most content approximately PG-13. Under-16s need a responsible adult aged 18 or over; children aged eight and under enter free with an adult. Some evening content may be 18+ and require photo ID.
 
@@ -27,7 +27,7 @@ All weapons and large props are checked. Real weapons, metal replicas, sharp-tip
 
 ## Access and travel
 
-The organiser describes its accessibility process as a work in progress and directs access queries to registrations@animeleague.com. Specific Edgbaston routes, companion arrangements, cloakroom provision, parking and event-day transport guidance have not yet been published. See the [official event website](https://summer.birminghamanimecon.com/) before travelling.
+The organiser describes its accessibility process as a work in progress and directs access queries to registrations@animeleague.com. Ask there about companion arrangements, cloakroom provision, parking and event-day transport, and see the [official event website](https://summer.birminghamanimecon.com/) before travelling.
 
 ## Cover image
 
