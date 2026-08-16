@@ -1,18 +1,41 @@
 ---
 title: "Reading passes & memberships ✨"
-description: "Dokkadoki is exploring future ways to make regular reading visits even more rewarding."
+description: "Join Dokkadoki with a Pay As You Go pass or a monthly/quarterly/annual membership. Preregister online, activate at the café."
 ---
 
-We are exploring reading passes and memberships for people who would like to make Dokkadoki part of their regular routine.
+Membership at Dokkadoki is simple: register your details online, then activate
+your pass at the café. You get a digital member card with a QR code for
+check-in and a Libib barcode for borrowing books while you read.
 
-## Still to be decided
+## Join Dokkadoki
 
-The details are not final yet. That includes pricing, what a pass includes, how long it lasts, and any member perks. We would rather share those things when they are clear than promise something too early.
+<a class="btn btn-link" href="{{ site.Params.membershipURL }}">Sign up for a pass</a>
 
-## What we would like to learn
+You can choose:
 
-If we introduce a pass or membership later, we want it to suit the community. We are interested in what would make regular visits feel worthwhile — more reading time, early event news, member-only picks, or something else entirely.
+- **Pay As You Go** — free to join, pay per visit. Your details are kept on
+  file so we can reach you about anything borrowed or damaged.
+- **Monthly / quarterly / annual memberships** — a regular reading pass for
+  as long as you like. Prices are set at launch.
 
-Share your thoughts by email at [admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk) or in the [Dokkadoki Discord](https://discord.gg/zjutK2TTHv). Your ideas will help shape any future option.
+## How it works
 
-In the meantime, you can browse the [manga library](https://www.libib.com/u/dokkadoki) and [request a series](/request/) you would love to find at Dokkadoki.
+1. **Preregister online** — name, email, date of birth, phone, and address
+   (phone and address are required so we can contact you if a book goes
+   missing or gets damaged).
+2. **Activate at the café** — pay at the counter and staff activate your pass.
+3. **Show your card** — your digital pass shows your status and codes. Staff
+   scan the QR to check you in and the Libib barcode to check books out to
+   you while you're in the café.
+
+Reading is inside the café only — no take-home borrowing.
+
+## Still exploring perks
+
+We're still deciding on member perks (early event news, member-only picks,
+and similar). Tell us what would make regular visits feel worthwhile — email
+[admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk) or join the
+[Dokkadoki Discord](https://discord.gg/zjutK2TTHv).
+
+In the meantime you can browse the [manga library](https://www.libib.com/u/dokkadoki)
+and [request a series](/request/) you'd love to find at Dokkadoki.

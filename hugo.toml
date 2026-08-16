@@ -16,6 +16,10 @@ disableKinds = ["taxonomy", "term"]
   tiktokURL = "https://www.tiktok.com/@dokkadoki"
   discordURL = "https://discord.gg/zjutK2TTHv"
   contactEmail = "admin@dokkadoki.co.uk"
+  # Membership app (separate repo). Flip this to the production URL
+  # (https://members.dokkadoki.com) once the app is deployed; for now it
+  # points at the dev box so it works on the home LAN.
+  membershipURL = "http://192.168.0.69:3100"
   # Analytics are deliberately disabled. If this changes, update the privacy
   # notice before enabling an analytics script.
   goatcounter = ""
