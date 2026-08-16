@@ -12,7 +12,7 @@ explanation. Here's the honest version.
 
 Dokkadoki (a limited company) operates this website (dokkadoki.co.uk) and a
 membership service. If you have any questions about this policy or how we
-handle your data, email **admin@dokkadoki.co.uk**.
+handle your data, email [admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk?subject=Privacy%20question).
 
 ## 2. What we collect, and how
 
@@ -121,7 +121,7 @@ Under UK GDPR you have the right to:
   format.
 - **Withdraw consent** where processing is based on consent.
 
-To exercise any of these rights, email **admin@dokkadoki.co.uk** or ask at
+To exercise any of these rights, email [admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk?subject=Privacy%20request) or ask at
 the café. We'll respond within one month.
 
 ## 10. Security
@@ -133,6 +133,6 @@ has been mishandled, contact us and we will investigate.
 
 ## Want off the list?
 
-Email **admin@dokkadoki.co.uk** and we'll delete your data, no questions
+Email [admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk?subject=Data%20deletion%20request) and we'll delete your data, no questions
 asked — subject to legal record-keeping requirements. You can also ask us
 what we hold about you.

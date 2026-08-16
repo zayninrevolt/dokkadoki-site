@@ -17,4 +17,4 @@ Ingredients, preparation methods and allergens can change, so please speak to a 
 
 ## Tell us what you would love to see
 
-Is there a drink, snack or café favourite you hope makes the menu? Send your idea to [admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk) or join us on [Discord](https://discord.gg/zjutK2TTHv).
+Is there a drink, snack or café favourite you hope makes the menu? Send your idea to [admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk?subject=Menu%20idea) or join us on [Discord](https://discord.gg/zjutK2TTHv).

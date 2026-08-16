@@ -44,7 +44,7 @@ Reading is inside the café only — no take-home borrowing.
 
 We're still deciding on member perks (early event news, member-only picks,
 and similar). Tell us what would make regular visits feel worthwhile — email
-[admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk) or join the
+[admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk?subject=Membership%20question) or join the
 [Dokkadoki Discord](https://discord.gg/zjutK2TTHv).
 
 In the meantime you can browse the [manga library](https://www.libib.com/u/dokkadoki)

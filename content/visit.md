@@ -21,4 +21,4 @@ We are still getting the space ready, so our opening date and regular hours have
 
 Got a manga series you would love to see on the wall? [Send us a manga request](/request/). We use requests to help guide what we look for next.
 
-For questions or local partnership ideas, email us at [admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk).
+For questions or local partnership ideas, email us at [admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk?subject=Question).

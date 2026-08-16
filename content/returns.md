@@ -51,7 +51,7 @@ goes live.
 Reading passes and memberships are services rather than goods. Once a pass
 or membership has been activated at the café, it cannot be cancelled for a
 refund, but you are welcome to ask us about transferring or upgrading it —
-email [admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk) and we'll do
+email [admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk?subject=Return%20or%20exchange) and we'll do
 what we can.
 
 ## Refund process
@@ -72,7 +72,7 @@ you to discuss the next steps.
 
 We only replace items if they are defective or damaged. If you need to
 exchange an item, please email us at
-[admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk) **before** returning it.
+[admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk?subject=Return%20or%20exchange) **before** returning it.
 
 - Replacements are subject to stock availability. If a replacement is
   unavailable, a refund will be issued.
@@ -93,7 +93,7 @@ Please contact us for our return address.
 ## Contact us
 
 If you have any questions about refunds and returns, please contact us at
-[admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk).
+[admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk?subject=Return%20or%20exchange).
 
 Our customer service team is available Monday–Friday, 9am–5pm. We aim to make
 your return process as straightforward as possible. Thank you for shopping
