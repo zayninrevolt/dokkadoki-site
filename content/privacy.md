@@ -1,50 +1,138 @@
 ---
-title: "Privacy 🌸"
-description: "What Dokkadoki collects (very little), why, and how to be removed."
+title: "Privacy policy 🔒"
+description: "What Dokkadoki collects, why, where it lives, and your rights under UK GDPR."
 ---
 
-We like this stuff simple, so here's the honest version.
+Last updated: 16 August 2026.
 
-## What we collect
+We like this stuff simple, but membership data and UK GDPR deserve a proper
+explanation. Here's the honest version.
 
-If you join our **newsletter**, we store the email address you give us and
-the date you signed up. That's the lot: no names, no tracking profiles.
+## 1. Who we are
 
-If you **request a manga**, we store the series name plus a one-way scrambled
-identifier derived from your connection address and a random identifier saved
-in your browser's local storage. We use it only to stop repeat voting for the
-same series during a calendar month. We do not store your connection address
+Dokkadoki (a limited company) operates this website (dokkadoki.co.uk) and a
+membership service. If you have any questions about this policy or how we
+handle your data, email **admin@dokkadoki.co.uk**.
+
+## 2. What we collect, and how
+
+**Newsletter** — if you sign up for our newsletter, we store the email address
+you give us and the date you signed up. That's the lot: no names, no tracking
+profiles.
+
+**Manga requests** — we store the series name you request plus a one-way
+scrambled identifier derived from your connection address and a random value
+saved in your browser's local storage. We use it only to stop repeat voting
+for the same series within a month. We do not store your connection address
 itself, but the derived identifier is still treated as private data.
 
-## What we use it for
+**Memberships** — if you preregister for a reading pass or membership through
+our membership app, we collect:
 
-Sending you our newsletter: roughly one email a month with café news, new
-manga on the wall, and events we're part of. We won't sell, rent or share
-your address with anyone else, ever.
+- **Contact details**: name, email, phone number.
+- **Identity details**: date of birth (so we can apply age-appropriate manga
+  ratings and verify your identity at the café).
+- **Address details**: address line(s), city, postcode and country — required
+  so we can contact you if a book is damaged, lost, or not returned.
+- **Transaction details**: which pass or plan you chose and payment status.
+  Payment itself is taken in person at the café; we do not store card numbers.
+- **Library details**: a Libib account is created for you so staff can check
+  manga out to you while you read in the café.
 
-## Where it lives
+We do **not** collect payment card details, and the site runs **no advertising
+or tracking scripts**.
 
-On our own server here in the UK, not with a third-party marketing platform.
+## 3. How we use your data
 
-## Cookies, local storage and analytics
+- To run the membership service: check you in, verify membership status,
+  check books out to you, and send your pass by email.
+- To send our newsletter (roughly one email a month with café news and events)
+  — only if you've subscribed.
+- To respond to enquiries, manga requests, and customer service messages.
+- To keep our café and stock safe: contacting members about damaged, lost or
+  not-returned books.
+- To meet legal obligations (e.g. tax records).
 
-The site sets **no cookies** and runs **no advertising or analytics scripts**.
-The manga-request form stores one random identifier in your browser's local
-storage so that people sharing the same connection can each vote once. It is
-not used to follow you around the web or build a profile. Site fonts and most
-images are served directly by Dokkadoki. If the latest eBay listings are shown,
-their product images are loaded from eBay's image servers and clicking a listing
-takes you to eBay, where eBay's own privacy and cookie terms apply.
+We never sell your personal data, and we never share it for advertising.
 
-## How long we keep it
+## 4. Lawful bases (UK GDPR)
 
-Newsletter addresses are kept for as long as you're subscribed. Manga-request
-vote identifiers are kept with their request records so that monthly totals
-remain accurate. Ask us to remove information associated with you and we'll do
-so where we can verify which record is yours.
+- **Contract**: running your membership and processing your transaction.
+- **Legal obligation**: keeping transaction records for tax purposes.
+- **Legitimate interests**: website operation, security, and protecting our
+  stock and café.
+- **Consent**: newsletter marketing and anything else we ask you to opt into.
+
+## 5. Where your data lives (hosting)
+
+| Data | Where it lives |
+|---|---|
+| Newsletter & manga requests | Our own server in the UK (MariaDB) |
+| Membership profiles & pass records | Supabase (managed cloud database) |
+| Membership emails | Resend (email delivery service) |
+| Library patron record | Libib (our manga catalogue service) |
+| Website pages | GitHub Pages (static hosting) |
+
+Where third parties process your data, we use contracts and safeguards
+required by UK GDPR. If you'd like to know the specific hosting region for
+any service, email us and we'll tell you.
+
+## 6. Cookies and local storage
+
+The website sets **no cookies** and runs no analytics. The manga-request form
+stores one random identifier in your browser's local storage so people
+sharing a connection can each vote once. It is not used to follow you around
+the web or build a profile.
+
+The membership app uses essential session cookies to keep staff and member
+sessions secure while signed in. It does not set advertising or analytics
+cookies.
+
+## 7. Sharing your data
+
+We do not sell your personal data. We share data only with:
+
+- **Libib** — your name, email, phone, address and a library barcode, so we
+  can check books out to you.
+- **Resend** — your email address, to deliver your membership pass.
+- **Supabase** — the hosting provider for membership data (they process data
+  on our behalf).
+- Regulators, law enforcement, or legal advisers when required by law.
+
+## 8. Data retention
+
+- Newsletter and request data: kept until you unsubscribe or ask us to remove
+  it.
+- Membership records: kept for as long as your membership exists, plus
+  transaction records for at least 6 years for tax/legal purposes.
+- Marketing data: kept until you withdraw consent.
+- After these periods, data is securely deleted or anonymised.
+
+## 9. Your rights
+
+Under UK GDPR you have the right to:
+
+- **Access** the personal data we hold about you.
+- **Correct** inaccurate or incomplete data (you can ask us, or edit your
+  details at the café).
+- **Request deletion** of your data (subject to legal requirements).
+- **Restrict or object** to processing in certain circumstances.
+- **Data portability** — receive a copy of your data in a machine-readable
+  format.
+- **Withdraw consent** where processing is based on consent.
+
+To exercise any of these rights, email **admin@dokkadoki.co.uk** or ask at
+the café. We'll respond within one month.
+
+## 10. Security
+
+We take appropriate technical and organisational measures to protect your
+personal data — access-controlled database roles, server-only API keys,
+HTTPS, and staff-only access to membership tools. If you believe your data
+has been mishandled, contact us and we will investigate.
 
 ## Want off the list?
 
-Email us at **admin@dokkadoki.co.uk** and we'll delete your address, no
-questions asked. You can also ask us what we hold about you (spoiler: just
-your email address).
+Email **admin@dokkadoki.co.uk** and we'll delete your data, no questions
+asked — subject to legal record-keeping requirements. You can also ask us
+what we hold about you.
