@@ -7,9 +7,19 @@ Membership at Dokkadoki is simple: register your details online, then activate
 your pass at the café. You get a digital member card with a QR code for
 check-in and a Libib barcode for borrowing books while you read.
 
-## Join Dokkadoki
+<div style="text-align:center;">
+<h2 id="join-dokkadoki" style="text-align:center;">Join Dokkadoki</h2>
+</div>
 
-<a class="btn btn-link" href="{{ site.Params.membershipURL }}">Sign up for a pass</a>
+<!-- NOTE: URL is the membership app. Dev = LAN box; flip to
+     https://members.dokkadoki.com when the app is deployed. -->
+<div style="text-align:center; margin: 1.6rem 0;">
+  <a
+    class="btn btn-link"
+    href="http://192.168.0.69:3100"
+    style="color:#fff; font-weight:800; background:linear-gradient(135deg,#f489a8,#e56b90); box-shadow:0 10px 22px -10px rgba(229,107,144,.8);"
+  >Sign up for a pass</a>
+</div>
 
 You can choose:
 
