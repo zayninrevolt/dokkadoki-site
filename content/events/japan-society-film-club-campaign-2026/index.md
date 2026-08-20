@@ -23,7 +23,7 @@ Soda is known for a minimalist observational method that avoids heavy narration,
 
 ## Registration and viewing
 
-The meeting starts at 18:30 BST and requires advance Zoom registration. It is free for Japan Society members. The club says it is open to all; confirm the non-member price and current registration status with the organiser. Zoom access details are sent after registration.
+The meeting starts at 18:30 BST and requires advance Zoom registration. It is free for Japan Society members; for non-members the organiser asks for a **recommended £5 donation** (or membership) rather than a fixed ticket price. Advance registration is via the event's "Book online here" link on the official page. The club says it is open to all; confirm the current registration status with the organiser. Zoom access details are sent after registration.
 
 Participants must obtain and watch the film beforehand. The organiser points to rental viewing through dafilms.com and subscription viewing through Guidedoc; availability and viewing cost may change. For registration terms or age requirements, contact events@japansociety.org.uk or 020 3075 1996.
 

@@ -19,7 +19,7 @@ No previous dance experience is needed. Wear comfortable clothing and footwear s
 
 ## Tickets, age rules and access
 
-Booking is essential. The £10 fee includes both practices and the group performance; tickets are non-refundable. Under-16s must attend with an adult. Filming or photography may take place.
+The official page now marks the performance group **Fully booked** (23 August – 4 October) with a **Join waiting list** option. A separate standalone workshop series for those who just want to learn the dance without performing is also offered, though it is currently fully booked too. The £10 fee includes both practices and the group performance; tickets are non-refundable. Under-16s must attend with an adult. Filming or photography may take place.
 
 Japan House has not published event-specific accessibility or travel details for this session. Contact `info@japanhouselondon.uk` or +44 20 3972 7100 before booking if you need support. See the [official Japan House event page](https://www.japanhouselondon.uk/whats-on/learn-to-dance-tanko-bushi-performance-group-for-japan-matsuri/) for booking and updates.
 
