@@ -1,6 +1,6 @@
 ---
 title: "Menu preview ☕"
-description: "A first look at the café side of Dokkadoki — with final menu details still to come."
+description: "A first look at the café side of Dokkadoki - with final menu details still to come."
 ---
 
 A proper read deserves a proper break. We are planning the café side of Dokkadoki around Ueshima Coffee and Japanese convenience-store-style favourites: self-serve instant ramen cookers with optional toppings, sandwiches, onigiri and small Japanese treats for a relaxed manga café visit.

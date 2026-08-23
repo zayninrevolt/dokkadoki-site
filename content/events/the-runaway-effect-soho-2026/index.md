@@ -1,5 +1,5 @@
 ---
-title: "The Runaway Effect (Work in Progress) — Soho Theatre"
+title: "The Runaway Effect (Work in Progress) - Soho Theatre"
 date: 2026-08-16
 event_start: "2026-08-24T18:45:00"
 event_end: "2026-08-25T19:45:00"

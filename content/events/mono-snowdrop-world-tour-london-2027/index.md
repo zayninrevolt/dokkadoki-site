@@ -1,5 +1,5 @@
 ---
-title: "MONO — Snowdrop World Tour London 2027"
+title: "MONO - Snowdrop World Tour London 2027"
 date: 2026-08-13
 event_start: "2027-02-20T18:00:00"
 event_end: "2027-02-20T23:59:00"
@@ -31,4 +31,4 @@ Check the [official MONO tour calendar](https://www.monoofjapan.com/tour.php) an
 
 ## Cover image
 
-[“MONO Oct 22, 2016 — Shenzhen, China”](https://commons.wikimedia.org/wiki/File:MONO_Oct_22,_2016_-_Shenzhen,_China.jpg), credited on Wikimedia Commons to Nimdaonom with the description “Photo by Muto”, shows MONO in Shenzhen in 2016, not the 2027 London concert. Licensed [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Cropped for presentation; this cover adaptation is shared under CC BY-SA 4.0.
+[“MONO Oct 22, 2016 - Shenzhen, China”](https://commons.wikimedia.org/wiki/File:MONO_Oct_22,_2016_-_Shenzhen,_China.jpg), credited on Wikimedia Commons to Nimdaonom with the description “Photo by Muto”, shows MONO in Shenzhen in 2016, not the 2027 London concert. Licensed [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Cropped for presentation; this cover adaptation is shared under CC BY-SA 4.0.

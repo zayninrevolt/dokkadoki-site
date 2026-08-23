@@ -16,23 +16,23 @@ handle your data, email [admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk?sub
 
 ## 2. What we collect, and how
 
-**Newsletter** — if you sign up for our newsletter, we store the email address
+**Newsletter** - if you sign up for our newsletter, we store the email address
 you give us and the date you signed up. That's the lot: no names, no tracking
 profiles.
 
-**Manga requests** — we store the series name you request plus a one-way
+**Manga requests** - we store the series name you request plus a one-way
 scrambled identifier derived from your connection address and a random value
 saved in your browser's local storage. We use it only to stop repeat voting
 for the same series within a month. We do not store your connection address
 itself, but the derived identifier is still treated as private data.
 
-**Memberships** — if you preregister for a reading pass or membership through
+**Memberships** - if you preregister for a reading pass or membership through
 our membership app, we collect:
 
 - **Contact details**: name, email, phone number.
 - **Identity details**: date of birth (so we can apply age-appropriate manga
   ratings and verify your identity at the café).
-- **Address details**: address line(s), city, postcode and country — required
+- **Address details**: address line(s), city, postcode and country - required
   so we can contact you if a book is damaged, lost, or not returned.
 - **Transaction details**: which pass or plan you chose and payment status.
   Payment itself is taken in person at the café; we do not store card numbers.
@@ -47,7 +47,7 @@ or tracking scripts**.
 - To run the membership service: check you in, verify membership status,
   check books out to you, and send your pass by email.
 - To send our newsletter (roughly one email a month with café news and events)
-  — only if you've subscribed.
+  - only if you've subscribed.
 - To respond to enquiries, manga requests, and customer service messages.
 - To keep our café and stock safe: contacting members about damaged, lost or
   not-returned books.
@@ -92,10 +92,10 @@ cookies.
 
 We do not sell your personal data. We share data only with:
 
-- **Libib** — your name, email, phone, address and a library barcode, so we
+- **Libib** - your name, email, phone, address and a library barcode, so we
   can check books out to you.
-- **Resend** — your email address, to deliver your membership pass.
-- **Supabase** — the hosting provider for membership data (they process data
+- **Resend** - your email address, to deliver your membership pass.
+- **Supabase** - the hosting provider for membership data (they process data
   on our behalf).
 - Regulators, law enforcement, or legal advisers when required by law.
 
@@ -117,7 +117,7 @@ Under UK GDPR you have the right to:
   details at the café).
 - **Request deletion** of your data (subject to legal requirements).
 - **Restrict or object** to processing in certain circumstances.
-- **Data portability** — receive a copy of your data in a machine-readable
+- **Data portability** - receive a copy of your data in a machine-readable
   format.
 - **Withdraw consent** where processing is based on consent.
 
@@ -127,12 +127,12 @@ the café. We'll respond within one month.
 ## 10. Security
 
 We take appropriate technical and organisational measures to protect your
-personal data — access-controlled database roles, server-only API keys,
+personal data - access-controlled database roles, server-only API keys,
 HTTPS, and staff-only access to membership tools. If you believe your data
 has been mishandled, contact us and we will investigate.
 
 ## Want off the list?
 
 Email [admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk?subject=Data%20deletion%20request) and we'll delete your data, no questions
-asked — subject to legal record-keeping requirements. You can also ask us
+asked - subject to legal record-keeping requirements. You can also ask us
 what we hold about you.

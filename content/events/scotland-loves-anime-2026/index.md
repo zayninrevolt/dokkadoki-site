@@ -17,6 +17,6 @@ Scotland's longest-running anime festival returns from 6–8 November at Glasgow
 
 ## Tickets and practicalities
 
-Tickets and prices are not yet published for 2026—booking opens through the GFT and Filmhouse box offices, with age ratings per film. The festival is a registered charity (SC041567) run by Scotland Loves Animation. Some of the site's older pages still carry 2025 dates, so check the festival's cinema pages before booking.
+Tickets and prices are not yet published for 2026-booking opens through the GFT and Filmhouse box offices, with age ratings per film. The festival is a registered charity (SC041567) run by Scotland Loves Animation. Some of the site's older pages still carry 2025 dates, so check the festival's cinema pages before booking.
 
 *Cover image: original AI-generated thematic illustration. It does not depict the festival or any film.*

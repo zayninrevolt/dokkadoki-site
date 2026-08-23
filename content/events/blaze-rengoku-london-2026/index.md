@@ -1,5 +1,5 @@
 ---
-title: "BLAZE — RENGOKU EU Tour London 2026"
+title: "BLAZE - RENGOKU EU Tour London 2026"
 date: 2026-08-13
 event_start: "2026-10-27T18:00:00"
 event_end: "2026-10-27T23:59:00"

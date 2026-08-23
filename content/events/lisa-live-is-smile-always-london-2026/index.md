@@ -1,5 +1,5 @@
 ---
-title: "LiSA — LiVE is Smile Always ～15～ London 2026"
+title: "LiSA - LiVE is Smile Always ～15～ London 2026"
 date: 2026-08-13
 event_start: "2026-09-22T19:00:00"
 event_end: "2026-09-22T23:59:00"

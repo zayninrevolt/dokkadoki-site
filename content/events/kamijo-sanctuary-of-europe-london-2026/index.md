@@ -1,5 +1,5 @@
 ---
-title: "KAMIJO — Sanctuary of Europe London 2026"
+title: "KAMIJO - Sanctuary of Europe London 2026"
 date: 2026-08-13
 event_start: "2026-09-24T00:00:00"
 event_end: "2026-09-24T23:59:00"

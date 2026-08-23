@@ -2,7 +2,7 @@
   "name": "dokkadoki-signup-api",
   "version": "1.0.0",
   "private": true,
-  "description": "Tiny launch-list signup endpoint for dokkadoki.co.uk — stores emails in MariaDB.",
+  "description": "Tiny launch-list signup endpoint for dokkadoki.co.uk - stores emails in MariaDB.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

@@ -1,11 +1,11 @@
 ---
-title: "Opening Soon — The Millgate, Bury 🌸"
+title: "Opening Soon - The Millgate, Bury 🌸"
 slug: opening-soon
 date: 2026-08-23
 description: "We hope to open soon at The Millgate, and will confirm an opening date once finalised. Get ready for Ueshima Coffee, 1,000+ manga, and self-serve Japanese convenience-store-style snacks."
 ---
 
-The team at Dokkadoki hopes to open soon at The Millgate in Bury! We'll confirm our opening date once finalised — stay tuned for updates on when we'll be ready.
+The team at Dokkadoki hopes to open soon at The Millgate in Bury! We'll confirm our opening date once finalised - stay tuned for updates on when we'll be ready.
 
 While we get the space ready, here's what you can look forward to:
 
@@ -21,7 +21,7 @@ A growing collection of manga to browse and read in store. Our catalogue is alre
 
 Get a quick bite at our Japanese convenience-store-style snack station, including:
 
-- Instant ramen cookers with optional toppings—make your own!
+- Instant ramen cookers with optional toppings-make your own!
 - Sandwiches and onigiri
 - Little Japanese treats perfect for a café visit
 

@@ -10,7 +10,7 @@ disableKinds = ["taxonomy", "term"]
 
 [params]
   description = "Dokkadoki is a manga café coming soon to The Millgate, Bury. A cosy corner for manga, Ueshima Coffee and Japanese convenience-store-style snacks."
-  ebayURL = "https://www.ebay.co.uk/usr/dokkadoki"
+  ebayURL = "https://www.ebay.co.uk/usr/dokkadokiltd"
   libibURL = "https://www.libib.com/u/dokkadoki"
   instagramURL = "https://www.instagram.com/dokkadoki/"
   tiktokURL = "https://www.tiktok.com/@dokkadoki"

@@ -38,7 +38,7 @@ things out.
 
 ## Links
 
-Plain link: [our eBay store](https://www.ebay.co.uk/usr/dokkadoki). Links to
+Plain link: [our eBay store](https://www.ebay.co.uk/usr/dokkadokiltd). Links to
 your own pages work with just the path: [the blog](/blog/).
 
 ## Lists

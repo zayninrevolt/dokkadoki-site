@@ -21,6 +21,6 @@ Early Bird weekend tickets are £25 (limited), a standard weekender £29, Saturd
 
 ## Access
 
-One free carer pass is available per attendee who needs one, with pre-registration and evidence (DLA/PIP/Blue Badge and similar); assistance animals are welcome. Cosplay prop rules are published on the organiser's site—realistic firearms and metal blades are banned, foam props and red-tipped lightsabers are fine.
+One free carer pass is available per attendee who needs one, with pre-registration and evidence (DLA/PIP/Blue Badge and similar); assistance animals are welcome. Cosplay prop rules are published on the organiser's site-realistic firearms and metal blades are banned, foam props and red-tipped lightsabers are fine.
 
 *Cover image: original AI-generated thematic illustration. It does not depict the event or any guest.*

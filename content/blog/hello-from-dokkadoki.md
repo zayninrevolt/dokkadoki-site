@@ -11,7 +11,7 @@ Big things are happening. We're getting ready to open our **manga café and read
 
 While we get the keys, here's where to find us:
 
-- 🛍️ **Our shop lives on eBay now** - browse all our manga, figures and finds on [our eBay store](https://www.ebay.co.uk/usr/dokkadoki).
+- 🛍️ **Our shop lives on eBay now** - browse all our manga, figures and finds on [our eBay store](https://www.ebay.co.uk/usr/dokkadokiltd).
 - 🐾 **Neko Catch**, our little café-cat arcade game, is on its way to the App Store.
 - 📬 Join the launch list on our [homepage](/) and we'll email you the moment we open.
 

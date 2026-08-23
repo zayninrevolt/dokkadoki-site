@@ -1,5 +1,5 @@
 ---
-title: "Boris — PINK 20th Anniversary UK Tour 2026"
+title: "Boris - PINK 20th Anniversary UK Tour 2026"
 date: 2026-08-13
 event_start: "2026-10-10T15:00:00"
 event_end: "2026-10-16T23:59:00"
@@ -19,14 +19,14 @@ Bristol now has two separately ticketed performances on 10 October. The added 15
 
 ## UK dates and availability
 
-- **10 October — Strange Brew, Bristol:** added 15:00 *flood* set; official artist schedule did not mark it sold out
-- **10 October — Strange Brew, Bristol:** late “Pink Days” set — **sold out**
-- **11 October — Digital, Newcastle:** no sold-out annotation on the artist schedule; confirm live availability
-- **12 October — Òran Mór, Glasgow:** **sold out**
-- **13 October — Brudenell Social Club, Leeds:** **sold out**
-- **14 October — Gorilla, Manchester:** **sold out**
-- **15 October — Electric Brixton, London:** **low-ticket alert**
-- **16 October — Concorde 2, Brighton:** **sold out**
+- **10 October - Strange Brew, Bristol:** added 15:00 *flood* set; official artist schedule did not mark it sold out
+- **10 October - Strange Brew, Bristol:** late “Pink Days” set - **sold out**
+- **11 October - Digital, Newcastle:** no sold-out annotation on the artist schedule; confirm live availability
+- **12 October - Òran Mór, Glasgow:** **sold out**
+- **13 October - Brudenell Social Club, Leeds:** **sold out**
+- **14 October - Gorilla, Manchester:** **sold out**
+- **15 October - Electric Brixton, London:** **low-ticket alert**
+- **16 October - Concorde 2, Brighton:** **sold out**
 
 The artist’s status annotations do not establish live seller inventory or current prices and mandatory fees, so confirm each date with the relevant seller. Full running orders, support stage times, set lengths and merchandise details remain TBA.
 

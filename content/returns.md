@@ -1,11 +1,11 @@
 ---
 title: "Returns & refunds 📦"
-description: "Dokkadoki's returns and refunds policy — in-store purchases, faulty goods, exchanges and how to return."
+description: "Dokkadoki's returns and refunds policy: in-store purchases, faulty goods, exchanges and how to return."
 ---
 
 We want you to be happy with anything you buy from Dokkadoki. This page
 explains your rights and how our returns process works. Dokkadoki currently
-sells **in-store only** — there is no online checkout yet — so this policy
+sells **in-store only**: there is no online checkout yet: so this policy covers purchases made at the café.
 covers purchases made at the café.
 
 ## Faulty or misdescribed goods
@@ -50,9 +50,7 @@ goes live.
 
 Reading passes and memberships are services rather than goods. Once a pass
 or membership has been activated at the café, it cannot be cancelled for a
-refund, but you are welcome to ask us about transferring or upgrading it —
-email [admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk?subject=Return%20or%20exchange) and we'll do
-what we can.
+refund, but you are welcome to ask us about transferring or upgrading it: email [admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk?subject=Return%20or%20exchange) and we'll do what we can.
 
 ## Refund process
 

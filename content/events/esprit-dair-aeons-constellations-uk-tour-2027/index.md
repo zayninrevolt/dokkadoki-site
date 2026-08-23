@@ -1,5 +1,5 @@
 ---
-title: "Esprit D’Air — Aeons & Constellations UK Tour 2027"
+title: "Esprit D’Air - Aeons & Constellations UK Tour 2027"
 date: 2026-08-13
 event_start: "2027-02-12T19:00:00"
 event_end: "2027-02-19T22:00:00"
@@ -9,7 +9,7 @@ website: "https://www.espritdair.com/products/esprit-dair-aeons-constellations-u
 description: "Esprit D’Air plays two career-spanning sets in seven UK cities, pairing Aeons with the tenth anniversary of Constellations."
 ---
 
-Esprit D’Air takes *Aeons & Constellations* to seven UK cities from 12–19 February 2027. The double-set tour celebrates the latest album *Aeons*—described by the artist as a No. 1 Official Rock & Metal Albums Chart album—alongside the tenth anniversary of debut album *Constellations*.
+Esprit D’Air takes *Aeons & Constellations* to seven UK cities from 12–19 February 2027. The double-set tour celebrates the latest album *Aeons*-described by the artist as a No. 1 Official Rock & Metal Albums Chart album-alongside the tenth anniversary of debut album *Constellations*.
 
 ## A career-spanning double set
 
@@ -19,13 +19,13 @@ The provisional schedule for every stop is doors at 19:00, first set at 20:00, i
 
 ## UK dates
 
-- **Friday 12 February — Birmingham:** Asylum, main room; 14+, under-18s accompanied by an adult
-- **Saturday 13 February — Cardiff:** The Globe; 14+, under-16s accompanied by an adult
-- **Sunday 14 February — Leeds:** Brudenell Social Club; 14+, under-18s accompanied by an adult
-- **Tuesday 16 February — Edinburgh:** La Belle Angele; 14+, under-16s accompanied by an adult
-- **Wednesday 17 February — Newcastle upon Tyne:** The Cluny; 14+, under-16s accompanied by an adult
-- **Thursday 18 February — Nottingham:** Rescue Rooms; 14+, under-16s accompanied by an adult
-- **Friday 19 February — London:** The Garage; 14+, under-16s accompanied by an adult
+- **Friday 12 February - Birmingham:** Asylum, main room; 14+, under-18s accompanied by an adult
+- **Saturday 13 February - Cardiff:** The Globe; 14+, under-16s accompanied by an adult
+- **Sunday 14 February - Leeds:** Brudenell Social Club; 14+, under-18s accompanied by an adult
+- **Tuesday 16 February - Edinburgh:** La Belle Angele; 14+, under-16s accompanied by an adult
+- **Wednesday 17 February - Newcastle upon Tyne:** The Cluny; 14+, under-16s accompanied by an adult
+- **Thursday 18 February - Nottingham:** Rescue Rooms; 14+, under-16s accompanied by an adult
+- **Friday 19 February - London:** The Garage; 14+, under-16s accompanied by an adult
 
 The Birmingham show has been upgraded to Asylum’s main room. Confirm exact addresses and occurrence-specific access, ID, curfew and entry arrangements with the relevant venue.
 

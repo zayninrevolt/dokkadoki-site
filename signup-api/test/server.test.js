@@ -12,7 +12,7 @@ const {
 } = require('../server');
 
 test('normalizes case, accents, punctuation and volume suffixes', () => {
-  assert.equal(normalizeTitle('  Thé One Piece Manga — Vol. 3  '), 'one piece');
+  assert.equal(normalizeTitle('  Thé One Piece Manga - Vol. 3  '), 'one piece');
 });
 
 test('matches common spelling mistakes and missing noise words', () => {

@@ -1,5 +1,5 @@
 ---
-title: "HotaruCon 5 — Sport"
+title: "HotaruCon 5 - Sport"
 date: 2026-08-16
 event_start: "2026-11-13T00:00:00"
 event_end: "2026-11-15T23:59:00"
@@ -13,11 +13,11 @@ HotaruCon expands to its first full three-day edition on 13–15 November at the
 
 ## Tickets
 
-A single £75 ticket covers all three days—badge, lanyard, ConBook and ConBag included, with all panels and events in the price (some charity events are pay-to-play). There are no day tickets and no door sales: registration is online only via Stripe, with badges collected from Friday at Ops. Tickets were around 75% sold in August. Refunds scale down the closer the event gets (95% six months out, down to 20% within a month, minus a small fee) and tickets cannot be transferred.
+A single £75 ticket covers all three days-badge, lanyard, ConBook and ConBag included, with all panels and events in the price (some charity events are pay-to-play). There are no day tickets and no door sales: registration is online only via Stripe, with badges collected from Friday at Ops. Tickets were around 75% sold in August. Refunds scale down the closer the event gets (95% six months out, down to 20% within a month, minus a small fee) and tickets cannot be transferred.
 
 ## Strictly 18+
 
-Every registered attendee, including carers, must be 18 by the event start; being accompanied by an adult is not enough. Photo ID is required at badge pickup. Cosplay props are checked at the Ops desk, costumes must stay within two metres in any direction, and UK public decency laws apply—"this is an 18+ event".
+Every registered attendee, including carers, must be 18 by the event start; being accompanied by an adult is not enough. Photo ID is required at badge pickup. Cosplay props are checked at the Ops desk, costumes must stay within two metres in any direction, and UK public decency laws apply-"this is an 18+ event".
 
 ## Access
 

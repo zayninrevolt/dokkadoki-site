@@ -18,7 +18,7 @@ RakuCon comes to the Mercure Manchester Piccadilly Hotel for a weekend of indepe
 
 The organiser lists dealers and artists, performances, workshops and panels, a games room, photo studio, cosplay photo area and an Anime and Emo After Party. The detailed 2026 running order is still to be announced.
 
-Early wristband collection is available on Friday 21 August, 12:00–19:00, at the Main Help Desk outside the International Suite on floor 3 — worth using if you're travelling in to cut weekend queues.
+Early wristband collection is available on Friday 21 August, 12:00–19:00, at the Main Help Desk outside the International Suite on floor 3 - worth using if you're travelling in to cut weekend queues.
 
 ## Cosplay competition
 

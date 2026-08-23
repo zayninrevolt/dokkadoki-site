@@ -13,8 +13,8 @@ Japan House London's first photography exhibition brings together Kawada Kikuji 
 
 ## The remaining talks
 
-- **Tuesday 15 September, 18:00–18:30:** Iwane Ai on *Kipuka* — **fully booked**
-- **Tuesday 13 October, 14:00–14:30:** Kawada Kikuji on *The Last Cosmology* — **fully booked**
+- **Tuesday 15 September, 18:00–18:30:** Iwane Ai on *Kipuka* - **fully booked**
+- **Tuesday 13 October, 14:00–14:30:** Kawada Kikuji on *The Last Cosmology* - **fully booked**
 
 No waiting-list or late-entry policy has been published. The talks are free, but booking is essential.
 

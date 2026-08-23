@@ -1,5 +1,5 @@
 ---
-title: "Manchester Board Game Festival — August 2026"
+title: "Manchester Board Game Festival - August 2026"
 date: 2026-08-10
 event_start: "2026-08-28T15:00:00"
 event_end: "2026-08-30T20:00:00"

@@ -1,5 +1,5 @@
 ---
-title: "Hisaishi conducts Hisaishi — Royal Philharmonic Orchestra"
+title: "Hisaishi conducts Hisaishi - Royal Philharmonic Orchestra"
 date: 2026-08-11
 event_start: "2026-11-23T19:00:00"
 event_end: "2026-11-23T21:20:00"

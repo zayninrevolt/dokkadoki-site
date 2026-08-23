@@ -1,5 +1,5 @@
 ---
-title: "Comic Con Liverpool — October 2026"
+title: "Comic Con Liverpool - October 2026"
 date: 2026-08-10
 event_start: "2026-10-10T09:00:00"
 event_end: "2026-10-11T18:00:00"

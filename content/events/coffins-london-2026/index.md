@@ -1,5 +1,5 @@
 ---
-title: "COFFINS — Downstairs at The Dome London 2026"
+title: "COFFINS - Downstairs at The Dome London 2026"
 date: 2026-08-13
 event_start: "2026-08-16T19:00:00"
 event_end: "2026-08-16T23:59:00"

@@ -1,5 +1,5 @@
 ---
-title: "JILUKA — DeViLs World Tour UK 2026"
+title: "JILUKA - DeViLs World Tour UK 2026"
 date: 2026-08-13
 event_start: "2026-09-08T00:00:00"
 event_end: "2026-09-09T23:59:00"

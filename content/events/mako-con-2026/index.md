@@ -17,7 +17,7 @@ The main-stage Idol Fest runs Sunday evening with performers including hi.mawari
 
 ## Tickets
 
-Weekend tickets are £70 in advance through Ticket Tailor until 15 October, and everything—Idol Fest, panels, performances, gaming and parties—is included in that price. Day tickets have also been available via the organiser's socials. The event is strictly 18+.
+Weekend tickets are £70 in advance through Ticket Tailor until 15 October, and everything-Idol Fest, panels, performances, gaming and parties-is included in that price. Day tickets have also been available via the organiser's socials. The event is strictly 18+.
 
 ## Staying and getting there
 

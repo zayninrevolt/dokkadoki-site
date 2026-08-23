@@ -23,7 +23,7 @@ STAGING="$PARENT/.deploy-staging-$$"
 TRASH="$PARENT/.deploy-trash-$$"
 
 if [ ! -d "$DEST" ]; then
-  echo "Destination $DEST not found — is the Unraid share mounted?"
+  echo "Destination $DEST not found - is the Unraid share mounted?"
   echo "  (Finder → Cmd+K → smb://192.168.0.69/appdata)"
   exit 1
 fi
@@ -55,7 +55,7 @@ tar -cf - \
 # 2. Refuse to touch the live site unless the upload clearly completed.
 for required in hugo.toml content layouts assets; do
   if [ ! -e "$STAGING/$required" ]; then
-    echo "Upload looks incomplete ($required missing) — live site left untouched."
+    echo "Upload looks incomplete ($required missing) - live site left untouched."
     rm_quiet "$STAGING"
     exit 1
   fi
@@ -78,4 +78,4 @@ shopt -u dotglob nullglob
 rm_quiet "$STAGING"
 rm_quiet "$TRASH"
 
-echo "Deployed to $DEST — staged then swapped; the served folder stays clean and a dropped connection can't corrupt it."
+echo "Deployed to $DEST - staged then swapped; the served folder stays clean and a dropped connection can't corrupt it."

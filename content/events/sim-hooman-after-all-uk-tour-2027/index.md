@@ -1,5 +1,5 @@
 ---
-title: "SiM — HOOMAN AFTER ALL UK Tour 2027"
+title: "SiM - HOOMAN AFTER ALL UK Tour 2027"
 date: 2026-08-16
 event_start: "2027-01-20T19:00:00"
 event_end: "2027-01-30T23:00:00"
@@ -13,13 +13,13 @@ Japanese reggae-punk outfit SiM headline seven UK dates in January 2027, touring
 
 ## Dates and venues
 
-- **20 January** — SWG3 TV Studio, Glasgow
-- **22 January** — The Wardrobe, Leeds, 19:00
-- **23 January** — Manchester Academy 3, 19:30
-- **25 January** — O2 Institute 3, Birmingham, 19:00
-- **26 January** — Clwb Ifor Bach, Cardiff, 19:30
-- **28 January** — The Fleece, Bristol, 19:00
-- **30 January** — Electric Ballroom, London, 19:00
+- **20 January** - SWG3 TV Studio, Glasgow
+- **22 January** - The Wardrobe, Leeds, 19:00
+- **23 January** - Manchester Academy 3, 19:30
+- **25 January** - O2 Institute 3, Birmingham, 19:00
+- **26 January** - Clwb Ifor Bach, Cardiff, 19:30
+- **28 January** - The Fleece, Bristol, 19:00
+- **30 January** - Electric Ballroom, London, 19:00
 
 ## Tickets
 
