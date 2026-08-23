@@ -1,6 +1,6 @@
 baseURL = "https://dokkadoki.co.uk/"
 locale = "en-GB"
-title = "Dokkadoki - Manga Café & Reading Room · Bury"
+title = "Dokkadoki - Manga Café · Bury"
 
 disableKinds = ["taxonomy", "term"]
 
@@ -9,7 +9,7 @@ disableKinds = ["taxonomy", "term"]
   blog = "/blog/:slug/"
 
 [params]
-  description = "Dokkadoki is a manga café and reading room coming soon to The Millgate, Bury. A cosy corner for reading, a proper coffee, and a little Japanese escape."
+  description = "Dokkadoki is a manga café coming soon to The Millgate, Bury. A cosy corner for manga, Ueshima Coffee and Japanese convenience-store-style snacks."
   ebayURL = "https://www.ebay.co.uk/usr/dokkadoki"
   libibURL = "https://www.libib.com/u/dokkadoki"
   instagramURL = "https://www.instagram.com/dokkadoki/"

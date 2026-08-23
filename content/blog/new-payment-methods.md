@@ -3,6 +3,7 @@ title: "New Payment Methods"
 slug: new-payment-methods
 date: 2025-10-27
 description: "PayPal, Klarna and Clearpay give you more ways to pay when shopping with Dokkadoki."
+draft: true
 ---
 
 We’re thrilled to announce that you can now pay using **PayPal**, as well as enjoy flexible payment options with **Klarna** and **Clearpay**! 🎁

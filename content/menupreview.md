@@ -3,11 +3,11 @@ title: "Menu preview ☕"
 description: "A first look at the café side of Dokkadoki — with final menu details still to come."
 ---
 
-A proper read deserves a proper break. We are planning the café side of Dokkadoki alongside the reading room, with a cosy menu designed for lingering over a chapter or catching up with friends.
+A proper read deserves a proper break. We are planning the café side of Dokkadoki around Ueshima Coffee and Japanese convenience-store-style favourites: self-serve instant ramen cookers with optional toppings, sandwiches, onigiri and small Japanese treats for a relaxed manga café visit.
 
 ## What we are exploring
 
-Our final menu is still being developed, but we are looking forward to sharing a selection of drinks and treats suited to a relaxed manga café visit. As plans come together, we will share more about the range, ingredients and availability.
+Our final menu is still being developed. As plans come together, we will share more about our Ueshima Coffee range, self-serve snacks, optional toppings and what will be available.
 
 ## Dietary needs and allergens
 

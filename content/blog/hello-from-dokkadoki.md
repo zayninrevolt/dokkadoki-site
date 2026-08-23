@@ -2,6 +2,7 @@
 title: "Hello from Dokkadoki 🌸"
 date: 2026-07-10
 description: "Our online shop has a new home, our café is on its way, and there's a little game coming too."
+draft: true
 ---
 
 Welcome to the very first post on the Dokkadoki blog!

@@ -4,6 +4,7 @@ slug: exciting-news-bury-cafe
 date: 2025-09-11
 lastmod: 2025-10-27
 description: "Plans are underway for a cosy manga café and reading library in Bury."
+draft: true
 ---
 
 That’s right! We’re in the early stages, but plans are underway for a cozy space that will include a **LIBRARY packed with manga, light novels, and more!** 📚✨
