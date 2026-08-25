@@ -16,7 +16,7 @@ check-in and a Libib barcode for borrowing books while you read.
 <div style="text-align:center; margin: 1.6rem 0;">
   <a
     class="btn btn-link"
-    href="http://192.168.0.69:3100"
+    href="https://members.dokkadoki.co.uk"
     style="color:#fff; font-weight:800; background:linear-gradient(135deg,#f489a8,#e56b90); box-shadow:0 10px 22px -10px rgba(229,107,144,.8);"
   >Sign up for a pass</a>
 </div>
