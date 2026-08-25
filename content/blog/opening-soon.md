@@ -27,4 +27,4 @@ Get a quick bite at our Japanese convenience-store-style snack station, includin
 
 ---
 
-**Coming soon to The Millgate, Bury.** Join our [newsletter](/) for the latest news, manga requests and event updates. Or head over to our [Discord](https://discord.gg/zjutK2TTHv) to chat with other fans. 🌸
+**Coming soon to The Millgate, Bury.** Join our [newsletter](https://zayninrevolt.github.io/dokkadoki-site/) for the latest news, manga requests and event updates. Or head over to our [Discord](https://discord.gg/zjutK2TTHv) to chat with other fans. 🌸
