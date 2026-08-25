@@ -20,6 +20,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 const pathModule = require('path');
 const mysql = require('mysql2/promise');
+const { startNewsletterSync } = require('./newsletter-sync');
 
 const PORT = parseInt(process.env.PORT || '3001', 10);
 const TRUST_PROXY = process.env.TRUST_PROXY === 'cloudflare';
@@ -497,7 +498,18 @@ if (require.main === module) {
     process.exit(1);
   }
   ensureTables()
-    .then(() => console.log('tables ready'))
+    .then(async () => {
+      console.log('tables ready');
+      await startNewsletterSync({
+        config: {
+          supabaseUrl: process.env.SUPABASE_URL,
+          supabaseSecretKey: process.env.SUPABASE_SECRET_KEY,
+        },
+        pool,
+        intervalMs: process.env.NEWSLETTER_SYNC_INTERVAL_MS,
+        log: console,
+      });
+    })
     .catch((e) => console.error('Could not ensure tables (will retry on first use):', e.message));
 
   server.listen(PORT, () => console.log(`Dokkadoki API listening on :${PORT}`));
