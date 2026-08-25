@@ -314,6 +314,9 @@ footer{padding:54px 0 60px;text-align:center;position:relative;z-index:2}
   .nav-links{width:100%;justify-content:center;flex-wrap:wrap}
   .cards{grid-template-columns:1fr}
   .duo{grid-template-columns:1fr}
+  .cta-banner{justify-content:center;text-align:center}
+  .cta-banner .cta-text{flex-basis:100%}
+  .cta-banner .btn-link{margin-inline:auto}
   .space{grid-template-columns:1fr;padding:28px}
   .space .art{order:-1}
   .post-body{padding:28px 22px}
