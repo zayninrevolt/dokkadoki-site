@@ -20,7 +20,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 const pathModule = require('path');
 const mysql = require('mysql2/promise');
-const { startNewsletterSync } = require('./newsletter-sync');
+const { startNewsletterSync, resubscribeMembershipEmail } = require('./newsletter-sync');
 
 const PORT = parseInt(process.env.PORT || '3001', 10);
 const TRUST_PROXY = process.env.TRUST_PROXY === 'cloudflare';
@@ -478,10 +478,17 @@ const server = http.createServer(async (req, res) => {
         return send(res, 400, { ok: false, error: 'That doesn’t look like an email address.' });
       }
       try {
+        await resubscribeMembershipEmail({
+          config: {
+            supabaseUrl: process.env.SUPABASE_URL,
+            supabaseSecretKey: process.env.SUPABASE_SECRET_KEY,
+          },
+          email,
+        });
         await pool.query('INSERT IGNORE INTO launch_list (email) VALUES (?)', [email]);
         return send(res, 200, { ok: true });
       } catch (e) {
-        console.error('DB error:', e.message);
+        console.error('Newsletter subscribe error:', e.message);
         return send(res, 500, { ok: false, error: 'Something went wrong - please try again.' });
       }
     });
