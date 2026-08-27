@@ -4,7 +4,7 @@ date: 2026-08-09
 event_start: "2026-09-04T12:00:00"
 event_end: "2026-09-06T19:00:00"
 location: "Royal Highland Centre, Ingliston, near Edinburgh, Scotland"
-cost: "£15 Friday; £23 Saturday; £20 Sunday; £40 weekend"
+cost: "£15 Friday; £23 Saturday; £20 Sunday; £35 Friday–Saturday; £40 Saturday–Sunday weekend; £50 Friday–Sunday; under-16s and carers free"
 website: "https://tabletopscotland.co.uk/"
 description: "Three days of board, card, miniature and roleplaying games, plus a games library, hobbycraft and playtesting near Edinburgh."
 ---
@@ -21,11 +21,11 @@ Visitors can use the games library and Game Finder, explore the Gateway Zone, ta
 - **Saturday:** 10:00-23:00
 - **Sunday:** 10:00-17:00 in the main hall; 10:00-19:00 upstairs
 
-Published tickets are £15 Friday, £23 Saturday, £20 Sunday and £40 for the weekend. Check the [official ticket information](https://tabletopscotland.co.uk/ticket-information/) for current prices, under-16/carer policy and availability.
+Published tickets are £15 Friday, £23 Saturday, £20 Sunday, £35 Friday–Saturday, £40 for the Saturday–Sunday weekend, and £50 for the full Friday–Sunday run. Under-16s and carers go free. See the [official ticket information](https://tabletopscotland.co.uk/ticket-information/) for current prices, availability and terms.
 
 ## Travel and access
 
-The Royal Highland Centre is near Edinburgh Airport; the organiser directs attendees to use the North Gate entry. Parking costs, blue-badge arrangements and detailed accessibility provision have not been clearly published in the current attendee guidance. See the [official Tabletop Scotland site](https://tabletopscotland.co.uk/) for programme, venue and access updates.
+The Royal Highland Centre is near Edinburgh Airport; the organiser directs attendees to use the North Gate entry. The North Car Park has 5,000 spaces and costs £10 per day, with a dedicated Blue Badge section nearest the Highland Hall. The organiser says its floorplan is designed for accessibility, with Open Play areas keeping at least 2.5m between tables or 1.5m between chair backs to accommodate wheelchairs and pushchairs. See the [official Tabletop Scotland site](https://tabletopscotland.co.uk/) for programme, venue and access updates.
 
 ## Cover image
 

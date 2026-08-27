@@ -13,7 +13,7 @@ Anime District's Gaming and Anime Night is an over-18s anime-and-gaming social a
 
 ## Tickets and entry
 
-Valid ID and an e-ticket/QR code are required. By 9 August the £18.59 Early Bird tier had ended; General Admission was £22.38 including the £2.38 fee, with sales scheduled to end on 5 September subject to availability. Refunds are available until seven days before the event. Check the [official Eventbrite listing](https://www.eventbrite.com/e/anime-districts-gaming-and-anime-night-tickets-1984722893602) for live availability.
+Valid ID and an e-ticket/QR code are required. By 9 August the £18.59 Early Bird tier had ended; General Admission is £22.38 including the £2.38 fee, with sales scheduled to end on 5 September subject to availability. Eventbrite currently labels the event **Going fast**. Refunds are available until seven days before the event. Check the [official Eventbrite listing](https://www.eventbrite.com/e/anime-districts-gaming-and-anime-night-tickets-1984722893602) for live availability.
 
 ## What to expect
 

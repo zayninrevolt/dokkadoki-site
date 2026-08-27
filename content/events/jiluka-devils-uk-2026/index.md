@@ -22,7 +22,7 @@ JILUKA’s official site identifies *DeViLs* as catalogue DPRJ1021, released on 
 
 The artist states that general tickets went on sale on 5 June. Check the relevant seller for current general prices, mandatory fees, availability, doors and age rules.
 
-A separately sold VIP upgrade includes a meet-and-greet, Polaroid with JILUKA, VIP laminate/lanyard and signed poster. It does **not** include concert admission. The VIP provider states no refunds or transfers; the original purchaser needs matching government photo ID, with check-in details emailed roughly one week before the show. Check the provider for the current VIP price.
+A separately sold VIP upgrade includes a meet-and-greet, Polaroid with JILUKA, VIP laminate/lanyard and signed poster. It does **not** include concert admission. The VIP provider currently lists both Manchester and London upgrades at **US$100** each and marks both as available; tax and final checkout charges are not shown. The provider states no refunds or transfers; VIP passes are emailed or downloadable as mobile-wallet passes, only the original purchaser may claim them, and attendees should be available several hours before or after the concert for VIP activities, with matching government photo ID at check-in.
 
 ## Access and planning
 
