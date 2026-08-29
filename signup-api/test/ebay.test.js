@@ -33,6 +33,7 @@ test('requests and returns the six newest valid listings for the configured sell
 
   assert.equal(items.length, 6);
   const search = new URL(requests[1].url);
+  assert.equal(search.searchParams.get('q'), null);
   assert.equal(search.searchParams.get('limit'), '6');
   assert.equal(search.searchParams.get('sort'), 'newlyListed');
   assert.equal(search.searchParams.get('filter'), 'sellers:{dokkadokiltd}');

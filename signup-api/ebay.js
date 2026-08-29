@@ -33,7 +33,6 @@ async function fetchLatestEbayItems({ clientId, clientSecret, seller, fetchImpl 
   validateConfig({ clientId, clientSecret, seller });
   const token = accessToken || (await fetchAccessToken({ clientId, clientSecret, fetchImpl })).value;
   const query = new URLSearchParams({
-    q: '*',
     limit: String(ITEM_LIMIT),
     sort: 'newlyListed',
     filter: `sellers:{${seller}}`,
