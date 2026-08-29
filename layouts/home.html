@@ -39,37 +39,8 @@
         <li><span class="tick">🥪</span> <span>Sandwiches, onigiri, and Japanese convenience-store-style snacks ready to grab</span></li>
       </ul>
     </div>
-    <div class="art" aria-hidden="true">
-      <svg viewBox="0 0 260 210" xmlns="http://www.w3.org/2000/svg" role="img">
-        <!-- steam -->
-        <path d="M105 62 q-9 -11 0 -21 q9 -10 0 -20" fill="none" stroke="#8fcbe6" stroke-width="6" stroke-linecap="round" opacity=".75"/>
-        <path d="M138 64 q-9 -11 0 -21 q9 -10 0 -20" fill="none" stroke="#ffb7c5" stroke-width="6" stroke-linecap="round" opacity=".75"/>
-        <!-- saucer -->
-        <ellipse cx="122" cy="178" rx="74" ry="14" fill="#ffffff" stroke="#42556b" stroke-width="5"/>
-        <!-- handle -->
-        <path d="M188 100 q34 2 30 28 q-4 24 -32 20" fill="none" stroke="#42556b" stroke-width="9" stroke-linecap="round"/>
-        <!-- cup body -->
-        <path d="M60 88 L184 88 L178 142 Q175 168 122 168 Q69 168 66 142 Z" fill="#ffffff" stroke="#42556b" stroke-width="5" stroke-linejoin="round"/>
-        <!-- coffee -->
-        <ellipse cx="122" cy="88" rx="62" ry="15" fill="#b9825e" stroke="#42556b" stroke-width="5"/>
-        <ellipse cx="122" cy="88" rx="46" ry="10" fill="#f2ddc9"/>
-        <!-- sakura latte art -->
-        <g fill="#ffb7c5">
-          <circle cx="122" cy="81" r="4.5"/>
-          <circle cx="129" cy="86" r="4.5"/>
-          <circle cx="126" cy="93" r="4.5"/>
-          <circle cx="118" cy="93" r="4.5"/>
-          <circle cx="115" cy="86" r="4.5"/>
-        </g>
-        <circle cx="122" cy="88" r="3" fill="#f7d774"/>
-        <!-- floating petals -->
-        <g fill="#ffc2d1">
-          <path d="M38 70 q6 -2 8 4 q-2 6 -8 4 q-4 -4 0 -8Z"/>
-          <path d="M212 58 q6 -2 8 4 q-2 6 -8 4 q-4 -4 0 -8Z"/>
-          <path d="M226 132 q6 -2 8 4 q-2 6 -8 4 q-4 -4 0 -8Z" opacity=".7"/>
-          <path d="M30 140 q6 -2 8 4 q-2 6 -8 4 q-4 -4 0 -8Z" opacity=".7"/>
-        </g>
-      </svg>
+    <div class="art" role="img" aria-label="A latte in a blue cup on a café table">
+      <img class="art-img" src="{{ "coffee-blue-cup.jpg" | relURL }}" alt="A latte in a blue cup on a café table" width="1200" height="900" loading="lazy" />
     </div>
   </div>
 </section>
@@ -104,7 +75,7 @@
   <p class="eyebrow">Out and about</p>
   <h2 class="section-title">Upcoming events</h2>
   <p class="lead">Find us (or the things we love) at these. Come say hi! 🌸</p>
-  <div class="cards posts-grid" data-events-list>
+  <div class="cards events-grid" data-events-list>
     {{ range . }}
       {{ partial "event-card.html" . }}
     {{ end }}
