@@ -2,7 +2,7 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { approveEdition, sendApprovedEdition } = require('../newsletter-service');
+const { approveEdition, sendApprovedEdition, sendTestEdition } = require('../newsletter-service');
 
 test('approval requires the exact edition id and only advances a draft', async () => {
   const calls = [];
@@ -69,4 +69,48 @@ test('sends an approved edition once per opted-in recipient with a private unsub
   assert.doesNotMatch(sent[0].body.html, /new@example\.com/);
   assert.match(sent[0].options.headers['Idempotency-Key'], /^dokkadoki-2026-09-/);
   assert.deepEqual(seenManga, ['manga-new']);
+});
+
+test('test send requires exactly one real subscriber and leaves edition state unchanged', async () => {
+  const sent = [];
+  const content = { siteUrl: 'https://example.com/', logoUrl: 'https://example.com/logo.png', blogPosts: [], ebayItems: [], events: [], manga: [] };
+  const pool = { query: async (sql) => {
+    if (/FROM newsletter_editions/i.test(sql)) return [[{ edition_id: '2026-09', status: 'draft', subject: 'September at Dokkadoki', content_json: JSON.stringify(content) }]];
+    if (/FROM launch_list/i.test(sql)) return [[{ email: 'reader@example.net' }]];
+    throw new Error(`Unexpected query: ${sql}`);
+  } };
+
+  const result = await sendTestEdition({
+    pool,
+    editionId: '2026-09',
+    resendApiKey: ['example', 'value'].join('-'),
+    tokenSecret: 'a'.repeat(32),
+    publicApiUrl: 'https://api.example.com',
+    from: 'Dokkadoki <newsletter@dokkadoki.co.uk>',
+    fetchImpl: async (url, options) => {
+      sent.push({ url, options, body: JSON.parse(options.body) });
+      return { ok: true, json: async () => ({ id: 'test-email-1' }) };
+    },
+  });
+
+  assert.deepEqual(result, { recipients: 1, sent: 1 });
+  assert.deepEqual(sent[0].body.to, ['reader@example.net']);
+  assert.match(sent[0].body.html, /api\/newsletter\/unsubscribe\?token=/);
+  assert.doesNotMatch(sent[0].body.html, /reader@example\.net/);
+  assert.match(sent[0].options.headers['Idempotency-Key'], /^dokkadoki-test-2026-09-/);
+});
+
+test('test send refuses zero or multiple real subscribers', async () => {
+  const edition = [[{ edition_id: '2026-09', status: 'draft', subject: 'Draft', content_json: '{}' }]];
+  for (const recipients of [[], [{ email: 'one@example.net' }, { email: 'two@example.net' }]]) {
+    const pool = { query: async (sql) => /newsletter_editions/i.test(sql) ? edition : [recipients] };
+    await assert.rejects(sendTestEdition({
+      pool,
+      editionId: '2026-09',
+      resendApiKey: ['example', 'value'].join('-'),
+      tokenSecret: 'a'.repeat(32),
+      publicApiUrl: 'https://api.example.com',
+      fetchImpl: async () => { throw new Error('must not send'); },
+    }), /exactly one/i);
+  }
 });

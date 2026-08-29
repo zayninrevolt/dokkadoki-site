@@ -72,6 +72,32 @@ async function resendEmail({ apiKey, from, to, subject, html, editionId, fetchIm
   return data.id;
 }
 
+async function sendTestEdition({
+  pool,
+  editionId,
+  resendApiKey,
+  tokenSecret,
+  publicApiUrl,
+  from = 'Dokkadoki <newsletter@dokkadoki.co.uk>',
+  fetchImpl = fetch,
+}) {
+  if (!validEditionId(editionId)) throw new Error('Invalid newsletter edition id');
+  const [editions] = await pool.query('SELECT edition_id, subject, content_json, status FROM newsletter_editions WHERE edition_id = ? LIMIT 1', [editionId]);
+  const edition = editions[0];
+  if (!edition || edition.status !== 'draft') throw new Error('Newsletter test send requires a draft edition');
+  const [recipients] = await pool.query("SELECT email FROM launch_list WHERE LOWER(email) NOT LIKE '%@example.com' ORDER BY id ASC LIMIT 2");
+  if (recipients.length !== 1) throw new Error('Newsletter test send requires exactly one real subscriber');
+  const email = String(recipients[0].email || '').trim().toLowerCase();
+  if (!email) throw new Error('Newsletter test send requires exactly one real subscriber');
+  const content = typeof edition.content_json === 'string' ? JSON.parse(edition.content_json) : edition.content_json;
+  const token = makeUnsubscribeToken(email, tokenSecret);
+  const unsubscribeUrl = new URL('/api/newsletter/unsubscribe', publicApiUrl);
+  unsubscribeUrl.searchParams.set('token', token);
+  const html = generateNewsletterHtml({ ...content, unsubscribeUrl: unsubscribeUrl.href });
+  await resendEmail({ apiKey: resendApiKey, from, to: email, subject: `[Test] ${edition.subject}`, html, editionId: `test-${editionId}`, fetchImpl });
+  return { recipients: 1, sent: 1 };
+}
+
 async function sendApprovedEdition({
   pool,
   editionId,
@@ -125,6 +151,7 @@ module.exports = {
   ensureNewsletterTables,
   saveDraft,
   approveEdition,
+  sendTestEdition,
   sendApprovedEdition,
   resendEmail,
   validEditionId,

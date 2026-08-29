@@ -5,7 +5,16 @@ const assert = require('node:assert/strict');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const { buildDraft } = require('../newsletter-runner');
+const { buildDraft, commandConfirmationMatches } = require('../newsletter-runner');
+
+test('requires exact edition confirmations for test and real sends', () => {
+  assert.equal(commandConfirmationMatches('test', '2026-09', 'TEST-2026-09'), true);
+  assert.equal(commandConfirmationMatches('send', '2026-09', 'SEND-2026-09'), true);
+  assert.equal(commandConfirmationMatches('approve', '2026-09', '2026-09'), true);
+  assert.equal(commandConfirmationMatches('test', '2026-09', 'TEST-2026-08'), false);
+  assert.equal(commandConfirmationMatches('send', '2026-09', 'TEST-2026-09'), false);
+  assert.equal(commandConfirmationMatches('approve', '2026-09', 'SEND-2026-09'), false);
+});
 
 test('builds and stores a draft without approving or sending it', async () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'dokkadoki-draft-'));

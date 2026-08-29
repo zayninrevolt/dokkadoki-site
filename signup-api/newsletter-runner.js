@@ -5,7 +5,7 @@ const path = require('path');
 const mysql = require('mysql2/promise');
 const { createEbayClient } = require('./ebay');
 const { collectSiteContent, selectRecentManga, readLibrary } = require('./newsletter-content');
-const { ensureNewsletterTables, saveDraft, approveEdition, sendApprovedEdition } = require('./newsletter-service');
+const { ensureNewsletterTables, saveDraft, approveEdition, sendTestEdition, sendApprovedEdition } = require('./newsletter-service');
 const { loadEnvFile } = require('./env-loader');
 
 loadEnvFile(path.join(__dirname, '.env'));
@@ -16,6 +16,14 @@ function editionIdFor(date = new Date()) {
 
 function subjectFor(date = new Date()) {
   return `${date.toLocaleDateString('en-GB', { month: 'long', year: 'numeric', timeZone: 'Europe/London' })} at Dokkadoki`;
+}
+
+function commandConfirmationMatches(command, editionId, confirmation) {
+  if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(String(editionId || ''))) return false;
+  if (command === 'approve') return confirmation === editionId;
+  if (command === 'test') return confirmation === `TEST-${editionId}`;
+  if (command === 'send') return confirmation === `SEND-${editionId}`;
+  return false;
 }
 
 async function buildDraft({ pool, root, libraryPath, siteUrl, publicApiUrl, ebayClient, now = new Date() }) {
@@ -84,12 +92,26 @@ async function main(argv = process.argv.slice(2)) {
       return;
     }
     if (command === 'approve') {
+      if (!commandConfirmationMatches(command, editionId, confirmation)) throw new Error(`Approval confirmation must be ${editionId}`);
       const result = await approveEdition({ pool, editionId, confirmation });
       console.log(JSON.stringify({ ok: true, action: 'approved', ...result }));
       return;
     }
+    if (command === 'test') {
+      if (!commandConfirmationMatches(command, editionId, confirmation)) throw new Error(`Test confirmation must be TEST-${editionId}`);
+      const result = await sendTestEdition({
+        pool,
+        editionId,
+        resendApiKey: process.env.RESEND_API_KEY || '',
+        tokenSecret: process.env.NEWSLETTER_TOKEN_SECRET || '',
+        publicApiUrl: process.env.PUBLIC_API_URL || 'https://api.dokkadoki.co.uk',
+        from: process.env.NEWSLETTER_FROM || 'Dokkadoki <newsletter@dokkadoki.co.uk>',
+      });
+      console.log(JSON.stringify({ ok: true, action: 'test-sent', editionId, ...result }));
+      return;
+    }
     if (command === 'send') {
-      if (confirmation !== `SEND-${editionId}`) throw new Error(`Send confirmation must be SEND-${editionId}`);
+      if (!commandConfirmationMatches(command, editionId, confirmation)) throw new Error(`Send confirmation must be SEND-${editionId}`);
       const result = await sendApprovedEdition({
         pool,
         editionId,
@@ -101,7 +123,7 @@ async function main(argv = process.argv.slice(2)) {
       console.log(JSON.stringify({ ok: true, action: 'sent', editionId, ...result }));
       return;
     }
-    throw new Error('Usage: node newsletter-runner.js draft | approve YYYY-MM YYYY-MM | send YYYY-MM SEND-YYYY-MM');
+    throw new Error('Usage: node newsletter-runner.js draft | approve YYYY-MM YYYY-MM | test YYYY-MM TEST-YYYY-MM | send YYYY-MM SEND-YYYY-MM');
   } finally {
     await pool.end();
   }
@@ -114,4 +136,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { buildDraft, editionIdFor, subjectFor, main };
+module.exports = { buildDraft, editionIdFor, subjectFor, commandConfirmationMatches, main };
