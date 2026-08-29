@@ -9,7 +9,30 @@ const {
   containsBlocked,
   isJsonObject,
   stringField,
+  buildJsonHeaders,
 } = require('../server');
+
+test('builds a 15-minute Cloudflare-only cache policy for the public eBay feed', () => {
+  assert.deepEqual(buildJsonHeaders({ edgeCacheSeconds: 900, publicCors: true }), {
+    'Content-Type': 'application/json',
+    'Cache-Control': 'no-cache, max-age=0, must-revalidate',
+    'Cloudflare-CDN-Cache-Control': 'public, max-age=900',
+    'X-Content-Type-Options': 'nosniff',
+    'Referrer-Policy': 'no-referrer',
+    'Access-Control-Allow-Origin': '*',
+  });
+});
+
+test('keeps ordinary JSON responses private and uncached', () => {
+  assert.deepEqual(buildJsonHeaders({ corsOrigin: 'https://dokkadoki.co.uk' }), {
+    'Content-Type': 'application/json',
+    'Cache-Control': 'no-store',
+    'X-Content-Type-Options': 'nosniff',
+    'Referrer-Policy': 'no-referrer',
+    'Access-Control-Allow-Origin': 'https://dokkadoki.co.uk',
+    Vary: 'Origin',
+  });
+});
 
 test('normalizes case, accents, punctuation and volume suffixes', () => {
   assert.equal(normalizeTitle('  Thé One Piece Manga - Vol. 3  '), 'one piece');

@@ -220,17 +220,29 @@ function rateLimited(ip, bucket, max) {
   return false;
 }
 
-function send(res, code, body) {
+function buildJsonHeaders({ corsOrigin = '', edgeCacheSeconds = 0, publicCors = false } = {}) {
   const headers = {
     'Content-Type': 'application/json',
-    'Cache-Control': 'no-store',
+    'Cache-Control': edgeCacheSeconds > 0
+      ? 'no-cache, max-age=0, must-revalidate'
+      : 'no-store',
     'X-Content-Type-Options': 'nosniff',
     'Referrer-Policy': 'no-referrer',
   };
-  if (res.corsOrigin) {
-    headers['Access-Control-Allow-Origin'] = res.corsOrigin;
+  if (edgeCacheSeconds > 0) {
+    headers['Cloudflare-CDN-Cache-Control'] = `public, max-age=${edgeCacheSeconds}`;
+  }
+  if (publicCors) {
+    headers['Access-Control-Allow-Origin'] = '*';
+  } else if (corsOrigin) {
+    headers['Access-Control-Allow-Origin'] = corsOrigin;
     headers.Vary = 'Origin';
   }
+  return headers;
+}
+
+function send(res, code, body, options = {}) {
+  const headers = buildJsonHeaders({ corsOrigin: res.corsOrigin, ...options });
   res.writeHead(code, headers);
   res.end(JSON.stringify(body));
 }
@@ -389,7 +401,10 @@ const server = http.createServer(async (req, res) => {
 
   if (req.method === 'GET' && path === '/api/ebay-items') {
     try {
-      return send(res, 200, { ok: true, items: await ebayClient.latestItems() });
+      return send(res, 200, { ok: true, items: await ebayClient.latestItems() }, {
+        edgeCacheSeconds: 15 * 60,
+        publicCors: true,
+      });
     } catch (e) {
       console.error('eBay error:', e.message);
       const staleItems = ebayClient.staleItems();
@@ -532,6 +547,7 @@ server.requestTimeout = 15_000;
 server.keepAliveTimeout = 5_000;
 
 module.exports = {
+  buildJsonHeaders,
   requestOriginAllowed,
   normalizeTitle,
   levenshtein,
