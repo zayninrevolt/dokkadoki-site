@@ -32,10 +32,12 @@ const PORT = parseInt(process.env.PORT || '3001', 10);
 const TRUST_PROXY = process.env.TRUST_PROXY === 'cloudflare';
 const ALLOWED_ORIGINS = new Set((process.env.ALLOWED_ORIGINS || '')
   .split(',').map((v) => v.trim()).filter(Boolean));
+const ebayCategories = (process.env.EBAY_CATEGORY_IDS || '').split(',').map((v) => v.trim()).filter(Boolean);
 const ebayClient = createEbayClient({
   clientId: process.env.EBAY_CLIENT_ID || '',
   clientSecret: process.env.EBAY_CLIENT_SECRET || '',
   seller: process.env.EBAY_SELLER || 'dokkadokiltd',
+  categoryIds: ebayCategories.length ? ebayCategories : undefined,
 });
 
 const pool = mysql.createPool({
