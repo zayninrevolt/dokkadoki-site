@@ -42,6 +42,15 @@ function pageSlug(file, sectionRoot, data) {
   return relative.endsWith('/index') ? relative.slice(0, -6) : relative;
 }
 
+function eventCoverUrl(file, slug, base) {
+  for (const name of ['cover.png', 'cover.jpg', 'cover.jpeg', 'cover.webp']) {
+    if (fs.existsSync(path.join(path.dirname(file), name))) {
+      return new URL(`events/${slug}/${name}`, base).href;
+    }
+  }
+  return '';
+}
+
 function collectSiteContent({ root, siteUrl, now = new Date() }) {
   const base = new URL(siteUrl);
   const blogRoot = path.join(root, 'content', 'blog');
@@ -52,24 +61,27 @@ function collectSiteContent({ root, siteUrl, now = new Date() }) {
     return {
       title: data.title || 'Untitled',
       summary: data.description || '',
+      archived: data.draft === true || data.archived === true,
       dateValue: new Date(`${data.date || '1970-01-01'}T00:00:00Z`),
       url: new URL(`blog/${pageSlug(file, blogRoot, data)}/`, base).href,
     };
-  }).filter((post) => !Number.isNaN(post.dateValue.getTime()))
+  }).filter((post) => !post.archived && !Number.isNaN(post.dateValue.getTime()))
     .sort((a, b) => b.dateValue - a.dateValue)
     .slice(0, 4)
-    .map(({ dateValue, ...post }) => post);
+    .map(({ dateValue, archived, ...post }) => post);
 
   const cutoff = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
   const events = markdownFiles(eventRoot).map((file) => {
     const data = frontMatter(file);
     const start = new Date(data.event_start || data.date || '');
+    const slug = pageSlug(file, eventRoot, data);
     return {
       title: data.title || 'Untitled',
       venue: data.location || '',
       start,
       cancelled: data.draft === true || /^cancelled\b/i.test(data.title || '') || /cancelled/i.test(data.description || ''),
-      url: new URL(`events/${pageSlug(file, eventRoot, data)}/`, base).href,
+      url: new URL(`events/${slug}/`, base).href,
+      image: eventCoverUrl(file, slug, base),
     };
   }).filter((event) => !event.cancelled && !Number.isNaN(event.start.getTime()) && event.start >= now && event.start <= cutoff)
     .sort((a, b) => a.start - b.start)

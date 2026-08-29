@@ -29,6 +29,7 @@ test('renders a safe reviewable newsletter with all required sections', () => {
       url: `https://example.com/events/${index + 1}/`,
       date: `${12 + index} September 2026`,
       venue: 'Bury',
+      image: `https://example.com/events/${index + 1}/cover.png`,
     })),
     manga: [{ title: 'Yotsuba&!, Vol. 1', author: 'Kiyohiko Azuma' }],
     unsubscribeUrl: 'https://api.example.com/api/newsletter/unsubscribe?token=safe',
@@ -49,6 +50,10 @@ test('renders a safe reviewable newsletter with all required sections', () => {
   assert.equal((html.match(/class="stack-column blog-card"/g) || []).length, 4);
   assert.equal((html.match(/class="stack-column ebay-product"/g) || []).length, 6);
   assert.equal((html.match(/class="stack-column event-card"/g) || []).length, 6);
+  assert.match(html, /https:\/\/example\.com\/events\/1\/cover\.png/);
+  assert.match(html, /#bfe3f2/i);
+  assert.match(html, /#8fcbe6/i);
+  assert.match(html, /#42556b/i);
   assert.match(html, /role="presentation"/);
 });
 
