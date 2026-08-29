@@ -24,6 +24,9 @@ const { startNewsletterSync, resubscribeMembershipEmail, unsubscribeNewsletterEm
 const { createEbayClient } = require('./ebay');
 const { verifyUnsubscribeToken } = require('./newsletter-renderer');
 const { ensureNewsletterTables } = require('./newsletter-service');
+const { loadEnvFile } = require('./env-loader');
+
+loadEnvFile(pathModule.join(__dirname, '.env'));
 
 const PORT = parseInt(process.env.PORT || '3001', 10);
 const TRUST_PROXY = process.env.TRUST_PROXY === 'cloudflare';
