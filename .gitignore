@@ -5,4 +5,5 @@ resources/
 signup-api/node_modules/
 signup-api/.env
 signup-api/.vote-salt
+signup-api/newsletter-preview.html
 .env

@@ -6,7 +6,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "node --test test/*.test.js"
+    "test": "node --test test/*.test.js",
+    "newsletter:draft": "node newsletter-runner.js draft",
+    "newsletter:approve": "node newsletter-runner.js approve",
+    "newsletter:send": "node newsletter-runner.js send"
   },
   "dependencies": {
     "mysql2": "^3.11.0"

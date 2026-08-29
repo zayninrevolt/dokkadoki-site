@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { syncNewsletterSubscribers, startNewsletterSync, resubscribeMembershipEmail, consumeDeletionQueue } = require('../newsletter-sync');
+const { syncNewsletterSubscribers, startNewsletterSync, resubscribeMembershipEmail, unsubscribeNewsletterEmail, consumeDeletionQueue } = require('../newsletter-sync');
 
 test('skips safely when Supabase sync is not configured', async () => {
   const result = await syncNewsletterSubscribers({ config: {}, fetchImpl: async () => { throw new Error('must not fetch'); }, pool: {} });
@@ -71,6 +71,24 @@ test('reactivates matching membership consent after a direct website subscribe',
   assert.equal(requests[0].options.method, 'PATCH');
   assert.match(String(requests[0].url), /member_profiles\?email=eq\.member%40example\.com/);
   assert.deepEqual(JSON.parse(requests[0].options.body), { newsletter_opt_in: true });
+});
+
+test('unsubscribe removes the local subscriber and revokes matching membership consent', async () => {
+  const requests = [];
+  const queries = [];
+  const result = await unsubscribeNewsletterEmail({
+    config: { supabaseUrl: 'https://project.supabase.co', supabaseSecretKey: 'server-secret' },
+    email: 'reader@example.com',
+    fetchImpl: async (url, options) => {
+      requests.push({ url: String(url), options });
+      return { ok: true, status: 204 };
+    },
+    pool: { query: async (sql, values) => { queries.push({ sql, values }); return [{ affectedRows: 1 }]; } },
+  });
+
+  assert.deepEqual(result, { removed: 1, membershipUpdated: true });
+  assert.match(queries[0].sql, /DELETE FROM launch_list/i);
+  assert.deepEqual(JSON.parse(requests[0].options.body), { newsletter_opt_in: false });
 });
 
 test('consumes a queued membership deletion without touching unqueued subscribers', async () => {

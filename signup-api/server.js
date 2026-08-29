@@ -20,17 +20,20 @@ const crypto = require('crypto');
 const fs = require('fs');
 const pathModule = require('path');
 const mysql = require('mysql2/promise');
-const { startNewsletterSync, resubscribeMembershipEmail } = require('./newsletter-sync');
+const { startNewsletterSync, resubscribeMembershipEmail, unsubscribeNewsletterEmail } = require('./newsletter-sync');
+const { createEbayClient } = require('./ebay');
+const { verifyUnsubscribeToken } = require('./newsletter-renderer');
+const { ensureNewsletterTables } = require('./newsletter-service');
 
 const PORT = parseInt(process.env.PORT || '3001', 10);
 const TRUST_PROXY = process.env.TRUST_PROXY === 'cloudflare';
 const ALLOWED_ORIGINS = new Set((process.env.ALLOWED_ORIGINS || '')
   .split(',').map((v) => v.trim()).filter(Boolean));
-const EBAY_CLIENT_ID = process.env.EBAY_CLIENT_ID || '';
-const EBAY_CLIENT_SECRET = process.env.EBAY_CLIENT_SECRET || '';
-const EBAY_SELLER = process.env.EBAY_SELLER || 'dokkadoki';
-let ebayTokenCache = null;
-let ebayItemsCache = null;
+const ebayClient = createEbayClient({
+  clientId: process.env.EBAY_CLIENT_ID || '',
+  clientSecret: process.env.EBAY_CLIENT_SECRET || '',
+  seller: process.env.EBAY_SELLER || 'dokkadokiltd',
+});
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
@@ -64,6 +67,7 @@ async function ensureTables() {
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     UNIQUE KEY uniq_vote (request_id, voter)
   ) CHARACTER SET utf8mb4`);
+  await ensureNewsletterTables(pool);
   // migrate a pre-month table shape if one exists
   try {
     await pool.query('SELECT month FROM manga_requests LIMIT 1');
@@ -85,56 +89,6 @@ function monthKey(offset) {
   return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
 }
 
-async function ebayAccessToken() {
-  if (!EBAY_CLIENT_ID || !EBAY_CLIENT_SECRET) throw new Error('eBay integration is not configured');
-  if (ebayTokenCache && ebayTokenCache.expiresAt > Date.now() + 60_000) return ebayTokenCache.value;
-  const response = await fetch('https://api.ebay.com/identity/v1/oauth2/token', {
-    method: 'POST',
-    headers: {
-      Authorization: 'Basic ' + Buffer.from(`${EBAY_CLIENT_ID}:${EBAY_CLIENT_SECRET}`).toString('base64'),
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: new URLSearchParams({
-      grant_type: 'client_credentials',
-      scope: 'https://api.ebay.com/oauth/api_scope',
-    }),
-    signal: AbortSignal.timeout(8_000),
-  });
-  if (!response.ok) throw new Error(`eBay token request failed (${response.status})`);
-  const data = await response.json();
-  ebayTokenCache = { value: data.access_token, expiresAt: Date.now() + (data.expires_in * 1000) };
-  return ebayTokenCache.value;
-}
-
-async function latestEbayItems() {
-  if (ebayItemsCache && ebayItemsCache.expiresAt > Date.now()) return ebayItemsCache.value;
-  if (!/^[a-zA-Z0-9._-]{1,64}$/.test(EBAY_SELLER)) throw new Error('Invalid eBay seller name');
-  const token = await ebayAccessToken();
-  const query = new URLSearchParams({
-    q: '*',
-    limit: '4',
-    sort: 'newlyListed',
-    filter: `sellers:{${EBAY_SELLER}}`,
-  });
-  const response = await fetch(`https://api.ebay.com/buy/browse/v1/item_summary/search?${query}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'X-EBAY-C-MARKETPLACE-ID': 'EBAY_GB',
-    },
-    signal: AbortSignal.timeout(8_000),
-  });
-  if (!response.ok) throw new Error(`eBay item request failed (${response.status})`);
-  const data = await response.json();
-  const items = (data.itemSummaries || []).slice(0, 4).map((item) => ({
-    title: item.title,
-    url: item.itemWebUrl,
-    image: item.image && item.image.imageUrl,
-    price: item.price && item.price.value,
-    currency: item.price && item.price.currency,
-  })).filter((item) => item.title && item.url && /^https:\/\//.test(item.url));
-  ebayItemsCache = { value: items, expiresAt: Date.now() + 15 * 60_000 };
-  return items;
-}
 
 /* one vote per person per series per month: voters are stored only as a
    salted one-way hash of address + a random per-browser id - never the
@@ -276,6 +230,17 @@ function send(res, code, body) {
   res.end(JSON.stringify(body));
 }
 
+function sendHtml(res, code, body) {
+  res.writeHead(code, {
+    'Content-Type': 'text/html; charset=utf-8',
+    'Cache-Control': 'no-store',
+    'X-Content-Type-Options': 'nosniff',
+    'Referrer-Policy': 'no-referrer',
+    'Content-Security-Policy': "default-src 'none'; style-src 'unsafe-inline'; form-action 'self'; base-uri 'none'",
+  });
+  res.end(body);
+}
+
 function isJsonObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
 }
@@ -320,6 +285,11 @@ function requestOriginAllowed(req, res) {
   const origin = req.headers.origin;
   if (!origin) return true; // same-origin/non-browser requests do not need CORS
   let allowed = ALLOWED_ORIGINS.has(origin);
+  try {
+    const originHost = new URL(origin).host;
+    const requestHost = String(req.headers['x-forwarded-host'] || req.headers.host || '');
+    if (originHost === requestHost) allowed = true;
+  } catch (_) { /* handled by the public-origin checks below */ }
   // With no explicit production allow-list, permit only localhost and RFC1918
   // origins for private-LAN testing. Public origins remain denied by default.
   if (!allowed && ALLOWED_ORIGINS.size === 0) {
@@ -367,6 +337,31 @@ const server = http.createServer(async (req, res) => {
     }
   }
 
+  if (req.method === 'GET' && path === '/api/newsletter/unsubscribe') {
+    const token = url.searchParams.get('token') || '';
+    const email = verifyUnsubscribeToken(token, process.env.NEWSLETTER_TOKEN_SECRET || '');
+    if (!email) return sendHtml(res, 400, '<!doctype html><title>Invalid link</title><main><h1>This unsubscribe link is invalid or incomplete.</h1></main>');
+    const action = `/api/newsletter/unsubscribe?token=${encodeURIComponent(token)}`;
+    return sendHtml(res, 200, `<!doctype html><title>Unsubscribe from Dokkadoki</title><main style="max-width:36rem;margin:4rem auto;padding:1rem;font-family:sans-serif;text-align:center"><h1>Leave the Dokkadoki newsletter?</h1><p>You will stop receiving future editions.</p><form method="post" action="${action}"><button type="submit" style="padding:.8rem 1.2rem">Confirm unsubscribe</button></form></main>`);
+  }
+
+  if (req.method === 'POST' && path === '/api/newsletter/unsubscribe') {
+    const token = url.searchParams.get('token') || '';
+    const email = verifyUnsubscribeToken(token, process.env.NEWSLETTER_TOKEN_SECRET || '');
+    if (!email) return sendHtml(res, 400, '<!doctype html><title>Invalid link</title><main><h1>This unsubscribe link is invalid or incomplete.</h1></main>');
+    try {
+      await unsubscribeNewsletterEmail({
+        config: { supabaseUrl: process.env.SUPABASE_URL, supabaseSecretKey: process.env.SUPABASE_SECRET_KEY },
+        email,
+        pool,
+      });
+      return sendHtml(res, 200, '<!doctype html><title>Unsubscribed</title><main style="max-width:36rem;margin:4rem auto;padding:1rem;font-family:sans-serif;text-align:center"><h1>You have been unsubscribed.</h1><p>You will not receive future Dokkadoki newsletters.</p></main>');
+    } catch (error) {
+      console.error('Newsletter unsubscribe error:', error.message);
+      return sendHtml(res, 500, '<!doctype html><title>Try again</title><main><h1>We could not unsubscribe you just now. Please try again shortly.</h1></main>');
+    }
+  }
+
   if (req.method === 'GET' && path === '/api/requests') {
     // only last month's standings are public - the in-progress month is
     // never displayed, so nothing unmoderated can appear on the site
@@ -385,11 +380,12 @@ const server = http.createServer(async (req, res) => {
 
   if (req.method === 'GET' && path === '/api/ebay-items') {
     try {
-      return send(res, 200, { ok: true, items: await latestEbayItems() });
+      return send(res, 200, { ok: true, items: await ebayClient.latestItems() });
     } catch (e) {
       console.error('eBay error:', e.message);
-      if (ebayItemsCache && ebayItemsCache.value) {
-        return send(res, 200, { ok: true, stale: true, items: ebayItemsCache.value });
+      const staleItems = ebayClient.staleItems();
+      if (staleItems) {
+        return send(res, 200, { ok: true, stale: true, items: staleItems });
       }
       return send(res, 503, { ok: false, error: 'Shop items are temporarily unavailable.' });
     }

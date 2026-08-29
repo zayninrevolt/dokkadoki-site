@@ -11,14 +11,8 @@ check-in and a Libib barcode for borrowing books while you read.
 <h2 id="join-dokkadoki" style="text-align:center;">Join Dokkadoki</h2>
 </div>
 
-<!-- NOTE: URL is the membership app. Dev = LAN box; flip to
-     https://members.dokkadoki.com when the app is deployed. -->
 <div style="text-align:center; margin: 1.6rem 0;">
-  <a
-    class="btn btn-link"
-    href="https://members.dokkadoki.co.uk"
-    style="color:#fff; font-weight:800; background:linear-gradient(135deg,#f489a8,#e56b90); box-shadow:0 10px 22px -10px rgba(229,107,144,.8);"
-  >Sign up for a pass</a>
+  <span class="badge" role="status">🌸 Membership sign-up coming soon</span>
 </div>
 
 You can choose:

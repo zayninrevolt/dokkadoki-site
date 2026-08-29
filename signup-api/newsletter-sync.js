@@ -36,6 +36,27 @@ async function resubscribeMembershipEmail({ config, email, fetchImpl = fetch }) 
   return { skipped: false };
 }
 
+async function unsubscribeNewsletterEmail({ config, email, fetchImpl = fetch, pool }) {
+  const normalized = typeof email === 'string' ? email.trim().toLowerCase() : '';
+  if (!EMAIL_RE.test(normalized)) throw new Error('Invalid newsletter email');
+  if (!pool?.query) throw new Error('MariaDB pool is required to unsubscribe');
+  const [result] = await pool.query('DELETE FROM launch_list WHERE email = ?', [normalized]);
+  const { supabaseUrl, supabaseSecretKey } = configOf(config || {});
+  let membershipUpdated = false;
+  if (supabaseUrl && supabaseSecretKey) {
+    const url = new URL(`${supabaseUrl}/rest/v1/member_profiles`);
+    url.searchParams.set('email', `eq.${normalized}`);
+    await supabaseJson(url, {
+      method: 'PATCH',
+      headers: headers(supabaseSecretKey, true),
+      body: JSON.stringify({ newsletter_opt_in: false }),
+      signal: AbortSignal.timeout(10000),
+    }, fetchImpl);
+    membershipUpdated = true;
+  }
+  return { removed: Number(result?.affectedRows || 0), membershipUpdated };
+}
+
 async function syncNewsletterSubscribers({ config, fetchImpl = fetch, pool, pageSize = 500 }) {
   const { supabaseUrl, supabaseSecretKey } = configOf(config);
   if (!supabaseUrl || !supabaseSecretKey) return { skipped: true, fetched: 0, inserted: 0, removed: 0 };
@@ -55,4 +76,4 @@ async function syncNewsletterSubscribers({ config, fetchImpl = fetch, pool, page
 }
 function syncIntervalMs(value) { const n = Number(value); return Number.isInteger(n) && n >= 60000 && n <= 3600000 ? n : 600000; }
 async function startNewsletterSync({ config, fetchImpl, pool, intervalMs, setIntervalImpl = setInterval, log = console }) { const run = () => syncNewsletterSubscribers({ config, fetchImpl, pool }).catch((error) => { log.error?.(`Newsletter sync failed: ${error.message}`); return { skipped: false, fetched: 0, inserted: 0, removed: 0, error: true }; }); const result = await run(); if (!result.skipped) setIntervalImpl(() => { void run(); }, syncIntervalMs(intervalMs)); return result; }
-module.exports = { syncNewsletterSubscribers, startNewsletterSync, syncIntervalMs, consumeDeletionQueue, resubscribeMembershipEmail };
+module.exports = { syncNewsletterSubscribers, startNewsletterSync, syncIntervalMs, consumeDeletionQueue, resubscribeMembershipEmail, unsubscribeNewsletterEmail };
