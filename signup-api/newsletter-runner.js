@@ -6,6 +6,9 @@ const mysql = require('mysql2/promise');
 const { createEbayClient } = require('./ebay');
 const { collectSiteContent, selectRecentManga, readLibrary } = require('./newsletter-content');
 const { ensureNewsletterTables, saveDraft, approveEdition, sendApprovedEdition } = require('./newsletter-service');
+const { loadEnvFile } = require('./env-loader');
+
+loadEnvFile(path.join(__dirname, '.env'));
 
 function editionIdFor(date = new Date()) {
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
@@ -62,12 +65,12 @@ async function main(argv = process.argv.slice(2)) {
   const pool = createPool();
   try {
     if (command === 'draft') {
-      const root = path.resolve(__dirname, '..');
+      const root = process.env.NEWSLETTER_CONTENT_ROOT || __dirname;
       const draft = await buildDraft({
         pool,
         root,
-        libraryPath: process.env.LIBIB_LIBRARY_PATH || '/opt/data/projects/dokkadoki-site/data/library.json',
-        siteUrl: process.env.PUBLIC_SITE_URL || 'https://zayninrevolt.github.io/dokkadoki-site/',
+        libraryPath: process.env.LIBIB_LIBRARY_PATH || path.join(__dirname, 'data', 'library.json'),
+        siteUrl: process.env.PUBLIC_SITE_URL || 'https://dokkadoki.co.uk/',
         publicApiUrl: process.env.PUBLIC_API_URL || 'https://api.dokkadoki.co.uk',
         ebayClient: createEbayClient({
           clientId: process.env.EBAY_CLIENT_ID || '',
