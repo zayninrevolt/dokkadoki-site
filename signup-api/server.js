@@ -286,7 +286,11 @@ function clientIp(req) {
     .toString().split(',')[0].trim();
 }
 
-function requestOriginAllowed(req, res) {
+function requestOriginAllowed(req, res, path = '') {
+  // Email clients may render the confirmation page in a sandboxed webview,
+  // which submits with an opaque or mail-provider Origin. This exact route is
+  // still protected by its encrypted recipient token before any state change.
+  if (req.method === 'POST' && path === '/api/newsletter/unsubscribe') return true;
   const origin = req.headers.origin;
   if (!origin) return true; // same-origin/non-browser requests do not need CORS
   let allowed = ALLOWED_ORIGINS.has(origin);
@@ -314,7 +318,7 @@ const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, 'http://localhost');
   const path = url.pathname.replace(/\/+$/, '') || '/';
 
-  if (!requestOriginAllowed(req, res)) {
+  if (!requestOriginAllowed(req, res, path)) {
     return send(res, 403, { ok: false, error: 'Origin not allowed.' });
   }
 
@@ -528,6 +532,7 @@ server.requestTimeout = 15_000;
 server.keepAliveTimeout = 5_000;
 
 module.exports = {
+  requestOriginAllowed,
   normalizeTitle,
   levenshtein,
   sameSeries,
