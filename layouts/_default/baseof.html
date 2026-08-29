@@ -86,7 +86,7 @@
 
   /* ---- events: hide anything that's already finished (the build only knows
      "today" at build time, so this keeps things honest between rebuilds),
-     and cap the homepage section at the next 2 upcoming ---- */
+     and cap the homepage section at the next 3 upcoming ---- */
   (function(){
     var cards = document.querySelectorAll('[data-event-end]');
     if(!cards.length) return;
@@ -99,7 +99,7 @@
     });
     var home = document.querySelector('[data-events-home]');
     if(home){
-      visible.forEach(function(card, i){ if(i >= 2) card.hidden = true; });
+      visible.forEach(function(card, i){ if(i >= 3) card.hidden = true; });
       if(visible.length === 0) home.hidden = true;
     }
     var empty = document.querySelector('[data-events-empty]');
