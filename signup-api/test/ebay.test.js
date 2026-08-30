@@ -19,6 +19,7 @@ test('requests and returns the six newest valid listings for the configured sell
           itemWebUrl: `https://www.ebay.co.uk/itm/${index + 1}`,
           image: { imageUrl: `https://i.ebayimg.com/${index + 1}.jpg` },
           price: { value: String(index + 1), currency: 'GBP' },
+          itemCreationDate: `2026-08-${String(index + 1).padStart(2, '0')}T12:00:00.000Z`,
         })),
       }),
     };
@@ -44,6 +45,7 @@ test('requests and returns the six newest valid listings for the configured sell
     image: 'https://i.ebayimg.com/1.jpg',
     price: '1',
     currency: 'GBP',
+    itemCreationDate: '2026-08-01T12:00:00.000Z',
   });
 });
 

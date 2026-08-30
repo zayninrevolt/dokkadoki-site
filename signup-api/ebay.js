@@ -65,6 +65,9 @@ async function requestItems({ clientId, clientSecret, seller, searchParams, fetc
       image: item.image && item.image.imageUrl,
       price: item.price && item.price.value,
       currency: item.price && item.price.currency,
+      ...(typeof item.itemCreationDate === 'string' && item.itemCreationDate
+        ? { itemCreationDate: item.itemCreationDate }
+        : {}),
     }))
     .filter((item) => item.title && /^https:\/\//.test(item.url || ''));
 }
