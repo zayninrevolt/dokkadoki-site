@@ -16,7 +16,7 @@ We are still getting the space ready, so our opening date and regular hours have
 - Self-serve instant ramen cookers with optional toppings, plus sandwiches and onigiri
 - A growing manga collection; browse the current catalogue on [Libib](https://www.libib.com/u/dokkadoki)
 - Manga and anime-inspired events as plans take shape
-- A small online [eBay shop](https://www.ebay.co.uk/usr/dokkadokiltd) for manga and related finds
+- A curated online [eBay shop](https://www.ebay.co.uk/usr/dokkadokiltd) for anime figures, blind box toys and fan collectibles
 
 ## Help shape Dokkadoki
 
