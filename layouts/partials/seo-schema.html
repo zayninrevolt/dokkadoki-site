@@ -1,0 +1,77 @@
+{{- $siteURL := site.BaseURL -}}
+{{- $siteName := "Dokkadoki" -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": {{ printf "%s#organization" $siteURL | jsonify }},
+  "name": {{ $siteName | jsonify }},
+  "url": {{ $siteURL | jsonify }},
+  "email": {{ site.Params.contactEmail | jsonify }},
+  "sameAs": {{ slice site.Params.instagramURL site.Params.tiktokURL site.Params.discordURL | jsonify }}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": {{ printf "%s#website" $siteURL | jsonify }},
+  "name": {{ $siteName | jsonify }},
+  "url": {{ $siteURL | jsonify }},
+  "publisher": { "@id": {{ printf "%s#organization" $siteURL | jsonify }} }
+}
+</script>
+{{- if not .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": {{ site.BaseURL | jsonify }}
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ .Title | jsonify }},
+      "item": {{ .Permalink | jsonify }}
+    }
+  ]
+}
+</script>
+{{- end }}
+{{- if and .IsPage (eq .Section "blog") }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ .Title | jsonify }},
+  "description": {{ (or .Description (.Summary | plainify | truncate 155)) | jsonify }},
+  "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  "mainEntityOfPage": {{ .Permalink | jsonify }},
+  "author": { "@id": {{ printf "%s#organization" $siteURL | jsonify }} },
+  "publisher": { "@id": {{ printf "%s#organization" $siteURL | jsonify }} }
+}
+</script>
+{{- end }}
+{{- if and .IsPage (eq .Section "events") .Params.event_start .Params.event_end .Params.location }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": {{ .Title | jsonify }},
+  "description": {{ (or .Description (.Summary | plainify | truncate 155)) | jsonify }},
+  "startDate": {{ .Params.event_start | jsonify }},
+  "endDate": {{ .Params.event_end | jsonify }},
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": {{ .Params.location | jsonify }}
+  },
+  "url": {{ .Permalink | jsonify }}
+}
+</script>
+{{- end }}

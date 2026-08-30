@@ -26,6 +26,8 @@
 <link rel="stylesheet" href="{{ .RelPermalink }}" />
 {{ end }}
 {{ if .IsHome }}<link rel="alternate" type="application/rss+xml" title="Dokkadoki blog" href="{{ "blog/index.xml" | absURL }}" />{{ end }}
+<link rel="canonical" href="{{ .Permalink }}" />
+{{ partial "seo-schema.html" . }}
 </head>
 <body>
 
