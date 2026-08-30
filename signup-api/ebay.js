@@ -2,6 +2,7 @@
 
 const TOKEN_URL = 'https://api.ebay.com/identity/v1/oauth2/token';
 const SEARCH_URL = 'https://api.ebay.com/buy/browse/v1/item_summary/search';
+const TRADING_URL = 'https://api.ebay.com/ws/api.dll';
 const ITEM_LIMIT = 6;
 const DEFAULT_CATEGORY_IDS = ['69528', '183456'];
 const FALLBACK_KEYWORD = 'anime';
@@ -87,7 +88,79 @@ async function fetchLatestEbayItems({ clientId, clientSecret, seller, categoryId
   }
 }
 
-function createEbayClient({ clientId, clientSecret, seller, categoryIds, fetchImpl = fetch, now = Date.now }) {
+function decodeXml(value) {
+  return String(value || '')
+    .replace(/&quot;/g, '"').replace(/&apos;/g, "'")
+    .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+}
+
+function xmlTag(xml, tag) {
+  const match = String(xml || '').match(new RegExp(`<${tag}(?:\\s[^>]*)?>([\\s\\S]*?)</${tag}>`));
+  return match ? decodeXml(match[1].trim()) : '';
+}
+
+function xmlItems(xml) {
+  return [...String(xml || '').matchAll(/<Item(?:\s[^>]*)?>([\s\S]*?)<\/Item>/g)].map((match) => match[1]);
+}
+
+function mapActiveItem(xml) {
+  const priceMatch = xml.match(/<CurrentPrice([^>]*)>([\s\S]*?)<\/CurrentPrice>/);
+  const currencyMatch = priceMatch && priceMatch[1].match(/currencyID=["']([^"']+)["']/);
+  const itemCreationDate = xmlTag(xml, 'StartTime');
+  const item = {
+    title: xmlTag(xml, 'Title'),
+    url: xmlTag(xml, 'ViewItemURL'),
+    image: xmlTag(xml, 'PictureURL'),
+    price: priceMatch ? decodeXml(priceMatch[2].trim()) : '',
+    currency: currencyMatch ? currencyMatch[1] : '',
+    itemCreationDate,
+  };
+  return item.title && /^https:\/\//.test(item.url) && Number.isFinite(Date.parse(itemCreationDate)) ? item : null;
+}
+
+function escapeXml(value) {
+  return String(value || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+}
+
+function activeListRequest(page, userToken) {
+  const credentials = userToken ? `<RequesterCredentials><eBayAuthToken>${escapeXml(userToken)}</eBayAuthToken></RequesterCredentials>` : '';
+  return `<?xml version="1.0" encoding="utf-8"?>
+<GetMyeBaySellingRequest xmlns="urn:ebay:apis:eBLBaseComponents">
+  ${credentials}
+  <ActiveList><Include>true</Include><Pagination><EntriesPerPage>100</EntriesPerPage><PageNumber>${page}</PageNumber></Pagination></ActiveList>
+</GetMyeBaySellingRequest>`;
+}
+
+async function fetchActiveSellerItems({ accessToken, userToken, fetchImpl = fetch }) {
+  if (!accessToken && !userToken) throw new Error('eBay seller authorization is required');
+  const items = [];
+  for (let page = 1; page <= 250; page += 1) {
+    const response = await fetchImpl(TRADING_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/xml',
+        'X-EBAY-API-CALL-NAME': 'GetMyeBaySelling',
+        'X-EBAY-API-COMPATIBILITY-LEVEL': '967',
+        'X-EBAY-API-SITEID': '3',
+        ...(accessToken ? { 'X-EBAY-API-IAF-TOKEN': accessToken } : {}),
+      },
+      body: activeListRequest(page, userToken),
+      signal: AbortSignal.timeout(8_000),
+    });
+    if (!response.ok) throw new Error(`eBay active-list request failed (${response.status})`);
+    const xml = await response.text();
+    if (xmlTag(xml, 'Ack') !== 'Success' && xmlTag(xml, 'Ack') !== 'Warning') {
+      throw new Error('eBay active-list response was unsuccessful');
+    }
+    items.push(...xmlItems(xml).map(mapActiveItem).filter(Boolean));
+    if (xmlTag(xml, 'HasMoreItems') !== 'true') break;
+  }
+  return items
+    .sort((a, b) => Date.parse(b.itemCreationDate) - Date.parse(a.itemCreationDate))
+    .slice(0, ITEM_LIMIT);
+}
+
+function createEbayClient({ clientId, clientSecret, seller, categoryIds, userToken, fetchImpl = fetch, now = Date.now }) {
   let tokenCache = null;
   let itemsCache = null;
 
@@ -101,14 +174,16 @@ function createEbayClient({ clientId, clientSecret, seller, categoryIds, fetchIm
   return {
     async latestItems() {
       if (itemsCache && itemsCache.expiresAt > now()) return itemsCache.value;
-      const value = await fetchLatestEbayItems({
-        clientId,
-        clientSecret,
-        seller,
-        categoryIds,
-        fetchImpl,
-        accessToken: await accessToken(),
-      });
+      const value = userToken
+        ? await fetchActiveSellerItems({ userToken, fetchImpl })
+        : await fetchLatestEbayItems({
+          clientId,
+          clientSecret,
+          seller,
+          categoryIds,
+          fetchImpl,
+          accessToken: await accessToken(),
+        });
       itemsCache = { value, expiresAt: now() + 15 * 60_000 };
       return value;
     },
@@ -118,4 +193,4 @@ function createEbayClient({ clientId, clientSecret, seller, categoryIds, fetchIm
   };
 }
 
-module.exports = { ITEM_LIMIT, fetchLatestEbayItems, createEbayClient };
+module.exports = { ITEM_LIMIT, fetchLatestEbayItems, fetchActiveSellerItems, createEbayClient };

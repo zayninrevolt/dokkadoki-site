@@ -38,6 +38,7 @@ const ebayClient = createEbayClient({
   clientSecret: process.env.EBAY_CLIENT_SECRET || '',
   seller: process.env.EBAY_SELLER || 'dokkadokiltd',
   categoryIds: ebayCategories.length ? ebayCategories : undefined,
+  userToken: process.env.EBAY_USER_TOKEN || '',
 });
 
 const pool = mysql.createPool({
