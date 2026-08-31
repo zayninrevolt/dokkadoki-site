@@ -4,21 +4,21 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": {{ printf "%s#organization" $siteURL | jsonify }},
-  "name": {{ $siteName | jsonify }},
-  "url": {{ $siteURL | jsonify }},
-  "email": {{ site.Params.contactEmail | jsonify }},
-  "sameAs": {{ slice site.Params.instagramURL site.Params.tiktokURL site.Params.discordURL | jsonify }}
+  "@id": {{ printf "%s#organization" $siteURL | jsonify | safeJS }},
+  "name": {{ $siteName | jsonify | safeJS }},
+  "url": {{ $siteURL | jsonify | safeJS }},
+  "email": {{ site.Params.contactEmail | jsonify | safeJS }},
+  "sameAs": {{ slice site.Params.instagramURL site.Params.tiktokURL site.Params.discordURL | jsonify | safeJS }}
 }
 </script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": {{ printf "%s#website" $siteURL | jsonify }},
-  "name": {{ $siteName | jsonify }},
-  "url": {{ $siteURL | jsonify }},
-  "publisher": { "@id": {{ printf "%s#organization" $siteURL | jsonify }} }
+  "@id": {{ printf "%s#website" $siteURL | jsonify | safeJS }},
+  "name": {{ $siteName | jsonify | safeJS }},
+  "url": {{ $siteURL | jsonify | safeJS }},
+  "publisher": { "@id": {{ printf "%s#organization" $siteURL | jsonify | safeJS }} }
 }
 </script>
 {{- if not .IsHome }}
@@ -31,13 +31,13 @@
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": {{ site.BaseURL | jsonify }}
+      "item": {{ site.BaseURL | jsonify | safeJS }}
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": {{ .Title | jsonify }},
-      "item": {{ .Permalink | jsonify }}
+      "name": {{ .Title | jsonify | safeJS }},
+      "item": {{ .Permalink | jsonify | safeJS }}
     }
   ]
 }
@@ -48,12 +48,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": {{ .Title | jsonify }},
-  "description": {{ (or .Description (.Summary | plainify | truncate 155)) | jsonify }},
-  "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
-  "mainEntityOfPage": {{ .Permalink | jsonify }},
-  "author": { "@id": {{ printf "%s#organization" $siteURL | jsonify }} },
-  "publisher": { "@id": {{ printf "%s#organization" $siteURL | jsonify }} }
+  "headline": {{ .Title | jsonify | safeJS }},
+  "description": {{ (or .Description (.Summary | plainify | truncate 155)) | jsonify | safeJS }},
+  "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify | safeJS }},
+  "mainEntityOfPage": {{ .Permalink | jsonify | safeJS }},
+  "author": { "@id": {{ printf "%s#organization" $siteURL | jsonify | safeJS }} },
+  "publisher": { "@id": {{ printf "%s#organization" $siteURL | jsonify | safeJS }} }
 }
 </script>
 {{- end }}
@@ -62,16 +62,16 @@
 {
   "@context": "https://schema.org",
   "@type": "Event",
-  "name": {{ .Title | jsonify }},
-  "description": {{ (or .Description (.Summary | plainify | truncate 155)) | jsonify }},
-  "startDate": {{ .Params.event_start | jsonify }},
-  "endDate": {{ .Params.event_end | jsonify }},
+  "name": {{ .Title | jsonify | safeJS }},
+  "description": {{ (or .Description (.Summary | plainify | truncate 155)) | jsonify | safeJS }},
+  "startDate": {{ .Params.event_start | jsonify | safeJS }},
+  "endDate": {{ .Params.event_end | jsonify | safeJS }},
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": {{ .Params.location | jsonify }}
+    "name": {{ .Params.location | jsonify | safeJS }}
   },
-  "url": {{ .Permalink | jsonify }}
+  "url": {{ .Permalink | jsonify | safeJS }}
 }
 </script>
 {{- end }}
