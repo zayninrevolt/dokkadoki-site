@@ -49,7 +49,7 @@ jobs:
           hugo build \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/" \
+            --baseURL "https://zayninrevolt.github.io/dokkadoki-site/" \
             --cacheDir "${{ runner.temp }}/hugo_cache"
 
       - name: Upload Pages artifact
