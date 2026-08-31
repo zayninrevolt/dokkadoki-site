@@ -108,6 +108,7 @@ function mapActiveItem(xml) {
   const currencyMatch = priceMatch && priceMatch[1].match(/currencyID=["']([^"']+)["']/);
   const itemCreationDate = xmlTag(xml, 'StartTime');
   const item = {
+    itemId: xmlTag(xml, 'ItemID'),
     title: xmlTag(xml, 'Title'),
     url: xmlTag(xml, 'ViewItemURL'),
     image: xmlTag(xml, 'PictureURL'),
@@ -129,6 +130,38 @@ function activeListRequest(page, userToken) {
   ${credentials}
   <ActiveList><Include>true</Include><Pagination><EntriesPerPage>100</EntriesPerPage><PageNumber>${page}</PageNumber></Pagination></ActiveList>
 </GetMyeBaySellingRequest>`;
+}
+
+function itemImageRequest(itemId, userToken) {
+  if (!/^\d+$/.test(itemId || '')) throw new Error('Invalid eBay item ID');
+  const credentials = userToken ? `<RequesterCredentials><eBayAuthToken>${escapeXml(userToken)}</eBayAuthToken></RequesterCredentials>` : '';
+  return `<?xml version="1.0" encoding="utf-8"?>
+<GetItemRequest xmlns="urn:ebay:apis:eBLBaseComponents">
+  ${credentials}
+  <ItemID>${itemId}</ItemID>
+  <DetailLevel>ReturnAll</DetailLevel>
+</GetItemRequest>`;
+}
+
+async function fetchItemImage({ itemId, userToken, fetchImpl }) {
+  const response = await fetchImpl(TRADING_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'text/xml',
+      'X-EBAY-API-CALL-NAME': 'GetItem',
+      'X-EBAY-API-COMPATIBILITY-LEVEL': '967',
+      'X-EBAY-API-SITEID': '3',
+    },
+    body: itemImageRequest(itemId, userToken),
+    signal: AbortSignal.timeout(8_000),
+  });
+  if (!response.ok) throw new Error(`eBay listing image request failed (${response.status})`);
+  const xml = await response.text();
+  if (xmlTag(xml, 'Ack') !== 'Success' && xmlTag(xml, 'Ack') !== 'Warning') {
+    throw new Error('eBay listing image response was unsuccessful');
+  }
+  const image = xmlTag(xml, 'PictureURL');
+  return /^https:\/\//.test(image) ? image : '';
 }
 
 async function fetchActiveSellerItems({ accessToken, userToken, fetchImpl = fetch }) {
@@ -155,9 +188,18 @@ async function fetchActiveSellerItems({ accessToken, userToken, fetchImpl = fetc
     items.push(...xmlItems(xml).map(mapActiveItem).filter(Boolean));
     if (xmlTag(xml, 'HasMoreItems') !== 'true') break;
   }
-  return items
+  const newest = items
     .sort((a, b) => Date.parse(b.itemCreationDate) - Date.parse(a.itemCreationDate))
     .slice(0, ITEM_LIMIT);
+  const enriched = await Promise.all(newest.map(async (item) => {
+    if (item.image || !item.itemId) return item;
+    try {
+      return { ...item, image: await fetchItemImage({ itemId: item.itemId, userToken, fetchImpl }) };
+    } catch {
+      return item;
+    }
+  }));
+  return enriched.map(({ itemId, ...item }) => item);
 }
 
 function createEbayClient({ clientId, clientSecret, seller, categoryIds, userToken, fetchImpl = fetch, now = Date.now }) {

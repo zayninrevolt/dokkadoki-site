@@ -93,22 +93,29 @@ test('falls back to a keyword search when the category query fails', async () =>
   assert.ok(!String(fallback.searchParams.getAll('filter')).includes('category_ids'));
 });
 
-test('uses a private legacy user token to return newest active listings across categories', async () => {
-  const xml = `<?xml version="1.0"?><GetMyeBaySellingResponse xmlns="urn:ebay:apis:eBLBaseComponents"><Ack>Success</Ack><ActiveList><HasMoreItems>false</HasMoreItems><ItemArray><Item><Title>Newest toy</Title><ListingDetails><StartTime>2026-08-04T12:00:00.000Z</StartTime><ViewItemURL>https://www.ebay.co.uk/itm/3</ViewItemURL></ListingDetails><SellingStatus><CurrentPrice currencyID="GBP">12.50</CurrentPrice></SellingStatus></Item><Item><Title>Older figure</Title><ListingDetails><StartTime>2026-08-02T12:00:00.000Z</StartTime><ViewItemURL>https://www.ebay.co.uk/itm/1</ViewItemURL></ListingDetails><SellingStatus><CurrentPrice currencyID="GBP">10.00</CurrentPrice></SellingStatus></Item></ItemArray></ActiveList></GetMyeBaySellingResponse>`;
+test('keeps the active-list feed order and enriches those listings with their own eBay images', async () => {
+  const activeXml = `<?xml version="1.0"?><GetMyeBaySellingResponse xmlns="urn:ebay:apis:eBLBaseComponents"><Ack>Success</Ack><ActiveList><HasMoreItems>false</HasMoreItems><ItemArray><Item><ItemID>3</ItemID><Title>Newest toy</Title><ListingDetails><StartTime>2026-08-04T12:00:00.000Z</StartTime><ViewItemURL>https://www.ebay.co.uk/itm/3</ViewItemURL></ListingDetails><SellingStatus><CurrentPrice currencyID="GBP">12.50</CurrentPrice></SellingStatus></Item><Item><ItemID>1</ItemID><Title>Older figure</Title><ListingDetails><StartTime>2026-08-02T12:00:00.000Z</StartTime><ViewItemURL>https://www.ebay.co.uk/itm/1</ViewItemURL></ListingDetails><SellingStatus><CurrentPrice currencyID="GBP">10.00</CurrentPrice></SellingStatus></Item></ItemArray></ActiveList></GetMyeBaySellingResponse>`;
+  const imageXml = {
+    3: `<?xml version="1.0"?><GetItemResponse><Ack>Success</Ack><Item><PictureDetails><PictureURL>https://i.ebayimg.com/newest.jpg</PictureURL></PictureDetails></Item></GetItemResponse>`,
+    1: `<?xml version="1.0"?><GetItemResponse><Ack>Success</Ack><Item><PictureDetails><PictureURL>https://i.ebayimg.com/older.jpg</PictureURL></PictureDetails></Item></GetItemResponse>`,
+  };
   const requests = [];
   const client = createEbayClient({
     clientId: 'client', clientSecret: 'secret', seller: 'dokkadokiltd', userToken: 'private-user-token',
     fetchImpl: async (url, options) => {
       requests.push({ url, options });
-      return { ok: true, text: async () => xml };
+      if (options.body.includes('<GetMyeBaySellingRequest')) return { ok: true, text: async () => activeXml };
+      const id = options.body.match(/<ItemID>(\d+)<\/ItemID>/)[1];
+      return { ok: true, text: async () => imageXml[id] };
     },
   });
 
   const items = await client.latestItems();
-  assert.equal(requests.length, 1);
+  assert.equal(requests.length, 3);
   assert.equal(requests[0].url, 'https://api.ebay.com/ws/api.dll');
   assert.match(requests[0].options.body, /<eBayAuthToken>private-user-token<\/eBayAuthToken>/);
   assert.equal(requests[0].options.headers['X-EBAY-API-IAF-TOKEN'], undefined);
   assert.deepEqual(items.map((item) => item.title), ['Newest toy', 'Older figure']);
+  assert.deepEqual(items.map((item) => item.image), ['https://i.ebayimg.com/newest.jpg', 'https://i.ebayimg.com/older.jpg']);
   assert.equal(items[0].itemCreationDate, '2026-08-04T12:00:00.000Z');
 });
