@@ -5,7 +5,7 @@ const assert = require('node:assert/strict');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const { buildDraft, commandConfirmationMatches, makePortablePreview } = require('../newsletter-runner');
+const { buildDraft, commandConfirmationMatches, makePortablePreview, createNewsletterEbayClient } = require('../newsletter-runner');
 
 test('requires exact edition confirmations for test and real sends', () => {
   assert.equal(commandConfirmationMatches('test', '2026-09', 'TEST-2026-09'), true);
@@ -48,6 +48,29 @@ test('builds and stores a draft without approving or sending it', async () => {
   assert.equal(calls.some((call) => /status = 'approved'/i.test(call.sql)), false);
   assert.equal(calls.some((call) => /api\.resend\.com/i.test(call.sql)), false);
 });
+
+test('newsletter eBay client uses the seller-authorized active inventory', async () => {
+  const requests = [];
+  const activeXml = `<?xml version="1.0"?><GetMyeBaySellingResponse xmlns="urn:ebay:apis:eBLBaseComponents"><Ack>Success</Ack><ActiveList><HasMoreItems>false</HasMoreItems><ItemArray><Item><ItemID>42</ItemID><Title>Latest active upload</Title><ListingDetails><StartTime>2026-09-01T12:00:00.000Z</StartTime><ViewItemURL>https://www.ebay.co.uk/itm/42</ViewItemURL></ListingDetails><PictureDetails><PictureURL>https://i.ebayimg.com/images/g/example/s-l1600.jpg</PictureURL></PictureDetails><SellingStatus><CurrentPrice currencyID="GBP">12.50</CurrentPrice></SellingStatus></Item></ItemArray></ActiveList></GetMyeBaySellingResponse>`;
+  const client = createNewsletterEbayClient({
+    env: {
+      EBAY_CLIENT_ID: 'client',
+      EBAY_CLIENT_SECRET: 'secret',
+      EBAY_SELLER: 'dokkadokiltd',
+      EBAY_USER_TOKEN: 'private-user-token',
+    },
+    fetchImpl: async (url, options) => {
+      requests.push({ url, options });
+      return { ok: true, text: async () => activeXml };
+    },
+  });
+
+  const items = await client.latestItems();
+  assert.equal(items[0].title, 'Latest active upload');
+  assert.equal(requests.length, 1);
+  assert.equal(requests[0].options.headers['X-EBAY-API-CALL-NAME'], 'GetMyeBaySelling');
+});
+
 
 test('embeds safe preview images while leaving unsafe image URLs untouched', async () => {
   const fetched = [];

@@ -26,7 +26,20 @@ function commandConfirmationMatches(command, editionId, confirmation) {
   return false;
 }
 
+function createNewsletterEbayClient({ env = process.env, fetchImpl = globalThis.fetch } = {}) {
+  const categoryIds = (env.EBAY_CATEGORY_IDS || '').split(',').map((value) => value.trim()).filter(Boolean);
+  return createEbayClient({
+    clientId: env.EBAY_CLIENT_ID || '',
+    clientSecret: env.EBAY_CLIENT_SECRET || '',
+    seller: env.EBAY_SELLER || 'dokkadokiltd',
+    categoryIds: categoryIds.length ? categoryIds : undefined,
+    userToken: env.EBAY_USER_TOKEN || '',
+    fetchImpl,
+  });
+}
+
 const MAX_PREVIEW_IMAGE_BYTES = 3_200_000;
+
 
 async function makePortablePreview(html, fetchImpl = globalThis.fetch) {
   if (typeof fetchImpl !== 'function') return html;
@@ -106,11 +119,7 @@ async function main(argv = process.argv.slice(2)) {
         libraryPath: process.env.LIBIB_LIBRARY_PATH || path.join(__dirname, 'data', 'library.json'),
         siteUrl: process.env.PUBLIC_SITE_URL || 'https://dokkadoki.co.uk/',
         publicApiUrl: process.env.PUBLIC_API_URL || 'https://api.dokkadoki.co.uk',
-        ebayClient: createEbayClient({
-          clientId: process.env.EBAY_CLIENT_ID || '',
-          clientSecret: process.env.EBAY_CLIENT_SECRET || '',
-          seller: process.env.EBAY_SELLER || 'dokkadokiltd',
-        }),
+        ebayClient: createNewsletterEbayClient(),
       });
       const previewPath = process.env.NEWSLETTER_PREVIEW_PATH || path.join(__dirname, 'newsletter-preview.html');
       fs.writeFileSync(previewPath, await makePortablePreview(draft.previewHtml), { encoding: 'utf8', mode: 0o600 });
@@ -162,4 +171,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { buildDraft, editionIdFor, subjectFor, commandConfirmationMatches, makePortablePreview, main };
+module.exports = { buildDraft, editionIdFor, subjectFor, commandConfirmationMatches, createNewsletterEbayClient, makePortablePreview, main };
