@@ -66,7 +66,20 @@ async function resendEmail({ apiKey, from, to, subject, html, editionId, fetchIm
     body: JSON.stringify({ from, to: [to], subject, html }),
     signal: AbortSignal.timeout(15_000),
   });
-  if (!response.ok) throw new Error(`Resend request failed (${response.status})`);
+  if (!response.ok) {
+    let diagnostic = '';
+    try {
+      const error = await response.json();
+      const name = typeof error?.name === 'string' ? error.name.slice(0, 80) : '';
+      const message = typeof error?.message === 'string'
+        ? error.message.replace(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi, '[email redacted]').slice(0, 240)
+        : '';
+      diagnostic = [name, message].filter(Boolean).join('): ');
+    } catch {
+      // Retain only the HTTP status when the provider does not return JSON.
+    }
+    throw new Error(`Resend request failed (${response.status}${diagnostic ? `, ${diagnostic}` : ''})`);
+  }
   const data = await response.json();
   if (!data.id) throw new Error('Resend response did not include an email id');
   return data.id;

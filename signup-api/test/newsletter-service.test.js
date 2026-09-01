@@ -2,7 +2,7 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { approveEdition, sendApprovedEdition, sendTestEdition } = require('../newsletter-service');
+const { approveEdition, sendApprovedEdition, sendTestEdition, resendEmail } = require('../newsletter-service');
 
 test('approval requires the exact edition id and only advances a draft', async () => {
   const calls = [];
@@ -14,6 +14,22 @@ test('approval requires the exact edition id and only advances a draft', async (
   const result = await approveEdition({ pool, editionId: '2026-09', confirmation: '2026-09' });
   assert.equal(result.approved, true);
   assert.match(calls[0].sql, /status = 'approved'.*status = 'draft'/i);
+});
+
+test('reports a redacted Resend validation diagnostic', async () => {
+  await assert.rejects(resendEmail({
+    apiKey: 'test-key',
+    from: 'Dokkadoki <newsletter@dokkadoki.co.uk>',
+    to: 'reader@example.com',
+    subject: 'Test',
+    html: '<p>Test</p>',
+    editionId: '2026-09',
+    fetchImpl: async () => ({
+      ok: false,
+      status: 422,
+      json: async () => ({ name: 'validation_error', message: 'Invalid recipient reader@example.com' }),
+    }),
+  }), /Resend request failed \(422, validation_error\): Invalid recipient \[email redacted\]/);
 });
 
 test('send refuses an unapproved edition without calling Resend', async () => {
