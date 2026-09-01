@@ -26,6 +26,32 @@ function commandConfirmationMatches(command, editionId, confirmation) {
   return false;
 }
 
+const MAX_PREVIEW_IMAGE_BYTES = 2_500_000;
+
+async function makePortablePreview(html, fetchImpl = globalThis.fetch) {
+  if (typeof fetchImpl !== 'function') return html;
+  const imagePattern = /(<img\b[^>]*\bsrc=["'])([^"']+)(["'])/gi;
+  const urls = [...new Set([...html.matchAll(imagePattern)]
+    .map((match) => match[2])
+    .filter((url) => url.startsWith('https://')))];
+  const embedded = new Map();
+
+  await Promise.all(urls.map(async (url) => {
+    try {
+      const response = await fetchImpl(url, { signal: AbortSignal.timeout(10_000) });
+      const contentType = response.headers.get('content-type') || '';
+      const declaredBytes = Number(response.headers.get('content-length') || 0);
+      if (!response.ok || !contentType.startsWith('image/') || declaredBytes > MAX_PREVIEW_IMAGE_BYTES) return;
+      const image = Buffer.from(await response.arrayBuffer());
+      if (image.length > MAX_PREVIEW_IMAGE_BYTES) return;
+      embedded.set(url, `data:${contentType.split(';', 1)[0]};base64,${image.toString('base64')}`);
+    } catch {
+      // Keep the original remote URL if a preview asset cannot be fetched.
+    }
+  }));
+
+  return html.replace(imagePattern, (match, prefix, url, suffix) => `${prefix}${embedded.get(url) || url}${suffix}`);
+}
 async function buildDraft({ pool, root, libraryPath, siteUrl, publicApiUrl, ebayClient, now = new Date() }) {
   await ensureNewsletterTables(pool);
   const siteContent = collectSiteContent({ root, siteUrl, now });
@@ -87,7 +113,7 @@ async function main(argv = process.argv.slice(2)) {
         }),
       });
       const previewPath = process.env.NEWSLETTER_PREVIEW_PATH || path.join(__dirname, 'newsletter-preview.html');
-      fs.writeFileSync(previewPath, draft.previewHtml, { encoding: 'utf8', mode: 0o600 });
+      fs.writeFileSync(previewPath, await makePortablePreview(draft.previewHtml), { encoding: 'utf8', mode: 0o600 });
       console.log(JSON.stringify({ ok: true, action: 'drafted', editionId: draft.editionId, status: draft.status, counts: draft.counts, previewPath }));
       return;
     }
@@ -136,4 +162,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { buildDraft, editionIdFor, subjectFor, commandConfirmationMatches, main };
+module.exports = { buildDraft, editionIdFor, subjectFor, commandConfirmationMatches, makePortablePreview, main };
