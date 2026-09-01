@@ -65,3 +65,13 @@ test('embeds safe preview images while leaving unsafe image URLs untouched', asy
   assert.match(preview, /src="data:image\/png;base64,aW1hZ2UtYnl0ZXM="/);
   assert.match(preview, /src="http:\/\/assets\.example\/insecure\.png"/);
 });
+
+test('embeds a preview image up to the 3.2 MB review-artifact limit', async () => {
+  const preview = await makePortablePreview('<img src="https://assets.example/large-cover.jpg">', async () => ({
+    ok: true,
+    headers: { get: (name) => name === 'content-type' ? 'image/jpeg' : '3100000' },
+    arrayBuffer: async () => Buffer.from('large-cover'),
+  }));
+
+  assert.match(preview, /src="data:image\/jpeg;base64,bGFyZ2UtY292ZXI="/);
+});

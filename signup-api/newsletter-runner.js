@@ -26,7 +26,7 @@ function commandConfirmationMatches(command, editionId, confirmation) {
   return false;
 }
 
-const MAX_PREVIEW_IMAGE_BYTES = 2_500_000;
+const MAX_PREVIEW_IMAGE_BYTES = 3_200_000;
 
 async function makePortablePreview(html, fetchImpl = globalThis.fetch) {
   if (typeof fetchImpl !== 'function') return html;
