@@ -125,7 +125,7 @@ async function sendApprovedEdition({
   const edition = editions[0];
   if (!edition || edition.status !== 'approved') throw new Error('Newsletter edition is not approved');
   const content = typeof edition.content_json === 'string' ? JSON.parse(edition.content_json) : edition.content_json;
-  const [recipients] = await pool.query('SELECT email FROM launch_list ORDER BY id ASC');
+  const [recipients] = await pool.query("SELECT email FROM launch_list WHERE LOWER(email) NOT LIKE '%@example.com' ORDER BY id ASC");
   let sent = 0;
   let skipped = 0;
 

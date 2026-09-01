@@ -51,7 +51,10 @@ test('sends an approved edition once per opted-in recipient with a private unsub
   const seenManga = [];
   const pool = { query: async (sql, values = []) => {
     if (/FROM newsletter_editions/i.test(sql)) return [[{ edition_id: '2026-09', status: 'approved', subject: 'September at Dokkadoki', content_json: JSON.stringify(content) }]];
-    if (/FROM launch_list/i.test(sql)) return [[{ email: 'already@example.com' }, { email: 'new@example.com' }]];
+    if (/FROM launch_list/i.test(sql)) {
+      assert.match(sql, /LOWER\(email\) NOT LIKE '%@example\.com'/i);
+      return [[{ email: 'already@example.com' }, { email: 'new@example.com' }]];
+    }
     if (/INSERT IGNORE INTO newsletter_send_log/i.test(sql)) {
       const email = values[1];
       if (logs.has(email)) return [{ affectedRows: 0 }];
