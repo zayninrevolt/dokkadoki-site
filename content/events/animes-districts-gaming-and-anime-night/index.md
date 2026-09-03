@@ -4,7 +4,7 @@ date: 2026-08-09
 event_start: "2026-09-06T16:00:00"
 event_end: "2026-09-06T22:00:00"
 location: "Platform Shoreditch, 2b Worship Street, London EC2A 2AH"
-cost: "General Admission was £22.38 including the fee on 9 August; availability may change"
+cost: "General Admission £22.38 including the £2.38 fee; few tickets left; no refunds"
 website: "https://www.eventbrite.com/e/anime-districts-gaming-and-anime-night-tickets-1984722893602"
 description: "Anime District’s over-18s Shoreditch social mixes PC and console play with karaoke, board games, cosplay and themed food and drink."
 ---
@@ -13,7 +13,7 @@ Anime District's Gaming and Anime Night is an over-18s anime-and-gaming social a
 
 ## Tickets and entry
 
-Valid ID and an e-ticket/QR code are required. By 9 August the £18.59 Early Bird tier had ended; General Admission is £22.38 including the £2.38 fee, with sales scheduled to end on 5 September subject to availability. Eventbrite currently labels the event **Going fast**. Refunds are available until seven days before the event. Check the [official Eventbrite listing](https://www.eventbrite.com/e/anime-districts-gaming-and-anime-night-tickets-1984722893602) for live availability.
+Valid ID and an e-ticket/QR code are required. General Admission is currently £22.38 including the £2.38 fee, and Eventbrite shows **Few tickets left**. The current listing says **no refunds**; no current sale-end date is exposed. Check the [official Eventbrite listing](https://www.eventbrite.com/e/anime-districts-gaming-and-anime-night-tickets-1984722893602) for live availability.
 
 ## What to expect
 

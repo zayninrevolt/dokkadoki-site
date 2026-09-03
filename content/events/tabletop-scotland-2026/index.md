@@ -13,7 +13,7 @@ Tabletop Scotland gathers board, card, miniature, social, Dungeons & Dragons and
 
 ## What to expect
 
-Visitors can use the games library and Game Finder, explore the Gateway Zone, take part in hobbycraft, browse Bring & Buy, and visit the Playtest Zone and Game Jam. The organiser divides programmed events into board, card, miniature and social sessions, D&D and roleplaying games, with exhibitors, food and drink also listed.
+Visitors can use the games library and Game Finder, explore the Gateway Zone, take part in hobbycraft, browse Bring & Buy, and visit the Playtest Zone and Game Jam. The organiser divides programmed events into board, card, miniature and social sessions, D&D and roleplaying games, with exhibitors, food and drink also listed. Exhibitor trading hours are Friday 12:00–18:00, Saturday 10:00–18:00 and Sunday 10:00–17:00.
 
 ## Times, tickets and ages
 
@@ -21,7 +21,7 @@ Visitors can use the games library and Game Finder, explore the Gateway Zone, ta
 - **Saturday:** 10:00-23:00
 - **Sunday:** 10:00-17:00 in the main hall; 10:00-19:00 upstairs
 
-Published tickets are £15 Friday, £23 Saturday, £20 Sunday, £35 Friday–Saturday, £40 for the Saturday–Sunday weekend, and £50 for the full Friday–Sunday run. Under-16s and carers go free. See the [official ticket information](https://tabletopscotland.co.uk/ticket-information/) for current prices, availability and terms.
+Published tickets are £15 Friday, £23 Saturday, £20 Sunday, £35 Friday–Saturday, £40 for the Saturday–Sunday weekend, and £50 for the full Friday–Sunday run. Under-16s and carers go free. Online tickets remain available up to and during the convention, with tickets also available on the door. See the [official ticket information](https://tabletopscotland.co.uk/ticket-information/) for current prices, availability and terms.
 
 ## Travel and access
 

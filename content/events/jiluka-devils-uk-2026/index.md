@@ -4,7 +4,7 @@ date: 2026-08-13
 event_start: "2026-09-08T00:00:00"
 event_end: "2026-09-09T23:59:00"
 location: "Manchester Academy 2, Oxford Road, Manchester M13 9PR; O2 Academy Islington, Angel Central, London N1 0PS"
-cost: "General tickets on sale; check current prices, fees and availability with each seller"
+cost: "General ticket availability not independently verified; check sellers for current prices, fees and availability"
 website: "https://jiluka-web.com/2026wt-euuk/"
 description: "Japanese visual-kei metal band JILUKA plays Manchester and London on the DeViLs world tour, following the album’s May 2026 release."
 ---
@@ -13,7 +13,7 @@ JILUKA’s 2026 *DeViLs* world tour reaches Manchester on 8 September and London
 
 ## A new release and world-tour cycle
 
-JILUKA’s official site identifies *DeViLs* as catalogue DPRJ1021, released on 20 May 2026. The band’s 2026 announcements connect the record with separate Japan, United States and Europe/UK tour legs. Manchester has confirmed special guest DACARA. London support, set times, set length and the full running order remain TBA; check the official tour page for updates.
+JILUKA’s official site identifies *DeViLs* as catalogue DPRJ1021, released on 20 May 2026. The band’s 2026 announcements connect the record with separate Japan, United States and Europe/UK tour legs. **DACARA is listed as special guest for both Manchester and London.** Set times, set length and the full running order remain TBA; check the official tour page for updates.
 
 ## Dates, venues and tickets
 
