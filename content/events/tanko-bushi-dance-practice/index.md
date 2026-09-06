@@ -1,8 +1,8 @@
 ---
 title: "Learn to dance Tankō Bushi for Japan Matsuri"
 date: 2026-08-09
-event_start: "2026-08-23T14:00:00"
-event_end: "2026-10-04T00:00:00"
+event_start: "2026-08-23T14:00:00+01:00"
+event_end: "2026-10-04T00:00:00+01:00"
 location: "Japan House London, 101–111 Kensington High Street, London W8 5SA; performance at Japan Matsuri, Trafalgar Square, London"
 cost: "£10"
 website: "https://www.japanhouselondon.uk/whats-on/learn-to-dance-tanko-bushi-performance-group-for-japan-matsuri/"

@@ -1,8 +1,8 @@
 ---
 title: "Keirin: Japan’s Warriors on Bicycles"
 date: 2026-08-11
-event_start: "2026-08-17T18:45:00"
-event_end: "2026-08-17T23:59:00"
+event_start: "2026-08-17T18:45:00+01:00"
+event_end: "2026-08-17T23:59:00+01:00"
 location: "The Swedenborg Society, 20–21 Bloomsbury Way, hall entrance on Barter Street, London WC1A 2TH"
 cost: "Free; booking essential. Suggested £5 donation for non-members"
 website: "https://www.japansociety.org.uk/event?event=1127&eventcat=11"

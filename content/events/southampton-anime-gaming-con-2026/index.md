@@ -1,8 +1,8 @@
 ---
 title: "Southampton Anime & Gaming Con 2026"
 date: 2026-08-16
-event_start: "2026-10-31T11:30:00"
-event_end: "2026-11-01T22:00:00"
+event_start: "2026-10-31T11:30:00+00:00"
+event_end: "2026-11-01T22:00:00+00:00"
 location: "Novotel Southampton, 1 W Quay Road, Southampton SO15 1RA"
 cost: "Weekend £30, Saturday £22 or Sunday £15; Early Bird +£6, VIP +£15"
 website: "https://autumn.southamptonanimecon.com"

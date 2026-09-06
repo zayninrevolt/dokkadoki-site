@@ -1,8 +1,8 @@
 ---
 title: "Silence in the Spaces: The Uniquely Japanese Subculture of Jazz Kissa"
 date: 2026-08-30
-event_start: "2026-09-21T18:45:00"
-event_end: "2026-09-21T18:45:00"
+event_start: "2026-09-21T18:45:00+01:00"
+event_end: "2026-09-21T18:45:00+01:00"
 location: "The Swedenborg Society, 20–21 Bloomsbury Way, London WC1A 2TH (hall entrance on Barter Street)"
 cost: "Free; booking essential. Non-members are invited to consider a £5 donation."
 website: "https://www.japansociety.org.uk/event?event=1078&eventcat=1"

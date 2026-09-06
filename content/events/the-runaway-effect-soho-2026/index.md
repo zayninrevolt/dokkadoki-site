@@ -1,8 +1,8 @@
 ---
 title: "The Runaway Effect (Work in Progress) - Soho Theatre"
 date: 2026-08-16
-event_start: "2026-08-24T18:45:00"
-event_end: "2026-08-25T19:45:00"
+event_start: "2026-08-24T18:45:00+01:00"
+event_end: "2026-08-25T19:45:00+01:00"
 location: "Soho Theatre Upstairs, 21 Dean Street, London W1D 3NE"
 cost: "From £17–£18 plus fees; members from £14.40"
 website: "https://sohotheatre.com/events/the-runaway-effect-wip/"

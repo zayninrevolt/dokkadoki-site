@@ -1,8 +1,8 @@
 ---
 title: "AnimeCon London 2026"
 date: 2026-08-13
-event_start: "2026-10-03T09:30:00"
-event_end: "2026-10-04T17:00:00"
+event_start: "2026-10-03T09:30:00+01:00"
+event_end: "2026-10-04T17:00:00+01:00"
 location: "The Grand Hall, Olympia London, Hammersmith Road, London W14 8UX"
 cost: "Advertised from £25; check the official listing for exact tiers, fees and current availability"
 website: "https://www.olympia.co.uk/events/animecon-london"

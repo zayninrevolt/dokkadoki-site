@@ -1,8 +1,8 @@
 ---
 title: "Kyotographie Exhibition Spotlight Gallery Talks"
 date: 2026-08-23
-event_start: "2026-09-15T18:00:00"
-event_end: "2026-10-13T14:30:00"
+event_start: "2026-09-15T18:00:00+01:00"
+event_end: "2026-10-13T14:30:00+01:00"
 location: "The Gallery, Japan House London, 101–111 Kensington High Street, London W8 5SA"
 cost: "Free; 15 September talk currently bookable; 13 October talk fully booked"
 website: "https://www.japanhouselondon.uk/whats-on/kyotographie-exhibition-spotlight-gallery-talks/"

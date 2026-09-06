@@ -1,8 +1,8 @@
 ---
 title: "Japanese Women Photographers: From 1950s to Now — Guided Tour"
 date: 2026-08-30
-event_start: "2026-09-01T18:00:00"
-event_end: "2026-09-01T20:00:00"
+event_start: "2026-09-01T18:00:00+01:00"
+event_end: "2026-09-01T20:00:00+01:00"
 location: "The Photographers’ Gallery, 16–18 Ramillies Street, London W1F 7LW"
 cost: "Free; booking essential, with priority booking for Japan Society members"
 website: "https://www.japansociety.org.uk/event?event=1191&eventcat=1"

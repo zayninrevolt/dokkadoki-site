@@ -1,8 +1,8 @@
 ---
 title: "Japan Fest Northampton 2026"
 date: 2026-08-16
-event_start: "2026-10-17T11:00:00"
-event_end: "2026-10-17T18:00:00"
+event_start: "2026-10-17T11:00:00+01:00"
+event_end: "2026-10-17T18:00:00+01:00"
 location: "Northampton Saints Foundation, Weedon Road, Northampton NN5 5BG"
 cost: "Free–£16.26 including booking fee; group tickets £45.53"
 website: "https://www.japanfest.co.uk/northampton"

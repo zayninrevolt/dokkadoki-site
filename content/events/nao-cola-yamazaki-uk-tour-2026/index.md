@@ -1,8 +1,8 @@
 ---
 title: "Nao-cola Yamazaki - UK Tour 2026"
 date: 2026-08-16
-event_start: "2026-10-18T17:00:00"
-event_end: "2026-10-24T00:00:00"
+event_start: "2026-10-18T17:00:00+01:00"
+event_end: "2026-10-24T00:00:00+01:00"
 location: "Cheltenham, Manchester, London, Oxford, Bristol and Sheffield"
 cost: "Cheltenham £16; Manchester £10/£8; further dates to be announced"
 website: "https://www.jpf.org.uk/whatson.php?department=art"

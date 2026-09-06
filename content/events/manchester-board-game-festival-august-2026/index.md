@@ -1,8 +1,8 @@
 ---
 title: "Manchester Board Game Festival - August 2026"
 date: 2026-08-10
-event_start: "2026-08-28T15:00:00"
-event_end: "2026-08-30T20:00:00"
+event_start: "2026-08-28T15:00:00+01:00"
+event_end: "2026-08-30T20:00:00+01:00"
 location: "Manchester Conference Centre at Pendulum Hotel, Sackville Street, Manchester M1 3BB"
 cost: "See the official ticket page; current prices and availability have not been verified"
 website: "https://manchesterboardgamefestival.co.uk/"

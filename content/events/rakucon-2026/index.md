@@ -1,8 +1,8 @@
 ---
 title: "RakuCon 2026"
 date: 2026-07-11
-event_start: "2026-08-22T10:00:00"
-event_end: "2026-08-23T17:00:00"
+event_start: "2026-08-22T10:00:00+01:00"
+event_end: "2026-08-23T17:00:00+01:00"
 location: "Mercure Manchester Piccadilly Hotel, Portland Street, Manchester M1 4PH"
 cost: "See official ticket page for current prices"
 website: "https://rakucon.co.uk/"

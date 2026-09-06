@@ -1,8 +1,8 @@
 ---
 title: "Mieko Kawakami - Sisters in Yellow UK Events"
 date: 2026-08-16
-event_start: "2026-08-26T19:00:00"
-event_end: "2026-08-28T21:30:00"
+event_start: "2026-08-26T19:00:00+01:00"
+event_end: "2026-08-28T21:30:00+01:00"
 location: "Bath, Manchester, Edinburgh and London"
 cost: "Edinburgh £15.50/£14.50/£10.50, £5 Income Support; other dates to be confirmed"
 website: "https://www.edbookfest.co.uk/events/mieko-kawakami-sisters-in-yellow"

@@ -1,8 +1,8 @@
 ---
 title: "LiSA - LiVE is Smile Always ～15～ London 2026"
 date: 2026-08-13
-event_start: "2026-09-22T19:00:00"
-event_end: "2026-09-22T23:59:00"
+event_start: "2026-09-22T19:00:00+01:00"
+event_end: "2026-09-22T23:59:00+01:00"
 location: "Troxy, London"
 cost: "DICE advertises £93.28; check mandatory charges; limited availability"
 website: "https://troxy.co.uk/event/lisa/"

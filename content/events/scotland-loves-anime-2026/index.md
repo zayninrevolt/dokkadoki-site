@@ -1,8 +1,8 @@
 ---
 title: "Scotland Loves Anime 2026"
 date: 2026-08-16
-event_start: "2026-11-06T00:00:00"
-event_end: "2026-11-22T23:59:00"
+event_start: "2026-11-06T00:00:00+00:00"
+event_end: "2026-11-22T23:59:00+00:00"
 location: "Glasgow Film Theatre, 12 Rose Street, Glasgow G3 6RB; Filmhouse, 88 Lothian Road, Edinburgh EH3 9BZ"
 cost: "Tickets and prices not yet published for 2026"
 website: "https://www.lovesanimation.com"

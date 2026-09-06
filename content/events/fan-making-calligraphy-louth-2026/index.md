@@ -1,8 +1,8 @@
 ---
 title: "Fan Making & Calligraphy"
 date: 2026-08-31
-event_start: "2026-09-06T10:00:00"
-event_end: "2026-09-06T12:00:00"
+event_start: "2026-09-06T10:00:00+01:00"
+event_end: "2026-09-06T12:00:00+01:00"
 location: "Hammond House Gallery, 33 Aswell Street, Louth, Lincolnshire LN11 9BA"
 cost: "£33"
 website: "https://www.eventbrite.co.uk/e/fan-making-calligraphy-tickets-1996434132232?aff=oddtdtcreator"

@@ -1,8 +1,8 @@
 ---
 title: "Animangapop Cardiff Winter 2026"
 date: 2026-08-16
-event_start: "2026-11-28T11:00:00"
-event_end: "2026-11-29T18:00:00"
+event_start: "2026-11-28T11:00:00+00:00"
+event_end: "2026-11-29T18:00:00+00:00"
 location: "Future Inn Cardiff Bay, Hemingway Road, Cardiff CF10 4AU"
 cost: "Early Bird £25, Weekender £29, Saturday £20, Sunday £15; VIP £50"
 website: "https://animangapop.co.uk/cardiffwinter/"

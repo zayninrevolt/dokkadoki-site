@@ -1,8 +1,8 @@
 ---
 title: "Mako Con 2026"
 date: 2026-08-16
-event_start: "2026-10-16T11:00:00"
-event_end: "2026-10-18T23:00:00"
+event_start: "2026-10-16T11:00:00+01:00"
+event_end: "2026-10-18T23:00:00+01:00"
 location: "Glasgow Grosvenor Hotel, 1–9 Grosvenor Terrace, Glasgow G12 0TB"
 cost: "£70 advance weekend ticket via Ticket Tailor"
 website: "https://makocon.net"

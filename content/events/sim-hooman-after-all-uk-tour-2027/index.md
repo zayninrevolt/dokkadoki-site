@@ -1,8 +1,8 @@
 ---
 title: "SiM - HOOMAN AFTER ALL UK Tour 2027"
 date: 2026-08-16
-event_start: "2027-01-20T19:00:00"
-event_end: "2027-01-30T23:00:00"
+event_start: "2027-01-20T19:00:00+00:00"
+event_end: "2027-01-30T23:00:00+00:00"
 location: "Glasgow, Leeds, Manchester, Birmingham, Cardiff, Bristol and London"
 cost: "£25–£26 face value plus fees per date; VIP meet-and-greet £89 (upgrade only)"
 website: "https://sxixm.com"

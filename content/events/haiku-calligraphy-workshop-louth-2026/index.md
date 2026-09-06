@@ -1,8 +1,8 @@
 ---
 title: "Haiku and Calligraphy Workshop"
 date: 2026-08-31
-event_start: "2026-11-01T14:00:00"
-event_end: "2026-11-01T16:00:00"
+event_start: "2026-11-01T14:00:00+00:00"
+event_end: "2026-11-01T16:00:00+00:00"
 location: "Hammond House Gallery, 33 Aswell Street, Louth, Lincolnshire LN11 9BA"
 cost: "£30"
 website: "https://www.eventbrite.co.uk/e/haiku-and-calligraphy-workshop-tickets-1996625031216?aff=oddtdtcreator"

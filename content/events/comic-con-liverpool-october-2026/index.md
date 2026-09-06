@@ -1,8 +1,8 @@
 ---
 title: "Comic Con Liverpool - October 2026"
 date: 2026-08-10
-event_start: "2026-10-10T09:00:00"
-event_end: "2026-10-11T18:00:00"
+event_start: "2026-10-10T09:00:00+01:00"
+event_end: "2026-10-11T18:00:00+01:00"
 location: "Liverpool Experience Campus, including Exhibition Centre Liverpool, Convention Centre Liverpool, M&S Bank Arena and The Auditorium"
 cost: "See the official event journey for current ticket prices, fees and availability"
 website: "https://www.comicconventionliverpool.co.uk/"

@@ -1,8 +1,8 @@
 ---
 title: "Birmingham Anime & Gaming Con 2026"
 date: 2026-08-13
-event_start: "2026-09-19T10:00:00"
-event_end: "2026-09-20T23:59:00"
+event_start: "2026-09-19T10:00:00+01:00"
+event_end: "2026-09-20T23:59:00+01:00"
 location: "Edgbaston Stadium, Edgbaston Road, Birmingham B5 7QU"
 cost: "Weekend £30, Saturday £22 or Sunday £15; Early Bird +£6 and VIP +£15; confirm any checkout fees"
 website: "https://summer.birminghamanimecon.com/"

@@ -1,8 +1,8 @@
 ---
 title: "COFFINS - Downstairs at The Dome London 2026"
 date: 2026-08-13
-event_start: "2026-08-16T19:00:00"
-event_end: "2026-08-16T23:59:00"
+event_start: "2026-08-16T19:00:00+01:00"
+event_end: "2026-08-16T23:59:00+01:00"
 location: "Downstairs at The Dome, 178 Junction Road, London N19 5QQ"
 cost: "Ticket page live; check current price, fees and availability with the seller"
 website: "https://www.domelondon.co.uk/whatson/08/16-coffins"

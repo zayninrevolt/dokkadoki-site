@@ -1,8 +1,8 @@
 ---
 title: "MCM London Comic Con 2026"
 date: 2026-08-09
-event_start: "2026-10-23T10:00:00"
-event_end: "2026-10-25T17:00:00"
+event_start: "2026-10-23T10:00:00+01:00"
+event_end: "2026-10-25T17:00:00+00:00"
 location: "ExCeL London, London"
 cost: "Weekend ticket £98; VIP Legend Pass £300 and VIP Pass £230 were sold out on 9 August"
 website: "https://www.mcmcomiccon.com/london/en-us.html"

@@ -1,8 +1,8 @@
 ---
 title: "Tabletop Scotland 2026"
 date: 2026-08-09
-event_start: "2026-09-04T12:00:00"
-event_end: "2026-09-06T19:00:00"
+event_start: "2026-09-04T12:00:00+01:00"
+event_end: "2026-09-06T19:00:00+01:00"
 location: "Royal Highland Centre, Ingliston, near Edinburgh, Scotland"
 cost: "£15 Friday; £23 Saturday; £20 Sunday; £35 Friday–Saturday; £40 Saturday–Sunday weekend; £50 Friday–Sunday; under-16s and carers free"
 website: "https://tabletopscotland.co.uk/"

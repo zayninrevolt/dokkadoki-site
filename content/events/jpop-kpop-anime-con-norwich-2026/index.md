@@ -1,8 +1,8 @@
 ---
 title: "J-Pop, K-Pop & Anime Con - Aidoru, Norwich"
 date: 2026-08-16
-event_start: "2026-09-13T10:00:00"
-event_end: "2026-09-13T17:30:00"
+event_start: "2026-09-13T10:00:00+01:00"
+event_end: "2026-09-13T17:30:00+01:00"
 location: "Epic Studios, 112–114 Magdalen Street, Norwich NR3 1JD"
 cost: "£16.55–£19.85 on the current listing; vendor tables £35; fee treatment not stated"
 website: "https://www.universe.com/events/j-pop-k-pop-anime-convention-tickets-J3TPR7"

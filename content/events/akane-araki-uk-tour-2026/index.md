@@ -1,8 +1,8 @@
 ---
 title: "Akane Araki - UK Tour 2026"
 date: 2026-08-16
-event_start: "2026-10-10T14:00:00"
-event_end: "2026-10-14T20:00:00"
+event_start: "2026-10-10T14:00:00+01:00"
+event_end: "2026-10-14T20:00:00+01:00"
 location: "Manchester, Cheltenham, Sheffield, Cambridge and London"
 cost: "Manchester £10/£8; Cheltenham £16; Cambridge free–£20"
 website: "https://www.jpf.org.uk/whatson.php?department=art"

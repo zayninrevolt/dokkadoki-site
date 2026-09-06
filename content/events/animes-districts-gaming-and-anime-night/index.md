@@ -1,8 +1,8 @@
 ---
 title: "Anime District's Gaming and Anime Night!"
 date: 2026-08-09
-event_start: "2026-09-06T16:00:00"
-event_end: "2026-09-06T22:00:00"
+event_start: "2026-09-06T16:00:00+01:00"
+event_end: "2026-09-06T22:00:00+01:00"
 location: "Platform Shoreditch, 2b Worship Street, London EC2A 2AH"
 cost: "General Admission £22.38 including the £2.38 fee; few tickets left; no refunds"
 website: "https://www.eventbrite.com/e/anime-districts-gaming-and-anime-night-tickets-1984722893602"

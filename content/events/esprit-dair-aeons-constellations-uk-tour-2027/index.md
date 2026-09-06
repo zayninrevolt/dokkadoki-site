@@ -1,8 +1,8 @@
 ---
 title: "Esprit D’Air - Aeons & Constellations UK Tour 2027"
 date: 2026-08-13
-event_start: "2027-02-12T19:00:00"
-event_end: "2027-02-19T22:00:00"
+event_start: "2027-02-12T19:00:00+00:00"
+event_end: "2027-02-19T22:00:00+00:00"
 location: "Birmingham, Cardiff, Leeds, Edinburgh, Newcastle upon Tyne, Nottingham and London"
 cost: "Artist-direct tickets £25 sale price (regular £27.50), with no booking fees"
 website: "https://www.espritdair.com/products/esprit-dair-aeons-constellations-uk-tour-2027"

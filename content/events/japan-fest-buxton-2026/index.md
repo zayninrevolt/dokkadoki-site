@@ -1,8 +1,8 @@
 ---
 title: "Japan Fest Buxton 2026"
 date: 2026-08-16
-event_start: "2026-09-27T11:00:00"
-event_end: "2026-09-27T17:00:00"
+event_start: "2026-09-27T11:00:00+01:00"
+event_end: "2026-09-27T17:00:00+01:00"
 location: "Pavilion Gardens, Buxton SK17 6JR"
 cost: "Free–£11.92 including booking fee; group tickets £42.28"
 website: "https://www.japanfest.co.uk/buxton"

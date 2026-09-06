@@ -1,8 +1,8 @@
 ---
 title: "JILUKA - DeViLs World Tour UK 2026"
 date: 2026-08-13
-event_start: "2026-09-08T00:00:00"
-event_end: "2026-09-09T23:59:00"
+event_start: "2026-09-08T00:00:00+01:00"
+event_end: "2026-09-09T23:59:00+01:00"
 location: "Manchester Academy 2, Oxford Road, Manchester M13 9PR; O2 Academy Islington, Angel Central, London N1 0PS"
 cost: "General ticket availability not independently verified; check sellers for current prices, fees and availability"
 website: "https://jiluka-web.com/2026wt-euuk/"

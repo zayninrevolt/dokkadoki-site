@@ -57,21 +57,47 @@
 }
 </script>
 {{- end }}
-{{- if and .IsPage (eq .Section "events") .Params.event_start .Params.event_end .Params.location }}
+{{- if and .IsPage (eq .Section "events") .Params.event_start .Params.event_end .Params.location -}}
+{{- $start := time .Params.event_start -}}
+{{- $end := time .Params.event_end -}}
+{{- $status := default "https://schema.org/EventScheduled" .Params.event_status -}}
+{{- $attendance := default "https://schema.org/OfflineEventAttendanceMode" .Params.event_attendance_mode -}}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Event",
+  "@id": {{ printf "%s#event" .Permalink | jsonify | safeJS }},
   "name": {{ .Title | jsonify | safeJS }},
   "description": {{ (or .Description (.Summary | plainify | truncate 155)) | jsonify | safeJS }},
-  "startDate": {{ .Params.event_start | jsonify | safeJS }},
-  "endDate": {{ .Params.event_end | jsonify | safeJS }},
-  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "startDate": {{ $start.Format "2006-01-02T15:04:05Z07:00" | jsonify | safeJS }},
+  "endDate": {{ $end.Format "2006-01-02T15:04:05Z07:00" | jsonify | safeJS }},
+  "eventStatus": {{ $status | jsonify | safeJS }},
+  "eventAttendanceMode": {{ $attendance | jsonify | safeJS }},
+  {{- if eq $attendance "https://schema.org/OnlineEventAttendanceMode" }}
+  "location": {
+    "@type": "VirtualLocation",
+    "url": {{ .Params.website | jsonify | safeJS }}
+  },
+  {{- else }}
   "location": {
     "@type": "Place",
-    "name": {{ .Params.location | jsonify | safeJS }}
+    "name": {{ .Params.location | jsonify | safeJS }},
+    "address": {{ .Params.location | jsonify | safeJS }}
   },
-  "url": {{ .Permalink | jsonify | safeJS }}
+  {{- end }}
+  "url": {{ .Permalink | jsonify | safeJS }}{{ with .Resources.GetMatch "cover*" }},
+  "image": [{{ .Permalink | jsonify | safeJS }}]{{ end }}{{ with .Params.organizer_name }},
+  "organizer": {
+    "@type": "Organization",
+    "name": {{ . | jsonify | safeJS }}{{ with $.Params.organizer_url }},
+    "url": {{ . | jsonify | safeJS }}{{ end }}
+  }{{ end }}{{ with .Params.offer_url }},
+  "offers": {
+    "@type": "Offer",
+    "url": {{ . | jsonify | safeJS }}{{ with $.Params.offer_price }},
+    "price": {{ . | jsonify | safeJS }},
+    "priceCurrency": {{ default "GBP" $.Params.offer_currency | jsonify | safeJS }}{{ end }}
+  }{{ end }}
 }
 </script>
 {{- end }}

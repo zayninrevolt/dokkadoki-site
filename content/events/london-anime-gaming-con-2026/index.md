@@ -1,8 +1,8 @@
 ---
 title: "London Anime & Gaming Con 2026"
 date: 2026-08-09
-event_start: "2026-08-28T00:00:00"
-event_end: "2026-08-30T23:59:00"
+event_start: "2026-08-28T00:00:00+01:00"
+event_end: "2026-08-30T23:59:00+01:00"
 location: "Novotel London West, International Centre, Shortlands, London W6 8DR"
 cost: "Full three-day weekend £49 (against a £67 reference); day tickets £20–£27; under-8s free; under-16s with a paying adult; carer discount available - see ticket page"
 website: "https://summer.londonanimecon.com/"

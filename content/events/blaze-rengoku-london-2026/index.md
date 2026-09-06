@@ -1,8 +1,8 @@
 ---
 title: "BLAZE - RENGOKU EU Tour London 2026"
 date: 2026-08-13
-event_start: "2026-10-27T18:00:00"
-event_end: "2026-10-27T23:59:00"
+event_start: "2026-10-27T18:00:00+00:00"
+event_end: "2026-10-27T23:59:00+00:00"
 location: "The Underworld, Camden, London"
 cost: "£35 plus £6.57 advertised fee (£41.57 total); confirm checkout availability"
 website: "http://www.theunderworldcamden.co.uk/event/blaze-27th-oct-the-underworld-london-tickets/"

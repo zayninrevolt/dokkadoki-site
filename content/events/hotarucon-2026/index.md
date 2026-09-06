@@ -1,8 +1,8 @@
 ---
 title: "HotaruCon 5 - Sport"
 date: 2026-08-16
-event_start: "2026-11-13T00:00:00"
-event_end: "2026-11-15T23:59:00"
+event_start: "2026-11-13T00:00:00+00:00"
+event_end: "2026-11-15T23:59:00+00:00"
 location: "Leonardo Hotel, Midsummer Boulevard, Milton Keynes"
 cost: "£75 all-inclusive 3-day ticket; online registration only"
 website: "https://hotarucon.co.uk"

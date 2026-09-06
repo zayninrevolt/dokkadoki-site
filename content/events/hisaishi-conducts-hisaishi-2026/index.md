@@ -1,8 +1,8 @@
 ---
 title: "Hisaishi conducts Hisaishi - Royal Philharmonic Orchestra"
 date: 2026-08-11
-event_start: "2026-11-23T19:00:00"
-event_end: "2026-11-23T21:20:00"
+event_start: "2026-11-23T19:00:00+00:00"
+event_end: "2026-11-23T21:20:00+00:00"
 location: "Royal Albert Hall, Kensington Gore, South Kensington, London SW7 2AP"
 cost: "Sold out; waitlist open. Published prices were from £54, including a £4 transaction fee charged once per order"
 website: "https://www.rpo.co.uk/tickets-memberships/event/2026/hisaishi-conducts-hisaishi"

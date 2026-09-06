@@ -1,8 +1,8 @@
 ---
 title: "MONO - Snowdrop World Tour London 2027"
 date: 2026-08-13
-event_start: "2027-02-20T18:00:00"
-event_end: "2027-02-20T23:59:00"
+event_start: "2027-02-20T18:00:00+00:00"
+event_end: "2027-02-20T23:59:00+00:00"
 location: "Electric Ballroom, London"
 cost: "£28.50 advertised; check mandatory seller charges and live availability"
 website: "https://electricballroom.co.uk/mono-snowdrop-world-tour-part-1/"

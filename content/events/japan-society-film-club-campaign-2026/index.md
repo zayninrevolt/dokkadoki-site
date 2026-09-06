@@ -1,8 +1,9 @@
 ---
 title: "Japan Society Film Club: Campaign"
 date: 2026-08-11
-event_start: "2026-09-02T18:30:00"
-event_end: "2026-09-02T23:59:00"
+event_start: "2026-09-02T18:30:00+01:00"
+event_end: "2026-09-02T23:59:00+01:00"
+event_attendance_mode: "https://schema.org/OnlineEventAttendanceMode"
 location: "Online via Zoom"
 cost: "Free for Japan Society members; advance Zoom registration required"
 website: "https://www.japansociety.org.uk/event?event=1143&eventcat=11"

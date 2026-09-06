@@ -1,8 +1,8 @@
 ---
 title: "Japanese Calligraphy Workshops: Six-Week Course"
 date: 2026-08-31
-event_start: "2026-10-25T10:00:00"
-event_end: "2026-12-06T12:00:00"
+event_start: "2026-10-25T10:00:00+00:00"
+event_end: "2026-12-06T12:00:00+00:00"
 location: "Hammond House Gallery, 33 Aswell Street, Louth, Lincolnshire LN11 9BA"
 cost: "£150 for all six classes"
 website: "https://www.eventbrite.co.uk/e/japanese-calligraphy-workshops-six-week-course-tickets-1996434228520?aff=oddtdtcreator"

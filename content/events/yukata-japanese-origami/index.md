@@ -1,8 +1,9 @@
 ---
 title: "Cancelled - Yukata and Japanese Origami"
 date: 2026-08-09
-event_start: "2026-08-22T16:00:00"
-event_end: "2026-08-22T17:30:00"
+event_start: "2026-08-22T16:00:00+01:00"
+event_end: "2026-08-22T17:30:00+01:00"
+event_status: "https://schema.org/EventCancelled"
 location: "20 Red Lion Street, London WC1R 4PS"
 cost: "Originally listed from £11.55"
 website: "https://www.eventbrite.co.uk/e/yukata-and-japanese-origami-tickets-1987740605660"

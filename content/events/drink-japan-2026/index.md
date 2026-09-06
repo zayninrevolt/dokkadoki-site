@@ -1,8 +1,8 @@
 ---
 title: "Drink Japan 2026"
 date: 2026-09-06
-event_start: "2026-09-25T12:00:00"
-event_end: "2026-09-26T21:00:00"
+event_start: "2026-09-25T12:00:00+01:00"
+event_end: "2026-09-26T21:00:00+01:00"
 location: "The Lindley Hall, Royal Horticultural Halls, 80 Vincent Square, London SW1P 2PB"
 cost: "Public tickets listed at £17.50–£35; current session availability and fees vary; trade entry complimentary with professional registration"
 website: "https://drinkjapan.uk/"

@@ -1,8 +1,8 @@
 ---
 title: "Animangapop Manchester Weekender 2026"
 date: 2026-08-23
-event_start: "2026-09-19T10:30:00"
-event_end: "2026-09-20T18:00:00"
+event_start: "2026-09-19T10:30:00+01:00"
+event_end: "2026-09-20T18:00:00+01:00"
 location: "Pendulum Hotel, Sackville Street, Manchester M1 3BB"
 cost: "Early Bird weekend £25, Weekend £29, Saturday £20, Sunday £15, VIP £50; base prices exclude fees"
 website: "https://animangapop.co.uk/manchester/"

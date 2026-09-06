@@ -1,8 +1,8 @@
 ---
 title: "Boris - PINK 20th Anniversary UK Tour 2026"
 date: 2026-08-13
-event_start: "2026-10-10T15:00:00"
-event_end: "2026-10-16T23:59:00"
+event_start: "2026-10-10T15:00:00+01:00"
+event_end: "2026-10-16T23:59:00+01:00"
 location: "Bristol, Newcastle, Glasgow, Leeds, Manchester, London and Brighton"
 cost: "Several dates sold out; London low-ticket alert; check current prices and fees with each seller"
 website: "https://borisheavyrocks.com/news/10208/"
