@@ -7,13 +7,19 @@
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary | plainify | truncate 155 }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}" />
 <meta name="theme-color" content="#bfe3f2" />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
+{{ $socialImageURL := "social-card.png" | absURL }}
+{{ with .Resources.GetMatch "cover*" }}
+  {{ $socialImage := .Fill "1200x630 q85" }}
+  {{ $socialImageURL = $socialImage.Permalink }}
+{{ end }}
 
 <!-- Open Graph / social -->
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
 <meta property="og:title" content="{{ if .IsHome }}Dokkadoki - Manga Café{{ else }}{{ .Title }}{{ end }}" />
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}A manga café coming soon to The Millgate, Bury - manga, Ueshima Coffee and Japanese convenience-store-style snacks.{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
-<meta property="og:image" content="{{ "social-card.png" | absURL }}" />
+<meta property="og:image" content="{{ $socialImageURL }}" />
+<meta property="og:image:alt" content="{{ .Title }}" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="en_GB" />
@@ -211,6 +217,6 @@
   })();
 </script>
 {{ block "scripts" . }}{{ end }}
-{{ with site.Params.goatcounter }}<script data-goatcounter="https://{{ . }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>{{ end }}
+{{ if eq hugo.Environment "production" }}{{ with site.Params.goatcounter }}<script data-goatcounter="https://{{ . }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>{{ end }}{{ end }}
 </body>
 </html>

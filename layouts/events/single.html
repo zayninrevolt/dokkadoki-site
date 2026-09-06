@@ -12,6 +12,9 @@
     {{ with .Params.location }}<p>📍 <strong>Where:</strong> {{ . }}</p>{{ end }}
     {{ with .Params.cost }}<p>🎟️ <strong>Cost:</strong> {{ . }}</p>{{ end }}
     {{ with .Params.website }}<a class="btn btn-link" href="{{ . }}" target="_blank" rel="noopener">Event website ↗</a>{{ end }}
+    {{ $start := time .Params.event_start }}
+    {{ $end := time (default .Params.event_start .Params.event_end) }}
+    <a class="btn btn-link" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text={{ .Title | urlquery }}&amp;dates={{ $start.Format "20060102T150405" }}/{{ $end.Format "20060102T150405" }}&amp;details={{ .Permalink | urlquery }}&amp;location={{ .Params.location | urlquery }}&amp;ctz=Europe%2FLondon" target="_blank" rel="noopener">Add to Google Calendar ↗</a>
   </div>
 
   <div class="post-body card">
@@ -19,5 +22,14 @@
   </div>
 
   <p class="all-posts"><a href="{{ "events/" | relURL }}">← All events</a></p>
+
+  <aside class="cta-banner event-signup">
+    <span class="emoji" aria-hidden="true">💌</span>
+    <div class="cta-text">
+      <h2>Want more events like this?</h2>
+      <p>Join the Dokkadoki newsletter for café news, new manga and a monthly event roundup.</p>
+    </div>
+    <a class="btn btn-link" href="{{ "" | relURL }}#signup">Get event updates</a>
+  </aside>
 </article>
 {{ end }}

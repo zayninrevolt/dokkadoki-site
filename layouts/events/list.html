@@ -6,6 +6,22 @@
 </section>
 
 <section class="block wrap">
+  <div class="event-tools card" aria-label="Filter upcoming events">
+    <div class="event-tool-field">
+      <label for="event-search">Search events</label>
+      <input id="event-search" type="search" placeholder="Try Bury, Manchester, anime or food" autocomplete="off" />
+    </div>
+    <div class="event-tool-field">
+      <label for="event-range">Show</label>
+      <select id="event-range">
+        <option value="all">All upcoming events</option>
+        <option value="30">Next 30 days</option>
+        <option value="90">Next 90 days</option>
+      </select>
+    </div>
+    <p class="event-results" id="event-results" aria-live="polite"></p>
+  </div>
+
   {{ $upcoming := slice }}
   {{ range .Pages }}
     {{ $end := time (default .Params.event_start .Params.event_end) }}
@@ -21,6 +37,54 @@
   <p class="lead" data-events-empty {{ if $upcoming }}hidden{{ end }}>
     Nothing on the calendar right now - check back soon! 🌸
   </p>
+  <p class="lead" data-events-no-match hidden>No events match that search. Try a different place, interest or date range.</p>
   <p class="lead">Know a UK Japanese culture, music, art, film, food, gaming or community event we have missed? Email <a href="mailto:{{ site.Params.contactEmail }}?subject=Event%20suggestion">{{ site.Params.contactEmail }}</a> with the official event link.</p>
+
+  <aside class="cta-banner event-signup">
+    <span class="emoji" aria-hidden="true">💌</span>
+    <div class="cta-text">
+      <h2>Keep the next event on your radar</h2>
+      <p>Join the Dokkadoki newsletter for café news, new manga and a monthly roundup of events.</p>
+    </div>
+    <a class="btn btn-link" href="{{ "" | relURL }}#signup">Get event updates</a>
+  </aside>
 </section>
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+  (function(){
+    var list = document.querySelector('[data-events-list]');
+    var search = document.getElementById('event-search');
+    var range = document.getElementById('event-range');
+    var results = document.getElementById('event-results');
+    var empty = document.querySelector('[data-events-empty]');
+    var noMatch = document.querySelector('[data-events-no-match]');
+    if(!list || !search || !range || !results) return;
+    var cards = Array.prototype.slice.call(list.querySelectorAll('[data-event-start]'));
+    var now = new Date();
+    now.setHours(0,0,0,0);
+
+    function applyFilters(){
+      var query = search.value.trim().toLowerCase();
+      var days = range.value === 'all' ? null : Number(range.value);
+      var visible = 0;
+      cards.forEach(function(card){
+        var starts = new Date(card.getAttribute('data-event-start'));
+        var inText = !query || card.textContent.toLowerCase().indexOf(query) !== -1;
+        var inRange = days === null || (starts >= now && starts <= new Date(now.getTime() + days * 86400000));
+        var show = inText && inRange;
+        card.hidden = !show;
+        if(show) visible += 1;
+      });
+      results.textContent = visible + (visible === 1 ? ' event' : ' events') + ' shown';
+      if(empty) empty.hidden = cards.length !== 0;
+      if(noMatch) noMatch.hidden = visible !== 0 || cards.length === 0;
+    }
+
+    search.addEventListener('input', applyFilters);
+    range.addEventListener('change', applyFilters);
+    applyFilters();
+  })();
+</script>
 {{ end }}

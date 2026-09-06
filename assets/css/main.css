@@ -204,6 +204,14 @@ h2.section-title{
 .event-facts:hover{transform:none}
 .event-facts p{margin-bottom:8px;color:var(--ink)}
 .event-facts .btn-link{margin-top:10px}
+.event-tools{max-width:720px;margin:0 auto 28px;padding:20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,.55fr);gap:14px;align-items:end}
+.event-tools:hover{transform:none}
+.event-tool-field{display:grid;gap:6px}
+.event-tool-field label{font-family:var(--font-display);font-weight:700;font-size:.86rem;color:var(--ink)}
+.event-tool-field input,.event-tool-field select{width:100%;border:1.5px solid #e6edf3;border-radius:14px;padding:11px 13px;font:inherit;color:var(--ink);background:var(--white)}
+.event-tool-field input:focus,.event-tool-field select:focus{outline:none;border-color:var(--sky-deep);box-shadow:0 0 0 4px rgba(143,203,230,.28)}
+.event-results{grid-column:1/-1;color:var(--ink-soft);font-size:.86rem;margin:0}
+.event-signup{margin-top:34px}
 
 /* manga requests */
 .cta-banner{
@@ -323,6 +331,8 @@ footer{padding:54px 0 60px;text-align:center;position:relative;z-index:2}
   .space .art{order:-1}
   .post-body{padding:28px 22px}
   .ebay-grid{grid-template-columns:repeat(2,1fr)}
+  .event-tools{grid-template-columns:1fr}
+  .event-results{grid-column:auto}
 }
 
 @media (max-width:420px){.ebay-grid{grid-template-columns:1fr}}

@@ -18,9 +18,8 @@ disableKinds = ["taxonomy", "term"]
   contactEmail = "admin@dokkadoki.co.uk"
   # Membership app (separate repo), live production URL.
   membershipURL = "https://members.dokkadoki.co.uk"
-  # Analytics are deliberately disabled. If this changes, update the privacy
-  # notice before enabling an analytics script.
-  goatcounter = ""
+  # Privacy-friendly pageview analytics. The privacy notice documents this.
+  goatcounter = "dokkadoki"
   # Port exposed by the dokkadoki-api container for local/LAN previews.
   apiDevPort = 3456
   # Public API stays on Unraid behind its own Cloudflare Tunnel hostname.

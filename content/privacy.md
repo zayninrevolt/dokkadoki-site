@@ -39,8 +39,10 @@ our membership app, we collect:
 - **Library details**: a Libib account is created for you so staff can check
   manga out to you while you read in the café.
 
-We do **not** collect payment card details, and the site runs **no advertising
-or tracking scripts**.
+We do **not** collect payment card details, and the site runs no advertising
+scripts. We use GoatCounter, a privacy-friendly pageview analytics service, to
+understand which pages are useful. It does not use advertising profiles or
+third-party tracking cookies.
 
 ## 3. How we use your data
 
@@ -79,8 +81,9 @@ any service, email us and we'll tell you.
 
 ## 6. Cookies and local storage
 
-The website sets **no cookies** and runs no analytics. The manga-request form
-stores one random identifier in your browser's local storage so people
+The website sets no advertising cookies. GoatCounter analytics runs without
+tracking cookies and records aggregated pageview information. The manga-request
+form stores one random identifier in your browser's local storage so people
 sharing a connection can each vote once. It is not used to follow you around
 the web or build a profile.
 
