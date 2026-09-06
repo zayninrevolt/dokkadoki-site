@@ -28,6 +28,12 @@ const { loadEnvFile } = require('./env-loader');
 
 loadEnvFile(pathModule.join(__dirname, '.env'));
 
+// Public source fingerprint, never configuration or secret material.
+const RELEASE_FILES = ['server.js', 'ebay.js', 'env-loader.js', 'newsletter-content.js', 'newsletter-renderer.js', 'newsletter-runner.js', 'newsletter-service.js', 'newsletter-sync.js', 'package.json'];
+const BUILD = crypto.createHash('sha256');
+for (const file of RELEASE_FILES) BUILD.update(fs.readFileSync(pathModule.join(__dirname, file)));
+const BUILD_ID = BUILD.digest('hex');
+
 const PORT = parseInt(process.env.PORT || '3001', 10);
 const TRUST_PROXY = process.env.TRUST_PROXY === 'cloudflare';
 const ALLOWED_ORIGINS = new Set((process.env.ALLOWED_ORIGINS || '')
@@ -164,7 +170,7 @@ function containsBlocked(rawTitle, norm) {
 
 function normalizeTitle(raw) {
   let s = raw.toLowerCase().normalize('NFKD').replace(/[\̀-\ͯ]/g, '');
-  s = s.replace(/[^a-z0-9]+/g, ' ').trim();
+  s = s.normalize('NFC').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
   let tokens = s.split(/\s+/).filter(Boolean);
   // drop "vol 3" / "volume 12" style suffixes
   tokens = tokens.filter((t, i, arr) => {
@@ -196,15 +202,14 @@ function levenshtein(a, b) {
 }
 
 function sameSeries(a, b) {
+  // Explicit aliases only: a missing suffix often denotes a distinct sequel.
+  const aliases = { 'hero academia': 'my hero academia' };
+  a = Object.hasOwn(aliases, a) ? aliases[a] : a;
+  b = Object.hasOwn(aliases, b) ? aliases[b] : b;
   if (a === b) return true;
-  // typo tolerance: allow ~1 edit per 4 characters
+  if (a.split(' ').length !== b.split(' ').length) return false;
   const tolerance = Math.max(1, Math.floor(Math.min(a.length, b.length) / 4));
-  if (Math.abs(a.length - b.length) <= tolerance && levenshtein(a, b) <= tolerance) return true;
-  // missing-word tolerance: every word of the shorter appears in the longer
-  const ta = a.split(' ');
-  const tb = b.split(' ');
-  const [short, long] = ta.length <= tb.length ? [ta, tb] : [tb, ta];
-  return short.length > 0 && short.every((t) => long.includes(t));
+  return Math.abs(a.length - b.length) <= tolerance && levenshtein(a, b) <= tolerance;
 }
 
 /* naive per-IP, per-endpoint rate limit */
@@ -268,7 +273,17 @@ function stringField(body, key) {
   return typeof body[key] === 'string' ? body[key] : null;
 }
 
-function readBody(req, cb) {
+function failRequest(res, error) {
+  console.error('Request failed:', error.code || 'INTERNAL_ERROR');
+  if (res.writableEnded || res.destroyed) return;
+  if (res.headersSent) { res.destroy(); return; }
+  const badUrl = error.code === 'ERR_INVALID_URL';
+  send(res, badUrl ? 400 : 500, { ok: false, error: badUrl ? 'Bad request.' : 'Something went wrong - please try again.' });
+}
+
+function readBody(req, res, callback) {
+  // EventEmitter does not await async listeners. Always observe their promises.
+  const cb = (error, body) => { Promise.resolve().then(() => callback(error, body)).catch((failure) => failRequest(res, failure)); };
   let raw = '';
   let finished = false;
   req.on('data', (c) => {
@@ -327,7 +342,7 @@ function requestOriginAllowed(req, res, path = '') {
   return true;
 }
 
-const server = http.createServer(async (req, res) => {
+async function handleRequest(req, res) {
   const url = new URL(req.url, 'http://localhost');
   const path = url.pathname.replace(/\/+$/, '') || '/';
 
@@ -353,7 +368,7 @@ const server = http.createServer(async (req, res) => {
   if (req.method === 'GET' && (path === '/api/health' || path === '/health')) {
     try {
       await pool.query('SELECT 1');
-      return send(res, 200, { ok: true, db: true });
+      return send(res, 200, { ok: true, db: true, build: BUILD_ID });
     } catch (e) {
       return send(res, 500, { ok: false, db: false });
     }
@@ -420,7 +435,7 @@ const server = http.createServer(async (req, res) => {
     if (rateLimited(clientIp(req), 'req', 10)) {
       return send(res, 429, { ok: false, error: 'Too many requests - try again later.' });
     }
-    return readBody(req, async (err, body) => {
+    return readBody(req, res, async (err, body) => {
       if (err) return send(res, 400, { ok: false, error: 'Bad request.' });
       const website = stringField(body, 'website');
       const rawTitle = stringField(body, 'title');
@@ -461,7 +476,7 @@ const server = http.createServer(async (req, res) => {
         const [rows] = await pool.query(
           'SELECT id, title, title_normalized, request_count FROM manga_requests WHERE month = ?', [month]);
         const match = rows.find((r) => sameSeries(norm, r.title_normalized));
-        if (match) return castVote(match);
+        if (match) return await castVote(match);
 
         try {
           const [ins] = await pool.query('INSERT INTO manga_requests (title, title_normalized, month) VALUES (?, ?, ?)', [title, norm, month]);
@@ -469,7 +484,7 @@ const server = http.createServer(async (req, res) => {
         } catch (e) {
           if (e.code === 'ER_DUP_ENTRY') { // lost a race creating the row; vote on the winner's row
             const [[row]] = await pool.query('SELECT id, title, request_count FROM manga_requests WHERE title_normalized = ? AND month = ?', [norm, month]);
-            return castVote(row);
+            return await castVote(row);
           }
           throw e;
         }
@@ -485,7 +500,7 @@ const server = http.createServer(async (req, res) => {
     if (rateLimited(clientIp(req), 'sub', 5)) {
       return send(res, 429, { ok: false, error: 'Too many attempts - try again later.' });
     }
-    return readBody(req, async (err, body) => {
+    return readBody(req, res, async (err, body) => {
       if (err) return send(res, 400, { ok: false, error: 'Bad request.' });
       const website = stringField(body, 'website');
       const emailValue = stringField(body, 'email');
@@ -516,9 +531,34 @@ const server = http.createServer(async (req, res) => {
   }
 
   send(res, 404, { ok: false, error: 'Not found.' });
+}
+
+const server = http.createServer((req, res) => {
+  handleRequest(req, res).catch((error) => failRequest(res, error));
 });
 
 if (require.main === module) {
+  console.log('API release ready:', BUILD_ID);
+  // Backup archives contain the explicit deployed source allowlist, not .env/data.
+  try {
+    const directory = pathModule.join(__dirname, 'backups');
+    const latest = fs.readdirSync(directory).filter((name) => /^pre-\d{8}-\d{6}\.tar\.gz$/.test(name)).sort().pop();
+    if (latest) {
+      const archive = fs.readFileSync(pathModule.join(directory, latest));
+      const tar = require('zlib').gunzipSync(archive);
+      const names = new Set();
+      for (let offset = 0; offset + 512 <= tar.length; ) {
+        const name = tar.subarray(offset, offset + 100).toString().replace(/\0.*$/s, '');
+        if (!name) break;
+        const size = parseInt(tar.subarray(offset + 124, offset + 136).toString().replace(/\0.*$/s, '').trim(), 8);
+        if (!Number.isFinite(size)) throw new Error('Invalid backup archive');
+        names.add(name.replace(/^\.\//, ''));
+        offset += 512 + Math.ceil(size / 512) * 512;
+      }
+      if (!RELEASE_FILES.every((name) => names.has(name))) throw new Error('Incomplete backup archive');
+      console.log('Deployment backup ready:', latest, 'sha256=' + crypto.createHash('sha256').update(archive).digest('hex'));
+    }
+  } catch (_) { console.error('Deployment backup verification failed; inspect before further changes.'); }
   try {
     initializeVoteSalt();
   } catch (e) {

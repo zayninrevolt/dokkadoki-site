@@ -55,6 +55,7 @@ test('sends an approved edition once per opted-in recipient with a private unsub
       assert.match(sql, /LOWER\(email\) NOT LIKE '%@example\.com'/i);
       return [[{ email: 'already@example.com' }, { email: 'new@example.com' }]];
     }
+    if (/SELECT status FROM newsletter_send_log/i.test(sql)) return [[{ status: 'sent' }]];
     if (/INSERT IGNORE INTO newsletter_send_log/i.test(sql)) {
       const email = values[1];
       if (logs.has(email)) return [{ affectedRows: 0 }];

@@ -27,7 +27,7 @@ A Weekend ticket is listed at £98. MCM also lists priority and VIP options; the
 
 ## Plan your visit
 
-MCM publishes dedicated pages for [accessibility](https://www.mcmcomiccon.com/london/en-us/accessibility.html), [cosplay and prop rules](https://www.mcmcomiccon.com/london/en-us/cosplay.html), [getting here](https://www.mcmcomiccon.com/london/en-us/getting-here.html) and family attendance guidance. Carer Pass applicants must complete MCM's approval process before buying a ticket.
+MCM publishes dedicated pages for [accessibility](https://www.mcmcomiccon.com/london/en-us/show-info/accessibility.html), [cosplay and prop rules](https://www.mcmcomiccon.com/london/en-us/things-to-do/cosplay-central.html), [getting here](https://www.mcmcomiccon.com/london/en-us/help/travel-info.html) and family attendance guidance. Carer Pass applicants must complete MCM's approval process before buying a ticket.
 
 ## Cover image
 

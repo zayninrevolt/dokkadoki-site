@@ -93,28 +93,6 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ---- events: hide anything that's already finished (the build only knows
-     "today" at build time, so this keeps things honest between rebuilds),
-     and cap the homepage section at the next 3 upcoming ---- */
-  (function(){
-    var cards = document.querySelectorAll('[data-event-end]');
-    if(!cards.length) return;
-    var now = new Date();
-    var visible = [];
-    cards.forEach(function(card){
-      var end = new Date(card.getAttribute('data-event-end'));
-      end.setDate(end.getDate() + 1); // an event is "past" once its final day ends
-      if(end <= now){ card.hidden = true; } else { visible.push(card); }
-    });
-    var home = document.querySelector('[data-events-home]');
-    if(home){
-      visible.forEach(function(card, i){ if(i >= 3) card.hidden = true; });
-      if(visible.length === 0) home.hidden = true;
-    }
-    var empty = document.querySelector('[data-events-empty]');
-    if(empty && visible.length === 0) empty.hidden = false;
-  })();
-
   /* ---- drifting sakura petals ---- */
   (function(){
     var canvas = document.getElementById('petals');
@@ -216,6 +194,8 @@
       : '{{ site.Params.apiURL }}';
   })();
 </script>
+<script src="{{ "js/events.js" | relURL }}"></script>
+<script src="{{ "js/request.js" | relURL }}"></script>
 {{ block "scripts" . }}{{ end }}
 {{ if eq hugo.Environment "production" }}{{ with site.Params.goatcounter }}<script data-goatcounter="https://{{ . }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>{{ end }}{{ end }}
 </body>

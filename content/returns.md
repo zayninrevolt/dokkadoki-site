@@ -3,10 +3,12 @@ title: "Returns & refunds 📦"
 description: "Dokkadoki's returns and refunds policy: in-store purchases, faulty goods, exchanges and how to return."
 ---
 
-We want you to be happy with anything you buy from Dokkadoki. This page
-explains your rights and how our returns process works. Dokkadoki currently
-sells **in-store only**: there is no online checkout yet: so this policy covers purchases made at the café.
-covers purchases made at the café.
+Last updated: 6 September 2026.
+
+We want you to be happy with anything you buy from Dokkadoki. We currently sell
+online through our [eBay shop](https://www.ebay.co.uk/usr/dokkadokiltd). The café
+is not open yet. This page distinguishes current eBay purchases from our
+planned in-café returns policy. Nothing here limits your statutory rights.
 
 ## Faulty or misdescribed goods
 
@@ -22,7 +24,7 @@ assist you efficiently.
 - Sale or clearance items are covered by the same rights.
 - We will cover the cost of return postage for faulty or misdescribed items.
 
-## Change-of-mind returns (in-store purchases)
+## Planned change-of-mind returns (in-café purchases)
 
 If you change your mind about a purchase made in-store, you may return it to
 us within **30 days**, provided that:
@@ -39,18 +41,33 @@ us within **30 days**, provided that:
 - Proof of purchase is required for all change-of-mind returns.
 - Change-of-mind returns must be returned to the café.
 
-## Online purchases
+## eBay purchases
 
-We do not currently sell online. If we introduce online or mail-order sales
-in future, the 14-day cooling-off period that applies to distance purchases
-under UK consumer law will be added to this page before any online checkout
-goes live.
+For an order from our eBay shop, use your eBay purchase history to contact us,
+request a return or report a problem. You can also email us with your order
+reference. Please arrange the return with us before posting anything; you do
+not need to wait for the café to open.
+
+For eligible online purchases, you can tell us you wish to cancel within
+14 days of receiving the goods, then have a further 14 days to return them.
+We refund within 14 days of receiving the goods back, including the cost of
+standard outbound delivery. Statutory exceptions apply to certain goods, such
+as personalised or perishable items and qualifying unsealed hygiene products.
+A deduction may apply for handling beyond what is needed to inspect the goods.
+
+Check the listing and eBay return instructions for the applicable return-postage
+arrangements and any more generous return window. Faulty or misdescribed goods
+retain their statutory protection. The voluntary in-café change-of-mind policy
+above does not replace your online cancellation rights.
+
+See [GOV.UK's guide to returns and refunds](https://www.gov.uk/accepting-returns-and-giving-refunds)
+for an explanation of these rights.
 
 ## Memberships and reading passes
 
-Reading passes and memberships are services rather than goods. Once a pass
-or membership has been activated at the café, it cannot be cancelled for a
-refund, but you are welcome to ask us about transferring or upgrading it: email [admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk?subject=Return%20or%20exchange) and we'll do what we can.
+Reading passes and memberships are services rather than goods. For cancellation, refunds or changes to an activated pass, please contact us.
+Your statutory rights are not affected by activation. You can also ask about
+transferring or upgrading a pass: email [admin@dokkadoki.co.uk](mailto:admin@dokkadoki.co.uk?subject=Return%20or%20exchange) and we'll do what we can.
 
 ## Refund process
 

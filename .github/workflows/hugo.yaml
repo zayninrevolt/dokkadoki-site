@@ -31,6 +31,23 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: API regression tests
+        working-directory: signup-api
+        run: |
+          npm ci --ignore-scripts
+          npm test
+
+      - name: Website regression tests
+        run: |
+          node --test scripts/test-*.cjs
+          python3 scripts/test-seo-templates.py
+          python3 scripts/test-ebay-copy.py
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v6

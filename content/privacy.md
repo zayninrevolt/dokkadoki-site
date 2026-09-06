@@ -3,7 +3,7 @@ title: "Privacy policy 🔒"
 description: "What Dokkadoki collects, why, where it lives, and your rights under UK GDPR."
 ---
 
-Last updated: 16 August 2026.
+Last updated: 6 September 2026.
 
 We like this stuff simple, but membership data and UK GDPR deserve a proper
 explanation. Here's the honest version.
@@ -71,7 +71,7 @@ We never sell your personal data, and we never share it for advertising.
 |---|---|
 | Newsletter & manga requests | Our own server in the UK (MariaDB) |
 | Membership profiles & pass records | Supabase (managed cloud database) |
-| Membership emails | Resend (email delivery service) |
+| Membership emails and newsletter delivery | Resend (email delivery service) |
 | Library patron record | Libib (our manga catalogue service) |
 | Website pages | GitHub Pages (static hosting) |
 
@@ -97,18 +97,26 @@ We do not sell your personal data. We share data only with:
 
 - **Libib** - your name, email, phone, address and a library barcode, so we
   can check books out to you.
-- **Resend** - your email address, to deliver your membership pass.
+- **Resend** - your email address and message content, for membership emails and newsletter delivery.
 - **Supabase** - the hosting provider for membership data (they process data
   on our behalf).
 - Regulators, law enforcement, or legal advisers when required by law.
 
 ## 8. Data retention
 
-- Newsletter and request data: kept until you unsubscribe or ask us to remove
-  it.
+- Active newsletter subscriptions: removed when you unsubscribe. Matching
+  membership newsletter consent is also withdrawn. Manga request data can
+  be removed on request.
 - Membership records: kept for as long as your membership exists, plus
   transaction records for at least 6 years for tax/legal purposes.
-- Marketing data: kept until you withdraw consent.
+- Active marketing consent: kept until you withdraw it.
+- Newsletter delivery logs are separate from the active mailing list. They
+  include the recipient address, edition, delivery status and provider message
+  reference, to prevent duplicate sends and investigate delivery problems.
+  Unsubscribing does not automatically erase these historic logs, and they are
+  not used as a list of people to send future newsletters to. They do not
+  currently have an automatic expiry. You can request deletion; we will explain
+  any limited record we need to retain and why.
 - After these periods, data is securely deleted or anonymised.
 
 ## 9. Your rights

@@ -20,6 +20,7 @@
       <button class="btn" type="submit">Notify me</button>
     </div>
     <p class="note">One email a month, no spam - leave whenever you like. 🌸 <a href="{{ "privacy/" | relURL }}">Privacy</a></p>
+<p data-form-progress role="status" aria-live="polite"></p>
     <p class="form-error" id="form-error" role="alert" hidden></p>
     <div class="thanks" role="status"><span>🎉</span><span>You’re on the list - see you in your inbox!</span></div>
   </form>
@@ -70,7 +71,7 @@
   {{ if gt ($end.AddDate 0 0 1) now }}{{ $upcoming = $upcoming | append . }}{{ end }}
 {{ end }}
 {{ $upcoming = sort $upcoming "Params.event_start" "asc" }}
-{{ with first 4 $upcoming }}
+{{ with $upcoming }}
 <section class="block wrap" id="upcoming-events" data-events-home>
   <p class="eyebrow">Out and about</p>
   <h2 class="section-title">Upcoming events</h2>
@@ -165,8 +166,14 @@
         return;
       }
       var btn = form.querySelector('.btn');
+      if (btn.disabled) return;
+      var originalLabel = btn.textContent;
       btn.disabled = true;
-      fetch(API + '/api/subscribe', {
+      btn.textContent = 'Submitting…';
+      form.setAttribute('aria-busy', 'true');
+      var progress = form.querySelector('[data-form-progress]');
+      progress.textContent = 'Submitting your request. Please wait.';
+      window.DokkadokiFetch(API + '/api/subscribe', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ email: v, website: document.getElementById('website').value })
@@ -176,11 +183,11 @@
           errBox.textContent = d.error || 'Something went wrong - please try again.';
           errBox.hidden = false;
         })
-        .catch(function(){
-          errBox.textContent = 'Couldn’t reach the sign-up service - please try again in a minute.';
+        .catch(function(error){
+          errBox.textContent = error.name === 'TimeoutError' ? 'The service took too long to respond. Please try again.' : 'Couldn’t reach the sign-up service - please try again in a minute.';
           errBox.hidden = false;
         })
-        .finally(function(){ btn.disabled = false; });
+        .finally(function(){ btn.disabled = false; btn.textContent = originalLabel; form.removeAttribute('aria-busy'); progress.textContent = ''; });
     });
   })();
 
@@ -190,7 +197,7 @@
     var wrap = document.getElementById('ebay-latest');
     var grid = document.getElementById('ebay-items');
     if(!wrap || !grid) return;
-    fetch(API + '/api/ebay-items').then(function(r){
+    window.DokkadokiFetch(API + '/api/ebay-items').then(function(r){
       if(!r.ok) throw new Error('unavailable');
       return r.json();
     }).then(function(d){

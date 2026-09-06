@@ -134,6 +134,10 @@ async function sendApprovedEdition({
     if (!email) continue;
     const [claim] = await pool.query("INSERT IGNORE INTO newsletter_send_log (edition_id, email, status) VALUES (?, ?, 'sending')", [editionId, email]);
     if (Number(claim.affectedRows || 0) !== 1) {
+      const [existing] = await pool.query('SELECT status FROM newsletter_send_log WHERE edition_id = ? AND email = ?', [editionId, email]);
+      if (existing[0]?.status !== 'sent') {
+        throw new Error('Unresolved newsletter delivery claim. Reconcile with the email provider before retrying; the edition remains approved.');
+      }
       skipped += 1;
       continue;
     }
@@ -146,7 +150,8 @@ async function sendApprovedEdition({
       await pool.query("UPDATE newsletter_send_log SET status = 'sent', resend_id = ?, sent_at = CURRENT_TIMESTAMP WHERE edition_id = ? AND email = ?", [resendId, editionId, email]);
       sent += 1;
     } catch (error) {
-      await pool.query("DELETE FROM newsletter_send_log WHERE edition_id = ? AND email = ? AND status = 'sending'", [editionId, email]);
+      // Delivery may have succeeded even if its response or log update failed.
+      // Preserve the claim for reconciliation rather than risk a duplicate send.
       throw error;
     }
   }

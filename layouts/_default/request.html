@@ -15,6 +15,7 @@
       <button class="btn" type="submit">Request it</button>
     </div>
     <p class="note">Requests are anonymous - one vote per series per person each month. 🌸</p>
+<p data-form-progress role="status" aria-live="polite"></p>
     <p class="form-error" id="request-error" role="alert" hidden></p>
     <p class="request-thanks" id="request-thanks" role="status" hidden></p>
   </form>
@@ -70,7 +71,7 @@
       });
       document.getElementById(wrapId).hidden = false;
     }
-    fetch(API + '/api/requests?limit=3').then(function(r){ return r.json(); }).then(function(d){
+    window.DokkadokiFetch(API + '/api/requests?limit=3').then(function(r){ return r.json(); }).then(function(d){
       if(d.ok) fillList('winners-list', 'last-month', d.requests);
     }).catch(function(){ /* list is a bonus - stays hidden if unreachable */ });
 
@@ -87,8 +88,14 @@
         return;
       }
       var btn = form.querySelector('.btn');
+      if (btn.disabled) return;
+      var originalLabel = btn.textContent;
       btn.disabled = true;
-      fetch(API + '/api/request-manga', {
+      btn.textContent = 'Submitting…';
+      form.setAttribute('aria-busy', 'true');
+      var progress = form.querySelector('[data-form-progress]');
+      progress.textContent = 'Submitting your request. Please wait.';
+      window.DokkadokiFetch(API + '/api/request-manga', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ title: v, device: deviceId, website: document.getElementById('website').value })
@@ -109,11 +116,11 @@
           errBox.textContent = d.error || 'Something went wrong - please try again.';
           errBox.hidden = false;
         })
-        .catch(function(){
-          errBox.textContent = 'Couldn\'t reach the request service - please try again in a minute.';
+        .catch(function(error){
+          errBox.textContent = error.name === 'TimeoutError' ? 'The service took too long to respond. Please try again.' : 'Couldn\'t reach the request service - please try again in a minute.';
           errBox.hidden = false;
         })
-        .finally(function(){ btn.disabled = false; });
+        .finally(function(){ btn.disabled = false; btn.textContent = originalLabel; form.removeAttribute('aria-busy'); progress.textContent = ''; });
     });
   })();
 </script>
