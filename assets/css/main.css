@@ -343,3 +343,20 @@ footer{padding:54px 0 60px;text-align:center;position:relative;z-index:2}
   #petals{display:none}
   *{scroll-behavior:auto}
 }
+
+/* Keep opening updates alongside the introduction without changing pre-opening availability. */
+.home-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"intro signup" "perks signup";gap:20px 48px;align-items:center;padding:28px 24px 32px}
+.home-intro{grid-area:intro;min-width:0}
+.home-hero .hero-logo{width:clamp(220px,28vw,300px)}
+.home-hero .kana{margin-bottom:10px}
+.home-hero .tagline{margin-top:16px}
+.home-hero .signup{grid-area:signup;margin:0;width:100%;text-align:left}
+.home-hero .home-perks{grid-area:perks;margin-top:0;gap:8px}
+.home-hero .pill{padding:7px 12px;font-size:.85rem}
+@media(max-width:720px){
+  .home-hero{grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "signup" "perks";gap:22px;padding:16px 20px 32px}
+  .home-hero .hero-logo{width:164px}
+  .home-hero .tagline{font-size:1rem;margin-top:12px}
+  .home-hero .signup{max-width:480px;justify-self:center;padding:22px 20px}
+  .home-hero .kana{font-size:.9rem;margin-bottom:8px}
+}

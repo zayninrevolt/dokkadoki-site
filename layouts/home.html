@@ -1,10 +1,12 @@
 {{ define "main" }}
-<section class="hero wrap">
+<section class="hero wrap home-hero">
+  <div class="home-intro">
   <p class="kana">ようこそ</p>
   <h1 class="hero-logo-wrap"><img class="hero-logo" src="{{ "logo.png" | relURL }}" alt="Dokkadoki Cafe" width="768" height="837" /></h1>
   <p class="tagline">A manga café - a cosy little Japanese escape, coming soon to The Millgate, Bury.</p>
 
-  <div class="pills">
+  </div>
+  <div class="pills home-perks">
     <span class="pill">☕ Ueshima Coffee</span>
     <span class="pill">📚 1,000+ manga</span>
     <span class="pill">🍜 Self-serve ramen cookers</span>
@@ -13,7 +15,7 @@
 
   <form class="signup" id="signup" novalidate>
     <h2>The Dokkadoki newsletter 💌</h2>
-    <p class="sub">A little letter from the café each month - opening news, fresh manga on the wall, and events we're heading to.</p>
+    <p class="sub">Opening news, fresh manga and upcoming events, in one monthly café letter.</p>
     <div class="field">
       <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" aria-label="Email address" aria-describedby="form-error" required />
       <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
