@@ -6,20 +6,20 @@ event_end: "2026-09-20T23:59:00+01:00"
 location: "Edgbaston Stadium, Edgbaston Road, Birmingham B5 7QU"
 cost: "Weekend £30, Saturday £22 or Sunday £15; Early Bird +£6 and VIP +£15; confirm any checkout fees"
 website: "https://summer.birminghamanimecon.com/"
-description: "Gaming, cosplay, karaoke, panels and a ten-person guest and performer line-up fill a September weekend at Edgbaston Stadium."
+description: "Gaming, cosplay, karaoke, panels and a thirteen-name guest and performer line-up fill a September weekend at Edgbaston Stadium."
 ---
 
-Birmingham Anime & Gaming Con takes over Edgbaston Stadium for two days on 19–20 September. The current programme spans anime, video and tabletop gaming, cosplay, karaoke, parties, panels, performers and exhibitors, with a ten-person guest and performer line-up already advertised.
+Birmingham Anime & Gaming Con takes over Edgbaston Stadium for two days on 19–20 September. The current programme spans anime, video and tabletop gaming, cosplay, karaoke, parties, panels, performers and exhibitors, with a thirteen-name guest and performer line-up now advertised.
 
 ## What is announced for 2026
 
-The organiser currently names Debi Derryberry, Aileen Mythen, AfroGeek House, Murdah Srvc, Amber, LELE, MiuoniVT, SYNTHONIE, DJ Manimal and SOSOSO_tokyo_berlin. Newly advertised material includes AfroGeek House’s anime game show on the main stage and SYNTHONIE’s live cyberpunk music with interactive VR music workshops.
+The organiser currently names Debi Derryberry, Zee Andrews, Aileen Mythen, Valentine Stokes, AfroGeek House, Murdah Srvc, Amber, Duncan Gutteridge, LELE, MiuoniVT, SYNTHONIE, DJ Manimal and SOSOSO_tokyo_berlin. Newly advertised material includes AfroGeek House’s anime game show on the main stage and SYNTHONIE’s live cyberpunk music with interactive VR music workshops.
 
 Confirmed activity areas include video gaming, anime theatre, tabletop gaming, stage events and panels, cosplay, karaoke and parties. The dated Birmingham timetable and exact closing and party times have not yet been published.
 
 ## Tickets and entry
 
-On 13 August, the listed prices were £30 for the weekend, £22 for Saturday and £15 for Sunday, and all three were marked in stock. Standard entry begins at 11:30. Early Bird adds £6, with entry from 10:00 and five raffle tickets. VIP adds £15 and includes Early Bird benefits, ten raffle tickets, a convention badge, official lanyard and tote bag. Confirm any mandatory checkout fees and the final total before purchase.
+The current ticket page lists £30 for the weekend, £22 for Saturday and £15 for Sunday. Standard entry begins at 11:30. Early Bird adds £6, with entry from 10:00 and five raffle tickets. VIP adds £15 and includes Early Bird benefits, ten raffle tickets, a convention badge, official lanyard and tote bag. Confirm any mandatory checkout fees and the final total before purchase.
 
 The organiser’s general policy says the event is all ages, with most content approximately PG-13. Under-16s need a responsible adult aged 18 or over; children aged eight and under enter free with an adult. Some evening content may be 18+ and require photo ID.
 

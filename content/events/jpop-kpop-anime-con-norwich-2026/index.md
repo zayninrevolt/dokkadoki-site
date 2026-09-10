@@ -17,6 +17,6 @@ Alongside the stage show there's an artist alley with artists and idol-merch tab
 
 ## Tickets
 
-The current Universe listing shows tickets at **£16.55–£19.85**; its fee treatment is not stated. Set times will be published on the day through the venue's social channels. Vendor tables are £35. All ages are welcome; under-14s must be accompanied by an adult 18+. Tickets are non-refundable but may be resold via third-party platforms.
+The current Universe listing shows early entry from **10:00 to 17:30**, with only **70 early-entry tickets** available. Standard entry runs from **11:00 to 17:30**. Tickets are listed at **£16.55–£19.85**; fee treatment is not stated. Set times will be published on the day through the venue's social channels. Vendor tables are £35. All ages are welcome; under-14s must be accompanied by an adult 18+. Tickets are non-refundable but may be resold via third-party platforms.
 
 *Cover image: original AI-generated thematic illustration. It does not depict the event or any performer.*

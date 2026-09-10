@@ -13,13 +13,13 @@ LiSA celebrates 15 years with *LiVE is Smile Always ～15～ Europe & UK Tour 20
 
 ## The anniversary tour
 
-The London date is a LiSA headline performance. A support act, set times, set list and set length have not been announced. The event is advertised for 19:00, but published ticket information does not say whether that is doors or the performance start.
+The London date is a LiSA headline performance. A support act, set list and set length have not been announced. Troxy currently lists **19:00 - Doors Open / Event Starts**.
 
 ## Tickets and entry
 
-The [DICE listing](https://dice.fm/event/ry82xw-lisa-live-is-smile-always15europe-uk-tour-2026-22nd-sep-troxy-london-tickets) advertises £93.28. It does not confirm whether that figure includes every mandatory charge, which ticket tiers remain, or current checkout inventory. Troxy's scarcity wording means availability is limited, not that the date is sold out.
+The [DICE listing](https://dice.fm/event/ry82xw-lisa-live-is-smile-always15europe-uk-tour-2026-22nd-sep-troxy-london-tickets) advertises £93.28. It does not confirm whether that figure includes every mandatory charge, which ticket tiers remain, or current checkout inventory. Troxy's page labels the date **Limited Availability** and **Final Few Remaining**, but that does not establish that the date is sold out.
 
-Age/accompaniment, ID, refunds, exchanges or transfers, last entry, e-ticket requirements and event-specific bag/security rules have not been published.
+Troxy states that the event is **over 14s only** and limits purchases to **eight tickets per person and household**; excess tickets will be cancelled. ID, refunds, exchanges or transfers, last entry, e-ticket requirements and event-specific bag/security rules have not been published.
 
 ## Access and planning
 
