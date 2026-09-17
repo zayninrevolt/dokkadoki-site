@@ -3,7 +3,7 @@ title: "Japan Fest Buxton 2026"
 date: 2026-08-16
 event_start: "2026-09-27T11:00:00+01:00"
 event_end: "2026-09-27T17:00:00+01:00"
-location: "Pavilion Gardens, Buxton SK17 6JR"
+location: "Pavilion Gardens, St John's Road, Buxton SK17 6BE"
 cost: "Free–£11.92 including booking fee; group tickets £42.28"
 website: "https://www.japanfest.co.uk/buxton"
 description: "Otaku World's fourth Buxton edition: a full family day of Japanese arts, crafts, food, tea, live stage acts and a cosplay parade in the Pavilion Gardens."
@@ -19,6 +19,8 @@ Food and drink come from Food of Japan and OISHI street food, with premium tea a
 
 ## Tickets and practicalities
 
-Advance tickets run from free up to £11.92 including booking fee, with group tickets at £42.28; booking is via Eventbrite or TicketSource. The event runs 11:00–17:00 and is all ages. Refunds are available up to seven days before the event. Parking at Pavilion Gardens is paid.
+Advance tickets run from free up to £11.92 including booking fee, with group tickets at £42.28; booking is via Eventbrite or TicketSource. The event runs 11:00–17:00 and is all ages. Refunds are available up to seven days before the event. Pavilion Gardens parking is pay-and-display, accepts coins and PayByPhone, and has 199 spaces including disabled bays; the car-park entrance is SK17 9AR and may be busy. Buxton station is approximately a 5–10 minute walk away.
 
-*Cover image: original AI-generated thematic illustration. It does not depict the event.*
+## Cover image
+
+Original AI-generated thematic illustration. It does not depict the event.

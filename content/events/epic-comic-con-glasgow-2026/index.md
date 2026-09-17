@@ -6,20 +6,22 @@ event_end: "2026-09-27T23:59:00+01:00"
 location: "SEC Centre, Glasgow G3 8YW"
 cost: "Tickets are on sale; see the official organiser page for current prices and tiers"
 website: "https://www.forthefans.uk/epic-comic-con"
-description: "EPIC Comic Con Glasgow packs named guests, cosplay, wrestling, retro and tabletop gaming, artists and family activities at the SEC."
+description: "EPIC Comic Con Glasgow brings a current fourteen-name guest roster, cosplay, wrestling, retro and tabletop gaming, artists and family activities to the SEC."
 ---
 
 EPIC Comic Con Glasgow takes place at the SEC Centre on Saturday 26 and Sunday 27 September. Tickets are on sale, while the final showtimes are still to be announced.
 
 ## What to expect
 
-Admission includes on-stage events, with guest autographs and photo opportunities available separately. The organiser currently lists Billy Boyd, Dominic Monaghan, Pom Klementieff, Kayvan Novak, Michael Kovach, Nola Klop and Rebecca Hanssen among its guests.
+Admission includes on-stage events, with guest autographs and photo opportunities available separately. The current organiser roster lists Denise Gough, Kayvan Novak, Harvey Guillén, Michael Kovach, Nola Klop, Elsie Lovelock, Rob Llewelyn, Chris Barrie, Doug Naylor, Jessica Henwick, Youssef Kerkour, Rebecca Hanssen, Emmett J. Scanlan and Callum Kerr.
 
 Confirmed areas and activities include the Cosplay Hub and Cosplay City Championship qualifier/final, a pro-wrestling arena, retro gaming, tabletop gaming, the Con Quest tabletop-RPG area, fan-organised meets, children’s painting, crafts, LEGO and comics. Vendors Valley, Artist Alley, Comics Village, Book End and Food & Fuel are also listed.
 
 ## Tickets and planning
 
 See the official organiser page for current prices and tiers. Confirm refund, age, ID, prop, bag and entry terms before booking.
+
+The organiser advertises early entry from 10:00 and general entry from 11:00. The SEC listing says showtimes will be updated when confirmed.
 
 The [SEC event listing](https://www.sec.co.uk/events/detail/epic-comic-con-2026) links to directions, parking and accessibility resources. Event-specific access and parking arrangements were not stated in the listing. Contact the SEC at info@sec.co.uk or 0141 248 3000, and check the [official organiser page](https://www.forthefans.uk/epic-comic-con) before travelling.
 

@@ -4,19 +4,18 @@ date: 2026-08-23
 event_start: "2026-09-15T18:00:00+01:00"
 event_end: "2026-10-13T14:30:00+01:00"
 location: "The Gallery, Japan House London, 101–111 Kensington High Street, London W8 5SA"
-cost: "Free; 15 September talk currently bookable; 13 October talk fully booked"
+cost: "Free; 13 October talk fully booked"
 website: "https://www.japanhouselondon.uk/whats-on/kyotographie-exhibition-spotlight-gallery-talks/"
-description: "Two Spotlight Gallery Talks explore Iwane Ai and Kawada Kikuji; the 15 September talk is currently bookable and the 13 October talk is fully booked."
+description: "A Spotlight Gallery Talk on 13 October explores Kawada Kikuji's The Last Cosmology; it is fully booked."
 ---
 
-Japan House London's first photography exhibition brings together Kawada Kikuji and Iwane Ai for the first time in the UK project from the team behind Kyoto's Kyotographie International Photography Festival. Two remaining Spotlight Gallery Talks take a close look at a single work or series, with a short introduction, audience Q&A and time to explore the exhibition afterwards.
+Japan House London's first photography exhibition brings together Kawada Kikuji and Iwane Ai for the first time in the UK project from the team behind Kyoto's Kyotographie International Photography Festival. The final Spotlight Gallery Talk takes a close look at a single work or series, with a short introduction, audience Q&A and time to explore the exhibition afterwards.
 
-## The remaining talks
+## The remaining talk
 
-- **Tuesday 15 September, 18:00–18:30:** Iwane Ai on *Kipuka* - **book now**
 - **Tuesday 13 October, 14:00–14:30:** Kawada Kikuji on *The Last Cosmology* - **fully booked**
 
-No waiting-list or late-entry policy has been published. The talks are free, but booking is essential. At busy times, Japan House says booking guarantees entry; arrival slots, possible short waits and an approximate 40-minute gallery visit are also published.
+The talk is free but fully booked. No waiting-list or late-entry policy has been published. At busy times, Japan House says booking guarantees entry; arrival slots, possible short waits and an approximate 40-minute gallery visit are also published.
 
 ## Exhibition context
 

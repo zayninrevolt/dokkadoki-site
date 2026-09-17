@@ -4,7 +4,7 @@ date: 2026-09-06
 event_start: "2026-09-25T12:00:00+01:00"
 event_end: "2026-09-26T21:00:00+01:00"
 location: "The Lindley Hall, Royal Horticultural Halls, 80 Vincent Square, London SW1P 2PB"
-cost: "Public tickets listed at £17.50–£35; current session availability and fees vary; trade entry complimentary with professional registration"
+cost: "Current Eventbrite options include £15 two-for-one Friday afternoon, £30 standard Friday afternoon, £35 Friday evening, £19.67 two-for-one Saturday afternoon, £30 standard Saturday afternoon and £38.62 Saturday evening; fees and eligibility vary"
 website: "https://drinkjapan.uk/"
 description: "Drink Japan returns for a third year with Japanese drinks, food, complimentary tastings, masterclasses, performances and a new Spirits of Japan zone at Lindley Hall."
 ---
@@ -17,13 +17,13 @@ The 2026 edition adds a Government of Japan-sponsored Spirits of Japan zone, wit
 
 Public sessions are advertised as Friday 25 September, 17:00–21:00; Saturday 26 September, 12:00–16:00; and Saturday 26 September, 17:00–21:00. The Friday 25 September, 12:00–16:00 session is labelled **Trade only** by the organiser. Eventbrite displays Friday afternoon ticket tiers, so check the organiser or ticket seller directly if you need to establish eligibility for that session.
 
-The new complimentary masterclasses are registered for at the ticket gate on the day. The provisional timetable includes sake, awamori and Japanese tea sessions on the Main Hall Stage, including *Sake Unlocked – Taste, Pair, Discover*, *The Spirit of Okinawa: Discover the World of Awamori*, *Beyond Matcha: A Modern Japanese Tea Experience by AWAIDO*, and a WSET sake masterclass.
+The new complimentary masterclasses are registered for at the ticket gate on the day. The provisional timetable lists Friday at 13:00 sake, 14:30 awamori, 18:00 Japanese tea and 19:30 awamori; Saturday at 13:00 awamori, 14:30 sake, 18:00 awamori and 19:30 WSET sake. Session details may change.
 
 The performance programme includes Japanese opera singers Nozomi Fukushima and Takumi Torio, with taiko drummers led by Joji Hirota. The published provisional schedule includes opera and taiko performances across Friday and Saturday, with times listed on the organiser's performance page.
 
 ## Tickets and practical information
 
-The organiser lists public tickets from £17.50 to £35. Eventbrite currently shows session-specific tiers and fees, including a listed 2-for-1 offer, so check the live selector for the exact session, fee treatment and remaining availability. Tickets are for one session, must be booked in advance and cannot be transferred to another session. Eventbrite states that the event is strictly over 18 and offers refunds up to seven days before the event.
+The current Eventbrite selector shows Friday afternoon two-for-one tickets at £15 and standard tickets at £30, Friday evening at £35, Saturday afternoon two-for-one at £19.67 with a displayed £2.17 fee and standard tickets at £30, and Saturday evening at £38.62 including a displayed £3.62 fee. The two-for-one options show sales ending on 24 September. Fee treatment is not exposed consistently for every tier, so check the live selector for the exact session, eligibility and remaining availability. Tickets are for one session, must be booked in advance and cannot be transferred to another session. Eventbrite states that the event is strictly over 18 and offers refunds up to seven days before the event.
 
 Trade entry is complimentary for trade professionals who register online using professional details and present business cards on arrival for a Trade Badge. The organiser says trade is welcome with the public during the Friday evening and both Saturday sessions.
 

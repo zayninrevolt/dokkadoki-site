@@ -4,7 +4,7 @@ date: 2026-08-13
 event_start: "2026-09-22T19:00:00+01:00"
 event_end: "2026-09-22T23:59:00+01:00"
 location: "Troxy, London"
-cost: "DICE advertises £93.28; check mandatory charges; limited availability"
+cost: "Ticket price unverified; Troxy lists limited availability and final few remaining"
 website: "https://troxy.co.uk/event/lisa/"
 description: "LiSA celebrates her 15th anniversary with her first Europe and UK tour, including a limited-availability London date at Troxy."
 ---
@@ -17,7 +17,7 @@ The London date is a LiSA headline performance. A support act, set list and set 
 
 ## Tickets and entry
 
-The [DICE listing](https://dice.fm/event/ry82xw-lisa-live-is-smile-always15europe-uk-tour-2026-22nd-sep-troxy-london-tickets) advertises £93.28. It does not confirm whether that figure includes every mandatory charge, which ticket tiers remain, or current checkout inventory. Troxy's page labels the date **Limited Availability** and **Final Few Remaining**, but that does not establish that the date is sold out.
+The stored £93.28 figure from the [DICE listing](https://dice.fm/event/ry82xw-lisa-live-is-smile-always15europe-uk-tour-2026-22nd-sep-troxy-london-tickets) is not currently verified. Check the seller for the live price, mandatory charges, ticket tiers and checkout inventory. Troxy's page labels the date **Limited Availability** and **Final Few Remaining**, but that does not establish that the date is sold out.
 
 Troxy states that the event is **over 14s only** and limits purchases to **eight tickets per person and household**; excess tickets will be cancelled. ID, refunds, exchanges or transfers, last entry, e-ticket requirements and event-specific bag/security rules have not been published.
 
