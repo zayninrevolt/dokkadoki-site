@@ -24,3 +24,7 @@ The lecture takes place Monday 21 September at 18:45 at The Swedenborg Society, 
 Alcohol will be served. Guests under 18 must attend with a parent or legal guardian. The booking form requires each attendee’s full name and email address, and a confirmation email should follow booking.
 
 See the [official Japan Society event page](https://www.japansociety.org.uk/event?event=1078&eventcat=1) and [Tokyo Jazz Joints](https://tokyojazzjoints.com/) for current information. Event-specific accessibility, companion, parking, travel, food, bag and last-entry arrangements have not been published; contact [events@japansociety.org.uk](mailto:events@japansociety.org.uk) or 020 3075 1996 before attending if needed.
+
+## Cover image
+
+Original AI-generated thematic illustration. It does not depict the actual lecture, Philip Arneill, Tokyo Jazz Joints, the Swedenborg Society or any photographs from the project.
