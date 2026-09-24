@@ -6,14 +6,14 @@ event_end: "2026-10-04T17:00:00+01:00"
 location: "The Grand Hall, Olympia London, Hammersmith Road, London W14 8UX"
 cost: "Advertised from £25; check the official listing for exact tiers, fees and current availability"
 website: "https://www.olympia.co.uk/events/animecon-london"
-description: "Two days of anime and manga culture at Olympia pair J-pop and K-pop performances with fashion, cosplay, artists, shopping and international guests."
+description: "Two days of anime and manga culture at Olympia pair J-pop and K-pop performances with fashion, cosplay, artists, shopping and guests including Justin Briner, Jason Liebrecht and Elizabeth Maxwell."
 ---
 
 AnimeCon London fills Olympia London’s Grand Hall with two days of anime and manga culture on 3–4 October. J-pop and K-pop performances share the bill with fashion, cosplay, a creator-focused Artist Alley, shopping and international guest appearances.
 
 ## What is confirmed
 
-The programme is still at category level. Named 2026 guests, a dated stage timetable and detailed activities remain TBA.
+Olympia currently names Justin Briner, Jason Liebrecht and Elizabeth Maxwell as 2026 guests, with more guests to come. The venue also advertises a Cosplay Catwalk alongside Artist Alley and J-pop/K-pop performances. A dated stage timetable and additional detailed activities remain TBA.
 
 ## Opening times and tickets
 

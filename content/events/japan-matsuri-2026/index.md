@@ -6,16 +6,14 @@ event_end: "2026-10-04T20:00:00+01:00"
 location: "Trafalgar Square, London WC2N 5DS"
 cost: "Free"
 website: "https://japanmatsuri.com/"
-description: "A Trafalgar Square celebration offers a free day of Japanese food, cultural activities, martial arts and stage performances."
+description: "A free Trafalgar Square celebration offers Japanese food, cultural activities, martial arts and a published 2026 stage programme, with 64 stalls listed by the organiser."
 ---
 
 Japan Matsuri fills Trafalgar Square for a free day of Japanese culture and food. No advance ticket is indicated; if the square reaches capacity, entry may operate one-in, one-out.
 
 ## What to expect
 
-The organiser confirms returning and new food stalls around the fountains, cultural activity, martial arts and stage performers. Visitors can also join in with the official Japan Matsuri song, *IBUKI*. The food-stall area is in the centre of the square on either side of the fountains.
-
-Named 2026 performers, final stage times, vendor names and the detailed programme remain TBA.
+The organiser’s 2026 programme lists an opening ceremony and wadaiko, IBUKI with Naomi Suzuki, the official Japan Matsuri song, a cosplay celebration, Tankō Bushi at 14:15, and Naomi Suzuki with Press X from 15:00. The stalls page lists 64 current exhibitors across food, drink, crafts, tourism and information, with food stalls around the fountains.
 
 ## Entry and safety
 
@@ -25,7 +23,7 @@ The organiser prohibits bags larger than A4, bikes and scooters, opened alcohol,
 
 Nearby stations include Charing Cross, Leicester Square, Piccadilly Circus and Embankment; Charing Cross also has mainline rail services. The organiser publishes [location and bus guidance](https://japanmatsuri.com/location).
 
-Confirm event-specific access needs with the organiser before attending. The final 2026 timetable, stalls and other activity details remain TBA; see the [official stalls page](https://japanmatsuri.com/stalls) for current-edition updates.
+Confirm event-specific access needs with the organiser before attending. See the [official 2026 programme](https://japanmatsuri.com/japanmatsuri2026-programme.pdf) and [stalls page](https://japanmatsuri.com/stalls) for the full current-edition timetable and exhibitor list.
 
 ## Cover image
 

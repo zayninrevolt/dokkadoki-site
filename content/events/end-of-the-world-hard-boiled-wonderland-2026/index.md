@@ -11,7 +11,7 @@ description: "Philippe Decouflé directs a Japanese-language stage adaptation of
 
 Haruki Murakami’s *The End of the World and Hard-Boiled Wonderland* reaches the Barbican for its European premiere from 8 to 11 October. Directed and choreographed by Philippe Decouflé, this Japanese-language stage adaptation stars Tatsuya Fujiwara, known for *Death Note* and *Battle Royale*.
 
-The production follows Watashi, a human data processor employed by the “System”, as dreams, memories and realities begin to blur. Ako Takahashi adapted the novel for the stage, with music by Umitaro Abe. Performances use English surtitles and run for approximately 2 hours 45 minutes including an interval.
+The production follows Watashi, a human data processor employed by the “System”, as dreams, memories and realities begin to blur. Ako Takahashi adapted the novel for the stage, with music by Umitaro Abe. Performances use English surtitles and run for approximately 2 hours 50 minutes including a 20-minute interval.
 
 ## Performance dates
 

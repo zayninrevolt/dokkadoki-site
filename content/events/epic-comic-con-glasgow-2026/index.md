@@ -6,16 +6,16 @@ event_end: "2026-09-27T23:59:00+01:00"
 location: "SEC Centre, Glasgow G3 8YW"
 cost: "Tickets are on sale; see the official organiser page for current prices and tiers"
 website: "https://www.forthefans.uk/epic-comic-con"
-description: "EPIC Comic Con Glasgow brings a current fourteen-name guest roster, cosplay, wrestling, retro and tabletop gaming, artists and family activities to the SEC."
+description: "EPIC Comic Con Glasgow brings a current thirteen-name guest roster, cosplay, wrestling, retro and tabletop gaming, artists, fan meet-ups and family activities to SEC Halls 2 and 3."
 ---
 
 EPIC Comic Con Glasgow takes place at the SEC Centre on Saturday 26 and Sunday 27 September. Tickets are on sale, while the final showtimes are still to be announced.
 
 ## What to expect
 
-Admission includes on-stage events, with guest autographs and photo opportunities available separately. The current organiser roster lists Denise Gough, Kayvan Novak, Harvey Guillén, Michael Kovach, Nola Klop, Elsie Lovelock, Rob Llewelyn, Chris Barrie, Doug Naylor, Jessica Henwick, Youssef Kerkour, Rebecca Hanssen, Emmett J. Scanlan and Callum Kerr.
+Admission includes on-stage events, with guest autographs and photo opportunities available separately. The current organiser roster lists Denise Gough, Kayvan Novak, Harvey Guillén, Nola Klop, Elsie Lovelock, Rob Llewelyn, Chris Barrie, Doug Naylor, Jessica Henwick, Youssef Kerkour, Rebecca Hanssen, Emmett J. Scanlan and Callum Kerr.
 
-Confirmed areas and activities include the Cosplay Hub and Cosplay City Championship qualifier/final, a pro-wrestling arena, retro gaming, tabletop gaming, the Con Quest tabletop-RPG area, fan-organised meets, children’s painting, crafts, LEGO and comics. Vendors Valley, Artist Alley, Comics Village, Book End and Food & Fuel are also listed.
+Confirmed areas and activities include the Cosplay Hub and Cosplay City Championship qualifier/final, a pro-wrestling arena, retro gaming, tabletop gaming, the Con Quest tabletop-RPG area, current fan meet-ups, children’s painting, crafts, LEGO and comics. Vendors Valley, Artist Alley, Comics Village, Book End and Food & Fuel are also listed. The event is in SEC Halls 2 and 3.
 
 ## Tickets and planning
 
