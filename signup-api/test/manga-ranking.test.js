@@ -42,6 +42,18 @@ test('creates one pending snapshot of the previous month’s top three', async (
   assert.equal(queries.filter((entry) => entry.sql.startsWith('INSERT INTO manga_monthly_results')).length, 1);
 });
 
+test('includes every request tied with third place', () => {
+  const { rankingRows } = require('../manga-ranking');
+  const rankings = rankingRows([
+    { title: 'A', request_count: 1 },
+    { title: 'B', request_count: 1 },
+    { title: 'C', request_count: 1 },
+    { title: 'D', request_count: 1 },
+    { title: 'E', request_count: 1 },
+  ]);
+  assert.deepEqual(rankings.map((item) => item.title), ['A', 'B', 'C', 'D', 'E']);
+});
+
 test('approves a pending result only once with its one-time token', async () => {
   const { approveMonthlyResult, tokenHash } = require('../manga-ranking');
   const queries = [];
