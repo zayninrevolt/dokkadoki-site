@@ -23,6 +23,26 @@
 
   <p class="all-posts"><a href="{{ "events/" | relURL }}">← All events</a></p>
 
+  {{ $current := . }}
+  {{ $related := slice }}
+  {{ range sort (where site.RegularPages "Section" "events") "Params.event_start" }}
+    {{ $end := time (default .Params.event_start .Params.event_end) }}
+    {{ $status := default "https://schema.org/EventScheduled" .Params.event_status }}
+    {{ if and (ne .Permalink $current.Permalink) (ge $end.Unix now.Unix) (ne $status "https://schema.org/EventCancelled") (lt (len $related) 3) }}
+      {{ $related = $related | append . }}
+    {{ end }}
+  {{ end }}
+  {{ with $related }}
+  <aside class="card" data-related-events>
+    <h2>More upcoming events</h2>
+    <ul>
+      {{ range . }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> — {{ partial "event-dates.html" . }}</li>
+      {{ end }}
+    </ul>
+  </aside>
+  {{ end }}
+
   <aside class="cta-banner event-signup">
     <span class="emoji" aria-hidden="true">💌</span>
     <div class="cta-text">

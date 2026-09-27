@@ -24,6 +24,10 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="en_GB" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ if .IsHome }}Dokkadoki - Manga Café{{ else }}{{ .Title }}{{ end }}" />
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}A manga café coming soon to The Millgate, Bury - manga, Ueshima Coffee and Japanese convenience-store-style snacks.{{ end }}" />
+<meta name="twitter:image" content="{{ $socialImageURL }}" />
+<meta name="twitter:image:alt" content="{{ .Title }}" />
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B8%3C/text%3E%3C/svg%3E" />
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}" />

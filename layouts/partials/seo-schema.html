@@ -8,7 +8,9 @@
   "name": {{ $siteName | jsonify | safeJS }},
   "url": {{ $siteURL | jsonify | safeJS }},
   "email": {{ site.Params.contactEmail | jsonify | safeJS }},
-  "sameAs": {{ slice site.Params.instagramURL site.Params.tiktokURL site.Params.discordURL | jsonify | safeJS }}
+  "logo": {{ "logo.png" | absURL | jsonify | safeJS }},
+  "image": {{ "social-card.png" | absURL | jsonify | safeJS }},
+  "sameAs": {{ slice site.Params.instagramURL site.Params.tiktokURL site.Params.discordURL site.Params.ebayURL site.Params.libibURL | jsonify | safeJS }}
 }
 </script>
 <script type="application/ld+json">
