@@ -71,7 +71,7 @@ test('uses equal-height desktop product and event cards with automatic mobile he
   });
 
   assert.equal((html.match(/class="ebay-card-table"[^>]*height="330"/g) || []).length, 2);
-  assert.equal((html.match(/class="event-card-table"[^>]*height="230"/g) || []).length, 2);
+  assert.equal((html.match(/class="event-card-table"[^>]*height="270"/g) || []).length, 2);
   assert.equal((html.match(/class="ebay-title-cell"[^>]*height="105"/g) || []).length, 2);
   assert.equal((html.match(/class="ebay-price-cell"[^>]*valign="bottom"/g) || []).length, 2);
   assert.match(html, /\.ebay-card-table,\.event-card-table,\.ebay-title-cell,\.ebay-price-cell\{height:auto!important\}/);
