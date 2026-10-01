@@ -71,30 +71,27 @@ test('newsletter eBay client uses the seller-authorized active inventory', async
   assert.equal(requests[0].options.headers['X-EBAY-API-CALL-NAME'], 'GetMyeBaySelling');
 });
 
-
-test('embeds safe preview images while leaving unsafe image URLs untouched', async () => {
-  const fetched = [];
+test('portable preview returns HTML unchanged without fetching or embedding images', async () => {
   const html = '<img src="https://assets.example/cover.png" alt="Cover"><img src="http://assets.example/insecure.png" alt="Insecure">';
+  const seenUrls = [];
   const preview = await makePortablePreview(html, async (url) => {
-    fetched.push(url);
-    return {
-      ok: true,
-      headers: { get: (name) => name === 'content-type' ? 'image/png' : null },
-      arrayBuffer: async () => Buffer.from('image-bytes'),
-    };
+    seenUrls.push(url);
+    // Always reject to show fetch is not being used
+    throw new Error(`unexpected fetch call for ${url}`);
   });
 
-  assert.deepEqual(fetched, ['https://assets.example/cover.png']);
-  assert.match(preview, /src="data:image\/png;base64,aW1hZ2UtYnl0ZXM="/);
-  assert.match(preview, /src="http:\/\/assets\.example\/insecure\.png"/);
+  assert.strictEqual(preview, html, 'HTML should be returned unchanged');
+  assert.deepEqual(seenUrls, [], 'No fetch calls should be made');
 });
 
-test('embeds a preview image up to the 3.2 MB review-artifact limit', async () => {
-  const preview = await makePortablePreview('<img src="https://assets.example/large-cover.jpg">', async () => ({
-    ok: true,
-    headers: { get: (name) => name === 'content-type' ? 'image/jpeg' : '3100000' },
-    arrayBuffer: async () => Buffer.from('large-cover'),
-  }));
+test('portable preview preserves all image URLs exactly as input', async () => {
+  const html = '<img src="https://assets.example/secure.png"><img src="http://assets.example/insecure.png">';
+  const preview = await makePortablePreview(html, globalThis.fetch);
+  assert.equal(preview.includes('data:'), false, 'Should not embed data URIs');
+  assert.ok(preview.includes('https://assets.example/secure.png'));
+  assert.ok(preview.includes('http://assets.example/insecure.png'));
+});
 
-  assert.match(preview, /src="data:image\/jpeg;base64,bGFyZ2UtY292ZXI="/);
+test('exports makePortablePreview API', () => {
+  assert.equal(typeof makePortablePreview, 'function');
 });

@@ -38,32 +38,9 @@ function createNewsletterEbayClient({ env = process.env, fetchImpl = globalThis.
   });
 }
 
-const MAX_PREVIEW_IMAGE_BYTES = 3_200_000;
-
-
-async function makePortablePreview(html, fetchImpl = globalThis.fetch) {
-  if (typeof fetchImpl !== 'function') return html;
-  const imagePattern = /(<img\b[^>]*\bsrc=["'])([^"']+)(["'])/gi;
-  const urls = [...new Set([...html.matchAll(imagePattern)]
-    .map((match) => match[2])
-    .filter((url) => url.startsWith('https://')))];
-  const embedded = new Map();
-
-  await Promise.all(urls.map(async (url) => {
-    try {
-      const response = await fetchImpl(url, { signal: AbortSignal.timeout(10_000) });
-      const contentType = response.headers.get('content-type') || '';
-      const declaredBytes = Number(response.headers.get('content-length') || 0);
-      if (!response.ok || !contentType.startsWith('image/') || declaredBytes > MAX_PREVIEW_IMAGE_BYTES) return;
-      const image = Buffer.from(await response.arrayBuffer());
-      if (image.length > MAX_PREVIEW_IMAGE_BYTES) return;
-      embedded.set(url, `data:${contentType.split(';', 1)[0]};base64,${image.toString('base64')}`);
-    } catch {
-      // Keep the original remote URL if a preview asset cannot be fetched.
-    }
-  }));
-
-  return html.replace(imagePattern, (match, prefix, url, suffix) => `${prefix}${embedded.get(url) || url}${suffix}`);
+// makePortablePreview returns HTML unchanged - no image embedding/fetching
+async function makePortablePreview(html) {
+  return html;
 }
 async function buildDraft({ pool, root, libraryPath, siteUrl, publicApiUrl, ebayClient, now = new Date() }) {
   await ensureNewsletterTables(pool);
