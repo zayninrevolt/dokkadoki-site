@@ -4,7 +4,7 @@ date: 2026-09-13
 event_start: "2026-10-02T19:00:00"
 event_end: "2026-10-02T19:00:00"
 location: "Dingwalls, East Yard, 11 Camden Lock Place, London NW1 8AL"
-cost: "Tickets from £36; mandatory fees and current availability not verified"
+cost: "Embassy listing from £35; Snapticket from £36 with Buy tickets displayed; fees not stated"
 website: "https://raku.events/concerts/yasuharu-takanashi-2026"
 description: "Yasuharu Takanashi brings Far East Groove to Dingwalls for an anime-soundtrack and heavy-metal set with an international lineup."
 ---
@@ -19,7 +19,7 @@ Expect a live fusion of anime-scale melodies and heavy metal, led by Takanashi o
 
 ## Tickets and practical information
 
-The official Snapticket listing currently starts at £36. Mandatory fee detail, current ticket tiers and live availability are not published there, so check the seller before booking. Dingwalls is at East Yard, 11 Camden Lock Place, London NW1 8AL. Event-specific access, travel, parking, carer, quiet-space, refund and arrival guidance is not published, so check the current seller and promoter information before travelling.
+The Embassy of Japan event calendar advertises tickets from £35, while Snapticket currently starts at £36 and displays a Buy tickets route. Mandatory fees are not stated on the accessible seller page, so check the final basket before booking. Dingwalls is at East Yard, 11 Camden Lock Place, London NW1 8AL. Event-specific access, travel, parking, carer, quiet-space, refund and arrival guidance is not published, so check the current seller and promoter information before travelling.
 
 See the [Embassy of Japan event listing](https://www.uk.emb-japan.go.jp/JAPANUKEvent/event/2026/202610/02-YasuharuTakanashi.html), [Raku Events page](https://raku.events/concerts/yasuharu-takanashi-2026) and [Snapticket London listing](https://shop.snapticket.de/event/yasuharu-takanashi-london-pntuu9) for the current announcement and ticket links.
 

@@ -3,13 +3,13 @@ title: "Sheffield Anime & Gaming Con 2026"
 date: 2026-09-13
 event_start: "2026-10-10T11:30:00"
 event_end: "2026-10-11T22:00:00"
-location: "Mercure Sheffield, 119 Norfolk Street, Sheffield S1 2JE"
+location: "voco Sheffield, 119 Norfolk Street, Sheffield S1 2JE"
 cost: "Weekend £30; Saturday £22; Sunday £15; Early Bird +£6; VIP +£15"
 website: "https://autumn.sheffieldanimecon.com/"
-description: "Sheffield Anime & Gaming Con brings VR music, live performers, anime theatre, tournaments, cosplay and more than 100 board games to Mercure Sheffield."
+description: "Sheffield Anime & Gaming Con brings VR music, live performers, anime theatre, tournaments, cosplay and more than 100 board games to voco Sheffield."
 ---
 
-Sheffield Anime & Gaming Con returns to Mercure Sheffield on 10 and 11 October with a programme that puts live performance and hands-on play alongside the convention staples. The current guest list includes cyberpunk music artist SYNTHONIE, DJ Manimal, VTuber and animator CynnVAL, band Going Live & Kicking, cosplay dance performer Shiro.chuu and dancer Tiger.
+Sheffield Anime & Gaming Con returns to voco Sheffield on 10 and 11 October with a programme that puts live performance and hands-on play alongside the convention staples. The current guest list includes cyberpunk music artist SYNTHONIE, DJ Manimal, VTuber and animator CynnVAL, band Going Live & Kicking, cosplay dance performer Shiro.chuu, dancer Tiger, speedrunner NickRPGreen, original *Sonic the Hedgehog* artist Duncan Gutteridge and cyber-pop performer LELE.
 
 ## What to expect
 
@@ -21,7 +21,7 @@ The official ticket selector lists a weekend ticket at £30, Saturday at £22 an
 
 ## Venue and travel
 
-Mercure Sheffield is at 119 Norfolk Street, Sheffield S1 2JE. Walking directions from Sheffield Station and coach/bus directions are published by the organiser, with nearby public pay-and-display car parks. Event-specific wheelchair, carer, quiet-space, bag, prop and security guidance is not published, so contact the organiser before travelling if you need those details.
+voco Sheffield is at 119 Norfolk Street, Sheffield S1 2JE. Walking directions from Sheffield Station and coach/bus directions are published by the organiser, with nearby public pay-and-display car parks. Event-specific wheelchair, carer, quiet-space, bag, prop and security guidance is not published, so contact the organiser before travelling if you need those details.
 
 See the [official Sheffield Anime & Gaming Con site](https://autumn.sheffieldanimecon.com/), [ticket selector](https://autumn.sheffieldanimecon.com/tickets), [guest list](https://autumn.sheffieldanimecon.com/guests) and [Eventbrite listing](https://www.eventbrite.co.uk/e/sheffield-anime-gaming-con-2026-tickets-1909030855679) for updates.
 
