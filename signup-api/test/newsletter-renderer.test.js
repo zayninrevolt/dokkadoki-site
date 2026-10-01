@@ -57,6 +57,26 @@ test('renders a safe reviewable newsletter with all required sections', () => {
   assert.match(html, /role="presentation"/);
 });
 
+test('uses equal-height desktop product and event cards with automatic mobile heights', () => {
+  const html = generateNewsletterHtml({
+    siteUrl: 'https://dokkadoki.co.uk/',
+    ebayItems: [
+      { title: 'Short', url: 'https://www.ebay.co.uk/itm/1', image: 'https://i.ebayimg.com/1.jpg', price: '5', currency: 'GBP' },
+      { title: 'A much longer product title that wraps across several lines', url: 'https://www.ebay.co.uk/itm/2', image: 'https://i.ebayimg.com/2.jpg', price: '15', currency: 'GBP' },
+    ],
+    events: [
+      { title: 'Short event', url: 'https://dokkadoki.co.uk/events/short/', date: '1 October 2026', venue: 'Bury', image: 'https://dokkadoki.co.uk/events/short/cover.png' },
+      { title: 'Long event title', url: 'https://dokkadoki.co.uk/events/long/', date: '2 October 2026', venue: 'A deliberately long venue and address that wraps across several lines in the card', image: 'https://dokkadoki.co.uk/events/long/cover.png' },
+    ],
+  });
+
+  assert.equal((html.match(/class="ebay-card-table"[^>]*height="330"/g) || []).length, 2);
+  assert.equal((html.match(/class="event-card-table"[^>]*height="230"/g) || []).length, 2);
+  assert.equal((html.match(/class="ebay-title-cell"[^>]*height="105"/g) || []).length, 2);
+  assert.equal((html.match(/class="ebay-price-cell"[^>]*valign="bottom"/g) || []).length, 2);
+  assert.match(html, /\.ebay-card-table,\.event-card-table,\.ebay-title-cell,\.ebay-price-cell\{height:auto!important\}/);
+});
+
 test('creates tamper-evident unsubscribe tokens without exposing the email', () => {
   const token = makeUnsubscribeToken('reader@example.com', 'a'.repeat(32));
   assert.equal(token.includes('reader@example.com'), false);
