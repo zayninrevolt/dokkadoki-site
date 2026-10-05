@@ -25,11 +25,12 @@ const { createEbayClient } = require('./ebay');
 const { verifyUnsubscribeToken } = require('./newsletter-renderer');
 const { ensureNewsletterTables } = require('./newsletter-service');
 const { loadEnvFile } = require('./env-loader');
+const { approveMonthlyResult, approvedMonthlyResult, ensureMangaRankingTables, pendingMonthlyResult, startMangaRankingReview } = require('./manga-ranking');
 
 loadEnvFile(pathModule.join(__dirname, '.env'));
 
 // Public source fingerprint, never configuration or secret material.
-const RELEASE_FILES = ['server.js', 'ebay.js', 'env-loader.js', 'newsletter-content.js', 'newsletter-renderer.js', 'newsletter-runner.js', 'newsletter-service.js', 'newsletter-sync.js', 'package.json'];
+const RELEASE_FILES = ['server.js', 'ebay.js', 'env-loader.js', 'manga-ranking.js', 'newsletter-content.js', 'newsletter-renderer.js', 'newsletter-runner.js', 'newsletter-service.js', 'newsletter-sync.js', 'package.json'];
 const BUILD = crypto.createHash('sha256');
 for (const file of RELEASE_FILES) BUILD.update(fs.readFileSync(pathModule.join(__dirname, file)));
 const BUILD_ID = BUILD.digest('hex');
@@ -79,6 +80,7 @@ async function ensureTables() {
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     UNIQUE KEY uniq_vote (request_id, voter)
   ) CHARACTER SET utf8mb4`);
+  await ensureMangaRankingTables(pool);
   await ensureNewsletterTables(pool);
   // migrate a pre-month table shape if one exists
   try {
@@ -324,7 +326,9 @@ function requestOriginAllowed(req, res, path = '') {
   let allowed = ALLOWED_ORIGINS.has(origin);
   try {
     const originHost = new URL(origin).host;
-    const requestHost = String(req.headers['x-forwarded-host'] || req.headers.host || '');
+    // Forwarded headers are caller-controlled on the LAN ingress; never use
+    // them to authorize an Origin.
+    const requestHost = String(req.headers.host || '');
     if (originHost === requestHost) allowed = true;
   } catch (_) { /* handled by the public-origin checks below */ }
   // With no explicit production allow-list, permit only localhost and RFC1918
@@ -399,16 +403,28 @@ async function handleRequest(req, res) {
     }
   }
 
+  if (req.method === 'GET' && path === '/api/manga-results/review') {
+    const token = url.searchParams.get('token') || '';
+    const result = await pendingMonthlyResult({ pool, token });
+    if (!result) return sendHtml(res, 404, '<!doctype html><title>Unavailable</title><main><h1>This approval link is invalid, expired, or already used.</h1></main>');
+    const escape = (value) => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
+    const list = result.rankings.length ? `<ol>${result.rankings.map((item) => `<li><strong>${escape(item.title)}</strong>: ${item.count} vote${item.count === 1 ? '' : 's'}</li>`).join('')}</ol>` : '<p>No eligible requests were submitted.</p>';
+    const action = `/api/manga-results/review?token=${encodeURIComponent(token)}`;
+    return sendHtml(res, 200, `<!doctype html><title>Review manga rankings</title><main style="max-width:36rem;margin:4rem auto;padding:1rem;font-family:sans-serif"><h1>Review ${escape(result.month)} manga rankings</h1>${list}<p>Approving publishes this exact snapshot on the Dokkadoki request page.</p><form method="post" action="${action}"><button type="submit" formaction="${action}&decision=approved">Approve and publish</button> <button type="submit" formaction="${action}&decision=rejected">Reject</button></form></main>`);
+  }
+
+  if (req.method === 'POST' && path === '/api/manga-results/review') {
+    const outcome = await approveMonthlyResult({ pool, token: url.searchParams.get('token') || '', decision: url.searchParams.get('decision') || '' });
+    if (!outcome.updated) return sendHtml(res, 400, '<!doctype html><title>Unavailable</title><main><h1>This approval link is invalid, expired, or already used.</h1></main>');
+    return sendHtml(res, 200, `<!doctype html><title>Saved</title><main style="max-width:36rem;margin:4rem auto;padding:1rem;font-family:sans-serif;text-align:center"><h1>${outcome.status === 'approved' ? 'Rankings approved and published.' : 'Rankings rejected.'}</h1></main>`);
+  }
+
   if (req.method === 'GET' && path === '/api/requests') {
-    // only last month's standings are public - the in-progress month is
-    // never displayed, so nothing unmoderated can appear on the site
     try {
       const month = monthKey(-1);
       const limit = Math.min(Math.max(parseInt(url.searchParams.get('limit') || '3', 10) || 3, 1), 10);
-      const [rows] = await pool.query(
-        'SELECT title, request_count FROM manga_requests WHERE month = ? ORDER BY request_count DESC, updated_at DESC LIMIT ?',
-        [month, limit]);
-      return send(res, 200, { ok: true, month, requests: rows.map((r) => ({ title: r.title, count: r.request_count })) });
+      const rows = (await approvedMonthlyResult({ pool, month })).slice(0, limit);
+      return send(res, 200, { ok: true, month, requests: rows });
     } catch (e) {
       console.error('DB error:', e.message);
       return send(res, 500, { ok: false, error: 'Something went wrong - please try again.' });
@@ -575,6 +591,12 @@ if (require.main === module) {
         },
         pool,
         intervalMs: process.env.NEWSLETTER_SYNC_INTERVAL_MS,
+        log: console,
+      });
+      await startMangaRankingReview({
+        pool,
+        config: { webhookUrl: process.env.DISCORD_MANGA_WEBHOOK_URL, publicApiUrl: process.env.PUBLIC_API_URL },
+        intervalMs: process.env.MANGA_RANKING_INTERVAL_MS,
         log: console,
       });
     })

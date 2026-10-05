@@ -12,6 +12,6 @@
     "newsletter:send": "node newsletter-runner.js send"
   },
   "dependencies": {
-    "mysql2": "^3.11.0"
+    "mysql2": "3.24.5"
   }
 }

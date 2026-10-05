@@ -72,29 +72,26 @@ test('newsletter eBay client uses the seller-authorized active inventory', async
 });
 
 
-test('embeds safe preview images while leaving unsafe image URLs untouched', async () => {
+test('preserves linked preview images without making any image requests', async () => {
   const fetched = [];
   const html = '<img src="https://assets.example/cover.png" alt="Cover"><img src="http://assets.example/insecure.png" alt="Insecure">';
   const preview = await makePortablePreview(html, async (url) => {
     fetched.push(url);
-    return {
-      ok: true,
-      headers: { get: (name) => name === 'content-type' ? 'image/png' : null },
-      arrayBuffer: async () => Buffer.from('image-bytes'),
-    };
+    throw new Error('Image fetching must not occur');
   });
 
-  assert.deepEqual(fetched, ['https://assets.example/cover.png']);
-  assert.match(preview, /src="data:image\/png;base64,aW1hZ2UtYnl0ZXM="/);
-  assert.match(preview, /src="http:\/\/assets\.example\/insecure\.png"/);
+  assert.deepEqual(fetched, []);
+  assert.equal(preview, html);
 });
 
-test('embeds a preview image up to the 3.2 MB review-artifact limit', async () => {
-  const preview = await makePortablePreview('<img src="https://assets.example/large-cover.jpg">', async () => ({
-    ok: true,
-    headers: { get: (name) => name === 'content-type' ? 'image/jpeg' : '3100000' },
-    arrayBuffer: async () => Buffer.from('large-cover'),
-  }));
+test('preserves an existing data-image URI without fetching or rewriting it', async () => {
+  const html = '<img src="data:image/png;base64,aW1hZ2UtYnl0ZXM=">';
+  let calls = 0;
+  const preview = await makePortablePreview(html, async () => {
+    calls += 1;
+    throw new Error('Image fetching must not occur');
+  });
 
-  assert.match(preview, /src="data:image\/jpeg;base64,bGFyZ2UtY292ZXI="/);
+  assert.equal(calls, 0);
+  assert.equal(preview, html);
 });
