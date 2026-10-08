@@ -17,8 +17,20 @@ The announced first wave of performers includes MION, Sara Noh Theatre, Ketterin
 
 Stall holders already confirmed include Okashi 2 Sweets, Anisence, Otaku World Store, Ukiyo Matcha Teahouse, Caramel Cat Cafe, Food of Japan, OH MY DOH!, the Japanese Tea Store, Euphoria Kpop Store and others.
 
+## Paid workshops
+
+The one-hour sake workshop is for adults aged 18 and over, includes four samples, and is limited to 10 tickets per session. JowyB's manga workshop teaches character-drawing techniques for all abilities and is limited to 16 tickets per session. Both workshops have separate booking links on the [official Japan Fest page](https://www.japanfest.co.uk/northampton); check live availability before attending.
+
 ## Tickets and practicalities
 
-Advance tickets run from free up to £16.26 including booking fee, with group tickets at £45.53. Under-8s enter free. The event runs 11:00–18:00; Eventbrite notes under-14s should attend with a parent or legal guardian. Refunds are available up to seven days before. Parking is free. Replica guns and weapons are not allowed in cosplay.
+Advance tickets run from free up to £16.26 including booking fee, with group tickets at £45.53. Under-8s enter free. The event runs 11:00–18:00; Eventbrite notes under-14s should attend with a parent or legal guardian. Refunds are available up to seven days before. Replica guns and weapons are not allowed in cosplay.
 
-*Cover image: original AI-generated thematic illustration. It does not depict the event.*
+Free event parking is at **Northampton Saints Car Park B via Ross Road, NN5 5AX**. The organiser warns visitors to use that postcode rather than the stadium postcode because it may lead to the wrong entrance.
+
+## Other travel and access
+
+Northampton Station is about a 10-minute walk from Franklin's Gardens, and the number 9 bus serves the area. Event-specific step-free, accessible-toilet, quiet-space, seating and companion-ticket arrangements are not published, so confirm with the organiser before travelling if you need them.
+
+## Cover image
+
+Original AI-generated thematic illustration. It does not depict the event.

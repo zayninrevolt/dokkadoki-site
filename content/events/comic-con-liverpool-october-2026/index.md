@@ -11,11 +11,17 @@ description: "Comic Con Liverpool pairs celebrity panels, photos and autographs 
 
 Comic Con Liverpool takes over the Liverpool Experience Campus on Saturday 10 and Sunday 11 October, with venue-listed opening times of 09:00–18:00.
 
+## Dates and venue
+
+The event uses the whole Liverpool Experience Campus, including Exhibition Centre Liverpool, Convention Centre Liverpool, M&S Bank Arena and The Auditorium. Check your booked activity's location before arriving because the programme spans several connected venues.
+
 ## What to expect
 
 The organiser and venue advertise celebrity photo opportunities, autographs and live Q&A panels, cosplay competitions, retro and current gaming zones, immersive props and set builds, photo opportunities, artists and shopping on a large show floor.
 
-The current guest list includes Jude Law, David Harbour, Christopher Lloyd, Peter Capaldi, Christopher Eccleston, Catherine Tate, Jenna Coleman, Emilia Clarke, Kit Harington and John Bradley, among many others. Guest appearances can change, so check the [official guest page](https://www.comicconventionliverpool.co.uk/guests) before booking travel, photos or autographs. Exhibitors, food vendors and the detailed programme remain TBA.
+The current guest list includes Jude Law, David Harbour, Christopher Lloyd, Peter Capaldi, Christopher Eccleston, Catherine Tate, Jenna Coleman, Emilia Clarke, Kit Harington and John Bradley, among many others. Guest appearances can change, so check the [official guest page](https://www.comicconventionliverpool.co.uk/guests) before booking travel, photos or autographs.
+
+The guest page now publishes individual autograph and photo prices, all subject to booking fees. Examples include Jude Law at £175 for either option, David Harbour at £100 to £150 for autographs and £100 for photos, and Christopher Lloyd at £110 to £160 for autographs and £110 to £175 for photos. Check the selected guest before purchase because prices and availability vary. Exhibitors, food vendors and the detailed programme remain TBA.
 
 ## Tickets and planning
 

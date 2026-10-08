@@ -9,7 +9,11 @@ website: "https://autumn.sheffieldanimecon.com/"
 description: "Sheffield Anime & Gaming Con brings VR music, live performers, anime theatre, tournaments, cosplay and more than 100 board games to voco Sheffield."
 ---
 
-Sheffield Anime & Gaming Con returns to voco Sheffield on 10 and 11 October with a programme that puts live performance and hands-on play alongside the convention staples. The current guest list includes cyberpunk music artist SYNTHONIE, DJ Manimal, VTuber and animator CynnVAL, band Going Live & Kicking, cosplay dance performer Shiro.chuu, dancer Tiger, speedrunner NickRPGreen, original *Sonic the Hedgehog* artist Duncan Gutteridge and cyber-pop performer LELE.
+Sheffield Anime & Gaming Con returns to voco Sheffield on 10 and 11 October with a programme that puts live performance and hands-on play alongside the convention staples.
+
+## Guests
+
+The current official guest list names speedrunner NickRPGreen, original *Sonic the Hedgehog* artist Duncan Gutteridge, cyber-pop performer LELE, cyberpunk music artist SYNTHONIE, DJ Manimal, band Going Live & Kicking, cosplay dance performer Shiro.chuu and content creator, VTuber, animator and voice actor SimplyyCynthia. Guest availability can change, so check the official guest list before travelling for one person.
 
 ## What to expect
 

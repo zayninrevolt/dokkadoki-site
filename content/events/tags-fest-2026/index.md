@@ -15,12 +15,20 @@ TAGS Fest pairs tabletop games with graphic storytelling for a free day at Out o
 
 The festival advertises talks and panel discussions with arts, graphic-novel and tabletop-industry guests, plus a Board Game Zone hosted by Ancient Robot Games. Visitors can join volunteer-led bookable sessions and borrow from a free game library.
 
-The marketplace features artists, comic authors, game designers and independent publishers. The venue describes a place to eat, relax and learn. Food details, the speaker and panel schedule, exhibitors and any cosplay programme remain TBA.
+The marketplace now lists more than 40 creators across comics, graphic novels, tabletop roleplaying games, solo games, board games and zines. Illustrator and writer **Jack Magee** is the 2026 feature artist, with writer and musician **Nyla Ahmad** assisting as curation consultant.
 
-## Entry and planning
+The official site now publishes five 45-minute talks from 10:45 to 15:45, plus the all-day board-game library, two *Blood on the Clocktower* sessions and three bookable 15:00 tabletop roleplaying sessions. Check the [official TAGS Fest site](https://tagsfest.co.uk/) for the complete speakers, exhibitors and booking links. Food details and any cosplay programme remain TBA.
 
-TAGS Fest runs from 10:00–17:00 and is free to attend. The organiser describes an inclusive event and asks visitors to mask if they can, alongside a mutual-respect friendly-spaces policy. Check the [official website](https://tagsfest.co.uk/) for activity booking, age and entry terms, access and travel arrangements before attending.
+## Entry, access and planning
+
+The venue is Out of the Blue Drill Hall, 36 Dalmeny Street, Edinburgh EH6 8RG.
+
+TAGS Fest runs from 10:00–17:00 and is free to attend. Anyone under 16 must remain accompanied by an adult. The organiser describes an inclusive event and asks visitors to mask if they can, alongside a mutual-respect friendly-spaces policy.
+
+The Board Game Zone has step-free access through wide double doors. RPG sessions are also reached step-free, although the route has narrow corridors and an uneven floor; a steward can assist wheelchair users through doorways. The venue has step-free toilets, including an accessible bathroom with baby-changing facilities.
+
+Check the [official website](https://tagsfest.co.uk/) for activity booking, travel arrangements and any late changes before attending.
 
 ## Cover image
 
-This is AI-generated cover art, included as an illustration rather than a view of the event.
+This original AI-generated cover is a thematic illustration and does not depict the actual event, its venue, exhibitors or attendees.

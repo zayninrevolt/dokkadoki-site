@@ -6,20 +6,27 @@ event_end: "2026-10-18T23:59:00+01:00"
 location: "Aberystwyth Arts Centre, Penglais, Aberystwyth SY23 3DE"
 cost: "Ticket prices not published on the festival landing page"
 website: "https://kotatsufestival.com/"
-description: "Kotatsu celebrates its 15th anniversary with three days of Japanese animation at Aberystwyth Arts Centre, including classics, contemporary films and an animator talk."
+description: "Kotatsu celebrates its 15th anniversary with six Japanese animation screenings, two raffles and a weekend marketplace at Aberystwyth Arts Centre."
 organizer_name: "Kotatsu Japanese Animation Festival"
 organizer_url: "https://kotatsufestival.com/"
 ---
 
-Kotatsu Japanese Animation Festival marks its 15th anniversary with a three-day Aberystwyth programme from **16 to 18 October**. The festival brings Japanese animation to Welsh audiences through feature films, shorts and guest activity.
+Kotatsu Japanese Animation Festival marks its 15th anniversary with a three-day Aberystwyth programme from **16 to 18 October**. Six Japanese animation screenings are joined by two raffles and a weekend marketplace.
 
-## Programme highlights
+## Dated programme
 
-The published highlights include *Akira*, *Lupin III: The Castle of Cagliostro*, *Children of the Sea*, *All You Need Is Kill* and Kihachiro Kawamoto's stop-motion film *Dojoji*. CGI animator Masaya Inaba is also due to give a talk on the use of CGI in anime. Exact screening times, classifications, subtitles or dubbing, guest-session capacity and programme changes should be checked with the venue.
+- **Friday 16 October, 17:30:** *Akira* (15).
+- **Saturday 17 October, 11:00:** *Kiki's Delivery Service* (U).
+- **Saturday 17 October, 13:30:** *100 M* (PG).
+- **Saturday 17 October, 15:45:** raffle, followed by *All You Need Is Kill* (15) at 16:00.
+- **Sunday 18 October, 14:00:** *The Tunnel to Summer, the Exit of Goodbyes* (12).
+- **Sunday 18 October, 15:45:** raffle followed by *Angel's Egg* (12).
+
+The organiser says films are in Japanese with English subtitles unless otherwise stated. The Saturday and Sunday marketplace includes the Kotatsu Festival stand, Japan-bits and a free Manga Kissa reading area.
 
 ## Tickets and practical information
 
-The festival homepage confirms the dates and venue but does not publish a complete ticket table. Check [Kotatsu's official site](https://kotatsufestival.com/) and [Aberystwyth Arts Centre](https://aberystwythartscentre.co.uk/) for individual screening availability, prices and passes.
+Individual film tickets are linked from the [official Aberystwyth programme](https://kotatsufestival.com/programme/) to Aberystwyth Arts Centre. Ticket prices and remaining availability are not shown on the festival programme, so check the selected Arts Centre listing or contact its box office before travelling.
 
 Event-specific accessibility, companion tickets, quiet-space arrangements, parking, food and last-entry details are not published on the festival landing page. Do not rely on details from earlier editions.
 
