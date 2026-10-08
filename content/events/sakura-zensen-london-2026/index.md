@@ -19,9 +19,17 @@ The fan meeting runs **14:00 to 16:00** at Rhum Tavern. The £35 ticket includes
 
 ## Sunday 11 October: live show
 
-The live show is at Colours Hoxton. VIP meet and greet begins at **18:00**, general doors are **19:00**, the two-part show starts at **19:30**, and the organiser lists a **22:30 curfew**. General admission is £40 and the VIP upgrade is another £40, both plus fees. A VIP upgrade does not include entry, so both tickets are required for the meet and greet.
+The live show is at Colours Hoxton. VIP meet and greet begins at **18:00**, general doors are **19:00**, the two-part show starts at **19:30**, and the organiser lists a **22:30 curfew**.
 
-Both events are **18+** because of venue licensing. The organiser says content may change. Event-specific accessibility, companion tickets, cloakroom, bag rules and last entry are not published, so check the [official event page](https://www.vkeinight.com/events/sakurazensen-20261010) and the linked ticket routes before travelling.
+An event-only Sakura Zensen photo session is scheduled from **21:15 to 21:20**.
+
+## Tickets, age and planning
+
+General admission for the live show is £40 and the VIP upgrade is another £40, both plus fees. A VIP upgrade does not include entry, so both tickets are required for the meet and greet.
+
+Both events are **18+** because of venue licensing. The organiser says content may change.
+
+Event-specific accessibility, companion tickets, cloakroom, bag rules and last entry are not published, so check the [official event page](https://www.vkeinight.com/events/sakurazensen-20261010) and the linked ticket routes before travelling.
 
 ## Cover image
 
