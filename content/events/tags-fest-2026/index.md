@@ -17,7 +17,19 @@ The festival advertises talks and panel discussions with arts, graphic-novel and
 
 The marketplace now lists more than 40 creators across comics, graphic novels, tabletop roleplaying games, solo games, board games and zines. Illustrator and writer **Jack Magee** is the 2026 feature artist, with writer and musician **Nyla Ahmad** assisting as curation consultant.
 
-The official site now publishes five 45-minute talks from 10:45 to 15:45, plus the all-day board-game library, two *Blood on the Clocktower* sessions and three bookable 15:00 tabletop roleplaying sessions. Check the [official TAGS Fest site](https://tagsfest.co.uk/) for the complete speakers, exhibitors and booking links. Food details and any cosplay programme remain TBA.
+The official site also lists an all-day board-game library, two *Blood on the Clocktower* sessions and three bookable 15:00 tabletop roleplaying sessions.
+
+## Talks schedule
+
+Each talk runs for 45 minutes, and space is limited:
+
+- **10:45, Play to Win: Can gamified narratives help you learn?** Dylan Franks and Thryn Henderson, moderated by Brian Tyrrell.
+- **12:30, Their Past, Our Present:** Letty Wilson and Bhavani Balasubramanyam, moderated by Brian Tyrrell.
+- **13:15, Rosemary's Collection:** Sarah Lippett and Maria Stoian explore a postcard archive and invite visitors to write their own cards.
+- **14:30, Basic Income for Artists:** Cleo Goodman discusses the Scottish Artists Minimum Income pilot and the campaign for permanent support.
+- **15:45, State of the Arts:** Q Manivannan MSP, Cat Laird and Judson Cowan discuss funding and publishing in Scotland's creative landscape, moderated by Brian Tyrrell.
+
+Check the [official TAGS Fest site](https://tagsfest.co.uk/) for full session descriptions, exhibitors and booking links. Food details and any cosplay programme remain TBA.
 
 ## Entry, access and planning
 
