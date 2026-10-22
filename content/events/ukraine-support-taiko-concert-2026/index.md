@@ -18,9 +18,17 @@ Doors open at **13:00** and the concert begins at **13:30 on Sunday 1 November**
 
 ## Important address correction
 
-The booking form currently says "Church Road, SW15 6SN", but St Mary's Church and the Japan Society list the venue as **Putney High Street, London SW15 1SN**, next to Putney Bridge. The church's own address is the stronger venue source. Because the organiser's form conflicts, confirm the location directly before travelling rather than using SW15 6SN.
+The booking form now says **Church Road, Putney, London SW15 1SN**, while St Mary's Church publishes **Putney High Street, London SW15 1SN**, next to Putney Bridge. The postcode now matches, but the street name still conflicts. The church's own address is the stronger venue source, so confirm the entrance directly before travelling.
 
-Accessibility, companion tickets, seating, refund terms, parking and payment protection are not published. The form requests payment by bank transfer, so review its terms carefully before sending money.
+## Travel
+
+St Mary's Church is next to the river at the southern end of Putney Bridge. The church recommends public transport because the surrounding area is a controlled parking zone.
+
+Putney Bridge Underground station is approximately a five-minute walk across the bridge. Putney railway station is also about five minutes away along Putney High Street, and several bus routes stop outside the church.
+
+The booking form asks for each participant's name, a contact telephone number and payment by bank transfer.
+
+Accessibility, companion tickets, seating, refund terms, parking and payment protection are not published, so review the form's terms carefully before sending money.
 
 ## Cover image
 

@@ -15,9 +15,17 @@ This six-week shodō course builds from individual kanji into a finished persona
 
 The course begins with one- and two-character kanji words on 25 October, then longer kanji work on 1 November. On 8 November, the focus shifts to hiragana and katakana. The final three sessions cover favourite words and Japanese calligraphy, short sentences or haiku, then a finished work on 6 December. Hammond House also advertises a 13 December bonus day for participants who miss a class.
 
+## Course progression
+
+The first two classes move from short kanji words on normal paper to three- and four-character work on longer paper. The third class introduces hiragana and katakana.
+
+After a scheduled practice break, participants bring favourite English words, short sentences or haiku for conversion into Japanese calligraphy. The final class uses long or decorated paper for a finished piece, signed or stamped by the participant.
+
 ## Tickets and venue
 
-Classes run Sundays, 10:00–12:00, at Hammond House Gallery, 33 Aswell Street, Louth LN11 9BA. The published six-session dates are 25 October, 1 November, 8 November, 22 November, 29 November and 6 December. The course costs £150 for all six classes. Eventbrite currently labels it "Going fast" and lists refunds up to seven days before the event.
+The course is sold as one £150 booking covering all six scheduled classes rather than separate per-session tickets.
+
+Classes run Sundays, 10:00–12:00, at Hammond House Gallery, 33 Aswell Street, Louth LN11 9BA. The published six-session dates are 25 October, 1 November, 8 November, 22 November, 29 November and 6 December. The course costs £150 for all six classes. Eventbrite currently says **sales end soon** and lists **no refunds**.
 
 See the [official Hammond House course page](https://www.hammondhouse.org.uk/gallery-event-details/calligraphy-workshops-six-week-course-oct26-dec26) or [Eventbrite listing](https://www.eventbrite.co.uk/e/japanese-calligraphy-workshops-six-week-course-tickets-1996434228520?aff=oddtdtcreator) for current availability. Age guidance, accessibility arrangements, parking and transport information are not currently listed for the course.
 
