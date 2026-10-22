@@ -3,16 +3,20 @@ title: "Penlights at the pictures: hololive's Serendipity tour brings the concer
 slug: hololive-serendipity-european-screening-tour
 date: 2026-10-22T23:19:57+01:00
 description: "hololive's Serendipity cinema tour has finished its six-city European run, with a Birmingham opening, fan chants and a weekend of VeXpo appearances."
+summary: "Cheering, cosplay and a cinema full of penlights: hololive's latest European screening tour encouraged fans to treat a trip to the pictures like a concert."
 draft: false
 ---
+
+<figure style="margin:0 0 24px">
+  <img src="berlin-fans-all-for-one-may-2026.png" alt="Fans wearing happi coats and holding colourful penlights at an earlier hololive concert screening in Berlin" loading="eager" width="2000" height="1414" style="width:100%;height:auto;border-radius:0">
+  <figcaption>Fans in happi coats at the <em>All for One</em> screening at Colosseum Berlin in May 2026, from hololive's earlier European tour. This is not a photograph of Serendipity or VeXpo. Photo: H.E-X Studios © COVER.</figcaption>
+</figure>
 
 Cheering, cosplay and a cinema full of penlights: hololive's latest European screening tour encouraged fans to treat a trip to the pictures like a concert.
 
 The six-city run of **hololive English 4th Concert -Serendipity-** finished at Colosseum Berlin on 18 October 2026, after opening at Cineworld Birmingham NEC on 17 September. Between those dates, it visited Milan, Barcelona, Paris and Düsseldorf.
 
 British company Virtual Stage Productions licensed and staged the tour, bringing recordings of hololive's Los Angeles concert to European audiences. Fans watched both nights in one sitting, on a single ticket.
-
-<!--more-->
 
 ## Two nights in Los Angeles, one European cinema trip
 
@@ -45,12 +49,3 @@ Serendipity followed Virtual Stage Productions' European screenings of the previ
 Lei told Japan Nakama that the company is developing production tools with the ambition of producing more VTuber experiences locally. The interview offers something for UK fans to watch for, although it does not announce dates for a follow-up tour.
 
 For now, this run has finished. You can explore the performances in [hololive's official Serendipity concert report](https://hololive.hololivepro.com/en/events/serendipity/), or read [Japan Nakama's full interview](https://www.japannakama.co.uk/creativity/music/hololive-vtuber-concerts-interview/) about bringing the shows to Europe.
-
-## Image credit
-
-<figure style="margin:0">
-  <img src="berlin-fans-all-for-one-may-2026.png" alt="Fans wearing happi coats and holding colourful penlights at an earlier hololive concert screening in Berlin" loading="lazy" style="width:100%;height:auto;border-radius:0">
-  <figcaption>Fans in happi coats at the <em>All for One</em> screening at Colosseum Berlin in May 2026, from hololive's earlier European tour. This is not a photograph of Serendipity or VeXpo. Photo: H.E-X Studios © COVER.</figcaption>
-</figure>
-
-Photograph supplied for press coverage by Japan Nakama in the [tour press kit](https://drive.google.com/drive/folders/1uIGj60nOI1GMiRuSuYt7fJTE4fKXQ9ZR). Used unchanged, with the original copyright mark retained.
