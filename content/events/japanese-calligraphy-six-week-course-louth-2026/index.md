@@ -4,7 +4,7 @@ date: 2026-08-31
 event_start: "2026-10-25T10:00:00+00:00"
 event_end: "2026-12-06T12:00:00+00:00"
 location: "Hammond House Gallery, 33 Aswell Street, Louth, Lincolnshire LN11 9BA"
-cost: "£150 for all six classes"
+cost: "£150 for six classes; availability requires confirmation"
 website: "https://www.eventbrite.co.uk/e/japanese-calligraphy-workshops-six-week-course-tickets-1996434228520?aff=oddtdtcreator"
 description: "A six-session shodō course in Louth moves from kanji and kana to personal phrases, haiku and a finished calligraphic work."
 ---
@@ -25,7 +25,9 @@ After a scheduled practice break, participants bring favourite English words, sh
 
 The course is sold as one £150 booking covering all six scheduled classes rather than separate per-session tickets.
 
-Classes run Sundays, 10:00–12:00, at Hammond House Gallery, 33 Aswell Street, Louth LN11 9BA. The published six-session dates are 25 October, 1 November, 8 November, 22 November, 29 November and 6 December. The course costs £150 for all six classes. Eventbrite currently says **sales end soon** and lists **no refunds**.
+Classes run Sundays, 10:00–12:00, at Hammond House Gallery, 33 Aswell Street, Louth LN11 9BA. The published six-session dates are 25 October, 1 November, 8 November, 22 November, 29 November and 6 December. The course costs £150 for all six classes.
+
+Current availability is unclear: Eventbrite shows **sales ended** and lists **no refunds**, while Hammond House still displays a booking link. Contact Hammond House before travelling or making plans around a place on the course.
 
 See the [official Hammond House course page](https://www.hammondhouse.org.uk/gallery-event-details/calligraphy-workshops-six-week-course-oct26-dec26) or [Eventbrite listing](https://www.eventbrite.co.uk/e/japanese-calligraphy-workshops-six-week-course-tickets-1996434228520?aff=oddtdtcreator) for current availability. Age guidance, accessibility arrangements, parking and transport information are not currently listed for the course.
 

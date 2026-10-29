@@ -4,7 +4,7 @@ date: 2026-08-31
 event_start: "2026-11-01T14:00:00+00:00"
 event_end: "2026-11-01T16:00:00+00:00"
 location: "Hammond House Gallery, 33 Aswell Street, Louth, Lincolnshire LN11 9BA"
-cost: "£30"
+cost: "£30; Eventbrite says sales end soon; no refunds"
 website: "https://www.eventbrite.co.uk/e/haiku-and-calligraphy-workshop-tickets-1996625031216?aff=oddtdtcreator"
 description: "Write an English haiku, then copy Misako's Japanese calligraphic translation in this two-hour Louth workshop."
 ---
@@ -15,9 +15,17 @@ A short English-language poem becomes the starting point for this haiku and call
 
 The session combines writing with calligraphic practice, ending with a finished piece to take home. Hammond House presents it as a two-hour workshop for exploring haiku and Japanese calligraphy together.
 
+## Workshop format
+
+Participants create the haiku in English, so they do not need to translate their poem themselves. Misako supplies a Japanese calligraphic version for each attendee to use as the model for their own brush-and-ink work.
+
+Eventbrite lists the workshop as a two-hour, in-person session. The finished calligraphy is made on decorative paper and can be taken home.
+
 ## Tickets and venue
 
-The workshop runs on Sunday 1 November, 14:00–16:00, at Hammond House Gallery, 33 Aswell Street, Louth LN11 9BA. Tickets are £30. Eventbrite lists refunds up to seven days before the event.
+The workshop runs on Sunday 1 November, 14:00–16:00, at Hammond House Gallery, 33 Aswell Street, Louth LN11 9BA. Tickets are £30. Eventbrite currently warns that sales end soon and lists **no refunds**.
+
+Hammond House directs advance bookings through Eventbrite.
 
 See the [official Hammond House event page](https://www.hammondhouse.org.uk/gallery-event-details/haiku-calligraphy) or [Eventbrite listing](https://www.eventbrite.co.uk/e/haiku-and-calligraphy-workshop-tickets-1996625031216?aff=oddtdtcreator) for current availability. Age guidance, accessibility arrangements, parking and transport information are not currently listed for this workshop.
 

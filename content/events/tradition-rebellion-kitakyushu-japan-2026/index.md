@@ -13,9 +13,19 @@ description: "Japan House London follows eight young adults in Kitakyushu as fla
 
 The exhibition runs at The Gallery, Japan House London, from 11 November 2026 to 18 April 2027. Tactile displays and video interviews place the ceremonial styles within Kitakyushu’s wider creative industries, where tradition becomes a space for individual expression and experimentation.
 
+## How the exhibition was made
+
+Fashion director Yamaguchi Souta and Japan House London's Simon Wright co-curated the exhibition with people from Kitakyushu. It is an original Japan House project developed over several years, following the eight participants from their first fitting through to the ceremony itself.
+
+The displays also introduce the kimono renters, fashion designers, hairdressers and photographers who build each highly personal look.
+
 ## Tickets and practical information
 
 Admission is free and booking guarantees entry at busy times. Arrival slots apply, with an expected gallery visit of approximately 40 minutes. Japan House closes at 20:00 Monday to Saturday and 18:00 on Sundays. The venue is less than 100 metres from High Street Kensington Station and publishes step-free street access, lifts, an accessible toilet, assistance dogs and stools available on request. Exhibition bags other than small shoulder bags must be stored in the cloakroom, and sharp objects are not permitted.
+
+## AKIRA restaurant offer
+
+Visitors who book the exhibition are entitled to **20% off their bill at AKIRA restaurant** for lunch or dinner from Tuesday to Friday. The offer is valid once per booking until **31 January 2027**, with details provided in the exhibition booking confirmation.
 
 See the [official exhibition page](https://www.japanhouselondon.uk/whats-on/traditionrebellion-coming-of-age-style-in-kitakyushu-japan/), [Japan House visitor information](https://www.japanhouselondon.uk/visit) and [accessibility information](https://www.japanhouselondon.uk/visit/accessibility-at-japan-house-london/) before visiting.
 
