@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const mysql = require('mysql2/promise');
 const { createEbayClient } = require('./ebay');
-const { collectSiteContent, selectRecentManga, readLibrary } = require('./newsletter-content');
+const { collectSiteContent, collectPublishedSiteContent, fetchPublishedLibrary, selectRecentManga, readLibrary } = require('./newsletter-content');
 const { ensureNewsletterTables, saveDraft, approveEdition, sendTestEdition, sendApprovedEdition } = require('./newsletter-service');
 const { loadEnvFile } = require('./env-loader');
 
@@ -75,12 +75,24 @@ function validateNewsletterInputs({ root, libraryPath, now = new Date(), maxAgeM
   }
 }
 
-async function buildDraft({ pool, root, libraryPath, siteUrl, publicApiUrl, ebayClient, now = new Date() }) {
-  validateNewsletterInputs({ root, libraryPath, now });
+async function buildDraft({ pool, root, libraryPath, siteUrl, publicApiUrl, ebayClient, sourceLoader, now = new Date() }) {
+  let siteContent;
+  let libraryItems;
+  if (sourceLoader) {
+    ({ siteContent, libraryItems } = await sourceLoader({ now }));
+    if (!Array.isArray(siteContent?.blogPosts) || !siteContent.blogPosts.length || !Array.isArray(siteContent?.events)) {
+      throw new Error('Published website newsletter source is incomplete');
+    }
+    if (!Array.isArray(libraryItems) || !libraryItems.length) {
+      throw new Error('Published Libib newsletter source is incomplete');
+    }
+  } else {
+    validateNewsletterInputs({ root, libraryPath, now });
+    siteContent = collectSiteContent({ root, siteUrl, now });
+    libraryItems = readLibrary(libraryPath);
+  }
   await ensureNewsletterTables(pool);
-  const siteContent = collectSiteContent({ root, siteUrl, now });
   const ebayItems = await ebayClient.latestItems();
-  const libraryItems = readLibrary(libraryPath);
   const [seenRows] = await pool.query('SELECT join_id FROM newsletter_manga_seen');
   const seen = new Set(seenRows.map((row) => String(row.join_id)));
   // The first run establishes a baseline. Without a previous snapshot there is
@@ -124,13 +136,21 @@ async function main(argv = process.argv.slice(2)) {
   try {
     if (command === 'draft') {
       const root = process.env.NEWSLETTER_CONTENT_ROOT || __dirname;
+      const siteUrl = process.env.PUBLIC_SITE_URL || 'https://dokkadoki.co.uk/';
       const draft = await buildDraft({
         pool,
         root,
         libraryPath: process.env.LIBIB_LIBRARY_PATH || path.join(__dirname, 'data', 'library.json'),
-        siteUrl: process.env.PUBLIC_SITE_URL || 'https://dokkadoki.co.uk/',
+        siteUrl,
         publicApiUrl: process.env.PUBLIC_API_URL || 'https://api.dokkadoki.co.uk',
         ebayClient: createNewsletterEbayClient(),
+        sourceLoader: async ({ now }) => {
+          const [siteContent, libraryItems] = await Promise.all([
+            collectPublishedSiteContent({ siteUrl, now }),
+            fetchPublishedLibrary(),
+          ]);
+          return { siteContent, libraryItems };
+        },
       });
       const previewPath = process.env.NEWSLETTER_PREVIEW_PATH || path.join(__dirname, 'newsletter-preview.html');
       fs.writeFileSync(previewPath, await makePortablePreview(draft.previewHtml), { encoding: 'utf8', mode: 0o600 });

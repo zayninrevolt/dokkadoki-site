@@ -95,6 +95,39 @@ test('rejects a stale Libib catalogue before accessing the database', async () =
   }), /Newsletter Libib catalogue snapshot is stale/);
 });
 
+test('builds a draft from live source data without local content snapshots', async () => {
+  const calls = [];
+  const pool = { query: async (sql, values = []) => {
+    calls.push({ sql, values });
+    if (/SELECT join_id FROM newsletter_manga_seen/i.test(sql)) return [[{ join_id: 'old' }]];
+    if (/SELECT status FROM newsletter_editions/i.test(sql)) return [[]];
+    return [{ affectedRows: 1 }];
+  } };
+  let sourceLoads = 0;
+
+  const draft = await buildDraft({
+    pool,
+    root: '/does-not-exist',
+    libraryPath: '/does-not-exist/library.json',
+    siteUrl: 'https://example.com/',
+    publicApiUrl: 'https://api.example.com',
+    ebayClient: { latestItems: async () => Array.from({ length: 6 }, (_, i) => ({ title: `Item ${i}`, url: `https://ebay.example/${i}` })) },
+    sourceLoader: async () => {
+      sourceLoads += 1;
+      return {
+        siteContent: { blogPosts: [{ title: 'Live blog', url: 'https://example.com/blog/live/' }], events: [] },
+        libraryItems: [{ join_id: 'old', title: 'Old manga' }, { join_id: 'new', title: 'New manga' }],
+      };
+    },
+    now: new Date('2026-11-01T10:00:00Z'),
+  });
+
+  assert.equal(sourceLoads, 1);
+  assert.deepEqual(draft.counts, { blogs: 1, ebay: 6, events: 0, manga: 1 });
+  assert.match(draft.previewHtml, /Live blog/);
+  assert.match(draft.previewHtml, /New manga/);
+});
+
 test('newsletter eBay client uses the seller-authorized active inventory', async () => {
   const requests = [];
   const activeXml = `<?xml version="1.0"?><GetMyeBaySellingResponse xmlns="urn:ebay:apis:eBLBaseComponents"><Ack>Success</Ack><ActiveList><HasMoreItems>false</HasMoreItems><ItemArray><Item><ItemID>42</ItemID><Title>Latest active upload</Title><ListingDetails><StartTime>2026-09-01T12:00:00.000Z</StartTime><ViewItemURL>https://www.ebay.co.uk/itm/42</ViewItemURL></ListingDetails><PictureDetails><PictureURL>https://i.ebayimg.com/images/g/example/s-l1600.jpg</PictureURL></PictureDetails><SellingStatus><CurrentPrice currencyID="GBP">12.50</CurrentPrice></SellingStatus></Item></ItemArray></ActiveList></GetMyeBaySellingResponse>`;
