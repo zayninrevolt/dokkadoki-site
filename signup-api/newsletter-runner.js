@@ -10,6 +10,8 @@ const { loadEnvFile } = require('./env-loader');
 
 loadEnvFile(path.join(__dirname, '.env'));
 
+const MAX_NEWSLETTER_INPUT_AGE_MS = 48 * 60 * 60 * 1000;
+
 function editionIdFor(date = new Date()) {
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
 }
@@ -42,7 +44,39 @@ function createNewsletterEbayClient({ env = process.env, fetchImpl = globalThis.
 async function makePortablePreview(html) {
   return html;
 }
+
+function readJsonFile(file, label) {
+  try {
+    return JSON.parse(fs.readFileSync(file, 'utf8'));
+  } catch {
+    throw new Error(`${label} metadata is missing or invalid`);
+  }
+}
+
+function requireFreshTimestamp(value, label, now, maxAgeMs) {
+  const timestamp = Date.parse(value || '');
+  const age = now.getTime() - timestamp;
+  if (!Number.isFinite(timestamp) || age < -5 * 60 * 1000 || age > maxAgeMs) {
+    throw new Error(`${label} is stale`);
+  }
+}
+
+function validateNewsletterInputs({ root, libraryPath, now = new Date(), maxAgeMs = MAX_NEWSLETTER_INPUT_AGE_MS }) {
+  const metadata = readJsonFile(path.join(root, 'data', 'newsletter-inputs.json'), 'Newsletter website content snapshot');
+  if (!/^[0-9a-f]{40}$/i.test(String(metadata.siteCommit || ''))) {
+    throw new Error('Newsletter website content snapshot metadata is missing or invalid');
+  }
+  requireFreshTimestamp(metadata.generatedAt, 'Newsletter website content snapshot', now, maxAgeMs);
+
+  const library = readJsonFile(libraryPath, 'Newsletter Libib catalogue snapshot');
+  requireFreshTimestamp(library.scraped_at, 'Newsletter Libib catalogue snapshot', now, maxAgeMs);
+  if (!Array.isArray(library.items)) {
+    throw new Error('Newsletter Libib catalogue snapshot metadata is missing or invalid');
+  }
+}
+
 async function buildDraft({ pool, root, libraryPath, siteUrl, publicApiUrl, ebayClient, now = new Date() }) {
+  validateNewsletterInputs({ root, libraryPath, now });
   await ensureNewsletterTables(pool);
   const siteContent = collectSiteContent({ root, siteUrl, now });
   const ebayItems = await ebayClient.latestItems();
@@ -148,4 +182,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { buildDraft, editionIdFor, subjectFor, commandConfirmationMatches, createNewsletterEbayClient, makePortablePreview, main };
+module.exports = { buildDraft, editionIdFor, subjectFor, commandConfirmationMatches, createNewsletterEbayClient, makePortablePreview, validateNewsletterInputs, main };

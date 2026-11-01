@@ -7,6 +7,14 @@ const os = require('os');
 const path = require('path');
 const { buildDraft, commandConfirmationMatches, makePortablePreview, createNewsletterEbayClient } = require('../newsletter-runner');
 
+function writeInputMetadata(root, generatedAt) {
+  fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+  fs.writeFileSync(path.join(root, 'data', 'newsletter-inputs.json'), JSON.stringify({
+    generatedAt,
+    siteCommit: 'a'.repeat(40),
+  }));
+}
+
 test('requires exact edition confirmations for test and real sends', () => {
   assert.equal(commandConfirmationMatches('test', '2026-09', 'TEST-2026-09'), true);
   assert.equal(commandConfirmationMatches('send', '2026-09', 'SEND-2026-09'), true);
@@ -18,11 +26,13 @@ test('requires exact edition confirmations for test and real sends', () => {
 
 test('builds and stores a draft without approving or sending it', async () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'dokkadoki-draft-'));
+  const now = new Date('2026-09-02T10:00:00Z');
   fs.mkdirSync(path.join(root, 'content', 'blog'), { recursive: true });
   fs.mkdirSync(path.join(root, 'content', 'events'), { recursive: true });
   fs.writeFileSync(path.join(root, 'content', 'blog', 'hello.md'), '---\ntitle: "Hello"\ndate: 2026-09-01\ndescription: "News"\n---');
+  writeInputMetadata(root, now.toISOString());
   const libraryPath = path.join(root, 'library.json');
-  fs.writeFileSync(libraryPath, JSON.stringify({ items: [{ join_id: 'new', title: 'New manga' }] }));
+  fs.writeFileSync(libraryPath, JSON.stringify({ scraped_at: now.toISOString(), items: [{ join_id: 'new', title: 'New manga' }] }));
   const calls = [];
   const pool = { query: async (sql, values = []) => {
     calls.push({ sql, values });
@@ -38,7 +48,7 @@ test('builds and stores a draft without approving or sending it', async () => {
     siteUrl: 'https://example.com/',
     publicApiUrl: 'https://api.example.com',
     ebayClient: { latestItems: async () => Array.from({ length: 6 }, (_, i) => ({ title: `Item ${i}`, url: `https://ebay.example/${i}` })) },
-    now: new Date('2026-09-02T10:00:00Z'),
+    now,
   });
 
   assert.equal(draft.editionId, '2026-09');
@@ -47,6 +57,42 @@ test('builds and stores a draft without approving or sending it', async () => {
   assert.equal(calls.some((call) => /INSERT IGNORE INTO newsletter_manga_seen/i.test(call.sql) && call.values[0] === 'new'), true);
   assert.equal(calls.some((call) => /status = 'approved'/i.test(call.sql)), false);
   assert.equal(calls.some((call) => /api\.resend\.com/i.test(call.sql)), false);
+});
+
+test('rejects stale website content before accessing the database', async () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'dokkadoki-stale-content-'));
+  const now = new Date('2026-11-01T10:00:00Z');
+  writeInputMetadata(root, '2026-09-01T10:00:00Z');
+  const libraryPath = path.join(root, 'library.json');
+  fs.writeFileSync(libraryPath, JSON.stringify({ scraped_at: now.toISOString(), items: [] }));
+
+  await assert.rejects(() => buildDraft({
+    pool: { query: async () => { throw new Error('database must not be touched'); } },
+    root,
+    libraryPath,
+    siteUrl: 'https://example.com/',
+    publicApiUrl: 'https://api.example.com',
+    ebayClient: { latestItems: async () => { throw new Error('eBay must not be touched'); } },
+    now,
+  }), /Newsletter website content snapshot is stale/);
+});
+
+test('rejects a stale Libib catalogue before accessing the database', async () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'dokkadoki-stale-library-'));
+  const now = new Date('2026-11-01T10:00:00Z');
+  writeInputMetadata(root, now.toISOString());
+  const libraryPath = path.join(root, 'library.json');
+  fs.writeFileSync(libraryPath, JSON.stringify({ scraped_at: '2026-10-26T03:32:37Z', items: [] }));
+
+  await assert.rejects(() => buildDraft({
+    pool: { query: async () => { throw new Error('database must not be touched'); } },
+    root,
+    libraryPath,
+    siteUrl: 'https://example.com/',
+    publicApiUrl: 'https://api.example.com',
+    ebayClient: { latestItems: async () => { throw new Error('eBay must not be touched'); } },
+    now,
+  }), /Newsletter Libib catalogue snapshot is stale/);
 });
 
 test('newsletter eBay client uses the seller-authorized active inventory', async () => {
