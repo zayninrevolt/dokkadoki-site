@@ -42,6 +42,11 @@ function pageSlug(file, sectionRoot, data) {
   return relative.endsWith('/index') ? relative.slice(0, -6) : relative;
 }
 
+function contentDate(value) {
+  const text = String(value || '').trim();
+  return new Date(/^\d{4}-\d{2}-\d{2}$/.test(text) ? `${text}T00:00:00Z` : text);
+}
+
 function eventCoverUrl(file, slug, base) {
   for (const name of ['cover.png', 'cover.jpg', 'cover.jpeg', 'cover.webp']) {
     if (fs.existsSync(path.join(path.dirname(file), name))) {
@@ -62,7 +67,7 @@ function collectSiteContent({ root, siteUrl, now = new Date() }) {
       title: data.title || 'Untitled',
       summary: data.description || '',
       archived: data.draft === true || data.archived === true,
-      dateValue: new Date(`${data.date || '1970-01-01'}T00:00:00Z`),
+      dateValue: contentDate(data.date || '1970-01-01'),
       url: new URL(`blog/${pageSlug(file, blogRoot, data)}/`, base).href,
     };
   }).filter((post) => !post.archived && !Number.isNaN(post.dateValue.getTime()))
