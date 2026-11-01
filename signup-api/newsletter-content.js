@@ -57,7 +57,9 @@ function decodeEntities(value) {
 }
 
 function textContent(value) {
-  return decodeEntities(String(value || '').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
+  const source = String(value || '').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1');
+  const withoutMarkup = decodeEntities(source).replace(/<[^>]+>/g, ' ');
+  return decodeEntities(withoutMarkup).replace(/\s+/g, ' ').trim();
 }
 
 function tagValue(block, tag) {

@@ -50,7 +50,7 @@ test('selects only catalogue entries not present in the previous snapshot', () =
 
 test('collects current blogs and upcoming events from the published site', async () => {
   const rss = `<?xml version="1.0"?><rss><channel>
-    <item><title>Newest &amp; best</title><link>https://dokkadoki.co.uk/blog/newest/</link><pubDate>Fri, 23 Oct 2026 08:00:37 +0100</pubDate><description>Fresh news</description></item>
+    <item><title>Newest &amp; best</title><link>https://dokkadoki.co.uk/blog/newest/</link><pubDate>Fri, 23 Oct 2026 08:00:37 +0100</pubDate><description>&lt;p&gt;Fresh &amp;amp; safe&lt;/p&gt;</description></item>
     <item><title>Older post</title><link>https://dokkadoki.co.uk/blog/older/</link><pubDate>Thu, 22 Oct 2026 08:00:37 +0100</pubDate><description>Older news</description></item>
   </channel></rss>`;
   const events = `<div data-events-list><a class="card event-card" href=/events/soon/ data-event-start=2026-11-03T18:00:00Z data-event-end=2026-11-03T20:00:00Z data-event-status=https://schema.org/EventScheduled><img class=event-thumb src=/events/soon/cover.png><time class=event-when>📅 3 November 2026</time><h3>Live &amp; current</h3><p class=event-meta>📍 Bury</p></a><a class="card event-card" href=/events/late/ data-event-start=2027-01-03T18:00:00Z data-event-end=2027-01-03T20:00:00Z data-event-status=https://schema.org/EventScheduled><h3>Too late</h3></a></div>`;
@@ -67,6 +67,7 @@ test('collects current blogs and upcoming events from the published site', async
   });
 
   assert.deepEqual(content.blogPosts.map((post) => post.title), ['Newest & best', 'Older post']);
+  assert.equal(content.blogPosts[0].summary, 'Fresh & safe');
   assert.deepEqual(content.events, [{
     title: 'Live & current',
     venue: 'Bury',
