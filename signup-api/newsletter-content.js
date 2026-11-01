@@ -48,11 +48,15 @@ function contentDate(value) {
 }
 
 function decodeEntities(value) {
-  return String(value || '').replace(/&(#x[0-9a-f]+|#\d+|amp|lt|gt|quot|apos|nbsp);/gi, (match, entity) => {
+  return String(value || '').replace(/&(#x[0-9a-f]+|#\d+|[a-z][a-z0-9]+);/gi, (match, entity) => {
     const lower = entity.toLowerCase();
     if (lower.startsWith('#x')) return String.fromCodePoint(parseInt(lower.slice(2), 16));
     if (lower.startsWith('#')) return String.fromCodePoint(parseInt(lower.slice(1), 10));
-    return { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' }[lower] || match;
+    return {
+      amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
+      lsquo: '‘', rsquo: '’', ldquo: '“', rdquo: '”',
+      ndash: '–', mdash: '—', hellip: '…',
+    }[lower] || match;
   });
 }
 
@@ -73,6 +77,7 @@ function attributeValue(attributes, name) {
 }
 
 function publishedUrl(value, base) {
+  if (!String(value || '').trim()) return '';
   try {
     const url = new URL(value, base);
     return /^https?:$/.test(url.protocol) && url.origin === base.origin ? url.href : '';
