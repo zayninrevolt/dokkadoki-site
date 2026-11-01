@@ -24,7 +24,7 @@ test('collects latest blogs and only non-cancelled events in the next 30 days', 
   const content = collectSiteContent({
     root,
     siteUrl: 'https://zayninrevolt.github.io/dokkadoki-site/',
-    now: new Date('2026-08-29T00:00:00Z'),
+    now: new Date('2026-09-01T10:00:00Z'),
   });
 
   assert.equal(content.blogPosts.length, 2);
@@ -50,8 +50,10 @@ test('selects only catalogue entries not present in the previous snapshot', () =
 
 test('collects current blogs and upcoming events from the published site', async () => {
   const rss = `<?xml version="1.0"?><rss><channel>
+    <item><title>Current month post</title><link>https://dokkadoki.co.uk/blog/current/</link><pubDate>Sun, 01 Nov 2026 09:00:00 +0000</pubDate><description>Too new for this edition</description></item>
     <item><title>Newest &amp; best</title><link>https://dokkadoki.co.uk/blog/newest/</link><pubDate>Fri, 23 Oct 2026 08:00:37 +0100</pubDate><description>&lt;p&gt;Fresh &amp;amp; safe; it&amp;rsquo;s current&lt;/p&gt;</description></item>
     <item><title>Older post</title><link>https://dokkadoki.co.uk/blog/older/</link><pubDate>Thu, 22 Oct 2026 08:00:37 +0100</pubDate><description>Older news</description></item>
+    <item><title>Old repeat</title><link>https://dokkadoki.co.uk/blog/repeat/</link><pubDate>Sun, 30 Aug 2026 08:00:37 +0100</pubDate><description>Already included before</description></item>
   </channel></rss>`;
   const events = `<div data-events-list><a class="card event-card" href=/events/soon/ data-event-start=2026-11-03T18:00:00Z data-event-end=2026-11-03T20:00:00Z data-event-status=https://schema.org/EventScheduled><img class=event-thumb src=/events/soon/cover.png><time class=event-when>📅 3 November 2026</time><h3>Live &amp; current</h3><p class=event-meta>📍 Bury</p></a><a class="card event-card" href=/events/no-image/ data-event-start=2026-11-04T18:00:00Z data-event-status=https://schema.org/EventScheduled><time class=event-when>📅 4 November 2026</time><h3>No image</h3><p class=event-meta>📍 Online</p></a><a class="card event-card" href=/events/late/ data-event-start=2027-01-03T18:00:00Z data-event-end=2027-01-03T20:00:00Z data-event-status=https://schema.org/EventScheduled><h3>Too late</h3></a></div>`;
   const fetchImpl = async (url) => ({

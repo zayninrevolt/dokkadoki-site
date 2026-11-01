@@ -97,6 +97,25 @@ async function publishedText(url, label, fetchImpl) {
   return text;
 }
 
+function previousMonthRange(now = new Date()) {
+  const value = now instanceof Date ? now : new Date(now);
+  const start = new Date(value.getFullYear(), value.getMonth() - 1, 1, 0, 0, 0, 0);
+  const end = new Date(value.getFullYear(), value.getMonth(), 1, 0, 0, 0, 0);
+  return { start, end };
+}
+
+function selectBlogPostsForEdition(blogPosts, now = new Date(), limit = 4) {
+  const { start, end } = previousMonthRange(now);
+  const posted = (Array.isArray(blogPosts) ? blogPosts : []).filter((post) => {
+    const published = post && post.dateValue instanceof Date ? post.dateValue : null;
+    return published && !Number.isNaN(published.getTime()) && published >= start && published < end;
+  });
+  return posted
+    .sort((a, b) => b.dateValue - a.dateValue)
+    .slice(0, limit)
+    .map(({ dateValue, ...post }) => post);
+}
+
 async function collectPublishedSiteContent({ siteUrl, now = new Date(), fetchImpl = globalThis.fetch }) {
   const base = new URL(siteUrl);
   const [rss, eventHtml] = await Promise.all([
@@ -104,15 +123,14 @@ async function collectPublishedSiteContent({ siteUrl, now = new Date(), fetchImp
     publishedText(new URL('events/', base), 'Published events page', fetchImpl),
   ]);
 
-  const blogPosts = [...rss.matchAll(/<item\b[^>]*>([\s\S]*?)<\/item>/gi)].map((match) => ({
+  const parsedPosts = [...rss.matchAll(/<item\b[^>]*>([\s\S]*?)<\/item>/gi)].map((match) => ({
     title: tagValue(match[1], 'title') || 'Untitled',
     summary: tagValue(match[1], 'description'),
     dateValue: new Date(tagValue(match[1], 'pubDate')),
     url: publishedUrl(tagValue(match[1], 'link'), base),
-  })).filter((post) => post.url && !Number.isNaN(post.dateValue.getTime()))
-    .sort((a, b) => b.dateValue - a.dateValue)
-    .slice(0, 4)
-    .map(({ dateValue, ...post }) => post);
+  })).filter((post) => post.url && !Number.isNaN(post.dateValue.getTime()));
+
+  const blogPosts = selectBlogPostsForEdition(parsedPosts, now);
 
   const cutoff = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
   const events = [];

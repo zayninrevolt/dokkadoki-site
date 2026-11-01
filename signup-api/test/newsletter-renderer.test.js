@@ -63,3 +63,18 @@ test('creates tamper-evident unsubscribe tokens without exposing the email', () 
   assert.equal(verifyUnsubscribeToken(token, 'a'.repeat(32)), 'reader@example.com');
   assert.equal(verifyUnsubscribeToken(token + 'x', 'a'.repeat(32)), null);
 });
+
+test('omits the blog section entirely when no posts were published last month', () => {
+  const html = generateNewsletterHtml({
+    siteUrl: 'https://dokkadoki.co.uk/',
+    blogPosts: [],
+    ebayItems: [{ title: 'Listing', url: 'https://www.ebay.co.uk/itm/1', image: 'https://i.ebayimg.com/1.jpg', price: '9.99', currency: 'GBP' }],
+    events: [],
+    manga: [],
+    unsubscribeUrl: 'https://api.dokkadoki.co.uk/api/newsletter/unsubscribe?token=safe',
+  });
+
+  assert.doesNotMatch(html, /Latest from the Blog/);
+  assert.doesNotMatch(html, /No new blog posts this month/);
+  assert.match(html, /Latest on eBay/);
+});
