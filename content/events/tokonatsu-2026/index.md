@@ -29,4 +29,4 @@ This is an outdoor campsite. Permanent toilets/showers and an additional unisex 
 
 ## Cover image
 
-Text-only event information card created for Dokkadoki. The layout was AI-assisted, then typeset and rendered in code without generative imagery, photographs, illustrations or organiser logos. It does not depict the actual event and is not official organiser artwork.
+Branded event information card created for Dokkadoki using its existing logo. The layout was AI-assisted, then typeset and rendered in code without generative imagery, event photographs or organiser logos. It does not depict the actual event and is not official organiser artwork.
