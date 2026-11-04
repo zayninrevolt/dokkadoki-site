@@ -27,4 +27,4 @@ Tickets are available through [the HYPER JAPAN website](https://hyperjapan.co.uk
 
 ## Cover image
 
-The original creator, source URL and licence for this inherited cover remain unresolved, so no further attribution can be stated safely.
+Original AI-generated thematic illustration created with OpenAI image generation. It does not depict the actual event, venue, organisers, performers or attendees.

@@ -29,4 +29,4 @@ This is an outdoor campsite. Permanent toilets/showers and an additional unisex 
 
 ## Cover image
 
-The original creator, source URL and licence for this inherited cover remain unresolved, so no further attribution can be stated safely.
+Text-only event information card created for Dokkadoki. The layout was AI-assisted, then typeset and rendered in code without generative imagery, photographs, illustrations or organiser logos. It does not depict the actual event and is not official organiser artwork.
