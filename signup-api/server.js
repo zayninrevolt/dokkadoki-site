@@ -317,10 +317,11 @@ function clientIp(req) {
 }
 
 function requestOriginAllowed(req, res, path = '') {
-  // Email clients may render the confirmation page in a sandboxed webview,
-  // which submits with an opaque or mail-provider Origin. This exact route is
-  // still protected by its encrypted recipient token before any state change.
-  if (req.method === 'POST' && path === '/api/newsletter/unsubscribe') return true;
+  // Token-bearing confirmation pages use no-referrer, which can produce an
+  // opaque Origin on form POSTs (including in embedded email/Discord browsers).
+  // These exact routes validate their recipient/one-time approval token before
+  // any state change. Keep the exception scoped to POST and these paths only.
+  if (req.method === 'POST' && (path === '/api/newsletter/unsubscribe' || path === '/api/manga-results/review')) return true;
   const origin = req.headers.origin;
   if (!origin) return true; // same-origin/non-browser requests do not need CORS
   let allowed = ALLOWED_ORIGINS.has(origin);
