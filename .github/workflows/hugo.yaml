@@ -53,12 +53,40 @@ jobs:
         uses: actions/configure-pages@v6
 
       - name: Install Hugo
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          curl -sfL --output-dir "${{ runner.temp }}" \
-            -O "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+          set -euo pipefail
+          archive="${{ runner.temp }}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+          asset_name="hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+          direct_url="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${asset_name}"
+
+          if ! curl --fail --location --silent --show-error \
+            --retry 3 --retry-all-errors --retry-delay 5 --retry-max-time 90 \
+            --output "${archive}" "${direct_url}"; then
+            echo "Direct Hugo download failed; using the GitHub Releases API fallback."
+            asset_api_url="$(
+              curl --fail --location --silent --show-error \
+                --retry 3 --retry-all-errors --retry-delay 5 --retry-max-time 90 \
+                -H "Accept: application/vnd.github+json" \
+                -H "Authorization: Bearer ${GH_TOKEN}" \
+                -H "X-GitHub-Api-Version: 2022-11-28" \
+                "https://api.github.com/repos/gohugoio/hugo/releases/tags/v${HUGO_VERSION}" |
+              python3 -c 'import json, sys; name = sys.argv[1]; data = json.load(sys.stdin); print(next((asset["url"] for asset in data["assets"] if asset["name"] == name), ""))' \
+                "${asset_name}"
+            )"
+            test -n "${asset_api_url}"
+            curl --fail --location --silent --show-error \
+              --retry 3 --retry-all-errors --retry-delay 5 --retry-max-time 90 \
+              -H "Accept: application/octet-stream" \
+              -H "Authorization: Bearer ${GH_TOKEN}" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              --output "${archive}" "${asset_api_url}"
+          fi
+
+          test -s "${archive}"
           mkdir -p "${HOME}/.local/hugo"
-          tar -C "${HOME}/.local/hugo" \
-            -xf "${{ runner.temp }}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+          tar -C "${HOME}/.local/hugo" -xzf "${archive}"
           echo "${HOME}/.local/hugo" >> "${GITHUB_PATH}"
 
       - name: Build
