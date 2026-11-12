@@ -4,7 +4,7 @@ date: 2026-09-20
 event_start: "2026-10-11"
 event_end: "2027-02-24"
 location: "Japan House London, 101–111 Kensington High Street, London W8 5SA"
-cost: "£5 per person; Tokyo Drifter on 22 October is fully booked"
+cost: "£5 per person; check each screening for availability"
 website: "https://www.japanhouselondon.uk/series/the-maverick-visionary-the-cinematic-world-of-suzuki-seijun/"
 description: "Japan House London presents five Suzuki Seijun films, from Tokyo Drifter to the Taishō Trilogy, with Japanese dialogue and English subtitles."
 ---
@@ -23,11 +23,11 @@ Japan House also warns that filming or photography may take place during events.
 
 ## Tickets and practical information
 
-Tickets are £5 per person. The first film, *Tokyo Drifter*, screens on 11 October from 15:00 to 16:30 and on 22 October from 18:00 to 19:30. **The 22 October screening is fully booked.** It is rated 12, and its tickets are non-refundable. Check each later film’s individual page for its start time, age guidance, ticket availability and terms as those screenings open for booking.
+Tickets are £5 per person. *Fighting Elegy* screens on **Sunday 22 November at 15:00** and **Wednesday 25 November at 18:00**. The film runs for approximately 86 minutes, is rated 15 for strong violence and has non-refundable tickets. Check each later film’s individual page for its start time, age guidance, ticket availability and terms as those screenings open for booking.
 
 Japan House is near High Street Kensington Station and publishes step-free access, lift access, an accessible toilet, assistance dogs and portable induction loops. Screening-specific quiet-space and captioning details are not published.
 
-See the [official film season page](https://www.japanhouselondon.uk/series/the-maverick-visionary-the-cinematic-world-of-suzuki-seijun/), [Tokyo Drifter screening page](https://www.japanhouselondon.uk/whats-on/film-screening-tokyo-drifter/), [Japan House visitor information](https://www.japanhouselondon.uk/visit) and [accessibility information](https://www.japanhouselondon.uk/visit/accessibility-at-japan-house-london/) for updates.
+See the [official film season page](https://www.japanhouselondon.uk/series/the-maverick-visionary-the-cinematic-world-of-suzuki-seijun/), [Fighting Elegy screening page](https://www.japanhouselondon.uk/whats-on/film-screening-fighting-elegy/), [Japan House visitor information](https://www.japanhouselondon.uk/visit) and [accessibility information](https://www.japanhouselondon.uk/visit/accessibility-at-japan-house-london/) for updates.
 
 ## Cover image
 

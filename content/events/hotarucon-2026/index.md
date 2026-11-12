@@ -9,7 +9,7 @@ website: "https://hotarucon.co.uk"
 description: "An 18+ anime and Japanese-fandom hotel convention in Milton Keynes, with cosplay chess, masquerade, dealers hall, charity café and nightly parties."
 ---
 
-HotaruCon expands to its first full three-day edition on 13–15 November at the Leonardo Hotel in Milton Keynes, themed "Sport". The 18+ convention packs in cosplay chess, a masquerade, dealers hall and artists alley, a charity cosplay café plus maids-and-butlers café, the FireFly Lounge variety show, a games room, karaoke, nightly parties and a Sunday cosplay ball finale.
+HotaruCon expands to its first full three-day edition on 13–15 November at the Leonardo Hotel in Milton Keynes, themed "Sport". The 18+ convention packs in cosplay chess, a masquerade, dealers hall and artists alley, a charity cosplay café plus maids-and-butlers café, the FireFly Lounge variety show, a games room, karaoke, nightly parties and a Sunday cosplay ball finale. The convention's 2026 charity is **SpecialEffect**.
 
 **HotaruCon 5 is sold out.** The organiser is accepting names for a first-come-first-served waitlist if spaces become available.
 
@@ -32,6 +32,10 @@ Every registered attendee, including carers, must be 18 by the event start; bein
 ## Access
 
 Free carer tickets are available for paid attendees with evidence (PIP/DLA, Blue Badge, CredAbility Access Card, assistance-dog ID and similar). The con offers priority room access, seating choice, a quiet space, no strobes, ramp access to the stage and free bathroom supplies.
+
+## Travel
+
+Milton Keynes Central station is around a five-minute walk from the hotel. The organiser lists RingGo parking off Grafton Gate at **£5 for 24 hours**, and bus stop R4 is directly outside the hotel.
 
 ## Cover image
 

@@ -4,7 +4,7 @@ date: 2026-10-18
 event_start: "2026-11-26T18:30:00"
 event_end: "2026-11-28T18:00:00"
 location: "Watershed, Bristol and ICA Cinema, London"
-cost: "Bristol price TBA; London £16"
+cost: "Registration open; Bristol price TBA; London £16"
 website: "https://lo.jpf.go.jp/whats-on/special-35mm-screening-saito-daichis-experimental-short-films/"
 description: "SAÏTO Daïchi presents three experimental short films from his personal 35mm prints in Bristol and London, followed by an in-person Q&A."
 organizer_name: "Sonic Cinema and The Japan Foundation London"
@@ -23,7 +23,7 @@ The programme runs for approximately 58 minutes before the Q&A. The films explor
 
 ## Dates and tickets
 
-- **Thursday 26 November, 18:30:** Watershed, 1 Canons Road, Harbourside, Bristol BS1 5TX. Booking and the event-specific price are still to be announced.
+- **Thursday 26 November, 18:30:** Watershed, 1 Canons Road, Harbourside, Bristol BS1 5TX. **Registration is open**; the event-specific price remains unpublished.
 - **Saturday 28 November, 18:00:** ICA Cinema 1, The Mall, London SW1Y 5AH. Tickets are currently listed at **£16**.
 
 ICA states that cinema events are **18+ unless otherwise stated**. Its Cinema 1 has step-free ramp access and one wheelchair space with a companion seat. Specific seating can be arranged in advance, and the ICA offers free entry subject to availability where ticket price is a barrier.

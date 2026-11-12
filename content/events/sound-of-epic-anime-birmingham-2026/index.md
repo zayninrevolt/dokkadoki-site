@@ -13,9 +13,17 @@ The Birmingham date of *The Sound of Epic Anime* brings the same orchestral anim
 
 No named guests, cosplay, gaming, panels or workshops are published. B:Eats café and the venue bars are available as part of Symphony Hall’s visitor facilities.
 
+## Programme and venue
+
+The full symphony orchestra programme moves between battle themes and more melodic scores from the announced anime and filmmakers. A running order, named conductor, named orchestra and total running time have not been published.
+
+B:Eats opens two hours before Sunday performances, and bars are available on each auditorium level. The venue advises that some performances can include loud noises and special effects, so contact B:Music if those details affect your visit.
+
 ## Tickets and access
 
-B:Music lists tickets from £20.50 to £38.50 and says its £1 to £5 ticket commission is included in the advertised prices. The official event page provides a live “Book now” route, but current sale status is not separately labelled. Age guidance, refund terms and last-entry information are not published.
+B:Music lists tickets from £20.50 to £38.50 and says its £1 to £5 ticket commission is included in the advertised prices. The official event page provides a live “Book now” route, but current sale status is not separately labelled. **Under-16s must be accompanied by an adult.** Refund terms and last-entry information are not published.
+
+## Travel
 
 B:Music’s Access Scheme includes wheelchair positions and companion tickets. The venue publishes level access, lifts, accessible toilets and assistance-dog arrangements, with six Blue Badge spaces available through advance Access Scheme booking. Library is the nearest tram stop, and Birmingham New Street and Snow Hill stations are within walking distance. Nearby Q-Park facilities are listed.
 

@@ -1,7 +1,7 @@
 ---
 title: "Tradition/Rebellion: Coming-of-Age Style in Kitakyushu, Japan"
 date: 2026-09-20
-event_start: "2026-11-11"
+event_start: "2026-11-12"
 event_end: "2027-04-18"
 location: "The Gallery, Japan House London, 101–111 Kensington High Street, London W8 5SA"
 cost: "Free admission"
@@ -11,7 +11,7 @@ description: "Japan House London follows eight young adults in Kitakyushu as fla
 
 *Tradition/Rebellion: Coming-of-Age Style in Kitakyushu, Japan* follows eight young adults as they prepare for Japan’s Coming-of-Age ceremonies. The exhibition shows the flamboyant kimono, hair and fashion created for the occasion, alongside the local designers, hairdressers and photographers who bring the looks together.
 
-The exhibition runs at The Gallery, Japan House London, from 11 November 2026 to 18 April 2027. Tactile displays and video interviews place the ceremonial styles within Kitakyushu’s wider creative industries, where tradition becomes a space for individual expression and experimentation.
+The exhibition runs at The Gallery, Japan House London, from **12 November 2026 to 18 April 2027**. Tactile displays and video interviews place the ceremonial styles within Kitakyushu’s wider creative industries, where tradition becomes a space for individual expression and experimentation.
 
 ## How the exhibition was made
 
