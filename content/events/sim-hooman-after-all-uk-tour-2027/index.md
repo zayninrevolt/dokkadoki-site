@@ -15,7 +15,7 @@ Japanese reggae-punk outfit SiM headline seven UK dates in January 2027, touring
 
 - **20 January** - SWG3 TV Studio, Glasgow
 - **22 January** - The Wardrobe, Leeds, 19:00
-- **23 January** - Manchester Academy 3, 19:30
+- **23 January** - [Manchester Club Academy](https://www.livenation.co.uk/event/sim-manchester-tickets-edp1674586), doors 19:00
 - **25 January** - O2 Institute 3, Birmingham, 19:00
 - **26 January** - Clwb Ifor Bach, Cardiff, 19:30
 - **28 January** - The Fleece, Bristol, 19:00
@@ -31,4 +31,6 @@ A separate VIP meet-and-greet is £89 via Soundrink and does **not** include con
 
 *HOOMAN AFTER ALL* is the band's seventh full-length, released 2 September 2026 on UNFD. The world tour opened in Japan in September 2026, crossed North America in autumn, and reaches the UK and Europe in early 2027 before finishing in Barcelona on 16 February. Recent singles include *BLiNDEYES* with Yukina of HANABIE. and the *Black Torch* opening theme *FREEZE ME UP*.
 
-*Cover image: original AI-generated thematic illustration. It does not depict the band, the tour or any specific concert.*
+## Cover image
+
+Original AI-generated thematic illustration. It does not depict the band, the tour or any specific concert.
