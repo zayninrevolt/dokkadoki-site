@@ -4,7 +4,7 @@ date: 2026-10-11
 event_start: "2026-11-21T11:00:00+00:00"
 event_end: "2026-11-21T16:15:00+00:00"
 location: "The Japan Society, 13/14 Cornwall Terrace, Outer Circle, London NW1 4QP"
-cost: "£20 member early-bird rate; £25 regular rate"
+cost: "£25 regular rate; £20 member early-bird rate ended 11 October 2026"
 website: "https://www.japansociety.org.uk/event?event=1148&eventcat=1"
 description: "Yoko Takenami leads three autumn-themed calligraphy sessions covering brush, ink, rhythm and composition, with materials included."
 organizer_name: "The Japan Society"
@@ -23,7 +23,7 @@ All tools, equipment and materials are supplied, and no previous calligraphy exp
 
 ## Booking and age guidance
 
-The Japan Society member and accompanying-guest early-bird rate is **£20** through Sunday 11 October. The regular rate is **£25**, with non-member booking opening on Monday 12 October. Spaces are limited.
+The current rate is **£25**. The **£20** member and accompanying-guest early-bird rate ended on Sunday 11 October, and booking opened to non-members on Monday 12 October. Booking is essential and spaces are limited.
 
 The workshop is suitable for ages **14 and over**. Participants aged 14 to 15 must attend with a parent or legal guardian. Those aged 16 to 17 may attend independently if emergency contact details are supplied.
 

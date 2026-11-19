@@ -4,7 +4,7 @@ date: 2026-10-18
 event_start: "2026-11-28T12:00:00"
 event_end: "2026-11-28T15:00:00"
 location: "The Hall, Japan House London, 101-111 Kensington High Street, London W8 5SA"
-cost: "Free; advance registration required"
+cost: "Free; fully booked"
 website: "https://lo.jpf.go.jp/whats-on/japanese-language-session-inspired-by-inspired-by-tradition-rebellion-coming-of-age-style-in-kitakyushu-japan/"
 description: "A beginner Japanese lesson linked to Japan House London's Tradition/Rebellion exhibition, followed by an optional guided exhibition tour."
 organizer_name: "The Japan Foundation London"
@@ -24,7 +24,7 @@ Each session introduces basic Japanese expressions and is designed for complete 
 
 ## Registration and venue
 
-Entry is free, but advance registration is required. Each session is limited to **30 participants**. Registration closes on Thursday **19 November**, or earlier if capacity is reached.
+Entry was free, but **both the 12:00 and 14:00 sessions are now fully booked**. Each session was limited to **30 participants**, with a published registration deadline of Thursday **19 November**.
 
 Japan House London is less than 100 metres from High Street Kensington station, served by the District and Circle lines. Its free cloakroom cannot accept luggage larger than a cabin bag, and assistance dogs are welcome throughout the building.
 
