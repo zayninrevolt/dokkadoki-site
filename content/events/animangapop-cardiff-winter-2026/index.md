@@ -23,7 +23,7 @@ The **£12 Early Bird** and **£50 VIP** allocations are sold out. Saturday entr
 
 ## Access
 
-One free carer pass is available per attendee who needs one, with pre-registration and evidence (DLA/PIP/Blue Badge and similar); assistance animals are welcome. Cosplay prop rules are published on the organiser's site: realistic firearms and metal blades are banned, while foam props and red-tipped lightsabers are allowed.
+Free carer tickets are available for visitors attending with a full-paying ticket; contact the organiser before booking. The published accessibility block is labelled “Demo accessibility information”, so confirm step-free access, lifts, accessible toilets and quiet-room arrangements directly with the organiser or venue. Cosplay is welcome, but check the current prop policy before travelling because the event page does not state the exact prop rules.
 
 ## Venue and travel
 

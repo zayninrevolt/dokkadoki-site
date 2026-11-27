@@ -4,7 +4,7 @@ date: 2026-11-22
 event_start: "2026-12-05T14:00:00"
 event_end: "2026-12-05T16:30:00"
 location: "92 Degrees Coffee, No.1 Spinningfields, Hardman Square, Manchester M3 3EB"
-cost: "Current Eventbrite offers £34.29 to £65.71; ticket-tier inclusions are not published"
+cost: "From £34.29; aggregate range reaches £65.71; ticket names, inclusions and fees not published"
 website: "https://www.eventbrite.co.uk/e/japanese-painting-with-christmas-hot-chocolate-tickets-1996450023764"
 description: "A Japanese painting workshop paired with a complimentary Christmas hot chocolate at 92 Degrees Coffee in Manchester."
 organizer_name: "Floating Art"
@@ -20,7 +20,7 @@ One complimentary hot chocolate is included. Other food, drinks and café purcha
 
 ## Tickets and entry
 
-Eventbrite currently shows offers ranging from **£34.29 to £65.71** and marks the event as available. The differences between the ticket tiers and their inclusions are **not published**, so confirm the selected ticket before payment. The organiser lists a no-refunds policy.
+Tickets currently start at **£34.29**. Eventbrite lists an aggregate offer range reaching **£65.71**, but does not publish the ticket names, inclusions or mandatory fees. Confirm the selected ticket before payment. The organiser lists a no-refunds policy.
 
 The workshop runs from **14:00 to 16:30**. A separate door or arrival time, minimum age, under-16 policy and last-entry rule are not published.
 

@@ -23,11 +23,11 @@ Japan House also warns that filming or photography may take place during events.
 
 ## Tickets and practical information
 
-Tickets are £5 per person. *Fighting Elegy* screens on **Sunday 22 November at 15:00** and **Wednesday 25 November at 18:00**. The film runs for approximately 86 minutes, is rated 15 for strong violence and has non-refundable tickets. Check each later film’s individual page for its start time, age guidance, ticket availability and terms as those screenings open for booking.
+Tickets are £5 per person. The next film, *Branded to Kill*, screens on **Sunday 13 December from 15:00 to 16:45** and **Wednesday 16 December from 18:00 to 19:45**. It runs for approximately **91 minutes**, is rated **18** for violence and sexual content, and has non-refundable tickets. Check each later film’s individual page for its start time, age guidance, ticket availability and terms as those screenings open for booking.
 
 Japan House is near High Street Kensington Station and publishes step-free access, lift access, an accessible toilet, assistance dogs and portable induction loops. Screening-specific quiet-space and captioning details are not published.
 
-See the [official film season page](https://www.japanhouselondon.uk/series/the-maverick-visionary-the-cinematic-world-of-suzuki-seijun/), [Fighting Elegy screening page](https://www.japanhouselondon.uk/whats-on/film-screening-fighting-elegy/), [Japan House visitor information](https://www.japanhouselondon.uk/visit) and [accessibility information](https://www.japanhouselondon.uk/visit/accessibility-at-japan-house-london/) for updates.
+See the [official film season page](https://www.japanhouselondon.uk/series/the-maverick-visionary-the-cinematic-world-of-suzuki-seijun/), [Branded to Kill screening page](https://www.japanhouselondon.uk/whats-on/film-screening-branded-to-kill/), [Fighting Elegy screening page](https://www.japanhouselondon.uk/whats-on/film-screening-fighting-elegy/), [Japan House visitor information](https://www.japanhouselondon.uk/visit) and [accessibility information](https://www.japanhouselondon.uk/visit/accessibility-at-japan-house-london/) for updates.
 
 ## Cover image
 
